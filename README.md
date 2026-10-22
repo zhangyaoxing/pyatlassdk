@@ -16,14 +16,22 @@ pip install pyatlassdk
 from pyatlassdk import AtlasClient
 from pyatlassdk.models.cluster_description20240805 import ClusterDescription20240805
 
+# Digest authentication with Atlas API keys
 with AtlasClient(public_key="...", private_key="...") as client:
+    cluster = client.clusters.create_group_cluster(
+        group_id="...",
+        body=ClusterDescription20240805(name="demo", cluster_type="REPLICASET"),
+    )
+
+# OAuth 2.0 client credentials with Atlas service account credentials
+with AtlasClient(client_id="...", client_secret="...") as client:
     cluster = client.clusters.create_group_cluster(
         group_id="...",
         body=ClusterDescription20240805(name="demo", cluster_type="REPLICASET"),
     )
 ```
 
-- Authentication: Atlas API public/private key pair over HTTP Digest.
+- Authentication: Atlas API keys over HTTP Digest, or Atlas service account credentials over OAuth 2.0 (`client_credentials`). Tokens are cached and refreshed automatically; the constructor rejects mixed or partial credentials.
 - Models: pydantic v2 with snake_case fields; serialization uses the original Atlas field names (aliases).
 - Resources: 55 resource classes with one method per endpoint, named after `operationId`.
 
