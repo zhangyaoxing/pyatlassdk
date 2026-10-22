@@ -1,0 +1,15 @@
+"""Generated model for AlertViewForNdsGroup. Do not edit manually."""
+
+from __future__ import annotations
+
+from typing import TypeAlias
+from pyatlassdk.models.app_service_alert_view import AppServiceAlertView
+from pyatlassdk.models.cluster_alert_view_for_nds_group import ClusterAlertViewForNdsGroup
+from pyatlassdk.models.default_alert_view_for_nds_group import DefaultAlertViewForNdsGroup
+from pyatlassdk.models.flex_metric_alert import FlexMetricAlert
+from pyatlassdk.models.host_alert_view_for_nds_group import HostAlertViewForNdsGroup
+from pyatlassdk.models.host_metric_alert import HostMetricAlert
+from pyatlassdk.models.replica_set_alert_view_for_nds_group import ReplicaSetAlertViewForNdsGroup
+from pyatlassdk.models.stream_processor_alert_view_for_nds_group import StreamProcessorAlertViewForNdsGroup
+
+AlertViewForNdsGroup: TypeAlias = AppServiceAlertView | ClusterAlertViewForNdsGroup | HostAlertViewForNdsGroup | FlexMetricAlert | HostMetricAlert | ReplicaSetAlertViewForNdsGroup | StreamProcessorAlertViewForNdsGroup | DefaultAlertViewForNdsGroup

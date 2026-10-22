@@ -1,0 +1,10 @@
+"""Generated model for ServerlessTenantCreateRequest. Do not edit manually."""
+
+from __future__ import annotations
+
+from pydantic import BaseModel, ConfigDict, Field
+
+class ServerlessTenantCreateRequest(BaseModel):
+    """Generated model for ServerlessTenantCreateRequest."""
+    model_config = ConfigDict(populate_by_name=True, extra="allow")
+    comment: str | None = Field(default=None, description="Human-readable comment associated with the private endpoint.")

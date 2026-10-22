@@ -1,0 +1,14 @@
+"""Generated model for EncryptionKeyEventTypeViewAlertable. Do not edit manually."""
+
+from __future__ import annotations
+
+from enum import Enum
+
+class EncryptionKeyEventTypeViewAlertable(str, Enum):
+    """Event type that triggers an alert."""
+    AWS_ENCRYPTION_KEY_NEEDS_ROTATION = "AWS_ENCRYPTION_KEY_NEEDS_ROTATION"
+    AZURE_ENCRYPTION_KEY_NEEDS_ROTATION = "AZURE_ENCRYPTION_KEY_NEEDS_ROTATION"
+    GCP_ENCRYPTION_KEY_NEEDS_ROTATION = "GCP_ENCRYPTION_KEY_NEEDS_ROTATION"
+    AWS_ENCRYPTION_KEY_INVALID = "AWS_ENCRYPTION_KEY_INVALID"
+    AZURE_ENCRYPTION_KEY_INVALID = "AZURE_ENCRYPTION_KEY_INVALID"
+    GCP_ENCRYPTION_KEY_INVALID = "GCP_ENCRYPTION_KEY_INVALID"
