@@ -34,7 +34,7 @@ with AtlasClient(public_key="...", private_key="...") as client:
 ```bash
 uv run mongo-atlas crawl       # 抓取 OpenAPI 文档
 uv run mongo-atlas normalize   # 归一化
-uv run mongo-atlas generate    # 写入 pyatlassdk/src/pyatlassdk
+uv run mongo-atlas pygen      # 用模板写入 pyatlassdk/src/pyatlassdk
 ```
 
 然后用本仓库提交并发布：

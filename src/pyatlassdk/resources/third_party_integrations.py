@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 class ThirdPartyIntegrations:
     """
     Returns, adds, edits, and removes third-party service integration configurations. MongoDB Cloud sends alerts to each third-party service that you configure.
-    
+
     **IMPORTANT**: Each project can only have one configuration per `integrationType`.
     """
 
