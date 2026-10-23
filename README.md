@@ -52,6 +52,32 @@ uv build
 uv publish
 ```
 
+## Releasing
+
+1. Bump `version` in `pyproject.toml`.
+2. Commit, tag, and push:
+
+```bash
+git tag v0.1.0
+git push origin main --tags
+```
+
+3. Create a GitHub Release from the tag. Publishing it triggers
+   `.github/workflows/release.yml`, which builds the sdist and wheel,
+   validates the metadata, and publishes to PyPI.
+
+The workflow uses PyPI trusted publishing (OIDC), so no API token is stored.
+Configure a trusted publisher at
+<https://pypi.org/manage/account/publishing/> with:
+
+- owner: `zhangyaoxing`
+- repository: `pyatlassdk`
+- workflow: `release.yml`
+- environment: `pypi`
+
+The release tag must be `v` plus the version in `pyproject.toml`; the workflow
+fails if they differ.
+
 ## Development
 
 ```bash
