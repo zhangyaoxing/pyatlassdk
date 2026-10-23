@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import json
+from datetime import datetime, timezone
+
+import httpx
 import pytest
 
 from pyatlassdk import AtlasClient
@@ -41,6 +45,29 @@ def test_uppercase_enums_accept_any_casing() -> None:
     connector = BiConnector(read_preference="secondary")
 
     assert connector.read_preference == "SECONDARY"
-    assert connector.model_dump(by_alias=True, exclude_none=True) == {
-        "readPreference": "SECONDARY"
-    }
+    assert connector.model_dump(by_alias=True, exclude_none=True) == {"readPreference": "SECONDARY"}
+
+
+def test_datetime_values_are_json_encoded() -> None:
+    requests: list[httpx.Request] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        requests.append(request)
+        return httpx.Response(200, json={})
+
+    client = AtlasClient(public_key="public", private_key="private")
+    client._http.close()
+    client._http = httpx.Client(
+        base_url="https://example.test/api/atlas/v2",
+        transport=httpx.MockTransport(handler),
+    )
+    client.clusters.create_group_cluster(
+        group_id="g1",
+        body=ClusterDescription20240805(
+            name="demo",
+            create_date=datetime(2026, 1, 1, tzinfo=timezone.utc),
+        ),
+    )
+
+    payload = json.loads(requests[0].content)
+    assert payload["createDate"].startswith("2026-01-01T00:00:00")

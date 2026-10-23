@@ -35,6 +35,7 @@ with AtlasClient(client_id="...", client_secret="...") as client:
 - `base_url` defaults to `https://cloud.mongodb.com/api/atlas/v2`; generated method paths are relative to it.
 - Atlas requires a versioned `Accept` header. Each method sends the newest version declared for its successful responses (for example `application/vnd.atlas.2024-10-23+json`), plus a matching `Content-Type` when it sends a body. `DEFAULT_ACCEPT` and `DEFAULT_CONTENT_TYPE` are fallbacks for endpoints without a versioned media type.
 - Models: pydantic v2 with snake_case fields; serialization uses the original Atlas field names (aliases).
+- `datetime` / `date` values are serialized to ISO 8601 strings, so they can be passed directly in request bodies.
 - Enum values are case-insensitive for uppercase code enums (`"secondary"` becomes `"SECONDARY"`).
 - Resources: 55 resource classes with one method per endpoint, named after `operationId`.
 
