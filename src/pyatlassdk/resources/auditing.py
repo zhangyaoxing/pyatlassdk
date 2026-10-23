@@ -43,6 +43,7 @@ class Auditing:
             path=path,
             params=params,
             response_model=AuditLog,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_audit_log(
@@ -75,4 +76,6 @@ class Auditing:
             params=params,
             json=body,
             response_model=AuditLog,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )

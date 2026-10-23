@@ -73,6 +73,7 @@ class QueryShapeInsights:
             path=path,
             params=params,
             response_model=QueryStatsSummaryListResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_cluster_query_shape_insight_details(
@@ -115,6 +116,7 @@ class QueryShapeInsights:
             path=path,
             params=params,
             response_model=QueryStatsDetailsResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def list_group_cluster_query_shapes(
@@ -158,6 +160,7 @@ class QueryShapeInsights:
             path=path,
             params=params,
             response_model=PaginatedQueryShapes,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_cluster_query_shape(
@@ -191,6 +194,7 @@ class QueryShapeInsights:
             path=path,
             params=params,
             response_model=QueryShapeResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_group_cluster_query_shape(
@@ -227,4 +231,6 @@ class QueryShapeInsights:
             params=params,
             json=body,
             response_model=QueryShapeResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )

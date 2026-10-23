@@ -66,6 +66,7 @@ class Organizations:
             path=path,
             params=params,
             response_model=PaginatedOrganizationView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_org(
@@ -96,6 +97,8 @@ class Organizations:
             params=params,
             json=body,
             response_model=CreateOrganizationResponse,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_org(
@@ -125,6 +128,7 @@ class Organizations:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org(
@@ -154,6 +158,7 @@ class Organizations:
             path=path,
             params=params,
             response_model=AtlasOrganization,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_org(
@@ -186,6 +191,8 @@ class Organizations:
             params=params,
             json=body,
             response_model=AtlasOrganization,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org_delegation_settings(
@@ -215,6 +222,7 @@ class Organizations:
             path=path,
             params=params,
             response_model=OrgDelegationSettingsResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_org_delegation_settings(
@@ -247,6 +255,8 @@ class Organizations:
             params=params,
             json=body,
             response_model=OrgDelegationSettingsResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_org_groups(
@@ -293,6 +303,7 @@ class Organizations:
             path=path,
             params=params,
             response_model=PaginatedAtlasGroupView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_org_invites(
@@ -327,6 +338,7 @@ class Organizations:
             path=path,
             params=params,
             response_model=list[OrganizationInvitation],
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_org_invites(
@@ -361,6 +373,8 @@ class Organizations:
             params=params,
             json=body,
             response_model=OrganizationInvitation,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_org_invite(
@@ -395,6 +409,8 @@ class Organizations:
             params=params,
             json=body,
             response_model=OrganizationInvitation,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_org_invite(
@@ -428,6 +444,7 @@ class Organizations:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org_invite(
@@ -458,6 +475,7 @@ class Organizations:
             path=path,
             params=params,
             response_model=OrganizationInvitation,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_org_invite_by_id(
@@ -494,6 +512,8 @@ class Organizations:
             params=params,
             json=body,
             response_model=OrganizationInvitation,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org_maintenance_settings(
@@ -523,6 +543,7 @@ class Organizations:
             path=path,
             params=params,
             response_model=OrganizationMaintenanceSettingsResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_org_maintenance_settings(
@@ -555,6 +576,8 @@ class Organizations:
             params=params,
             json=body,
             response_model=OrganizationMaintenanceSettingsResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def reset_org_maintenance_settings(
@@ -584,6 +607,7 @@ class Organizations:
             path=path,
             params=params,
             response_model=OrganizationMaintenanceSettingsResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_org_settings(
@@ -613,6 +637,7 @@ class Organizations:
             path=path,
             params=params,
             response_model=OrganizationSettings,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_org_settings(
@@ -645,6 +670,8 @@ class Organizations:
             params=params,
             json=body,
             response_model=OrganizationSettings,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_org_user_roles(
@@ -679,4 +706,6 @@ class Organizations:
             params=params,
             json=body,
             response_model=UpdateOrgRolesForUser,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )

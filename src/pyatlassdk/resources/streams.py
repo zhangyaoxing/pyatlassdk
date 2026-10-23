@@ -71,6 +71,7 @@ class Streams:
             path=path,
             params=params,
             response_model=PaginatedApiStreamsTenantView,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def create_group_stream_workspace(
@@ -103,6 +104,8 @@ class Streams:
             params=params,
             json=body,
             response_model=StreamsTenant,
+            accept="application/vnd.atlas.2023-02-01+json",
+            content_type="application/vnd.atlas.2023-02-01+json",
         )
 
     def get_group_stream_account_details(
@@ -135,6 +138,7 @@ class Streams:
             path=path,
             params=params,
             response_model=AccountDetails,
+            accept="application/vnd.atlas.2024-11-13+json",
         )
 
     def list_group_stream_active_vpc_peering_connections(
@@ -170,6 +174,7 @@ class Streams:
             path=path,
             params=params,
             response_model=PaginatedApiStreamsVPCPeeringConnectionView,
+            accept="application/vnd.atlas.2024-11-13+json",
         )
 
     def list_group_stream_private_link_connections(
@@ -205,6 +210,7 @@ class Streams:
             path=path,
             params=params,
             response_model=PaginatedApiStreamsPrivateLinkView,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def create_group_stream_private_link_connection(
@@ -237,6 +243,8 @@ class Streams:
             params=params,
             json=body,
             response_model=StreamsPrivateLinkConnection,
+            accept="application/vnd.atlas.2023-02-01+json",
+            content_type="application/vnd.atlas.2023-02-01+json",
         )
 
     def delete_group_stream_private_link_connection(
@@ -268,6 +276,7 @@ class Streams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def get_group_stream_private_link_connection(
@@ -296,6 +305,7 @@ class Streams:
             path=path,
             params=params,
             response_model=StreamsPrivateLinkConnection,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def update_group_stream_private_link_connection(
@@ -330,6 +340,8 @@ class Streams:
             params=params,
             json=body,
             response_model=StreamsPrivateLinkConnection,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def list_group_stream_vpc_peering_connections(
@@ -368,6 +380,7 @@ class Streams:
             path=path,
             params=params,
             response_model=PaginatedApiStreamsVPCPeeringConnectionView,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def delete_group_stream_vpc_peering_connection(
@@ -396,6 +409,7 @@ class Streams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def accept_group_stream_vpc_peering_connection(
@@ -427,6 +441,8 @@ class Streams:
             params=params,
             json=body,
             response_model=Any,
+            accept="application/vnd.atlas.2023-02-01+json",
+            content_type="application/vnd.atlas.2023-02-01+json",
         )
 
     def reject_group_stream_vpc_peering_connection(
@@ -455,6 +471,7 @@ class Streams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def delete_group_stream_workspace(
@@ -486,6 +503,7 @@ class Streams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def get_group_stream_workspace(
@@ -517,6 +535,7 @@ class Streams:
             path=path,
             params=params,
             response_model=StreamsTenant,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def update_group_stream_workspace(
@@ -551,6 +570,8 @@ class Streams:
             params=params,
             json=body,
             response_model=StreamsTenant,
+            accept="application/vnd.atlas.2023-02-01+json",
+            content_type="application/vnd.atlas.2023-02-01+json",
         )
 
     def download_group_stream_audit_logs(
@@ -588,6 +609,7 @@ class Streams:
             path=path,
             params=params,
             response_model=str,
+            accept="application/vnd.atlas.2023-02-01+gzip",
         )
 
     def list_group_stream_connections(
@@ -625,6 +647,7 @@ class Streams:
             path=path,
             params=params,
             response_model=PaginatedApiStreamsConnectionView,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def create_group_stream_connection(
@@ -659,6 +682,8 @@ class Streams:
             params=params,
             json=body,
             response_model=StreamsConnection,
+            accept="application/vnd.atlas.2023-02-01+json",
+            content_type="application/vnd.atlas.2023-02-01+json",
         )
 
     def delete_group_stream_connection(
@@ -692,6 +717,7 @@ class Streams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def get_group_stream_connection(
@@ -722,6 +748,7 @@ class Streams:
             path=path,
             params=params,
             response_model=StreamsConnection,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def update_group_stream_connection(
@@ -758,6 +785,8 @@ class Streams:
             params=params,
             json=body,
             response_model=StreamsConnection,
+            accept="application/vnd.atlas.2023-02-01+json",
+            content_type="application/vnd.atlas.2023-02-01+json",
         )
 
     def list_group_stream_connection_failover_connections(
@@ -797,6 +826,7 @@ class Streams:
             path=path,
             params=params,
             response_model=PaginatedApiStreamsFailoverConnection,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_group_stream_connection_failover_connection(
@@ -833,6 +863,8 @@ class Streams:
             params=params,
             json=body,
             response_model=StreamsFailoverConnection,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def delete_group_stream_connection_failover_connection(
@@ -868,6 +900,7 @@ class Streams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_stream_connection_failover_connection(
@@ -903,6 +936,7 @@ class Streams:
             path=path,
             params=params,
             response_model=StreamsFailoverConnection,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_group_stream_connection_failover_connection(
@@ -941,6 +975,8 @@ class Streams:
             params=params,
             json=body,
             response_model=StreamsFailoverConnection,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_group_stream_processor(
@@ -975,6 +1011,8 @@ class Streams:
             params=params,
             json=body,
             response_model=StreamsProcessor,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )
 
     def delete_group_stream_processor(
@@ -1008,6 +1046,7 @@ class Streams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def get_group_stream_processor(
@@ -1041,6 +1080,7 @@ class Streams:
             path=path,
             params=params,
             response_model=StreamsProcessorWithStats,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def update_group_stream_processor(
@@ -1077,6 +1117,8 @@ class Streams:
             params=params,
             json=body,
             response_model=StreamsProcessorWithStats,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )
 
     def start_group_stream_processor(
@@ -1110,6 +1152,7 @@ class Streams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def start_group_stream_processor_with(
@@ -1146,6 +1189,8 @@ class Streams:
             params=params,
             json=body,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def stop_group_stream_processor(
@@ -1179,6 +1224,7 @@ class Streams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def get_group_stream_processors(
@@ -1219,6 +1265,7 @@ class Streams:
             path=path,
             params=params,
             response_model=PaginatedApiStreamsStreamProcessorWithStatsView,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def download_group_stream_operational_logs(
@@ -1256,6 +1303,7 @@ class Streams:
             path=path,
             params=params,
             response_model=str,
+            accept="application/vnd.atlas.2025-03-12+gzip",
         )
 
     def with_group_stream_sample_connections(
@@ -1288,6 +1336,8 @@ class Streams:
             params=params,
             json=body,
             response_model=StreamsTenant,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def list_group_streams_workspace_private_endpoints(
@@ -1326,6 +1376,7 @@ class Streams:
             path=path,
             params=params,
             response_model=PaginatedStreamsWorkspacePrivateEndpointResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_group_streams_workspace_private_endpoint(
@@ -1358,6 +1409,8 @@ class Streams:
             params=params,
             json=body,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def delete_group_streams_workspace_private_endpoint(
@@ -1386,6 +1439,7 @@ class Streams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_streams_workspace_private_endpoint(
@@ -1414,4 +1468,5 @@ class Streams:
             path=path,
             params=params,
             response_model=StreamsWorkspacePrivateEndpointResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )

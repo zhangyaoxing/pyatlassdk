@@ -57,6 +57,8 @@ class CloudMigrationService:
             params=params,
             json=body,
             response_model=LiveMigrationResponse,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )
 
     def validate_group_live_migrations(
@@ -89,6 +91,8 @@ class CloudMigrationService:
             params=params,
             json=body,
             response_model=LiveImportValidation,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )
 
     def get_group_live_migration_validate_status(
@@ -117,6 +121,7 @@ class CloudMigrationService:
             path=path,
             params=params,
             response_model=LiveImportValidation,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_live_migration(
@@ -148,6 +153,7 @@ class CloudMigrationService:
             path=path,
             params=params,
             response_model=LiveMigrationResponse,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def cutover_group_live_migration(
@@ -179,6 +185,7 @@ class CloudMigrationService:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_org_live_migration_available_projects(
@@ -208,6 +215,7 @@ class CloudMigrationService:
             path=path,
             params=params,
             response_model=list[LiveImportAvailableProject],
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_org_live_migration_link_tokens(
@@ -234,6 +242,7 @@ class CloudMigrationService:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_org_live_migration_link_token(
@@ -266,4 +275,6 @@ class CloudMigrationService:
             params=params,
             json=body,
             response_model=TargetOrg,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )

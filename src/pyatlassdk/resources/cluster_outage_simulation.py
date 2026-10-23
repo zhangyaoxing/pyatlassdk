@@ -45,6 +45,7 @@ class ClusterOutageSimulation:
             path=path,
             params=params,
             response_model=ClusterOutageSimulation,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_cluster_outage_simulation(
@@ -76,6 +77,7 @@ class ClusterOutageSimulation:
             path=path,
             params=params,
             response_model=ClusterOutageSimulation,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def start_group_cluster_outage_simulation(
@@ -110,4 +112,6 @@ class ClusterOutageSimulation:
             params=params,
             json=body,
             response_model=ClusterOutageSimulation,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )

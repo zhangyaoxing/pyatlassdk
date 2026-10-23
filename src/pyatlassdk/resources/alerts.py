@@ -58,6 +58,7 @@ class Alerts:
             path=path,
             params=params,
             response_model=PaginatedAlertView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_alerts(
@@ -101,6 +102,7 @@ class Alerts:
             path=path,
             params=params,
             response_model=PaginatedAlertView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_alert(
@@ -134,6 +136,7 @@ class Alerts:
             path=path,
             params=params,
             response_model=AlertViewForNdsGroup,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def acknowledge_group_alert(
@@ -170,4 +173,6 @@ class Alerts:
             params=params,
             json=body,
             response_model=AlertViewForNdsGroup,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )

@@ -81,6 +81,7 @@ class MongoDBCloudUsers:
             path=path,
             params=params,
             response_model=PaginatedGroupUserView,
+            accept="application/vnd.atlas.2025-02-19+json",
         )
 
     def add_group_users(
@@ -117,6 +118,8 @@ class MongoDBCloudUsers:
             params=params,
             json=body,
             response_model=GroupUserResponse,
+            accept="application/vnd.atlas.2025-02-19+json",
+            content_type="application/vnd.atlas.2025-02-19+json",
         )
 
     def remove_group_user(
@@ -152,6 +155,7 @@ class MongoDBCloudUsers:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2025-02-19+json",
         )
 
     def get_group_user(
@@ -190,6 +194,7 @@ class MongoDBCloudUsers:
             path=path,
             params=params,
             response_model=GroupUserResponse,
+            accept="application/vnd.atlas.2025-02-19+json",
         )
 
     def add_group_user_role(
@@ -226,6 +231,8 @@ class MongoDBCloudUsers:
             params=params,
             json=body,
             response_model=GroupUserResponse,
+            accept="application/vnd.atlas.2025-02-19+json",
+            content_type="application/vnd.atlas.2025-02-19+json",
         )
 
     def remove_group_user_role(
@@ -262,6 +269,8 @@ class MongoDBCloudUsers:
             params=params,
             json=body,
             response_model=GroupUserResponse,
+            accept="application/vnd.atlas.2025-02-19+json",
+            content_type="application/vnd.atlas.2025-02-19+json",
         )
 
     def list_org_team_users(
@@ -315,6 +324,7 @@ class MongoDBCloudUsers:
             path=path,
             params=params,
             response_model=PaginatedOrgUserView,
+            accept="application/vnd.atlas.2025-02-19+json",
         )
 
     def add_org_team_user(
@@ -353,6 +363,8 @@ class MongoDBCloudUsers:
             params=params,
             json=body,
             response_model=OrgUserResponse,
+            accept="application/vnd.atlas.2025-02-19+json",
+            content_type="application/vnd.atlas.2025-02-19+json",
         )
 
     def remove_org_team_user(
@@ -389,6 +401,8 @@ class MongoDBCloudUsers:
             params=params,
             json=body,
             response_model=OrgUserResponse,
+            accept="application/vnd.atlas.2025-02-19+json",
+            content_type="application/vnd.atlas.2025-02-19+json",
         )
 
     def list_org_users(
@@ -440,6 +454,7 @@ class MongoDBCloudUsers:
             path=path,
             params=params,
             response_model=PaginatedOrgUserView,
+            accept="application/vnd.atlas.2025-02-19+json",
         )
 
     def create_org_user(
@@ -476,6 +491,8 @@ class MongoDBCloudUsers:
             params=params,
             json=body,
             response_model=OrgUserResponse,
+            accept="application/vnd.atlas.2025-02-19+json",
+            content_type="application/vnd.atlas.2025-02-19+json",
         )
 
     def remove_org_user(
@@ -511,6 +528,7 @@ class MongoDBCloudUsers:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2025-02-19+json",
         )
 
     def get_org_user(
@@ -549,6 +567,7 @@ class MongoDBCloudUsers:
             path=path,
             params=params,
             response_model=OrgUserResponse,
+            accept="application/vnd.atlas.2025-02-19+json",
         )
 
     def update_org_user(
@@ -587,6 +606,8 @@ class MongoDBCloudUsers:
             params=params,
             json=body,
             response_model=OrgUserResponse,
+            accept="application/vnd.atlas.2025-02-19+json",
+            content_type="application/vnd.atlas.2025-02-19+json",
         )
 
     def add_org_user_role(
@@ -625,6 +646,8 @@ class MongoDBCloudUsers:
             params=params,
             json=body,
             response_model=OrgUserResponse,
+            accept="application/vnd.atlas.2025-02-19+json",
+            content_type="application/vnd.atlas.2025-02-19+json",
         )
 
     def remove_org_user_role(
@@ -663,6 +686,8 @@ class MongoDBCloudUsers:
             params=params,
             json=body,
             response_model=OrgUserResponse,
+            accept="application/vnd.atlas.2025-02-19+json",
+            content_type="application/vnd.atlas.2025-02-19+json",
         )
 
     def create_user(
@@ -695,6 +720,8 @@ class MongoDBCloudUsers:
             params=params,
             json=body,
             response_model=CloudAppUser,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_user_by_name(
@@ -724,6 +751,7 @@ class MongoDBCloudUsers:
             path=path,
             params=params,
             response_model=CloudAppUser,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_user(
@@ -753,4 +781,5 @@ class MongoDBCloudUsers:
             path=path,
             params=params,
             response_model=CloudAppUser,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

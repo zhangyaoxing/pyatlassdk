@@ -56,6 +56,7 @@ class OnlineArchive:
             path=path,
             params=params,
             response_model=PaginatedOnlineArchiveView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_cluster_online_archive(
@@ -90,6 +91,8 @@ class OnlineArchive:
             params=params,
             json=body,
             response_model=BackupOnlineArchive,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def download_group_cluster_online_archive_query_logs(
@@ -127,6 +130,7 @@ class OnlineArchive:
             path=path,
             params=params,
             response_model=str,
+            accept="application/vnd.atlas.2023-01-01+gzip",
         )
 
     def delete_group_cluster_online_archive(
@@ -160,6 +164,7 @@ class OnlineArchive:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_cluster_online_archive(
@@ -193,6 +198,7 @@ class OnlineArchive:
             path=path,
             params=params,
             response_model=BackupOnlineArchive,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_cluster_online_archive(
@@ -229,4 +235,6 @@ class OnlineArchive:
             params=params,
             json=body,
             response_model=BackupOnlineArchive,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )

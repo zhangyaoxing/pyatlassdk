@@ -60,6 +60,7 @@ class LegacyBackup:
             path=path,
             params=params,
             response_model=PaginatedApiAtlasCheckpointView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_cluster_backup_checkpoint(
@@ -93,6 +94,7 @@ class LegacyBackup:
             path=path,
             params=params,
             response_model=ApiAtlasCheckpointView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_cluster_restore_jobs(
@@ -138,6 +140,7 @@ class LegacyBackup:
             path=path,
             params=params,
             response_model=PaginatedRestoreJobView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_cluster_restore_job(
@@ -172,6 +175,8 @@ class LegacyBackup:
             params=params,
             json=body,
             response_model=PaginatedRestoreJobView,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_cluster_restore_job(
@@ -207,6 +212,7 @@ class LegacyBackup:
             path=path,
             params=params,
             response_model=BackupRestoreJob,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_cluster_snapshot_schedule(
@@ -240,6 +246,7 @@ class LegacyBackup:
             path=path,
             params=params,
             response_model=ApiAtlasSnapshotScheduleView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_cluster_snapshot_schedule(
@@ -276,6 +283,8 @@ class LegacyBackup:
             params=params,
             json=body,
             response_model=ApiAtlasSnapshotScheduleView,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_cluster_snapshots(
@@ -319,6 +328,7 @@ class LegacyBackup:
             path=path,
             params=params,
             response_model=PaginatedSnapshotView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_cluster_snapshot(
@@ -352,6 +362,7 @@ class LegacyBackup:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_cluster_snapshot(
@@ -385,6 +396,7 @@ class LegacyBackup:
             path=path,
             params=params,
             response_model=BackupSnapshot,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_cluster_snapshot(
@@ -421,4 +433,6 @@ class LegacyBackup:
             params=params,
             json=body,
             response_model=BackupSnapshot,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )

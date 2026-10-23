@@ -51,6 +51,8 @@ class FlexSnapshots:
             params=params,
             json=body,
             response_model=FlexBackupRestoreJob20241113,
+            accept="application/vnd.atlas.2024-11-13+json",
+            content_type="application/vnd.atlas.2024-11-13+json",
         )
 
     def list_group_flex_cluster_backup_snapshots(
@@ -91,6 +93,7 @@ class FlexSnapshots:
             path=path,
             params=params,
             response_model=PaginatedApiAtlasFlexBackupSnapshot20241113View,
+            accept="application/vnd.atlas.2024-11-13+json",
         )
 
     def get_group_flex_cluster_backup_snapshot(
@@ -121,4 +124,5 @@ class FlexSnapshots:
             path=path,
             params=params,
             response_model=FlexBackupSnapshot20241113,
+            accept="application/vnd.atlas.2024-11-13+json",
         )

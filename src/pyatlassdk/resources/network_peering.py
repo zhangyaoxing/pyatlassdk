@@ -63,6 +63,7 @@ class NetworkPeering:
             path=path,
             params=params,
             response_model=PaginatedCloudProviderContainerView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_container(
@@ -95,6 +96,8 @@ class NetworkPeering:
             params=params,
             json=body,
             response_model=CloudProviderContainer,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_container_all(
@@ -133,6 +136,7 @@ class NetworkPeering:
             path=path,
             params=params,
             response_model=PaginatedCloudProviderContainerView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_container(
@@ -164,6 +168,7 @@ class NetworkPeering:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_container(
@@ -195,6 +200,7 @@ class NetworkPeering:
             path=path,
             params=params,
             response_model=CloudProviderContainer,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_container(
@@ -229,6 +235,8 @@ class NetworkPeering:
             params=params,
             json=body,
             response_model=CloudProviderContainer,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_peers(
@@ -270,6 +278,7 @@ class NetworkPeering:
             path=path,
             params=params,
             response_model=PaginatedContainerPeerView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_peer(
@@ -302,6 +311,8 @@ class NetworkPeering:
             params=params,
             json=body,
             response_model=BaseNetworkPeeringConnectionSettings,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_peer(
@@ -333,6 +344,7 @@ class NetworkPeering:
             path=path,
             params=params,
             response_model=RequestAccepted,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_peer(
@@ -364,6 +376,7 @@ class NetworkPeering:
             path=path,
             params=params,
             response_model=BaseNetworkPeeringConnectionSettings,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_peer(
@@ -398,6 +411,8 @@ class NetworkPeering:
             params=params,
             json=body,
             response_model=BaseNetworkPeeringConnectionSettings,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def verify_group_private_ip_mode(
@@ -427,6 +442,7 @@ class NetworkPeering:
             path=path,
             params=params,
             response_model=PrivateIPModeView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def disable_group_private_ip_mode_peering(
@@ -459,4 +475,6 @@ class NetworkPeering:
             params=params,
             json=body,
             response_model=PrivateIPModeView,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )

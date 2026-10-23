@@ -52,6 +52,7 @@ class AIModelAPIKeys:
             path=path,
             params=params,
             response_model=PaginatedAtlasAiModelApiKeysResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_group_ai_model_api_key(
@@ -84,6 +85,8 @@ class AIModelAPIKeys:
             params=params,
             json=body,
             response_model=AiModelApiKeyResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def delete_group_ai_model_api_key(
@@ -115,6 +118,7 @@ class AIModelAPIKeys:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_ai_model_api_key(
@@ -146,6 +150,7 @@ class AIModelAPIKeys:
             path=path,
             params=params,
             response_model=AiModelApiKeyResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_group_ai_model_api_key(
@@ -180,6 +185,8 @@ class AIModelAPIKeys:
             params=params,
             json=body,
             response_model=AiModelApiKeyResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def list_org_ai_model_api_keys(
@@ -215,6 +222,7 @@ class AIModelAPIKeys:
             path=path,
             params=params,
             response_model=PaginatedAtlasAiModelApiKeysResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_org_ai_model_api_key(
@@ -246,4 +254,5 @@ class AIModelAPIKeys:
             path=path,
             params=params,
             response_model=AiModelApiKeyResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )

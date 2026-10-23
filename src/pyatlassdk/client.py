@@ -67,6 +67,8 @@ from pyatlassdk.resources.x509_authentication import X509Authentication
 
 DEFAULT_BASE_URL = "https://cloud.mongodb.com/api/atlas/v2"
 DEFAULT_OAUTH_TOKEN_URL = "https://cloud.mongodb.com/api/oauth/token"
+DEFAULT_ACCEPT = "application/vnd.atlas.2025-03-12+json"
+DEFAULT_CONTENT_TYPE = "application/vnd.atlas.2025-03-12+json"
 
 
 class AtlasApiError(Exception):
@@ -259,9 +261,13 @@ class AtlasClient:
         params: Mapping[str, Any] | None = None,
         json: Any = None,
         response_model: Any = None,
+        accept: str | None = None,
+        content_type: str | None = None,
     ) -> Any:
         """Send one request and validate the response into ``response_model``."""
-        headers: dict[str, str] = {}
+        headers: dict[str, str] = {"Accept": accept or DEFAULT_ACCEPT}
+        if json is not None:
+            headers["Content-Type"] = content_type or DEFAULT_CONTENT_TYPE
         if self.auth_mode == "oauth2":
             headers["Authorization"] = f"Bearer {self._access_token()}"
 

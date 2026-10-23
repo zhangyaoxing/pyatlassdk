@@ -47,6 +47,7 @@ class PerformanceAdvisor:
             path=path,
             params=params,
             response_model=EnvelopedDropIndexSuggestionsResponse,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def list_group_cluster_performance_advisor_schema_advice(
@@ -75,6 +76,7 @@ class PerformanceAdvisor:
             path=path,
             params=params,
             response_model=EnvelopedSchemaAdvisorResponse,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def list_group_cluster_performance_advisor_suggested_indexes(
@@ -115,6 +117,7 @@ class PerformanceAdvisor:
             path=path,
             params=params,
             response_model=EnvelopedPerformanceAdvisorResponse,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def get_group_managed_slow_ms(
@@ -144,6 +147,7 @@ class PerformanceAdvisor:
             path=path,
             params=params,
             response_model=bool,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def disable_group_managed_slow_ms(
@@ -173,6 +177,7 @@ class PerformanceAdvisor:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def enable_group_managed_slow_ms(
@@ -202,6 +207,7 @@ class PerformanceAdvisor:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_process_performance_advisor_namespaces(
@@ -239,6 +245,7 @@ class PerformanceAdvisor:
             path=path,
             params=params,
             response_model=Namespaces,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_process_performance_advisor_slow_query_logs(
@@ -291,6 +298,7 @@ class PerformanceAdvisor:
             path=path,
             params=params,
             response_model=PerformanceAdvisorSlowQueryList,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_process_performance_advisor_suggested_indexes(
@@ -346,6 +354,7 @@ class PerformanceAdvisor:
             path=path,
             params=params,
             response_model=PerformanceAdvisorResponse,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_serverless_performance_advisor_auto_indexing(
@@ -377,6 +386,7 @@ class PerformanceAdvisor:
             path=path,
             params=params,
             response_model=bool,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def set_group_serverless_performance_advisor_auto_indexing(
@@ -408,4 +418,5 @@ class PerformanceAdvisor:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

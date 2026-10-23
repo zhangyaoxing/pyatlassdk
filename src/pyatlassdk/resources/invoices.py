@@ -60,6 +60,7 @@ class Invoices:
             path=path,
             params=params,
             response_model=OrgAssociatedInvoiceResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_org_billing_cost_explorer_usage_process(
@@ -89,6 +90,8 @@ class Invoices:
             params=params,
             json=body,
             response_model=CostExplorerFilterResponseView,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org_billing_cost_explorer_usage(
@@ -117,6 +120,7 @@ class Invoices:
             path=path,
             params=params,
             response_model=str | CostExplorerQueryResult,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_org_invoices(
@@ -174,6 +178,7 @@ class Invoices:
             path=path,
             params=params,
             response_model=PaginatedApiInvoiceMetadataView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_org_invoice_pending(
@@ -203,6 +208,7 @@ class Invoices:
             path=path,
             params=params,
             response_model=PaginatedApiInvoiceView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org_invoice(
@@ -235,6 +241,7 @@ class Invoices:
             path=path,
             params=params,
             response_model=str | BillingInvoice,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org_invoice_csv(
@@ -267,6 +274,7 @@ class Invoices:
             path=path,
             params=params,
             response_model=str,
+            accept="application/vnd.atlas.2023-01-01+csv",
         )
 
     def search_org_invoice_line_items(
@@ -304,6 +312,8 @@ class Invoices:
             params=params,
             json=body,
             response_model=PaginatedPublicApiUsageDetailsLineItemView,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def list_org_invoice_reports(
@@ -344,6 +354,7 @@ class Invoices:
             path=path,
             params=params,
             response_model=PaginatedInvoiceReportView,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_org_invoice_report(
@@ -368,6 +379,8 @@ class Invoices:
             path=path,
             json=body,
             response_model=InvoiceReportResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_org_invoice_report(
@@ -391,6 +404,7 @@ class Invoices:
             method="GET",
             path=path,
             response_model=InvoiceReportResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def list_skus(
@@ -427,6 +441,7 @@ class Invoices:
             path=path,
             params=params,
             response_model=PaginatedApiSKUView,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_sku(
@@ -456,4 +471,5 @@ class Invoices:
             path=path,
             params=params,
             response_model=SkuResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )

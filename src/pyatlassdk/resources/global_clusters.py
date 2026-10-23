@@ -50,6 +50,7 @@ class GlobalClusters:
             path=path,
             params=params,
             response_model=GeoSharding20240805,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def delete_group_cluster_global_write_custom_zone_mapping(
@@ -81,6 +82,7 @@ class GlobalClusters:
             path=path,
             params=params,
             response_model=GeoSharding20240805,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def create_group_cluster_global_write_custom_zone_mapping(
@@ -115,6 +117,8 @@ class GlobalClusters:
             params=params,
             json=body,
             response_model=GeoSharding20240805,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def delete_group_cluster_global_write_managed_namespaces(
@@ -152,6 +156,7 @@ class GlobalClusters:
             path=path,
             params=params,
             response_model=GeoSharding20240805,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def create_group_cluster_global_write_managed_namespace(
@@ -186,4 +191,6 @@ class GlobalClusters:
             params=params,
             json=body,
             response_model=GeoSharding20240805,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )

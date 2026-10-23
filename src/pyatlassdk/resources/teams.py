@@ -59,6 +59,7 @@ class Teams:
             path=path,
             params=params,
             response_model=PaginatedTeamRoleView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def add_group_teams(
@@ -91,6 +92,8 @@ class Teams:
             params=params,
             json=body,
             response_model=PaginatedTeamRoleView,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def remove_group_team(
@@ -119,6 +122,7 @@ class Teams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_team(
@@ -150,6 +154,7 @@ class Teams:
             path=path,
             params=params,
             response_model=TeamRole,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_team(
@@ -184,6 +189,8 @@ class Teams:
             params=params,
             json=body,
             response_model=PaginatedTeamRoleView,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_org_teams(
@@ -222,6 +229,7 @@ class Teams:
             path=path,
             params=params,
             response_model=PaginatedTeamView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_org_team(
@@ -254,6 +262,8 @@ class Teams:
             params=params,
             json=body,
             response_model=Team,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org_team_by_name(
@@ -285,6 +295,7 @@ class Teams:
             path=path,
             params=params,
             response_model=TeamResponse,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_org_team(
@@ -316,6 +327,7 @@ class Teams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org_team(
@@ -347,6 +359,7 @@ class Teams:
             path=path,
             params=params,
             response_model=TeamResponse,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def rename_org_team(
@@ -381,6 +394,8 @@ class Teams:
             params=params,
             json=body,
             response_model=TeamResponse,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def add_org_team_users(
@@ -417,6 +432,8 @@ class Teams:
             params=params,
             json=body,
             response_model=PaginatedApiAppUserView,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def remove_org_team_user_from_team(
@@ -452,4 +469,5 @@ class Teams:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

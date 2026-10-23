@@ -82,6 +82,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=PaginatedBackupSnapshotExportBucketsView,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def create_group_backup_export_bucket(
@@ -114,6 +115,8 @@ class CloudBackups:
             params=params,
             json=body,
             response_model=DiskBackupSnapshotExportBucketResponse,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )
 
     def delete_group_backup_export_bucket(
@@ -142,6 +145,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_backup_export_bucket(
@@ -170,6 +174,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=DiskBackupSnapshotExportBucketResponse,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def update_group_backup_export_bucket(
@@ -204,6 +209,8 @@ class CloudBackups:
             params=params,
             json=body,
             response_model=DiskBackupSnapshotAWSExportBucketResponse,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )
 
     def list_group_backup_private_endpoints(
@@ -244,6 +251,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=PaginatedApiAtlasObjectStoragePrivateEndpointResponseView,
+            accept="application/vnd.atlas.2024-11-13+json",
         )
 
     def create_group_backup_private_endpoint(
@@ -278,6 +286,8 @@ class CloudBackups:
             params=params,
             json=body,
             response_model=ObjectStoragePrivateEndpointResponse,
+            accept="application/vnd.atlas.2024-11-13+json",
+            content_type="application/vnd.atlas.2024-11-13+json",
         )
 
     def delete_group_backup_private_endpoint(
@@ -311,6 +321,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-11-13+json",
         )
 
     def get_group_backup_private_endpoint(
@@ -344,6 +355,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=ObjectStoragePrivateEndpointResponse,
+            accept="application/vnd.atlas.2024-11-13+json",
         )
 
     def disable_group_backup_compliance_policy(
@@ -373,6 +385,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-11-13+json",
         )
 
     def get_group_backup_compliance_policy(
@@ -402,6 +415,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=DataProtectionSettings20231001,
+            accept="application/vnd.atlas.2023-10-01+json",
         )
 
     def update_group_backup_compliance_policy(
@@ -437,6 +451,8 @@ class CloudBackups:
             params=params,
             json=body,
             response_model=DataProtectionSettings20231001,
+            accept="application/vnd.atlas.2023-10-01+json",
+            content_type="application/vnd.atlas.2023-10-01+json",
         )
 
     def list_group_cluster_backup_exports(
@@ -477,6 +493,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=PaginatedApiAtlasDiskBackupExportJobView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_cluster_backup_export(
@@ -508,6 +525,8 @@ class CloudBackups:
             params=params,
             json=body,
             response_model=DiskBackupExportJob,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_cluster_backup_export(
@@ -538,6 +557,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=DiskBackupExportJob,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_cluster_backup_restore_jobs(
@@ -578,6 +598,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=PaginatedCloudBackupRestoreJobView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_cluster_backup_restore_job(
@@ -612,6 +633,8 @@ class CloudBackups:
             params=params,
             json=body,
             response_model=DiskBackupSnapshotRestoreJob,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def cancel_group_cluster_backup_restore_job(
@@ -645,6 +668,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_cluster_backup_restore_job(
@@ -678,6 +702,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=DiskBackupSnapshotRestoreJob,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_cluster_backup_schedule(
@@ -706,6 +731,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=DiskBackupSnapshotSchedule20240805,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def get_group_cluster_backup_schedule(
@@ -737,6 +763,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=DiskBackupSnapshotSchedule20240805,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def update_group_cluster_backup_schedule(
@@ -771,6 +798,8 @@ class CloudBackups:
             params=params,
             json=body,
             response_model=DiskBackupSnapshotSchedule20240805,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def list_group_cluster_backup_snapshots(
@@ -820,6 +849,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=PaginatedCloudBackupReplicaSetView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def take_group_cluster_backup_snapshots(
@@ -854,6 +884,8 @@ class CloudBackups:
             params=params,
             json=body,
             response_model=DiskBackupSnapshot,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_cluster_backup_snapshot_sharded_cluster(
@@ -887,6 +919,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_cluster_backup_snapshot_sharded_cluster(
@@ -920,6 +953,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=DiskBackupShardedClusterSnapshot,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_cluster_backup_snapshot_sharded_clusters(
@@ -951,6 +985,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=PaginatedCloudBackupShardedClusterSnapshotView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_cluster_backup_snapshot(
@@ -984,6 +1019,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_cluster_backup_snapshot(
@@ -1017,6 +1053,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=DiskBackupReplicaSet,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_cluster_backup_snapshot(
@@ -1053,6 +1090,8 @@ class CloudBackups:
             params=params,
             json=body,
             response_model=DiskBackupReplicaSet,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_cluster_backup_snapshot_databases(
@@ -1095,6 +1134,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=PaginatedApiAtlasDiskBackupDatabaseView,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_cluster_backup_snapshot_database(
@@ -1130,6 +1170,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=DiskBackupDatabaseResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def list_group_cluster_backup_snapshot_database_collections(
@@ -1174,6 +1215,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=PaginatedApiAtlasDiskBackupCollectionView,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_cluster_backup_snapshot_database_collection(
@@ -1211,6 +1253,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=DiskBackupCollectionResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def list_group_cluster_collection_restore_jobs(
@@ -1248,6 +1291,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=PaginatedApiAtlasCollectionRestoreJobView,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_group_cluster_collection_restore_job(
@@ -1282,6 +1326,8 @@ class CloudBackups:
             params=params,
             json=body,
             response_model=ApiAtlasCollectionRestoreJobResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_cluster_collection_restore_job(
@@ -1315,6 +1361,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=ApiAtlasCollectionRestoreJobResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def list_group_cluster_collection_restore_job_collections(
@@ -1363,6 +1410,7 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=PaginatedApiAtlasCollectionRestoreCollectionStateView,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_cluster_collection_restore_job_collection(
@@ -1398,4 +1446,5 @@ class CloudBackups:
             path=path,
             params=params,
             response_model=ApiAtlasCollectionRestoreCollectionStateResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )

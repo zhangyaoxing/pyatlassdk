@@ -53,6 +53,7 @@ class OverloadProtectionSimulation:
             path=path,
             params=params,
             response_model=PaginatedOverloadProtectionSimulationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_group_cluster_overload_simulation(
@@ -87,6 +88,8 @@ class OverloadProtectionSimulation:
             params=params,
             json=body,
             response_model=OverloadProtectionSimulationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def delete_group_cluster_overload_simulation(
@@ -120,6 +123,7 @@ class OverloadProtectionSimulation:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_cluster_overload_simulation(
@@ -153,4 +157,5 @@ class OverloadProtectionSimulation:
             path=path,
             params=params,
             response_model=OverloadProtectionSimulationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )

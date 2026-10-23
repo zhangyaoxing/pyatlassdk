@@ -61,6 +61,7 @@ class MetricIntegrations:
             path=path,
             params=params,
             response_model=PaginatedMetricIntegrationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_group_metric_integration(
@@ -93,6 +94,8 @@ class MetricIntegrations:
             params=params,
             json=body,
             response_model=MetricIntegrationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def delete_group_metric_integration(
@@ -124,6 +127,7 @@ class MetricIntegrations:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_metric_integration(
@@ -155,6 +159,7 @@ class MetricIntegrations:
             path=path,
             params=params,
             response_model=MetricIntegrationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_group_metric_integration(
@@ -189,4 +194,6 @@ class MetricIntegrations:
             params=params,
             json=body,
             response_model=MetricIntegrationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )

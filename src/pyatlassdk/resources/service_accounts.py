@@ -65,6 +65,7 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=PaginatedGroupServiceAccounts,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def create_group_service_account(
@@ -97,6 +98,8 @@ class ServiceAccounts:
             params=params,
             json=body,
             response_model=GroupServiceAccount,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def delete_group_service_account(
@@ -128,6 +131,7 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def get_group_service_account(
@@ -159,6 +163,7 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=GroupServiceAccount,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def update_group_service_account(
@@ -193,6 +198,8 @@ class ServiceAccounts:
             params=params,
             json=body,
             response_model=GroupServiceAccount,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def list_group_service_account_access_list(
@@ -233,6 +240,7 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=PaginatedServiceAccountIPAccessEntryView,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def create_group_service_account_access_list(
@@ -276,6 +284,8 @@ class ServiceAccounts:
             params=params,
             json=body,
             response_model=PaginatedServiceAccountIPAccessEntryView,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def delete_group_service_account_access_list_entry(
@@ -309,6 +319,7 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def create_group_service_account_secret(
@@ -343,6 +354,8 @@ class ServiceAccounts:
             params=params,
             json=body,
             response_model=ServiceAccountSecret,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def delete_group_service_account_secret(
@@ -376,6 +389,7 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def invite_group_service_account(
@@ -410,6 +424,8 @@ class ServiceAccounts:
             params=params,
             json=body,
             response_model=GroupServiceAccount,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def list_org_service_accounts(
@@ -448,6 +464,7 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=PaginatedOrgServiceAccounts,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def create_org_service_account(
@@ -480,6 +497,8 @@ class ServiceAccounts:
             params=params,
             json=body,
             response_model=OrgServiceAccount,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def delete_org_service_account(
@@ -511,6 +530,7 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def get_org_service_account(
@@ -542,6 +562,7 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=OrgServiceAccount,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def update_org_service_account(
@@ -576,6 +597,8 @@ class ServiceAccounts:
             params=params,
             json=body,
             response_model=OrgServiceAccount,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def list_org_service_account_access_list(
@@ -616,6 +639,7 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=PaginatedServiceAccountIPAccessEntryView,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def create_org_service_account_access_list(
@@ -659,6 +683,8 @@ class ServiceAccounts:
             params=params,
             json=body,
             response_model=PaginatedServiceAccountIPAccessEntryView,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def delete_org_service_account_access_list_entry(
@@ -692,6 +718,7 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def get_org_service_account_groups(
@@ -729,6 +756,7 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=PaginatedServiceAccountGroup,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def create_org_service_account_secret(
@@ -763,6 +791,8 @@ class ServiceAccounts:
             params=params,
             json=body,
             response_model=ServiceAccountSecret,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def delete_org_service_account_secret(
@@ -796,4 +826,5 @@ class ServiceAccounts:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-08-05+json",
         )

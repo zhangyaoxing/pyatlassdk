@@ -56,6 +56,7 @@ class FlexRestoreJobs:
             path=path,
             params=params,
             response_model=PaginatedApiAtlasFlexBackupRestoreJob20241113View,
+            accept="application/vnd.atlas.2024-11-13+json",
         )
 
     def create_group_flex_cluster_backup_restore_job(
@@ -90,6 +91,8 @@ class FlexRestoreJobs:
             params=params,
             json=body,
             response_model=FlexBackupRestoreJob20241113,
+            accept="application/vnd.atlas.2024-11-13+json",
+            content_type="application/vnd.atlas.2024-11-13+json",
         )
 
     def get_group_flex_cluster_backup_restore_job(
@@ -123,4 +126,5 @@ class FlexRestoreJobs:
             path=path,
             params=params,
             response_model=FlexBackupRestoreJob20241113,
+            accept="application/vnd.atlas.2024-11-13+json",
         )

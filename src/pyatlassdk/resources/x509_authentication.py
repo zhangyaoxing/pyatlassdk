@@ -56,6 +56,7 @@ class X509Authentication:
             path=path,
             params=params,
             response_model=PaginatedUserCertView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_database_user_cert(
@@ -95,6 +96,8 @@ class X509Authentication:
             params=params,
             json=body,
             response_model=str,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def disable_group_user_security_customer_x509(
@@ -123,4 +126,5 @@ class X509Authentication:
             path=path,
             params=params,
             response_model=UserSecurity,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

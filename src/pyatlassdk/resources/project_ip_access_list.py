@@ -54,6 +54,7 @@ class ProjectIPAccessList:
             path=path,
             params=params,
             response_model=PaginatedNetworkAccessView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_access_list_entry(
@@ -95,6 +96,8 @@ class ProjectIPAccessList:
             params=params,
             json=body,
             response_model=PaginatedNetworkAccessView,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_access_list_entry(
@@ -126,6 +129,7 @@ class ProjectIPAccessList:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_access_list_entry(
@@ -157,6 +161,7 @@ class ProjectIPAccessList:
             path=path,
             params=params,
             response_model=NetworkPermissionEntry,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_access_list_status(
@@ -188,4 +193,5 @@ class ProjectIPAccessList:
             path=path,
             params=params,
             response_model=NetworkPermissionEntryStatus,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

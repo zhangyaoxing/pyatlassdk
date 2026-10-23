@@ -60,6 +60,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=str,
+            accept="application/vnd.atlas.2023-02-01+gzip",
         )
 
     def list_group_host_fts_metrics(
@@ -88,6 +89,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=CloudSearchMetrics,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_host_fts_metric_index_measurements(
@@ -135,6 +137,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=MeasurementsIndexes,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_host_fts_metric_index_measurements(
@@ -184,6 +187,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=MeasurementsIndexes,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_host_fts_metric_measurements(
@@ -227,6 +231,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=MeasurementsNonIndex,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_processes(
@@ -265,6 +270,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=PaginatedHostViewAtlas,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_process(
@@ -296,6 +302,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=ApiHostViewAtlas,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_process_databases(
@@ -336,6 +343,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=PaginatedDatabaseView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_process_database(
@@ -369,6 +377,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=MesurementsDatabase,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_process_database_measurements(
@@ -417,6 +426,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=ApiMeasurementsGeneralViewAtlas,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_process_disks(
@@ -457,6 +467,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=PaginatedDiskPartitionView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_process_disk(
@@ -487,6 +498,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=MeasurementDiskPartition,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_process_disk_measurements(
@@ -539,6 +551,7 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=ApiMeasurementsGeneralViewAtlas,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_process_measurements(
@@ -590,4 +603,5 @@ class MonitoringAndLogs:
             path=path,
             params=params,
             response_model=ApiMeasurementsGeneralViewAtlas,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

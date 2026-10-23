@@ -41,6 +41,7 @@ class Root:
             path=path,
             params=params,
             response_model=SystemStatus,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_control_plane_ip_addresses(
@@ -65,4 +66,5 @@ class Root:
             path=path,
             params=params,
             response_model=ControlPlaneIPAddresses,
+            accept="application/vnd.atlas.2023-11-15+json",
         )

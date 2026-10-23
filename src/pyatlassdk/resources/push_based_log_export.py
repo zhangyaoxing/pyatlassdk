@@ -63,6 +63,7 @@ class PushBasedLogExport:
             path=path,
             params=params,
             response_model=PaginatedLogIntegrationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_group_log_integration(
@@ -95,6 +96,8 @@ class PushBasedLogExport:
             params=params,
             json=body,
             response_model=LogIntegrationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def delete_group_log_integration(
@@ -126,6 +129,7 @@ class PushBasedLogExport:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_log_integration(
@@ -157,6 +161,7 @@ class PushBasedLogExport:
             path=path,
             params=params,
             response_model=LogIntegrationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_group_log_integration(
@@ -191,6 +196,8 @@ class PushBasedLogExport:
             params=params,
             json=body,
             response_model=LogIntegrationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def delete_group_push_based_log_export(
@@ -220,6 +227,7 @@ class PushBasedLogExport:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_push_based_log_export(
@@ -249,6 +257,7 @@ class PushBasedLogExport:
             path=path,
             params=params,
             response_model=PushBasedLogExportProject,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_push_based_log_export(
@@ -281,6 +290,8 @@ class PushBasedLogExport:
             params=params,
             json=body,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_push_based_log_export(
@@ -313,6 +324,8 @@ class PushBasedLogExport:
             params=params,
             json=body,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_org_log_integrations(
@@ -351,6 +364,7 @@ class PushBasedLogExport:
             path=path,
             params=params,
             response_model=PaginatedOrgLogIntegrationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_org_log_integration(
@@ -383,6 +397,8 @@ class PushBasedLogExport:
             params=params,
             json=body,
             response_model=OrgLogIntegrationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def delete_org_log_integration(
@@ -414,6 +430,7 @@ class PushBasedLogExport:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_org_log_integration(
@@ -445,6 +462,7 @@ class PushBasedLogExport:
             path=path,
             params=params,
             response_model=OrgLogIntegrationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_org_log_integration(
@@ -479,4 +497,6 @@ class PushBasedLogExport:
             params=params,
             json=body,
             response_model=OrgLogIntegrationResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )

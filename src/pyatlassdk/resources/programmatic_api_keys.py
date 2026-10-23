@@ -61,6 +61,7 @@ class ProgrammaticAPIKeys:
             path=path,
             params=params,
             response_model=PaginatedApiApiUserView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_api_key(
@@ -93,6 +94,8 @@ class ProgrammaticAPIKeys:
             params=params,
             json=body,
             response_model=ApiKeyUserDetails,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def remove_group_api_key(
@@ -124,6 +127,7 @@ class ProgrammaticAPIKeys:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_api_key_roles(
@@ -167,6 +171,8 @@ class ProgrammaticAPIKeys:
             params=params,
             json=body,
             response_model=ApiKeyUserDetails,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def add_group_api_key(
@@ -201,6 +207,8 @@ class ProgrammaticAPIKeys:
             params=params,
             json=body,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_org_api_keys(
@@ -239,6 +247,7 @@ class ProgrammaticAPIKeys:
             path=path,
             params=params,
             response_model=PaginatedApiApiUserView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_org_api_key(
@@ -271,6 +280,8 @@ class ProgrammaticAPIKeys:
             params=params,
             json=body,
             response_model=ApiKeyUserDetails,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_org_api_key(
@@ -302,6 +313,7 @@ class ProgrammaticAPIKeys:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org_api_key(
@@ -333,6 +345,7 @@ class ProgrammaticAPIKeys:
             path=path,
             params=params,
             response_model=ApiKeyUserDetails,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_org_api_key(
@@ -367,6 +380,8 @@ class ProgrammaticAPIKeys:
             params=params,
             json=body,
             response_model=ApiKeyUserDetails,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_org_api_key_access_list_entries(
@@ -407,6 +422,7 @@ class ProgrammaticAPIKeys:
             path=path,
             params=params,
             response_model=PaginatedApiUserAccessListResponseView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_org_api_key_access_list_entry(
@@ -450,6 +466,8 @@ class ProgrammaticAPIKeys:
             params=params,
             json=body,
             response_model=PaginatedApiUserAccessListResponseView,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_org_api_key_access_list_entry(
@@ -483,6 +501,7 @@ class ProgrammaticAPIKeys:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org_api_key_access_list_entry(
@@ -516,4 +535,5 @@ class ProgrammaticAPIKeys:
             path=path,
             params=params,
             response_model=UserAccessListResponse,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

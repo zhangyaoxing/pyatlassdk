@@ -62,6 +62,7 @@ class RemoteMCPConfigurations:
             path=path,
             params=params,
             response_model=PaginatedGroupMcpConfigView,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_group_mcp_config(
@@ -84,6 +85,8 @@ class RemoteMCPConfigurations:
             path=path,
             json=body,
             response_model=GroupMcpConfigResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def delete_group_mcp_config(
@@ -112,6 +115,7 @@ class RemoteMCPConfigurations:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_mcp_config(
@@ -143,6 +147,7 @@ class RemoteMCPConfigurations:
             path=path,
             params=params,
             response_model=GroupMcpConfigResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_group_mcp_config(
@@ -174,6 +179,8 @@ class RemoteMCPConfigurations:
             params=params,
             json=body,
             response_model=GroupMcpConfigResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def list_group_mcp_config_secrets(
@@ -214,6 +221,7 @@ class RemoteMCPConfigurations:
             path=path,
             params=params,
             response_model=PaginatedMcpConfigSecretView,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_group_mcp_config_secret(
@@ -238,6 +246,8 @@ class RemoteMCPConfigurations:
             path=path,
             json=body,
             response_model=ServiceAccountSecret,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def delete_group_mcp_config_secret(
@@ -261,6 +271,7 @@ class RemoteMCPConfigurations:
             method="DELETE",
             path=path,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_mcp_config_secret(
@@ -294,6 +305,7 @@ class RemoteMCPConfigurations:
             path=path,
             params=params,
             response_model=ServiceAccountSecret,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def list_org_mcp_configs(
@@ -332,6 +344,7 @@ class RemoteMCPConfigurations:
             path=path,
             params=params,
             response_model=PaginatedOrgMcpConfigView,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_org_mcp_config(
@@ -354,6 +367,8 @@ class RemoteMCPConfigurations:
             path=path,
             json=body,
             response_model=OrgMcpConfigResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def delete_org_mcp_config(
@@ -382,6 +397,7 @@ class RemoteMCPConfigurations:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_org_mcp_config(
@@ -413,6 +429,7 @@ class RemoteMCPConfigurations:
             path=path,
             params=params,
             response_model=OrgMcpConfigResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_org_mcp_config(
@@ -444,6 +461,8 @@ class RemoteMCPConfigurations:
             params=params,
             json=body,
             response_model=OrgMcpConfigResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def list_org_mcp_config_secrets(
@@ -484,6 +503,7 @@ class RemoteMCPConfigurations:
             path=path,
             params=params,
             response_model=PaginatedMcpConfigSecretView,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def create_org_mcp_config_secret(
@@ -508,6 +528,8 @@ class RemoteMCPConfigurations:
             path=path,
             json=body,
             response_model=ServiceAccountSecret,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def delete_org_mcp_config_secret(
@@ -531,6 +553,7 @@ class RemoteMCPConfigurations:
             method="DELETE",
             path=path,
             response_model=Any,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_org_mcp_config_secret(
@@ -564,4 +587,5 @@ class RemoteMCPConfigurations:
             path=path,
             params=params,
             response_model=ServiceAccountSecret,
+            accept="application/vnd.atlas.2025-03-12+json",
         )

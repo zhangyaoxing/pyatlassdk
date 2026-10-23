@@ -60,6 +60,7 @@ class AccessTracking:
             path=path,
             params=params,
             response_model=MongoDBAccessLogsList,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_db_access_history_process(
@@ -106,4 +107,5 @@ class AccessTracking:
             path=path,
             params=params,
             response_model=MongoDBAccessLogsList,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

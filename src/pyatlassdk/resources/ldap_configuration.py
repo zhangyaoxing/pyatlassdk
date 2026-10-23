@@ -45,6 +45,7 @@ class LDAPConfiguration:
             path=path,
             params=params,
             response_model=UserSecurity,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_user_security(
@@ -79,6 +80,8 @@ class LDAPConfiguration:
             params=params,
             json=body,
             response_model=UserSecurity,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_user_security_ldap_user_to_dn_mapping(
@@ -108,6 +111,7 @@ class LDAPConfiguration:
             path=path,
             params=params,
             response_model=UserSecurity,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def verify_group_user_security_ldap(
@@ -140,6 +144,8 @@ class LDAPConfiguration:
             params=params,
             json=body,
             response_model=LDAPVerifyConnectivityJobRequest,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_user_security_ldap_verify(
@@ -171,4 +177,5 @@ class LDAPConfiguration:
             path=path,
             params=params,
             response_model=LDAPVerifyConnectivityJobRequest,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

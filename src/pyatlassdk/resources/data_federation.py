@@ -49,6 +49,7 @@ class DataFederation:
             path=path,
             params=params,
             response_model=list[DataLakeTenant],
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_data_federation(
@@ -84,6 +85,8 @@ class DataFederation:
             params=params,
             json=body,
             response_model=DataLakeTenant,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_data_federation(
@@ -115,6 +118,7 @@ class DataFederation:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_data_federation(
@@ -143,6 +147,7 @@ class DataFederation:
             path=path,
             params=params,
             response_model=DataLakeTenant,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_data_federation(
@@ -180,6 +185,8 @@ class DataFederation:
             params=params,
             json=body,
             response_model=DataLakeTenant,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_data_federation_limits(
@@ -211,6 +218,7 @@ class DataFederation:
             path=path,
             params=params,
             response_model=list[DataFederationTenantQueryLimit],
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_data_federation_limit(
@@ -241,6 +249,7 @@ class DataFederation:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_data_federation_limit(
@@ -274,6 +283,7 @@ class DataFederation:
             path=path,
             params=params,
             response_model=DataFederationTenantQueryLimit,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def set_group_data_federation_limit(
@@ -307,6 +317,8 @@ class DataFederation:
             params=params,
             json=body,
             response_model=DataFederationTenantQueryLimit,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def download_group_data_federation_query_logs(
@@ -338,6 +350,7 @@ class DataFederation:
             path=path,
             params=params,
             response_model=str,
+            accept="application/vnd.atlas.2023-01-01+gzip",
         )
 
     def list_group_private_network_setting_endpoint_ids(
@@ -376,6 +389,7 @@ class DataFederation:
             path=path,
             params=params,
             response_model=PaginatedPrivateNetworkEndpointIdEntryView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_private_network_setting_endpoint_id(
@@ -408,6 +422,8 @@ class DataFederation:
             params=params,
             json=body,
             response_model=PaginatedPrivateNetworkEndpointIdEntryView,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_private_network_setting_endpoint_id(
@@ -439,6 +455,7 @@ class DataFederation:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_private_network_setting_endpoint_id(
@@ -470,4 +487,5 @@ class DataFederation:
             path=path,
             params=params,
             response_model=PrivateNetworkEndpointIdEntry,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

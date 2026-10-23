@@ -42,6 +42,7 @@ class FederatedAuthentication:
             method="DELETE",
             path=path,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_federation_setting_connected_org_configs(
@@ -74,6 +75,7 @@ class FederatedAuthentication:
             path=path,
             params=params,
             response_model=PaginatedConnectedOrgConfigsView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def remove_federation_setting_connected_org_config(
@@ -102,6 +104,7 @@ class FederatedAuthentication:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_federation_setting_connected_org_config(
@@ -130,6 +133,7 @@ class FederatedAuthentication:
             path=path,
             params=params,
             response_model=ConnectedOrgConfig,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_federation_setting_connected_org_config(
@@ -169,6 +173,8 @@ class FederatedAuthentication:
             params=params,
             json=body,
             response_model=ConnectedOrgConfig,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_federation_setting_connected_org_config_role_mappings(
@@ -197,6 +203,7 @@ class FederatedAuthentication:
             path=path,
             params=params,
             response_model=PaginatedRoleMappingView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_federation_setting_connected_org_config_role_mapping(
@@ -228,6 +235,8 @@ class FederatedAuthentication:
             params=params,
             json=body,
             response_model=AuthFederationRoleMapping,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_federation_setting_connected_org_config_role_mapping(
@@ -258,6 +267,7 @@ class FederatedAuthentication:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_federation_setting_connected_org_config_role_mapping(
@@ -288,6 +298,7 @@ class FederatedAuthentication:
             path=path,
             params=params,
             response_model=AuthFederationRoleMapping,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_federation_setting_connected_org_config_role_mapping(
@@ -321,6 +332,8 @@ class FederatedAuthentication:
             params=params,
             json=body,
             response_model=AuthFederationRoleMapping,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_federation_setting_identity_providers(
@@ -359,6 +372,7 @@ class FederatedAuthentication:
             path=path,
             params=params,
             response_model=PaginatedFederationIdentityProvider,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_federation_setting_identity_provider(
@@ -390,6 +404,8 @@ class FederatedAuthentication:
             params=params,
             json=body,
             response_model=FederationOidcIdentityProvider,
+            accept="application/vnd.atlas.2023-11-15+json",
+            content_type="application/vnd.atlas.2023-11-15+json",
         )
 
     def delete_federation_setting_identity_provider(
@@ -420,6 +436,7 @@ class FederatedAuthentication:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-11-15+json",
         )
 
     def get_federation_setting_identity_provider(
@@ -448,6 +465,7 @@ class FederatedAuthentication:
             path=path,
             params=params,
             response_model=FederationIdentityProvider,
+            accept="application/vnd.atlas.2023-11-15+json",
         )
 
     def update_federation_setting_identity_provider(
@@ -483,6 +501,8 @@ class FederatedAuthentication:
             params=params,
             json=body,
             response_model=FederationIdentityProvider,
+            accept="application/vnd.atlas.2023-11-15+json",
+            content_type="application/vnd.atlas.2023-11-15+json",
         )
 
     def revoke_federation_setting_identity_provider_jwks(
@@ -513,6 +533,7 @@ class FederatedAuthentication:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-11-15+json",
         )
 
     def get_federation_setting_identity_provider_metadata(
@@ -534,6 +555,7 @@ class FederatedAuthentication:
             method="GET",
             path=path,
             response_model=str,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org_federation_settings(
@@ -563,4 +585,5 @@ class FederatedAuthentication:
             path=path,
             params=params,
             response_model=OrgFederationSettings,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

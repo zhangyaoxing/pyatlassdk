@@ -53,6 +53,7 @@ class DatabaseUsers:
             path=path,
             params=params,
             response_model=PaginatedApiAtlasDatabaseUserView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_database_user(
@@ -85,6 +86,8 @@ class DatabaseUsers:
             params=params,
             json=body,
             response_model=CloudDatabaseUser,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_database_user(
@@ -118,6 +121,7 @@ class DatabaseUsers:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_database_user(
@@ -151,6 +155,7 @@ class DatabaseUsers:
             path=path,
             params=params,
             response_model=CloudDatabaseUser,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_database_user(
@@ -187,4 +192,6 @@ class DatabaseUsers:
             params=params,
             json=body,
             response_model=CloudDatabaseUser,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )

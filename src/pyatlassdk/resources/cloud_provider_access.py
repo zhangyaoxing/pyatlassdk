@@ -46,6 +46,7 @@ class CloudProviderAccess:
             path=path,
             params=params,
             response_model=CloudProviderAccessRoles,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_cloud_provider_access(
@@ -78,6 +79,8 @@ class CloudProviderAccess:
             params=params,
             json=body,
             response_model=CloudProviderAccessRole,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def deauthorize_group_cloud_provider_access_role(
@@ -111,6 +114,7 @@ class CloudProviderAccess:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_cloud_provider_access(
@@ -142,6 +146,7 @@ class CloudProviderAccess:
             path=path,
             params=params,
             response_model=CloudProviderAccessRole,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def authorize_group_cloud_provider_access_role(
@@ -176,4 +181,6 @@ class CloudProviderAccess:
             params=params,
             json=body,
             response_model=CloudProviderAccessRole,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )

@@ -40,6 +40,7 @@ class MaintenanceWindows:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_maintenance_window(
@@ -69,6 +70,7 @@ class MaintenanceWindows:
             path=path,
             params=params,
             response_model=GroupMaintenanceWindow,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_maintenance_window(
@@ -98,6 +100,8 @@ class MaintenanceWindows:
             params=params,
             json=body,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def toggle_group_maintenance_window_auto_defer(
@@ -124,6 +128,7 @@ class MaintenanceWindows:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def defer_group_maintenance_window(
@@ -150,4 +155,5 @@ class MaintenanceWindows:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

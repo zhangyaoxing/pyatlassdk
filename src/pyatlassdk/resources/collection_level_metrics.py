@@ -48,6 +48,7 @@ class CollectionLevelMetrics:
             path=path,
             params=params,
             response_model=PinnedNamespaces,
+            accept="application/vnd.atlas.2023-11-15+json",
         )
 
     def update_group_cluster_coll_stat_pinned_namespaces(
@@ -79,6 +80,8 @@ class CollectionLevelMetrics:
             params=params,
             json=body,
             response_model=PinnedNamespaces,
+            accept="application/vnd.atlas.2023-11-15+json",
+            content_type="application/vnd.atlas.2023-11-15+json",
         )
 
     def pin_group_cluster_coll_stat_pinned_namespaces(
@@ -110,6 +113,8 @@ class CollectionLevelMetrics:
             params=params,
             json=body,
             response_model=PinnedNamespaces,
+            accept="application/vnd.atlas.2023-11-15+json",
+            content_type="application/vnd.atlas.2023-11-15+json",
         )
 
     def unpin_group_cluster_coll_stat_unpin_namespaces(
@@ -141,6 +146,8 @@ class CollectionLevelMetrics:
             params=params,
             json=body,
             response_model=PinnedNamespaces,
+            accept="application/vnd.atlas.2023-11-15+json",
+            content_type="application/vnd.atlas.2023-11-15+json",
         )
 
     def get_group_cluster_coll_stat_namespaces(
@@ -180,6 +187,7 @@ class CollectionLevelMetrics:
             path=path,
             params=params,
             response_model=CollStatsRankedNamespacesView,
+            accept="application/vnd.atlas.2023-11-15+json",
         )
 
     def list_group_cluster_coll_stat_measurements(
@@ -226,6 +234,7 @@ class CollectionLevelMetrics:
             path=path,
             params=params,
             response_model=MeasurementsCollStatsLatencyCluster,
+            accept="application/vnd.atlas.2023-11-15+json",
         )
 
     def list_group_coll_stat_metrics(
@@ -252,6 +261,7 @@ class CollectionLevelMetrics:
             path=path,
             params=params,
             response_model=CollStatsLatencyNamespaceMetrics,
+            accept="application/vnd.atlas.2023-11-15+json",
         )
 
     def get_group_process_coll_stat_namespaces(
@@ -289,6 +299,7 @@ class CollectionLevelMetrics:
             path=path,
             params=params,
             response_model=CollStatsRankedNamespacesView,
+            accept="application/vnd.atlas.2023-11-15+json",
         )
 
     def list_group_process_coll_stat_measurements(
@@ -333,4 +344,5 @@ class CollectionLevelMetrics:
             path=path,
             params=params,
             response_model=MeasurementsCollStatsLatencyHost,
+            accept="application/vnd.atlas.2023-11-15+json",
         )

@@ -66,6 +66,7 @@ class RateLimiting:
             path=path,
             params=params,
             response_model=PaginatedRateLimitEndpointSets,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_rate_limit(
@@ -107,4 +108,5 @@ class RateLimiting:
             path=path,
             params=params,
             response_model=RateLimitEndpointSetResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )

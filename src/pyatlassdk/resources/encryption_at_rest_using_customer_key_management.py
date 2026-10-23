@@ -47,6 +47,7 @@ class EncryptionAtRestUsingCustomerKeyManagement:
             path=path,
             params=params,
             response_model=EncryptionAtRest,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_encryption_at_rest(
@@ -81,6 +82,8 @@ class EncryptionAtRestUsingCustomerKeyManagement:
             params=params,
             json=body,
             response_model=EncryptionAtRest,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_encryption_at_rest_private_endpoints(
@@ -121,6 +124,7 @@ class EncryptionAtRestUsingCustomerKeyManagement:
             path=path,
             params=params,
             response_model=PaginatedApiAtlasEARPrivateEndpointView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_encryption_at_rest_private_endpoint(
@@ -155,6 +159,8 @@ class EncryptionAtRestUsingCustomerKeyManagement:
             params=params,
             json=body,
             response_model=EARPrivateEndpoint,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def request_group_encryption_at_rest_private_endpoint_deletion(
@@ -188,6 +194,7 @@ class EncryptionAtRestUsingCustomerKeyManagement:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_encryption_at_rest_private_endpoint(
@@ -221,4 +228,5 @@ class EncryptionAtRestUsingCustomerKeyManagement:
             path=path,
             params=params,
             response_model=EARPrivateEndpoint,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

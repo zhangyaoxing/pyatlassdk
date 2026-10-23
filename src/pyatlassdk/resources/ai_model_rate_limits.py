@@ -51,6 +51,7 @@ class AIModelRateLimits:
             path=path,
             params=params,
             response_model=AiModelRateLimitResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_group_ai_model_api_cloud_geography_model_group_name_rate_limits(
@@ -89,6 +90,8 @@ class AIModelRateLimits:
             params=params,
             json=body,
             response_model=AiModelRateLimitResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def reset_group_ai_model_api_cloud_geography_model_group_name_rate_limits(
@@ -124,6 +127,7 @@ class AIModelRateLimits:
             path=path,
             params=params,
             response_model=AiModelRateLimitResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_group_ai_model_api_rate_limits(
@@ -159,6 +163,7 @@ class AIModelRateLimits:
             path=path,
             params=params,
             response_model=PaginatedAtlasAiModelRateLimitsResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def reset_group_ai_model_api_rate_limits(
@@ -188,6 +193,7 @@ class AIModelRateLimits:
             path=path,
             params=params,
             response_model=PaginatedAtlasAiModelRateLimitsResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_org_ai_model_api_cloud_geography_model_group_name_rate_limits(
@@ -223,6 +229,7 @@ class AIModelRateLimits:
             path=path,
             params=params,
             response_model=AiModelRateLimitResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_org_ai_model_api_rate_limits(
@@ -258,4 +265,5 @@ class AIModelRateLimits:
             path=path,
             params=params,
             response_model=PaginatedAtlasAiModelRateLimitsResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )

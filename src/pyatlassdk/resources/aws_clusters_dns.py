@@ -43,6 +43,7 @@ class AWSClustersDNS:
             path=path,
             params=params,
             response_model=AWSCustomDNSEnabledView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def toggle_group_aws_custom_dns(
@@ -75,4 +76,6 @@ class AWSClustersDNS:
             params=params,
             json=body,
             response_model=AWSCustomDNSEnabledView,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )

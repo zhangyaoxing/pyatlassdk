@@ -51,6 +51,8 @@ class PrivateEndpointServices:
             params=params,
             json=body,
             response_model=EndpointService,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_private_endpoint_endpoint_service(
@@ -85,6 +87,8 @@ class PrivateEndpointServices:
             params=params,
             json=body,
             response_model=EndpointService,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_private_endpoint_regional_mode(
@@ -114,6 +118,7 @@ class PrivateEndpointServices:
             path=path,
             params=params,
             response_model=ProjectSettingItemView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def toggle_group_private_endpoint_regional_mode(
@@ -146,6 +151,8 @@ class PrivateEndpointServices:
             params=params,
             json=body,
             response_model=ProjectSettingItemView,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_private_endpoint_endpoint_service(
@@ -177,6 +184,7 @@ class PrivateEndpointServices:
             path=path,
             params=params,
             response_model=list[EndpointService],
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_private_endpoint_endpoint_service(
@@ -210,6 +218,7 @@ class PrivateEndpointServices:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_private_endpoint_endpoint_service(
@@ -243,6 +252,7 @@ class PrivateEndpointServices:
             path=path,
             params=params,
             response_model=EndpointService,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_private_endpoint_endpoint_service_endpoint(
@@ -279,6 +289,8 @@ class PrivateEndpointServices:
             params=params,
             json=body,
             response_model=PrivateLinkEndpoint,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_private_endpoint_endpoint_service_endpoint(
@@ -314,6 +326,7 @@ class PrivateEndpointServices:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_private_endpoint_endpoint_service_endpoint(
@@ -349,4 +362,5 @@ class PrivateEndpointServices:
             path=path,
             params=params,
             response_model=PrivateLinkEndpoint,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

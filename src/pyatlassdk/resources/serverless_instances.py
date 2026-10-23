@@ -55,6 +55,7 @@ class ServerlessInstances:
             path=path,
             params=params,
             response_model=PaginatedServerlessInstanceDescriptionView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_serverless_instance(
@@ -88,4 +89,5 @@ class ServerlessInstances:
             path=path,
             params=params,
             response_model=ServerlessInstanceDescription,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

@@ -57,6 +57,7 @@ class Events:
             path=path,
             params=params,
             response_model=PaginatedEventTypeDetailsResponse,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_events(
@@ -115,6 +116,7 @@ class Events:
             path=path,
             params=params,
             response_model=GroupPaginatedEventView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_event(
@@ -151,6 +153,7 @@ class Events:
             path=path,
             params=params,
             response_model=EventViewForNdsGroup,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_org_events(
@@ -203,6 +206,7 @@ class Events:
             path=path,
             params=params,
             response_model=OrgPaginatedEventView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_org_event(
@@ -239,4 +243,5 @@ class Events:
             path=path,
             params=params,
             response_model=EventViewForOrg,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

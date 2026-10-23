@@ -55,6 +55,7 @@ class ActivityFeed:
             path=path,
             params=params,
             response_model=ActivityFeedLinkResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def get_org_activity_feed(
@@ -90,4 +91,5 @@ class ActivityFeed:
             path=path,
             params=params,
             response_model=ActivityFeedLinkResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )

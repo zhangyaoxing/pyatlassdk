@@ -62,6 +62,7 @@ class Projects:
             path=path,
             params=params,
             response_model=PaginatedAtlasGroupView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group(
@@ -95,6 +96,8 @@ class Projects:
             params=params,
             json=body,
             response_model=Group,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_by_name(
@@ -124,6 +127,7 @@ class Projects:
             path=path,
             params=params,
             response_model=Group,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group(
@@ -153,6 +157,7 @@ class Projects:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group(
@@ -182,6 +187,7 @@ class Projects:
             path=path,
             params=params,
             response_model=Group,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group(
@@ -214,6 +220,8 @@ class Projects:
             params=params,
             json=body,
             response_model=Group,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def add_group_access_user(
@@ -246,6 +254,8 @@ class Projects:
             params=params,
             json=body,
             response_model=OrganizationInvitation | Any,
+            accept="application/vnd.atlas.2023-02-01+json",
+            content_type="application/vnd.atlas.2023-02-01+json",
         )
 
     def list_group_invites(
@@ -278,6 +288,7 @@ class Projects:
             path=path,
             params=params,
             response_model=list[GroupInvitation],
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_invites(
@@ -310,6 +321,8 @@ class Projects:
             params=params,
             json=body,
             response_model=GroupInvitation,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_invite(
@@ -342,6 +355,8 @@ class Projects:
             params=params,
             json=body,
             response_model=GroupInvitation,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_invite(
@@ -370,6 +385,7 @@ class Projects:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_invite(
@@ -401,6 +417,7 @@ class Projects:
             path=path,
             params=params,
             response_model=GroupInvitation,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_invite_by_id(
@@ -432,6 +449,8 @@ class Projects:
             params=params,
             json=body,
             response_model=GroupInvitation,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_ip_addresses(
@@ -461,6 +480,7 @@ class Projects:
             path=path,
             params=params,
             response_model=GroupIPAddresses,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_limits(
@@ -490,6 +510,7 @@ class Projects:
             path=path,
             params=params,
             response_model=list[DataFederationLimit],
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_limit(
@@ -521,6 +542,7 @@ class Projects:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_limit(
@@ -552,6 +574,7 @@ class Projects:
             path=path,
             params=params,
             response_model=DataFederationLimit,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def set_group_limit(
@@ -588,6 +611,8 @@ class Projects:
             params=params,
             json=body,
             response_model=DataFederationLimit,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_mongo_db_versions(
@@ -632,6 +657,7 @@ class Projects:
             path=path,
             params=params,
             response_model=PaginatedAvailableVersionView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_settings(
@@ -661,6 +687,7 @@ class Projects:
             path=path,
             params=params,
             response_model=GroupSettings,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_settings(
@@ -693,6 +720,8 @@ class Projects:
             params=params,
             json=body,
             response_model=GroupSettings,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_user_roles(
@@ -727,6 +756,8 @@ class Projects:
             params=params,
             json=body,
             response_model=UpdateGroupRolesForUser,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def migrate_group(
@@ -756,4 +787,6 @@ class Projects:
             params=params,
             json=body,
             response_model=Group,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )

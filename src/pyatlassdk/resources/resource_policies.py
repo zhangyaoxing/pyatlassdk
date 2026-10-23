@@ -46,6 +46,7 @@ class ResourcePolicies:
             path=path,
             params=params,
             response_model=list[ApiAtlasNonCompliantResourceView],
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def list_org_resource_policies(
@@ -75,6 +76,7 @@ class ResourcePolicies:
             path=path,
             params=params,
             response_model=list[ApiAtlasResourcePolicyView],
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def create_org_resource_policy(
@@ -107,6 +109,8 @@ class ResourcePolicies:
             params=params,
             json=body,
             response_model=ApiAtlasResourcePolicyView,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def delete_org_resource_policy(
@@ -138,6 +142,7 @@ class ResourcePolicies:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def get_org_resource_policy(
@@ -169,6 +174,7 @@ class ResourcePolicies:
             path=path,
             params=params,
             response_model=ApiAtlasResourcePolicyView,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def update_org_resource_policy(
@@ -203,6 +209,8 @@ class ResourcePolicies:
             params=params,
             json=body,
             response_model=ApiAtlasResourcePolicyView,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def validate_org_resource_policies(
@@ -235,4 +243,6 @@ class ResourcePolicies:
             params=params,
             json=body,
             response_model=ApiAtlasResourcePolicyView,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )

@@ -46,6 +46,7 @@ class ServerlessPrivateEndpoints:
             path=path,
             params=params,
             response_model=list[ServerlessTenantEndpoint],
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_private_endpoint_serverless_instance_endpoint(
@@ -81,6 +82,8 @@ class ServerlessPrivateEndpoints:
             params=params,
             json=body,
             response_model=ServerlessTenantEndpoint,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_private_endpoint_serverless_instance_endpoint(
@@ -113,6 +116,7 @@ class ServerlessPrivateEndpoints:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_private_endpoint_serverless_instance_endpoint(
@@ -145,6 +149,7 @@ class ServerlessPrivateEndpoints:
             path=path,
             params=params,
             response_model=ServerlessTenantEndpoint,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_private_endpoint_serverless_instance_endpoint(
@@ -180,4 +185,6 @@ class ServerlessPrivateEndpoints:
             params=params,
             json=body,
             response_model=ServerlessTenantEndpoint,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )

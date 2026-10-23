@@ -64,6 +64,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=PaginatedOrgGroupView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_clusters(
@@ -107,6 +108,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=PaginatedClusterDescription20240805,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def create_group_cluster(
@@ -141,6 +143,8 @@ class Clusters:
             params=params,
             json=body,
             response_model=ClusterDescription20240805,
+            accept="application/vnd.atlas.2024-10-23+json",
+            content_type="application/vnd.atlas.2024-10-23+json",
         )
 
     def list_group_cluster_provider_regions(
@@ -185,6 +189,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=PaginatedApiAtlasProviderRegionsView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def upgrade_group_cluster_tenant_upgrade(
@@ -219,6 +224,8 @@ class Clusters:
             params=params,
             json=body,
             response_model=LegacyAtlasCluster,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def upgrade_group_cluster_tenant_upgrade_to_serverless(
@@ -253,6 +260,8 @@ class Clusters:
             params=params,
             json=body,
             response_model=ServerlessInstanceDescription,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_cluster(
@@ -289,6 +298,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def get_group_cluster(
@@ -322,6 +332,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=ClusterDescription20240805,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def update_group_cluster(
@@ -356,6 +367,8 @@ class Clusters:
             params=params,
             json=body,
             response_model=ClusterDescription20240805,
+            accept="application/vnd.atlas.2024-10-23+json",
+            content_type="application/vnd.atlas.2024-10-23+json",
         )
 
     def get_group_cluster_adaptive_settings(
@@ -387,6 +400,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=AdaptiveSettingsResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_group_cluster_adaptive_settings(
@@ -421,6 +435,8 @@ class Clusters:
             params=params,
             json=body,
             response_model=AdaptiveSettingsResponse,
+            accept="application/vnd.atlas.2025-03-12+json",
+            content_type="application/vnd.atlas.2025-03-12+json",
         )
 
     def auto_group_cluster_scaling_configuration(
@@ -452,6 +468,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=ClusterDescriptionAutoScalingModeConfiguration,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def get_group_cluster_process_args(
@@ -483,6 +500,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=ClusterDescriptionProcessArgs20240805,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def update_group_cluster_process_args(
@@ -517,6 +535,8 @@ class Clusters:
             params=params,
             json=body,
             response_model=ClusterDescriptionProcessArgs20240805,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def restart_group_cluster_primaries(
@@ -548,6 +568,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-02-01+json",
         )
 
     def get_group_cluster_status(
@@ -579,6 +600,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=ClusterStatus,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def grant_group_cluster_mongo_db_employee_access(
@@ -613,6 +635,8 @@ class Clusters:
             params=params,
             json=body,
             response_model=Any,
+            accept="application/vnd.atlas.2024-08-05+json",
+            content_type="application/vnd.atlas.2024-08-05+json",
         )
 
     def pin_group_cluster_feature_compatibility_version(
@@ -647,6 +671,8 @@ class Clusters:
             params=params,
             json=body,
             response_model=Any,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )
 
     def revoke_group_cluster_mongo_db_employee_access(
@@ -678,6 +704,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-08-05+json",
         )
 
     def unpin_group_cluster_feature_compatibility_version(
@@ -709,6 +736,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def request_group_sample_dataset_load(
@@ -737,6 +765,7 @@ class Clusters:
             path=path,
             params=params,
             response_model=SampleDatasetStatus,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_sample_dataset_load(
@@ -765,4 +794,5 @@ class Clusters:
             path=path,
             params=params,
             response_model=SampleDatasetStatus,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

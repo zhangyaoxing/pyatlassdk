@@ -44,6 +44,7 @@ class AlertConfigurations:
             path=path,
             params=params,
             response_model=list[MatcherFieldView],
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_alert_configs(
@@ -84,6 +85,7 @@ class AlertConfigurations:
             path=path,
             params=params,
             response_model=PaginatedAlertConfigView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_alert_config(
@@ -118,6 +120,8 @@ class AlertConfigurations:
             params=params,
             json=body,
             response_model=GroupAlertsConfig,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_alert_config(
@@ -151,6 +155,7 @@ class AlertConfigurations:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_alert_config(
@@ -184,6 +189,7 @@ class AlertConfigurations:
             path=path,
             params=params,
             response_model=GroupAlertsConfig,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def toggle_group_alert_config(
@@ -222,6 +228,8 @@ class AlertConfigurations:
             params=params,
             json=body,
             response_model=GroupAlertsConfig,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_alert_config(
@@ -260,6 +268,8 @@ class AlertConfigurations:
             params=params,
             json=body,
             response_model=GroupAlertsConfig,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_alert_alert_configs(
@@ -302,4 +312,5 @@ class AlertConfigurations:
             path=path,
             params=params,
             response_model=PaginatedAlertConfigView,
+            accept="application/vnd.atlas.2023-01-01+json",
         )

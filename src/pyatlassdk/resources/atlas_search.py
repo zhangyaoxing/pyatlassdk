@@ -53,6 +53,8 @@ class AtlasSearch:
             params=params,
             json=body,
             response_model=ClusterSearchIndex,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def list_group_cluster_fts_index(
@@ -88,6 +90,7 @@ class AtlasSearch:
             path=path,
             params=params,
             response_model=list[ClusterSearchIndex],
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_cluster_fts_index(
@@ -121,6 +124,7 @@ class AtlasSearch:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_cluster_fts_index(
@@ -154,6 +158,7 @@ class AtlasSearch:
             path=path,
             params=params,
             response_model=ClusterSearchIndex,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_cluster_fts_index(
@@ -190,6 +195,8 @@ class AtlasSearch:
             params=params,
             json=body,
             response_model=ClusterSearchIndex,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_cluster_search_deployment(
@@ -221,6 +228,7 @@ class AtlasSearch:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def get_group_cluster_search_deployment(
@@ -252,6 +260,7 @@ class AtlasSearch:
             path=path,
             params=params,
             response_model=ApiSearchDeploymentResponseView,
+            accept="application/vnd.atlas.2025-03-12+json",
         )
 
     def update_group_cluster_search_deployment(
@@ -286,6 +295,8 @@ class AtlasSearch:
             params=params,
             json=body,
             response_model=ApiSearchDeploymentResponseView,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )
 
     def create_group_cluster_search_deployment(
@@ -320,6 +331,8 @@ class AtlasSearch:
             params=params,
             json=body,
             response_model=ApiSearchDeploymentResponseView,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )
 
     def list_group_cluster_search_indexes(
@@ -351,6 +364,7 @@ class AtlasSearch:
             path=path,
             params=params,
             response_model=list[SearchIndexResponse],
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def create_group_cluster_search_index(
@@ -385,6 +399,8 @@ class AtlasSearch:
             params=params,
             json=body,
             response_model=SearchIndexResponse,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )
 
     def list_group_cluster_search_index(
@@ -420,6 +436,7 @@ class AtlasSearch:
             path=path,
             params=params,
             response_model=list[SearchIndexResponse],
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def delete_group_cluster_search_index_by_name(
@@ -457,6 +474,7 @@ class AtlasSearch:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def get_group_cluster_search_index_by_name(
@@ -494,6 +512,7 @@ class AtlasSearch:
             path=path,
             params=params,
             response_model=SearchIndexResponse,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def update_group_cluster_search_index_by_name(
@@ -534,6 +553,8 @@ class AtlasSearch:
             params=params,
             json=body,
             response_model=SearchIndexResponse,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )
 
     def delete_group_cluster_search_index(
@@ -567,6 +588,7 @@ class AtlasSearch:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def get_group_cluster_search_index(
@@ -600,6 +622,7 @@ class AtlasSearch:
             path=path,
             params=params,
             response_model=SearchIndexResponse,
+            accept="application/vnd.atlas.2024-05-30+json",
         )
 
     def update_group_cluster_search_index(
@@ -636,4 +659,6 @@ class AtlasSearch:
             params=params,
             json=body,
             response_model=SearchIndexResponse,
+            accept="application/vnd.atlas.2024-05-30+json",
+            content_type="application/vnd.atlas.2024-05-30+json",
         )

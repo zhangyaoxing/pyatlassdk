@@ -44,6 +44,7 @@ class CustomDatabaseRoles:
             path=path,
             params=params,
             response_model=list[UserCustomDBRole],
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def create_group_custom_db_role_role(
@@ -76,6 +77,8 @@ class CustomDatabaseRoles:
             params=params,
             json=body,
             response_model=UserCustomDBRole,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
 
     def delete_group_custom_db_role_role(
@@ -107,6 +110,7 @@ class CustomDatabaseRoles:
             path=path,
             params=params,
             response_model=Any,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def get_group_custom_db_role_role(
@@ -138,6 +142,7 @@ class CustomDatabaseRoles:
             path=path,
             params=params,
             response_model=UserCustomDBRole,
+            accept="application/vnd.atlas.2023-01-01+json",
         )
 
     def update_group_custom_db_role_role(
@@ -172,4 +177,6 @@ class CustomDatabaseRoles:
             params=params,
             json=body,
             response_model=UserCustomDBRole,
+            accept="application/vnd.atlas.2023-01-01+json",
+            content_type="application/vnd.atlas.2023-01-01+json",
         )
