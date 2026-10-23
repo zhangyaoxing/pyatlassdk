@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
+from typing import Any, TypeAlias
 
-class CostExplorerQueryResult(BaseModel):
-    """Generated model for CostExplorerQueryResult."""
-    model_config = ConfigDict(populate_by_name=True, extra="allow")
-    pass
+CostExplorerQueryResult: TypeAlias = dict[str, Any]

@@ -2,12 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Annotated, Literal
+from typing import Annotated, Any, Literal
 from pyatlassdk._enums import upper_case
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_options import StreamsOptions
-from pyatlassdk.models.streams_processor_with_stats_pipeline_item import StreamsProcessorWithStatsPipelineItem
-from pyatlassdk.models.streams_processor_with_stats_stats import StreamsProcessorWithStatsStats
 
 from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
@@ -21,7 +19,7 @@ class StreamsProcessorWithStats(BaseModel):
     links: list[Link] | None = Field(default=None, description="List of one or more Uniform Resource Locators (URLs) that point to API sub-resources, related API resources, or both. RFC 5988 outlines these relationships.")
     name: str = Field(description="Human-readable name of the stream processor.")
     options: StreamsOptions | None = None
-    pipeline: list[StreamsProcessorWithStatsPipelineItem] = Field(description="Stream aggregation pipeline you want to apply to your streaming data.")
+    pipeline: list[dict[str, dict[str, Any]]] = Field(description="Stream aggregation pipeline you want to apply to your streaming data.")
     state: str = Field(description="The state of the stream processor. Commonly occurring states are 'CREATED', 'STARTED', 'STOPPED' and 'FAILED'.")
-    stats: StreamsProcessorWithStatsStats | None = Field(default=None, description="The stats associated with the stream processor.")
+    stats: dict[str, dict[str, Any]] | None = Field(default=None, description="The stats associated with the stream processor.")
     tier: Annotated[Literal["SP50", "SP30", "SP10", "SP5", "SP2"], BeforeValidator(upper_case)] | None = Field(default=None, description="Baseline tier of the stream processor. The processor starts or restarts on this tier; `effectiveTier` reports the tier it is currently running.")

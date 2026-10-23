@@ -12,9 +12,9 @@ from pyatlassdk.models.cluster_connection_strings import ClusterConnectionString
 from pyatlassdk.models.cluster_provider_settings import ClusterProviderSettings
 from pyatlassdk.models.component_label import ComponentLabel
 from pyatlassdk.models.employee_access_grant_view import EmployeeAccessGrantView
-from pyatlassdk.models.legacy_atlas_cluster_replication_spec import LegacyAtlasClusterReplicationSpec
 from pyatlassdk.models.legacy_replication_spec import LegacyReplicationSpec
 from pyatlassdk.models.link import Link
+from pyatlassdk.models.region_spec import RegionSpec
 from pyatlassdk.models.resource_tag import ResourceTag
 
 from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
@@ -60,7 +60,7 @@ class LegacyAtlasCluster(BaseModel):
     provider_settings: ClusterProviderSettings | None = Field(default=None, alias="providerSettings")
     replica_set_scaling_strategy: Annotated[Literal["SEQUENTIAL", "WORKLOAD_TYPE", "NODE_TYPE"], BeforeValidator(upper_case)] | None = Field(default=None, alias="replicaSetScalingStrategy", description="Set this field to configure the replica set scaling mode for your cluster.\n\nBy default, Atlas scales under `WORKLOAD_TYPE`. This mode allows Atlas to scale your analytics nodes in parallel to your operational nodes.\n\nWhen configured as `SEQUENTIAL`, Atlas scales all nodes sequentially. This mode is intended for steady-state workloads and applications performing latency-sensitive secondary reads.\n\nWhen configured as `NODE_TYPE`, Atlas scales your electable nodes in parallel with your read-only and analytics nodes. This mode is intended for large, dynamic workloads requiring frequent and timely cluster tier scaling. This is the fastest scaling strategy, but it might impact latency of workloads when performing extensive secondary reads.")
     replication_factor: Literal[3, 5, 7] | None = Field(default=None, alias="replicationFactor", description="Number of members that belong to the replica set. Each member retains a copy of your databases, providing high availability and data redundancy. Use `replicationSpecs` instead.")
-    replication_spec: LegacyAtlasClusterReplicationSpec | None = Field(default=None, alias="replicationSpec", description="Physical location where MongoDB Cloud provisions cluster nodes.")
+    replication_spec: dict[str, RegionSpec] | None = Field(default=None, alias="replicationSpec", description="Physical location where MongoDB Cloud provisions cluster nodes.")
     replication_specs: list[LegacyReplicationSpec] | None = Field(default=None, alias="replicationSpecs", description="List of settings that configure your cluster regions.\n\n- For Global Clusters, each object in the array represents one zone where MongoDB Cloud deploys your clusters nodes.\n- For non-Global sharded clusters and replica sets, the single object represents where MongoDB Cloud deploys your clusters nodes.")
     root_cert_type: Annotated[Literal["ISRGROOTX1"], BeforeValidator(upper_case)] | None = Field(default=None, alias="rootCertType", description="Root Certificate Authority that MongoDB Atlas cluster uses. MongoDB Cloud supports Internet Security Research Group.")
     srv_address: str | None = Field(default=None, alias="srvAddress", description="Connection string that you can use to connect to the cluster. The `+srv` modifier forces the connection to use Transport Layer Security (TLS). The `mongoURI` parameter lists additional options.")

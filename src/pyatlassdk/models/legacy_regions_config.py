@@ -2,9 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
+from typing import TypeAlias
+from pyatlassdk.models.region_spec import RegionSpec
 
-class LegacyRegionsConfig(BaseModel):
-    """Physical location where MongoDB Cloud provisions cluster nodes."""
-    model_config = ConfigDict(populate_by_name=True, extra="allow")
-    pass
+LegacyRegionsConfig: TypeAlias = dict[str, RegionSpec]

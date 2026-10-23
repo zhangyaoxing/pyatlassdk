@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
+from typing import Any, TypeAlias
 
-class BasicDBObject(BaseModel):
-    """Generated model for BasicDBObject."""
-    model_config = ConfigDict(populate_by_name=True, extra="allow")
-    pass
+BasicDBObject: TypeAlias = dict[str, dict[str, Any]]

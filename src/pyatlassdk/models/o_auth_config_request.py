@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from typing import Annotated, Literal
 from pyatlassdk._enums import upper_case
-from pyatlassdk.models.o_auth_config_request_token_request_params import OAuthConfigRequestTokenRequestParams
 
 from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
@@ -16,4 +15,4 @@ class OAuthConfigRequest(BaseModel):
     client_secret: str | None = Field(default=None, alias="clientSecret", description="Shared client secret. Required when `clientAuthMethod` is `CLIENT_SECRET`, and rejected for `PRIVATE_KEY_JWT`. Encrypted at rest and never returned.")
     scopes: list[str] | None = Field(default=None, description="Optional OAuth 2.0 scopes requested on the token, sent as a space delimited `scope` parameter. Applies to both client authentication methods.")
     token_endpoint: str = Field(alias="tokenEndpoint", description="OAuth 2.0 token endpoint URL. Must use HTTPS.")
-    token_request_params: OAuthConfigRequestTokenRequestParams | None = Field(default=None, alias="tokenRequestParams", description="Optional provider-specific parameters added to the token request, for example a resource indicator. Applies to both client authentication methods.")
+    token_request_params: dict[str, str] | None = Field(default=None, alias="tokenRequestParams", description="Optional provider-specific parameters added to the token request, for example a resource indicator. Applies to both client authentication methods.")

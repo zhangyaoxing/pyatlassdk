@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
+from typing import Any, TypeAlias
 
-class Document(BaseModel):
-    """Generated model for Document."""
-    model_config = ConfigDict(populate_by_name=True, extra="allow")
-    pass
+Document: TypeAlias = dict[str, dict[str, Any]]

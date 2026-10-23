@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
+from typing import Any, TypeAlias
 
-class RequestAccepted(BaseModel):
-    """Accepted."""
-    model_config = ConfigDict(populate_by_name=True, extra="allow")
-    pass
+RequestAccepted: TypeAlias = dict[str, Any]

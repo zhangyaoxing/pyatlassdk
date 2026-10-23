@@ -37,6 +37,7 @@ with AtlasClient(client_id="...", client_secret="...") as client:
 - Models: pydantic v2 with snake_case fields; serialization uses the original Atlas field names (aliases).
 - `datetime` / `date` values are serialized to ISO 8601 strings, so they can be passed directly in request bodies.
 - Enum values are case-insensitive for uppercase code enums (`"secondary"` becomes `"SECONDARY"`).
+- Map-like fields (for example `connectionStrings.awsPrivateLink`) are typed as `dict[str, str]`.
 - Resources: 55 resource classes with one method per endpoint, named after `operationId`.
 
 ## Regenerating

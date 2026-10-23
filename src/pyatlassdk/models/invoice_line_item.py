@@ -5,7 +5,6 @@ from __future__ import annotations
 from typing import Annotated, Literal
 from datetime import datetime
 from pyatlassdk._enums import upper_case
-from pyatlassdk.models.invoice_line_item_tags import InvoiceLineItemTags
 
 from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
@@ -25,7 +24,7 @@ class InvoiceLineItem(BaseModel):
     sku: str | None = Field(default=None, description="Human-readable description of the service that this line item provided. This Stock Keeping Unit (SKU) could be the instance type, a support charge, advanced security, or another service.")
     start_date: datetime | None = Field(default=None, alias="startDate", description="Date and time when MongoDB Cloud began charging for this line item. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")
     stitch_app_name: str | None = Field(default=None, alias="stitchAppName", description="Human-readable label that identifies the Atlas App Services application associated with this line item.")
-    tags: InvoiceLineItemTags | None = Field(default=None, description="A map of key-value pairs corresponding to the tags associated with the line item resource.")
+    tags: dict[str, list[str]] | None = Field(default=None, description="A map of key-value pairs corresponding to the tags associated with the line item resource.")
     tier_lower_bound: float | None = Field(default=None, alias="tierLowerBound", description="Lower bound for usage amount range in current SKU tier. \n\n**NOTE**: `lineItems[n].tierLowerBound` appears only if your `lineItems[n].sku` is tiered.")
     tier_upper_bound: float | None = Field(default=None, alias="tierUpperBound", description="Upper bound for usage amount range in current SKU tier. \n\n**NOTE**: `lineItems[n].tierUpperBound` appears only if your `lineItems[n].sku` is tiered.")
     total_price_cents: int | None = Field(default=None, alias="totalPriceCents", description="Sum of the cost set for this line item. MongoDB Cloud expresses this value in cents (100ths of one US Dollar) and calculates this value as `unitPriceDollars` * `quantity` * 100.")

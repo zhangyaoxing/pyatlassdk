@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from typing import Annotated, Literal
 from pyatlassdk._enums import upper_case
-from pyatlassdk.models.o_auth_config_response_token_request_params import OAuthConfigResponseTokenRequestParams
 from pyatlassdk.models.o_auth_signing_key_info import OAuthSigningKeyInfo
 
 from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
@@ -17,4 +16,4 @@ class OAuthConfigResponse(BaseModel):
     scopes: list[str] | None = Field(default=None, description="OAuth 2.0 scopes requested on the token.")
     signing_key_info: OAuthSigningKeyInfo | None = Field(default=None, alias="signingKeyInfo")
     token_endpoint: str = Field(alias="tokenEndpoint", description="OAuth 2.0 token endpoint URL.")
-    token_request_params: OAuthConfigResponseTokenRequestParams | None = Field(default=None, alias="tokenRequestParams", description="Provider-specific parameters added to the token request.")
+    token_request_params: dict[str, str] | None = Field(default=None, alias="tokenRequestParams", description="Provider-specific parameters added to the token request.")

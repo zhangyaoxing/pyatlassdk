@@ -6,7 +6,6 @@ from typing import Annotated, Literal
 from pyatlassdk._enums import upper_case
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_kafka_authentication import StreamsKafkaAuthentication
-from pyatlassdk.models.streams_kafka_connection_config import StreamsKafkaConnectionConfig
 from pyatlassdk.models.streams_kafka_networking import StreamsKafkaNetworking
 from pyatlassdk.models.streams_kafka_security import StreamsKafkaSecurity
 
@@ -23,6 +22,6 @@ class StreamsKafkaConnection(BaseModel):
     type: Literal["Kafka", "Cluster", "Sample", "Https", "AzureBlobStorage", "AWSLambda", "AWSKinesisDataStreams", "SchemaRegistry", "GCPPubSub"] | None = Field(default=None, description="Connection type.")
     authentication: StreamsKafkaAuthentication | None = None
     bootstrap_servers: str | None = Field(default=None, alias="bootstrapServers", description="Comma separated list of server addresses.")
-    config: StreamsKafkaConnectionConfig | None = Field(default=None, description="Map of Kafka key-value pairs for optional configuration. This object is flat, and keys can have '.' characters.")
+    config: dict[str, str] | None = Field(default=None, description="Map of Kafka key-value pairs for optional configuration. This object is flat, and keys can have '.' characters.")
     networking: StreamsKafkaNetworking | None = None
     security: StreamsKafkaSecurity | None = None
