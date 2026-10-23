@@ -10,7 +10,7 @@ from pyatlassdk.models.flex_cluster_metric_threshold import FlexClusterMetricThr
 from pyatlassdk.models.flex_metric_event_type_view_alertable import FlexMetricEventTypeViewAlertable
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class FlexMetricAlertConfigViewForNdsGroup(BaseModel):
     """Flex metric alert configuration allows to select which Flex database metrics trigger alerts and how users are notified."""

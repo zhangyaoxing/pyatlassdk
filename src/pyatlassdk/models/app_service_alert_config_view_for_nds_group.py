@@ -9,7 +9,7 @@ from pyatlassdk.models.app_service_metric_matcher import AppServiceMetricMatcher
 from pyatlassdk.models.event_severity import EventSeverity
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AppServiceAlertConfigViewForNdsGroup(BaseModel):
     """App Services metric alert configuration allows to select which app service conditions and events trigger alerts and how users are notified."""

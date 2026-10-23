@@ -8,7 +8,7 @@ from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 from pyatlassdk.models.team_event_type_view import TeamEventTypeView
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class TeamEvent(BaseModel):
     """Team event identifies different activities around organization teams."""

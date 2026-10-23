@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Literal
 from datetime import date
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CostExplorerFilterRequestBody(BaseModel):
     """Request body for a cost explorer query."""

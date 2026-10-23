@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class TeamNotification(BaseModel):
     """Team notification configuration for MongoDB Cloud to send information when an event triggers an alert condition."""
@@ -16,4 +17,4 @@ class TeamNotification(BaseModel):
     sms_enabled: bool | None = Field(default=None, alias="smsEnabled", description="Flag that indicates whether MongoDB Cloud should send text message notifications. The resource requires this parameter when one of the following values have been set:\n\n- `\"notifications.[n].typeName\" : \"ORG\"`\n- `\"notifications.[n].typeName\" : \"GROUP\"`\n- `\"notifications.[n].typeName\" : \"USER\"`")
     team_id: str | None = Field(default=None, alias="teamId", description="Unique 24-hexadecimal digit string that identifies one MongoDB Cloud team. The resource requires this parameter when `\"notifications.[n].typeName\" : \"TEAM\"`.")
     team_name: str | None = Field(default=None, alias="teamName", description="Name of the MongoDB Cloud team that receives this notification. The resource requires this parameter when `\"notifications.[n].typeName\" : \"TEAM\"`.")
-    type_name: Literal["TEAM"] = Field(alias="typeName", description="Human-readable label that displays the alert notification type.")
+    type_name: Annotated[Literal["TEAM"], BeforeValidator(upper_case)] = Field(alias="typeName", description="Human-readable label that displays the alert notification type.")

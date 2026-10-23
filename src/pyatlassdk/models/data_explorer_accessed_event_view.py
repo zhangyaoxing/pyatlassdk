@@ -8,7 +8,7 @@ from pyatlassdk.models.link import Link
 from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DataExplorerAccessedEventView(BaseModel):
     """Data Explorer accessed event tracks different data operations via Data Explorer interactions."""

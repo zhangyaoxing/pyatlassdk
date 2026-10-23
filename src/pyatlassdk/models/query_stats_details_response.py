@@ -6,7 +6,7 @@ from pyatlassdk.models.query_shape_seen_metadata import QueryShapeSeenMetadata
 from pyatlassdk.models.query_stats_collection_response import QueryStatsCollectionResponse
 from pyatlassdk.models.query_stats_summary import QueryStatsSummary
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class QueryStatsDetailsResponse(BaseModel):
     """Metadata and summary statistics for a given query shape."""

@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.backup_online_archive import BackupOnlineArchive
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedOnlineArchiveView(BaseModel):
     """Generated model for PaginatedOnlineArchiveView."""

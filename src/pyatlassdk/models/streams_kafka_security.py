@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsKafkaSecurity(BaseModel):
     """Properties for the secure transport connection to Kafka. For SSL, this can include the trusted certificate to use."""

@@ -10,7 +10,7 @@ from pyatlassdk.models.greater_than_time_threshold import GreaterThanTimeThresho
 from pyatlassdk.models.group_event_type_view_for_nds_group_alertable_encryption_at_rest_config_update_stalled import GroupEventTypeViewForNdsGroupAlertableEncryptionAtRestConfigUpdateStalled
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class EncryptionAtRestConfigUpdateStalledAlertConfigViewForNdsGroup(BaseModel):
     """Configures the duration after which MongoDB Cloud alerts users that an Encryption at Rest configuration update has stalled."""

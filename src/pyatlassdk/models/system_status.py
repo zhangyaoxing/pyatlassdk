@@ -7,7 +7,7 @@ from pyatlassdk.models.api_key import ApiKey
 from pyatlassdk.models.authenticated_user import AuthenticatedUser
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class SystemStatus(BaseModel):
     """Generated model for SystemStatus."""

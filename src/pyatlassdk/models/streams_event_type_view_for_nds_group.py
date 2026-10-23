@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class StreamsEventTypeViewForNdsGroup(str, Enum):
+class StreamsEventTypeViewForNdsGroup(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     MAX_PROCESSOR_COUNT_REACHED = "MAX_PROCESSOR_COUNT_REACHED"

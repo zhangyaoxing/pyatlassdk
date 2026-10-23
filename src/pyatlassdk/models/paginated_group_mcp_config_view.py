@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.group_mcp_config_response import GroupMcpConfigResponse
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedGroupMcpConfigView(BaseModel):
     """Generated model for PaginatedGroupMcpConfigView."""

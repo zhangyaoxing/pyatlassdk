@@ -10,7 +10,7 @@ from pyatlassdk.models.export_status import ExportStatus
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.state_reason import StateReason
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DiskBackupExportJob(BaseModel):
     """Generated model for DiskBackupExportJob."""

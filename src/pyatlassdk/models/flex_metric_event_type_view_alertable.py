@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class FlexMetricEventTypeViewAlertable(str, Enum):
+class FlexMetricEventTypeViewAlertable(CaseInsensitiveEnum):
     """Event type that triggers an alert."""
     OUTSIDE_FLEX_METRIC_THRESHOLD = "OUTSIDE_FLEX_METRIC_THRESHOLD"

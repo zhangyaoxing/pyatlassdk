@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.api_atlas_collection_restore_collection_state_response import ApiAtlasCollectionRestoreCollectionStateResponse
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedApiAtlasCollectionRestoreCollectionStateView(BaseModel):
     """Generated model for PaginatedApiAtlasCollectionRestoreCollectionStateView."""

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.gateway_ip_addresses import GatewayIpAddresses
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class Gateway(BaseModel):
     """Represents a service-specific gateway, such as the Atlas Gateway, with its IP addresses."""

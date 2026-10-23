@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.group_service import GroupService
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class GroupIPAddresses(BaseModel):
     """List of IP addresses in a project."""

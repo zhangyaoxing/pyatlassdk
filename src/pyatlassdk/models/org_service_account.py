@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.service_account_secret import ServiceAccountSecret
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class OrgServiceAccount(BaseModel):
     """Organization Service Account that Atlas created for the organization."""
@@ -15,6 +16,6 @@ class OrgServiceAccount(BaseModel):
     created_at: datetime | None = Field(default=None, alias="createdAt", description="The date that the Service Account was created on. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")
     description: str | None = Field(default=None, description="Human readable description for the Service Account.")
     name: str | None = Field(default=None, description="Human-readable name for the Service Account.")
-    roles: list[Literal["ORG_MEMBER", "ORG_READ_ONLY", "ORG_BILLING_ADMIN", "ORG_BILLING_READ_ONLY", "ORG_STREAM_PROCESSING_ADMIN", "ORG_GROUP_CREATOR", "ORG_OWNER"]] | None = Field(default=None, description="A list of Organization roles associated with the Service Account.")
+    roles: list[Annotated[Literal["ORG_MEMBER", "ORG_READ_ONLY", "ORG_BILLING_ADMIN", "ORG_BILLING_READ_ONLY", "ORG_STREAM_PROCESSING_ADMIN", "ORG_GROUP_CREATOR", "ORG_OWNER"], BeforeValidator(upper_case)]] | None = Field(default=None, description="A list of Organization roles associated with the Service Account.")
     secrets: list[ServiceAccountSecret] | None = Field(default=None, description="A list of secrets associated with the specified Service Account.")
     system_managed: bool = Field(alias="systemManaged", description="Indicates whether the Service Account is system managed.")

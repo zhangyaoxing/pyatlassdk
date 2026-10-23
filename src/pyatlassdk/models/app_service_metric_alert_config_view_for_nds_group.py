@@ -10,7 +10,7 @@ from pyatlassdk.models.app_service_metric_threshold import AppServiceMetricThres
 from pyatlassdk.models.event_severity import EventSeverity
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AppServiceMetricAlertConfigViewForNdsGroup(BaseModel):
     """App Services metric alert configuration allows to select which app service metrics trigger alerts and how users are notified."""

@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.data_lake_api_base import DataLakeApiBase
 from pyatlassdk.models.data_lake_database_collection import DataLakeDatabaseCollection
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DataLakeDatabaseInstance(BaseModel):
     """Database associated with this data lake. Databases contain collections and views."""

@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class TimeMetricUnits(str, Enum):
+class TimeMetricUnits(CaseInsensitiveEnum):
     """Element used to express the quantity. This can be an element of time, storage capacity, and the like."""
     NANOSECONDS = "NANOSECONDS"
     MILLISECONDS = "MILLISECONDS"

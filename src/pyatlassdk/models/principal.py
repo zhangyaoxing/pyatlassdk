@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class Principal(BaseModel):
     """Information about a principal, such as an OAuth application, that triggered the event through delegated access."""

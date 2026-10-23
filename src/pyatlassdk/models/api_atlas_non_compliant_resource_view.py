@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.api_atlas_resource_policy_metadata_view import ApiAtlasResourcePolicyMetadataView
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ApiAtlasNonCompliantResourceView(BaseModel):
     """Generated model for ApiAtlasNonCompliantResourceView."""
@@ -14,4 +15,4 @@ class ApiAtlasNonCompliantResourceView(BaseModel):
     resource_id: str | None = Field(default=None, alias="resourceId", description="Unique 24-hexadecimal character string that identifies the non-compliant resource.")
     resource_name: str | None = Field(default=None, alias="resourceName", description="Unique human readable string that identifies the non-compliant resource.")
     resource_policies_causing_non_compliance: list[ApiAtlasResourcePolicyMetadataView] | None = Field(default=None, alias="resourcePoliciesCausingNonCompliance", description="List of resource policies causing the resource to be considered non-compliant.")
-    resource_type: Literal["DEPRECATED_PROJECT", "DEPRECATED_CLUSTER", "PROJECT", "CLUSTER"] | None = Field(default=None, alias="resourceType", description="Human-readable label that displays the type of a resource.")
+    resource_type: Annotated[Literal["DEPRECATED_PROJECT", "DEPRECATED_CLUSTER", "PROJECT", "CLUSTER"], BeforeValidator(upper_case)] | None = Field(default=None, alias="resourceType", description="Human-readable label that displays the type of a resource.")

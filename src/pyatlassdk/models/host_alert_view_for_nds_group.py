@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.host_event_type_view_for_nds_group_alertable import HostEventTypeViewForNdsGroupAlertable
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class HostAlertViewForNdsGroup(BaseModel):
     """Host alert notifies about activities on mongod host."""
@@ -27,6 +28,6 @@ class HostAlertViewForNdsGroup(BaseModel):
     org_id: str | None = Field(default=None, alias="orgId", description="Unique 24-hexadecimal character string that identifies the organization that owns the project to which this alert applies.")
     replica_set_name: str | None = Field(default=None, alias="replicaSetName", description="Name of the replica set to which this alert applies. The response returns this parameter for alerts of events impacting backups, hosts, or replica sets.")
     resolved: datetime | None = Field(default=None, description="Date and time that this alert changed to `\"status\" : \"CLOSED\"`. This parameter expresses its value in the ISO 8601 timestamp format in UTC. The resource returns this parameter once `\"status\" : \"CLOSED\"`.")
-    severity: Literal["INFO", "WARNING", "ERROR", "CRITICAL"] | None = Field(default=None, description="Severity of the event.")
-    status: Literal["CANCELLED", "CLOSED", "OPEN", "TRACKING"] = Field(description="State of this alert at the time you requested its details. TRACKING indicates the alert condition exists but has not persisted for the minimum notification delay. OPEN indicates the alert condition currently exists. CLOSED indicates the alert condition has been resolved.")
+    severity: Annotated[Literal["INFO", "WARNING", "ERROR", "CRITICAL"], BeforeValidator(upper_case)] | None = Field(default=None, description="Severity of the event.")
+    status: Annotated[Literal["CANCELLED", "CLOSED", "OPEN", "TRACKING"], BeforeValidator(upper_case)] = Field(description="State of this alert at the time you requested its details. TRACKING indicates the alert condition exists but has not persisted for the minimum notification delay. OPEN indicates the alert condition currently exists. CLOSED indicates the alert condition has been resolved.")
     updated: datetime = Field(description="Date and time when someone last updated this alert. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")

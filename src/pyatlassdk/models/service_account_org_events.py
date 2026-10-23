@@ -8,7 +8,7 @@ from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 from pyatlassdk.models.service_account_event_type_view_for_org import ServiceAccountEventTypeViewForOrg
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ServiceAccountOrgEvents(BaseModel):
     """Service Account event identifies different activities around user API keys."""

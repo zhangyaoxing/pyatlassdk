@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.connected_org_config import ConnectedOrgConfig
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedConnectedOrgConfigsView(BaseModel):
     """Generated model for PaginatedConnectedOrgConfigsView."""

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.search_index_definition_stored_source import SearchIndexDefinitionStoredSource
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class SearchIndexDefinition(BaseModel):
     """The search index definition set by the user."""

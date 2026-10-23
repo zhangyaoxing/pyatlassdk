@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class HostEventTypeViewForNdsGroup(str, Enum):
+class HostEventTypeViewForNdsGroup(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     ATTEMPT_KILLOP_AUDIT = "ATTEMPT_KILLOP_AUDIT"
     ATTEMPT_KILLSESSION_AUDIT = "ATTEMPT_KILLSESSION_AUDIT"

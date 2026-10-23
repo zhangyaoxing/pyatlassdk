@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.event_view_for_org import EventViewForOrg
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class OrgPaginatedEventView(BaseModel):
     """Generated model for OrgPaginatedEventView."""

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ZoneMapping(BaseModel):
     """Human-readable label that identifies the subset of a global cluster."""

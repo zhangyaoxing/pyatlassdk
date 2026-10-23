@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class NDSAuditTypeViewForOrg(str, Enum):
+class NDSAuditTypeViewForOrg(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     ORG_LIMIT_UPDATED = "ORG_LIMIT_UPDATED"
     SHADOW_CLUSTER_ORG_OPT_IN = "SHADOW_CLUSTER_ORG_OPT_IN"

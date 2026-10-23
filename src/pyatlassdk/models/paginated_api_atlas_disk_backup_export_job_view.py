@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.disk_backup_export_job import DiskBackupExportJob
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedApiAtlasDiskBackupExportJobView(BaseModel):
     """Generated model for PaginatedApiAtlasDiskBackupExportJobView."""

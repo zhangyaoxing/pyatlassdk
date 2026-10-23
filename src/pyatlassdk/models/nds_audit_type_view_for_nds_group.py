@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class NDSAuditTypeViewForNdsGroup(str, Enum):
+class NDSAuditTypeViewForNdsGroup(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     CLUSTER_CREATED = "CLUSTER_CREATED"
     CLUSTER_RESURRECTED = "CLUSTER_RESURRECTED"

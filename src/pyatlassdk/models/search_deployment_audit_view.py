@@ -8,7 +8,7 @@ from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 from pyatlassdk.models.search_deployment_audit_type_view import SearchDeploymentAuditTypeView
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class SearchDeploymentAuditView(BaseModel):
     """Indicates activities on decoupled search nodes."""

@@ -10,7 +10,7 @@ from pyatlassdk.models.link import Link
 from pyatlassdk.models.serverless_event_type_view_alertable import ServerlessEventTypeViewAlertable
 from pyatlassdk.models.serverless_metric_threshold import ServerlessMetricThreshold
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ServerlessMetricAlertConfigViewForNdsGroup(BaseModel):
     """Serverless metric alert configuration allows to select which serverless database metrics trigger alerts and how users are notified."""

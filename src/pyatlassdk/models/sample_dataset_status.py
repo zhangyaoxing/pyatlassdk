@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class SampleDatasetStatus(BaseModel):
     """Generated model for SampleDatasetStatus."""
@@ -15,4 +16,4 @@ class SampleDatasetStatus(BaseModel):
     complete_date: datetime | None = Field(default=None, alias="completeDate", description="Date and time when the sample dataset load job completed. MongoDB Cloud represents this timestamp in ISO 8601 format in UTC.")
     create_date: datetime | None = Field(default=None, alias="createDate", description="Date and time when you started the sample dataset load job. MongoDB Cloud represents this timestamp in ISO 8601 format in UTC.")
     error_message: str | None = Field(default=None, alias="errorMessage", description="Details of the error returned when MongoDB Cloud loads the sample dataset. This endpoint returns null if state has a value other than FAILED.")
-    state: Literal["WORKING", "FAILED", "COMPLETED"] | None = Field(default=None, description="Status of the sample dataset load job.")
+    state: Annotated[Literal["WORKING", "FAILED", "COMPLETED"], BeforeValidator(upper_case)] | None = Field(default=None, description="Status of the sample dataset load job.")

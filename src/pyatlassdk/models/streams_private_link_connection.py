@@ -2,17 +2,18 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsPrivateLinkConnection(BaseModel):
     """Container for metadata needed to create a Private Link connection."""
     model_config = ConfigDict(populate_by_name=True, extra="allow")
     id: str | None = Field(default=None, alias="_id", description="The ID of the Private Link connection.")
     arn: str | None = Field(default=None, description="Amazon Resource Name (ARN). Required for AWS Provider and MSK vendor.")
-    authentication_scheme: Literal["TLS", "SASL_SCRAM", "IAM"] | None = Field(default=None, alias="authenticationScheme", description="Authentication mechanism to use with this private networking connection.")
+    authentication_scheme: Annotated[Literal["TLS", "SASL_SCRAM", "IAM"], BeforeValidator(upper_case)] | None = Field(default=None, alias="authenticationScheme", description="Authentication mechanism to use with this private networking connection.")
     azure_resource_ids: list[str] | None = Field(default=None, alias="azureResourceIds", description="Azure Resource IDs of each availability zone for the Azure Confluent cluster.")
     dns_domain: str | None = Field(default=None, alias="dnsDomain", description="The domain hostname. Required for the following provider and vendor combinations:\n- AWS provider with CONFLUENT vendor.\n- AZURE provider with EVENTHUB or CONFLUENT vendor.")
     dns_sub_domain: list[str] | None = Field(default=None, alias="dnsSubDomain", description="Sub-Domain name of Confluent cluster. These are typically your availability zones. Required for AWS Provider and CONFLUENT vendor, if your AWS CONFLUENT cluster doesn't use subdomains, you must set this to the empty array [].")

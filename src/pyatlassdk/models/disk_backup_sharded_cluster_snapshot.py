@@ -2,17 +2,18 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.disk_backup_sharded_cluster_snapshot_member import DiskBackupShardedClusterSnapshotMember
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DiskBackupShardedClusterSnapshot(BaseModel):
     """Details of the sharded cluster snapshot that MongoDB Cloud created."""
     model_config = ConfigDict(populate_by_name=True, extra="allow")
-    config_server_type: Literal["EMBEDDED", "DEDICATED"] | None = Field(default=None, alias="configServerType", description="Describes a sharded cluster's config server type.")
+    config_server_type: Annotated[Literal["EMBEDDED", "DEDICATED"], BeforeValidator(upper_case)] | None = Field(default=None, alias="configServerType", description="Describes a sharded cluster's config server type.")
     created_at: datetime | None = Field(default=None, alias="createdAt", description="Date and time when MongoDB Cloud took the snapshot. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")
     description: str | None = Field(default=None, description="Human-readable phrase or sentence that explains the purpose of the snapshot. The resource returns this parameter when `\"status\": \"onDemand\"`.")
     expires_at: datetime | None = Field(default=None, alias="expiresAt", description="Date and time when MongoDB Cloud deletes the snapshot. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")

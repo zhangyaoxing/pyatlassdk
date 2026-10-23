@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class BillingEventTypeViewForNdsGroup(str, Enum):
+class BillingEventTypeViewForNdsGroup(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     CREDIT_CARD_CURRENT = "CREDIT_CARD_CURRENT"
     CREDIT_CARD_ABOUT_TO_EXPIRE = "CREDIT_CARD_ABOUT_TO_EXPIRE"

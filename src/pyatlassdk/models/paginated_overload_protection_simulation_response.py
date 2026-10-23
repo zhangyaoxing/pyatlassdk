@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.overload_protection_simulation_response import OverloadProtectionSimulationResponse
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedOverloadProtectionSimulationResponse(BaseModel):
     """List of overload protection simulations for a cluster."""

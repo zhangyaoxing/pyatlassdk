@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.disk_backup_snapshot_export_bucket_response import DiskBackupSnapshotExportBucketResponse
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedBackupSnapshotExportBucketsView(BaseModel):
     """Generated model for PaginatedBackupSnapshotExportBucketsView."""

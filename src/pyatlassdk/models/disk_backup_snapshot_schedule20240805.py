@@ -10,7 +10,7 @@ from pyatlassdk.models.disk_backup_copy_setting20240805 import DiskBackupCopySet
 from pyatlassdk.models.extra_retention_setting import ExtraRetentionSetting
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DiskBackupSnapshotSchedule20240805(BaseModel):
     """Generated model for DiskBackupSnapshotSchedule20240805."""

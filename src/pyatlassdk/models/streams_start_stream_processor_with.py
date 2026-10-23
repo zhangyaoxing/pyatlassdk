@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_autoscaling import StreamsAutoscaling
 from pyatlassdk.models.streams_start_processor_failover import StreamsStartProcessorFailover
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsStartStreamProcessorWith(BaseModel):
     """A request to start a stream processor."""
@@ -18,4 +19,4 @@ class StreamsStartStreamProcessorWith(BaseModel):
     links: list[Link] | None = Field(default=None, description="List of one or more Uniform Resource Locators (URLs) that point to API sub-resources, related API resources, or both. RFC 5988 outlines these relationships.")
     resume_from_checkpoint: bool | None = Field(default=None, alias="resumeFromCheckpoint", description="When true or not specified, the stream processor resumes from its last checkpoint. When false, the stream processor starts fresh.")
     start_at_operation_time: datetime | None = Field(default=None, alias="startAtOperationTime", description="The operation time after which the change stream source should begin reporting. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")
-    tier: Literal["SP50", "SP30", "SP10", "SP5", "SP2"] | None = Field(default=None, description="Baseline processing tier requested by the user.")
+    tier: Annotated[Literal["SP50", "SP30", "SP10", "SP5", "SP2"], BeforeValidator(upper_case)] | None = Field(default=None, description="Baseline processing tier requested by the user.")

@@ -8,7 +8,7 @@ from pyatlassdk.models.link import Link
 from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ChartsAudit(BaseModel):
     """Audit events related to Atlas Charts."""

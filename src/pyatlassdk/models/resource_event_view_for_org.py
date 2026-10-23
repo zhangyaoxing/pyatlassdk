@@ -8,7 +8,7 @@ from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 from pyatlassdk.models.resource_event_type_view_for_org import ResourceEventTypeViewForOrg
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ResourceEventViewForOrg(BaseModel):
     """Resource event reflects different activities about resources."""

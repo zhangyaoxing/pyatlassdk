@@ -6,7 +6,7 @@ from pyatlassdk.models.data_federation_azure_cloud_provider_config import DataFe
 from pyatlassdk.models.data_federation_gcp_cloud_provider_config import DataFederationGCPCloudProviderConfig
 from pyatlassdk.models.data_lake_aws_cloud_provider_config import DataLakeAWSCloudProviderConfig
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DataLakeCloudProviderConfig(BaseModel):
     """Cloud provider where this Federated Database Instance is hosted."""

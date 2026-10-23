@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.group_user_response import GroupUserResponse
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedGroupUserView(BaseModel):
     """Generated model for PaginatedGroupUserView."""

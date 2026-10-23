@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.data_lake_atlas_store_read_concern import DataLakeAtlasStoreReadConcern
 from pyatlassdk.models.data_lake_atlas_store_read_preference import DataLakeAtlasStoreReadPreference
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DataLakeAtlasStoreInstance(BaseModel):
     """Group of settings that define where the data is stored."""

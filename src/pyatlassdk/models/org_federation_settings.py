@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class OrgFederationSettings(BaseModel):
     """Details that define how to connect one MongoDB Cloud organization to one federated authentication service."""
@@ -13,4 +14,4 @@ class OrgFederationSettings(BaseModel):
     has_role_mappings: bool | None = Field(default=None, alias="hasRoleMappings", description="Flag that indicates whether this organization has role mappings configured.")
     id: str | None = Field(default=None, description="Unique 24-hexadecimal digit string that identifies this federation.")
     identity_provider_id: str | None = Field(default=None, alias="identityProviderId", description="Legacy 20-hexadecimal digit string that identifies the identity provider connected to this organization.")
-    identity_provider_status: Literal["ACTIVE", "INACTIVE"] | None = Field(default=None, alias="identityProviderStatus", description="String enum that indicates whether the identity provider is active.")
+    identity_provider_status: Annotated[Literal["ACTIVE", "INACTIVE"], BeforeValidator(upper_case)] | None = Field(default=None, alias="identityProviderStatus", description="String enum that indicates whether the identity provider is active.")

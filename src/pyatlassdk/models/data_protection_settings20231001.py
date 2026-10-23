@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.backup_compliance_on_demand_policy_item import BackupComplianceOnDemandPolicyItem
 from pyatlassdk.models.backup_compliance_scheduled_policy_item import BackupComplianceScheduledPolicyItem
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DataProtectionSettings20231001(BaseModel):
     """Generated model for DataProtectionSettings20231001."""
@@ -23,6 +24,6 @@ class DataProtectionSettings20231001(BaseModel):
     project_id: str | None = Field(default=None, alias="projectId", description="Unique 24-hexadecimal digit string that identifies the project for the Backup Compliance Policy.")
     restore_window_days: int | None = Field(default=None, alias="restoreWindowDays", description="Number of previous days that you can restore back to with Continuous Cloud Backup with a Backup Compliance Policy. You must specify a positive, non-zero integer, and the maximum retention window can't exceed the hourly retention time. This parameter applies only to Continuous Cloud Backups with a Backup Compliance Policy.")
     scheduled_policy_items: list[BackupComplianceScheduledPolicyItem] | None = Field(default=None, alias="scheduledPolicyItems", description="List that contains the specifications for one scheduled policy.")
-    state: Literal["ACTIVE", "ENABLING", "UPDATING", "DISABLING"] | None = Field(default=None, description="Label that indicates the state of the Backup Compliance Policy settings. MongoDB Cloud ignores this setting when you enable or update the Backup Compliance Policy settings.")
+    state: Annotated[Literal["ACTIVE", "ENABLING", "UPDATING", "DISABLING"], BeforeValidator(upper_case)] | None = Field(default=None, description="Label that indicates the state of the Backup Compliance Policy settings. MongoDB Cloud ignores this setting when you enable or update the Backup Compliance Policy settings.")
     updated_date: datetime | None = Field(default=None, alias="updatedDate", description="ISO 8601 timestamp format in UTC that indicates when the user updated the Data Protection Policy settings. MongoDB Cloud ignores this setting when you enable or update the Backup Compliance Policy settings.")
     updated_user: str | None = Field(default=None, alias="updatedUser", description="Email address that identifies the user who updated the Backup Compliance Policy settings. MongoDB Cloud ignores this email setting when you enable or update the Backup Compliance Policy settings.")

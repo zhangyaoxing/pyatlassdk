@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.cloud_cluster import CloudCluster
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class OrgGroup(BaseModel):
     """Generated model for OrgGroup."""

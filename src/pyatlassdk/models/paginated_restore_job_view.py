@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.backup_restore_job import BackupRestoreJob
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedRestoreJobView(BaseModel):
     """Generated model for PaginatedRestoreJobView."""

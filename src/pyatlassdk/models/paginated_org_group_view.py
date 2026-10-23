@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.org_group import OrgGroup
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedOrgGroupView(BaseModel):
     """Generated model for PaginatedOrgGroupView."""

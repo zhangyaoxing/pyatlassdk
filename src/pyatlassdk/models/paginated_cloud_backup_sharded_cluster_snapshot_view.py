@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.disk_backup_sharded_cluster_snapshot import DiskBackupShardedClusterSnapshot
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedCloudBackupShardedClusterSnapshotView(BaseModel):
     """Generated model for PaginatedCloudBackupShardedClusterSnapshotView."""

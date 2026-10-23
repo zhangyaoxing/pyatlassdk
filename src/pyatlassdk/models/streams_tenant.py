@@ -8,7 +8,7 @@ from pyatlassdk.models.streams_connection import StreamsConnection
 from pyatlassdk.models.streams_data_process_region import StreamsDataProcessRegion
 from pyatlassdk.models.streams_sample_connections import StreamsSampleConnections
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsTenant(BaseModel):
     """Generated model for StreamsTenant."""

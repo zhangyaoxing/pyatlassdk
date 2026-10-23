@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_public_private_link_networking_access import StreamsPublicPrivateLinkNetworkingAccess
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsPublicPrivateLinkNetworking(BaseModel):
     """Networking configuration for connections that support `PUBLIC` and `PRIVATE_LINK` access types. For GCP connections, use `PRIVATE_LINK` for GCP Private Service Connect (PSC)."""

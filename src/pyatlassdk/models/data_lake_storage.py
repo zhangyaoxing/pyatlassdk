@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.data_lake_database_instance import DataLakeDatabaseInstance
 from pyatlassdk.models.data_lake_store_settings import DataLakeStoreSettings
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DataLakeStorage(BaseModel):
     """Configuration information for each data store and its mapping to MongoDB Cloud databases."""

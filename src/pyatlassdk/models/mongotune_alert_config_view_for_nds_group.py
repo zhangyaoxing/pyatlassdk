@@ -9,7 +9,7 @@ from pyatlassdk.models.event_severity import EventSeverity
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.mongotune_event_type_view_alertable import MongotuneEventTypeViewAlertable
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class MongotuneAlertConfigViewForNdsGroup(BaseModel):
     """Intelligent Workload Management alert configuration allows to select which Intelligent Workload Management events trigger alerts and how users are notified."""

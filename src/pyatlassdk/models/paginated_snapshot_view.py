@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.backup_snapshot import BackupSnapshot
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedSnapshotView(BaseModel):
     """Generated model for PaginatedSnapshotView."""

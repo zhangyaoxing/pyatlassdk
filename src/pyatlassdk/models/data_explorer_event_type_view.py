@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class DataExplorerEventTypeView(str, Enum):
+class DataExplorerEventTypeView(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     DATA_EXPLORER_SESSION_CREATED = "DATA_EXPLORER_SESSION_CREATED"

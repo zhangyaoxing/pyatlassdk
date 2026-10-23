@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.connected_org_config_role_assignment import ConnectedOrgConfigRoleAssignment
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AuthFederationRoleMapping(BaseModel):
     """Mapping settings that link one IdP and MongoDB Cloud."""

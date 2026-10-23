@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.geo_sharding20240805_custom_zone_mapping import GeoSharding20240805CustomZoneMapping
 from pyatlassdk.models.managed_namespaces import ManagedNamespaces
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class GeoSharding20240805(BaseModel):
     """Generated model for GeoSharding20240805."""

@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.group_service_account import GroupServiceAccount
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedGroupServiceAccounts(BaseModel):
     """A list of Project Service Accounts."""

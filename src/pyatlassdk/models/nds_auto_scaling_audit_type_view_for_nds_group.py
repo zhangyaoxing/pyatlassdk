@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class NDSAutoScalingAuditTypeViewForNdsGroup(str, Enum):
+class NDSAutoScalingAuditTypeViewForNdsGroup(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     COMPUTE_AUTO_SCALE_INITIATED = "COMPUTE_AUTO_SCALE_INITIATED"
     DISK_AUTO_SCALE_INITIATED = "DISK_AUTO_SCALE_INITIATED"

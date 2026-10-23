@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.flex_cluster_description20241113 import FlexClusterDescription20241113
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedFlexClusters20241113(BaseModel):
     """Generated model for PaginatedFlexClusters20241113."""

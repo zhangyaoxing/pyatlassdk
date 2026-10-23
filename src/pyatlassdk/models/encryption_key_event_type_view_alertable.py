@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class EncryptionKeyEventTypeViewAlertable(str, Enum):
+class EncryptionKeyEventTypeViewAlertable(CaseInsensitiveEnum):
     """Event type that triggers an alert."""
     AWS_ENCRYPTION_KEY_NEEDS_ROTATION = "AWS_ENCRYPTION_KEY_NEEDS_ROTATION"
     AZURE_ENCRYPTION_KEY_NEEDS_ROTATION = "AZURE_ENCRYPTION_KEY_NEEDS_ROTATION"

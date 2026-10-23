@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class GeoSharding20240805CustomZoneMapping(BaseModel):
     """Generated model for GeoSharding20240805CustomZoneMapping."""

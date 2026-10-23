@@ -6,7 +6,7 @@ from datetime import datetime
 from pyatlassdk.models.cloud_access_role_assignment import CloudAccessRoleAssignment
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CloudAppUser(BaseModel):
     """Generated model for CloudAppUser."""

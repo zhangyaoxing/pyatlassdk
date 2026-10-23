@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.cloud_provider_container import CloudProviderContainer
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedCloudProviderContainerView(BaseModel):
     """List of Network Peering Containers that Amazon Web Services serves."""

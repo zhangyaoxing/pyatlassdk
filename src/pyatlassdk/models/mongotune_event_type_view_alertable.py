@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class MongotuneEventTypeViewAlertable(str, Enum):
+class MongotuneEventTypeViewAlertable(CaseInsensitiveEnum):
     """Event type that triggers an alert."""
     MONGOTUNE_ALERT = "MONGOTUNE_ALERT"

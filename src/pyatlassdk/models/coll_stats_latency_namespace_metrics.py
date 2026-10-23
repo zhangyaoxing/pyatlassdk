@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.coll_stats_latency_namespace_metric import CollStatsLatencyNamespaceMetric
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CollStatsLatencyNamespaceMetrics(BaseModel):
     """Generated model for CollStatsLatencyNamespaceMetrics."""

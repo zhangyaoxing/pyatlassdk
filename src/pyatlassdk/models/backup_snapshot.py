@@ -7,7 +7,7 @@ from pyatlassdk.models.api_bson_timestamp_view import ApiBSONTimestampView
 from pyatlassdk.models.backup_snapshot_part import BackupSnapshotPart
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class BackupSnapshot(BaseModel):
     """Generated model for BackupSnapshot."""

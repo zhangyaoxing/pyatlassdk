@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import datetime
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class UserAccessListResponse(BaseModel):
     """Generated model for UserAccessListResponse."""

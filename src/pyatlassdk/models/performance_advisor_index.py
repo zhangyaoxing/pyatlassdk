@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.performance_advisor_index_collation import PerformanceAdvisorIndexCollation
 from pyatlassdk.models.performance_advisor_index_index_item import PerformanceAdvisorIndexIndexItem
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PerformanceAdvisorIndex(BaseModel):
     """Generated model for PerformanceAdvisorIndex."""

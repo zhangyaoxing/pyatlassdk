@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.performance_advisor_slow_query import PerformanceAdvisorSlowQuery
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PerformanceAdvisorSlowQueryList(BaseModel):
     """Generated model for PerformanceAdvisorSlowQueryList."""

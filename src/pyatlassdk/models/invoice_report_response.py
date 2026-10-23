@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class InvoiceReportResponse(BaseModel):
     """Status and details of a previously requested invoice report."""
@@ -15,7 +16,7 @@ class InvoiceReportResponse(BaseModel):
     failure_reason: str | None = Field(default=None, alias="failureReason", description="Reason the report failed. Present only when the report has failed.")
     format_spec_version: str | None = Field(default=None, alias="formatSpecVersion", description="Version of the report format specification.")
     invoice_id: str = Field(alias="invoiceId", description="Unique 24-hexadecimal digit string that identifies the invoice.")
-    report_format: Literal["CSV"] = Field(alias="reportFormat", description="Format of the generated report.")
+    report_format: Annotated[Literal["CSV"], BeforeValidator(upper_case)] = Field(alias="reportFormat", description="Format of the generated report.")
     report_id: str = Field(alias="reportId", description="Unique 24-hexadecimal digit string that identifies the report.")
-    report_type: Literal["FOCUS"] = Field(alias="reportType", description="Type of the generated report.")
-    state: Literal["PENDING", "RUNNING", "SUCCEEDED", "FAILED"] = Field(description="Current state of the report generation.")
+    report_type: Annotated[Literal["FOCUS"], BeforeValidator(upper_case)] = Field(alias="reportType", description="Type of the generated report.")
+    state: Annotated[Literal["PENDING", "RUNNING", "SUCCEEDED", "FAILED"], BeforeValidator(upper_case)] = Field(description="Current state of the report generation.")

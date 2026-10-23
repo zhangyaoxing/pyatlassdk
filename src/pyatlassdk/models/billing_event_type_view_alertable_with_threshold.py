@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class BillingEventTypeViewAlertableWithThreshold(str, Enum):
+class BillingEventTypeViewAlertableWithThreshold(CaseInsensitiveEnum):
     """Event type that triggers an alert."""
     PENDING_INVOICE_OVER_THRESHOLD = "PENDING_INVOICE_OVER_THRESHOLD"
     DAILY_BILL_OVER_THRESHOLD = "DAILY_BILL_OVER_THRESHOLD"

@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class UserEventTypeViewForOrg(str, Enum):
+class UserEventTypeViewForOrg(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     JOINED_ORG = "JOINED_ORG"
     JOINED_TEAM = "JOINED_TEAM"

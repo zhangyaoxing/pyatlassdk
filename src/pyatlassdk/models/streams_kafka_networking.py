@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_kafka_networking_access import StreamsKafkaNetworkingAccess
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsKafkaNetworking(BaseModel):
     """Networking configuration for Streams connections."""

@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.rate_limit_endpoint_set_response import RateLimitEndpointSetResponse
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedRateLimitEndpointSets(BaseModel):
     """A list of rate limit endpoint sets."""

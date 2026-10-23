@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class ReplicaSetEventTypeViewForNdsGroup(str, Enum):
+class ReplicaSetEventTypeViewForNdsGroup(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     PRIMARY_ELECTED = "PRIMARY_ELECTED"
     REPLICATION_OPLOG_WINDOW_HEALTHY = "REPLICATION_OPLOG_WINDOW_HEALTHY"

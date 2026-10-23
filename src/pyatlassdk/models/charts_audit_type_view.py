@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class ChartsAuditTypeView(str, Enum):
+class ChartsAuditTypeView(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     CHARTS_API_SUCCESS = "CHARTS_API_SUCCESS"
     CHARTS_API_FAILURE = "CHARTS_API_FAILURE"

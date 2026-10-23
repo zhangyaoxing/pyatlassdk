@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.ai_model_rate_limit_response import AiModelRateLimitResponse
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedAtlasAiModelRateLimitsResponse(BaseModel):
     """List response for AI Model rate limits at the organization and project level."""

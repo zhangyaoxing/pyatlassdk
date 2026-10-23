@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.base_network_peering_connection_settings import BaseNetworkPeeringConnectionSettings
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedContainerPeerView(BaseModel):
     """Group of Network Peering connection settings."""

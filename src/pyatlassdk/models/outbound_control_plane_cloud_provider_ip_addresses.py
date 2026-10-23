@@ -6,7 +6,7 @@ from pyatlassdk.models.outbound_control_plane_cloud_provider_ip_addresses_aws im
 from pyatlassdk.models.outbound_control_plane_cloud_provider_ip_addresses_azure import OutboundControlPlaneCloudProviderIPAddressesAzure
 from pyatlassdk.models.outbound_control_plane_cloud_provider_ip_addresses_gcp import OutboundControlPlaneCloudProviderIPAddressesGcp
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class OutboundControlPlaneCloudProviderIPAddresses(BaseModel):
     """List of outbound IP addresses from the Atlas control plane, categorized by cloud provider. If your network allows inbound HTTP requests only from specific IP addresses, you must allow access from the following IP addresses so that Atlas can communicate with your webhooks and KMS."""

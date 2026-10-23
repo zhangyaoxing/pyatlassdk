@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class NDSAutoScalingAuditTypeViewAlertable(str, Enum):
+class NDSAutoScalingAuditTypeViewAlertable(CaseInsensitiveEnum):
     """Event type that triggers an alert."""
     COMPUTE_AUTO_SCALE_INITIATED_BASE = "COMPUTE_AUTO_SCALE_INITIATED_BASE"
     COMPUTE_AUTO_SCALE_INITIATED_ANALYTICS = "COMPUTE_AUTO_SCALE_INITIATED_ANALYTICS"

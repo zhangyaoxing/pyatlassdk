@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class SearchIndexDefinitionVersion(BaseModel):
     """Object which includes the version number of the index definition and the time that the index definition was created."""

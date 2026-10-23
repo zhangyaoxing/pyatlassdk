@@ -6,7 +6,7 @@ from pyatlassdk.models.awskms_configuration import AWSKMSConfiguration
 from pyatlassdk.models.azure_key_vault import AzureKeyVault
 from pyatlassdk.models.google_cloud_kms import GoogleCloudKMS
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class EncryptionAtRest(BaseModel):
     """Generated model for EncryptionAtRest."""

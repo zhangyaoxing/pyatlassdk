@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.api_host_view_atlas import ApiHostViewAtlas
 from pyatlassdk.models.link_atlas import LinkAtlas
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedHostViewAtlas(BaseModel):
     """Generated model for PaginatedHostViewAtlas."""

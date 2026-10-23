@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.search_mappings_dynamic import SearchMappingsDynamic
 from pyatlassdk.models.search_mappings_fields import SearchMappingsFields
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class SearchMappings(BaseModel):
     """Index specifications for the collection's fields."""

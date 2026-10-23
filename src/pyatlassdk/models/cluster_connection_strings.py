@@ -6,7 +6,7 @@ from pyatlassdk.models.cluster_connection_strings_aws_private_link import Cluste
 from pyatlassdk.models.cluster_connection_strings_aws_private_link_srv import ClusterConnectionStringsAwsPrivateLinkSrv
 from pyatlassdk.models.cluster_description_connection_strings_private_endpoint import ClusterDescriptionConnectionStringsPrivateEndpoint
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ClusterConnectionStrings(BaseModel):
     """Collection of Uniform Resource Locators that point to the MongoDB database."""

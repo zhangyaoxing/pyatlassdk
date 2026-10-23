@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class AlertAuditTypeView(str, Enum):
+class AlertAuditTypeView(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     ALERT_ACKNOWLEDGED_AUDIT = "ALERT_ACKNOWLEDGED_AUDIT"
     ALERT_UNACKNOWLEDGED_AUDIT = "ALERT_UNACKNOWLEDGED_AUDIT"

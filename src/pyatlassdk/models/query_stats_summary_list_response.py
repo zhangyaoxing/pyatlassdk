@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.query_stats_collection_response import QueryStatsCollectionResponse
 from pyatlassdk.models.query_stats_summary import QueryStatsSummary
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class QueryStatsSummaryListResponse(BaseModel):
     """Generated model for QueryStatsSummaryListResponse."""

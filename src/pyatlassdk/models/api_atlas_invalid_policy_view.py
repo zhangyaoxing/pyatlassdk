@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.api_atlas_invalid_policy_error_detail_view import ApiAtlasInvalidPolicyErrorDetailView
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ApiAtlasInvalidPolicyView(BaseModel):
     """Generated model for ApiAtlasInvalidPolicyView."""

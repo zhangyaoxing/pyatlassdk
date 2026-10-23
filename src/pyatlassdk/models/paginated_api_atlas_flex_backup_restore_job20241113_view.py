@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.flex_backup_restore_job20241113 import FlexBackupRestoreJob20241113
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedApiAtlasFlexBackupRestoreJob20241113View(BaseModel):
     """Generated model for PaginatedApiAtlasFlexBackupRestoreJob20241113View."""

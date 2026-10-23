@@ -7,7 +7,7 @@ from pyatlassdk.models.link import Link
 from pyatlassdk.models.raw import Raw
 from pyatlassdk.models.stream_processor_event_type_view_for_nds_group import StreamProcessorEventTypeViewForNdsGroup
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamProcessorEventViewForNdsGroup(BaseModel):
     """Stream Processor event identifies different activities about a stream processor in Atlas Streams."""

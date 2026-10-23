@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.custom_session_timeouts import CustomSessionTimeouts
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class OrganizationSettings(BaseModel):
     """Collection of settings that configures the organization."""

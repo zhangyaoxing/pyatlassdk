@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class ReplicaSetEventTypeViewForNdsGroupAlertableWithThreshold(str, Enum):
+class ReplicaSetEventTypeViewForNdsGroupAlertableWithThreshold(CaseInsensitiveEnum):
     """Event type that triggers an alert."""
     TOO_MANY_ELECTIONS = "TOO_MANY_ELECTIONS"
     REPLICATION_OPLOG_WINDOW_RUNNING_OUT = "REPLICATION_OPLOG_WINDOW_RUNNING_OUT"

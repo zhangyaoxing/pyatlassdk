@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Literal
 from pyatlassdk.models.synonym_source import SynonymSource
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class SearchSynonymMappingDefinition(BaseModel):
     """Synonyms used for this full text index."""

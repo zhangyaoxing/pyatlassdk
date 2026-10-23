@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class AppServiceEventTypeViewAlertableNoThreshold(str, Enum):
+class AppServiceEventTypeViewAlertableNoThreshold(CaseInsensitiveEnum):
     """Event type that triggers an alert."""
     URL_CONFIRMATION = "URL_CONFIRMATION"
     SUCCESSFUL_DEPLOY = "SUCCESSFUL_DEPLOY"

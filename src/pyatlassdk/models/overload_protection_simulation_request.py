@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class OverloadProtectionSimulationRequest(BaseModel):
     """Request to start an overload protection simulation for a cluster."""

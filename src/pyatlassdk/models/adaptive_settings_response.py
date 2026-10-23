@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.adaptive_settings_overrides import AdaptiveSettingsOverrides
 from pyatlassdk.models.adaptive_settings_response_effective_adaptive_settings import AdaptiveSettingsResponseEffectiveAdaptiveSettings
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AdaptiveSettingsResponse(BaseModel):
     """Adaptive Settings for a cluster, including client-provided overrides and the effective settings derived from those overrides and Atlas-managed defaults."""

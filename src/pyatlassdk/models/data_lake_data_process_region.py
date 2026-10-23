@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.base_atlas_data_lake_region import BaseAtlasDataLakeRegion
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DataLakeDataProcessRegion(BaseModel):
     """Information about the cloud provider region to which the Federated Database Instance routes client connections."""
     model_config = ConfigDict(populate_by_name=True, extra="allow")
-    cloud_provider: Literal["AWS", "AZURE", "GCP"] = Field(alias="cloudProvider", description="Name of the cloud service that hosts the Federated Database Instance's infrastructure.")
+    cloud_provider: Annotated[Literal["AWS", "AZURE", "GCP"], BeforeValidator(upper_case)] = Field(alias="cloudProvider", description="Name of the cloud service that hosts the Federated Database Instance's infrastructure.")
     region: BaseAtlasDataLakeRegion

@@ -10,7 +10,7 @@ from pyatlassdk.models.search_type_sets import SearchTypeSets
 from pyatlassdk.models.text_search_index_definition_sort import TextSearchIndexDefinitionSort
 from pyatlassdk.models.text_search_index_definition_stored_source import TextSearchIndexDefinitionStoredSource
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class TextSearchIndexDefinition(BaseModel):
     """The text search index definition set by the user."""

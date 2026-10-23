@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class ApiUserEventTypeViewForNdsGroup(str, Enum):
+class ApiUserEventTypeViewForNdsGroup(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     API_KEY_CREATED = "API_KEY_CREATED"
     API_KEY_DELETED = "API_KEY_DELETED"

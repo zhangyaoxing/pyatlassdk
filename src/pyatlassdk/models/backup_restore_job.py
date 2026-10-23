@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.api_bson_timestamp_view import ApiBSONTimestampView
 from pyatlassdk.models.backup_restore_job_delivery import BackupRestoreJobDelivery
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.restore_job_file_hash import RestoreJobFileHash
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class BackupRestoreJob(BaseModel):
     """Generated model for BackupRestoreJob."""
@@ -31,5 +32,5 @@ class BackupRestoreJob(BaseModel):
     oplog_ts: str | None = Field(default=None, alias="oplogTs", description="Date and time from which you want to restore this snapshot. This parameter expresses its value in ISO 8601 format in UTC. This represents the first part of an Oplog timestamp. When paired with `oplogInc`, they represent the last database operation to which you want to restore your data. This parameter applies when `\"delivery.methodName\" : \"AUTOMATED_RESTORE\"`. Run a query against `local.oplog.rs` on your replica set to find the desired timestamp.\n\n- If you set `oplogTs`, you must set `oplogInc`, and you can't set `checkpointId`, `snapshotId`, or `pointInTimeUTCMillis`.\n- If you provide this parameter, this endpoint restores all data up to and including this Oplog timestamp to the database you specified in the `delivery` object.")
     point_in_time_utc_millis: int | None = Field(default=None, alias="pointInTimeUTCMillis", description="Timestamp from which you want to restore this snapshot. This parameter expresses its value in the number of milliseconds elapsed since the UNIX epoch. This timestamp must fall within the last 24 hours of the current time. This parameter applies when `\"delivery.methodName\" : \"AUTOMATED_RESTORE\"`.\n\n- If you provide this parameter, this endpoint restores all data up to this point in time to the database you specified in the `delivery` object.\n- If you set `pointInTimeUTCMillis`, you can't set `oplogInc`, `oplogTs`, `snapshotId`, or `checkpointId`.")
     snapshot_id: str | None = Field(default=None, alias="snapshotId", description="Unique 24-hexadecimal digit string that identifies the snapshot to restore. If you set `snapshotId`, you can't set `oplogInc`, `oplogTs`, `pointInTimeUTCMillis`, or `checkpointId`.")
-    status_name: Literal["IN_PROGRESS", "BROKEN", "KILLED", "FINISHED"] | None = Field(default=None, alias="statusName", description="Human-readable label that identifies the status of the downloadable file at the time of the request.")
+    status_name: Annotated[Literal["IN_PROGRESS", "BROKEN", "KILLED", "FINISHED"], BeforeValidator(upper_case)] | None = Field(default=None, alias="statusName", description="Human-readable label that identifies the status of the downloadable file at the time of the request.")
     timestamp: ApiBSONTimestampView | None = None

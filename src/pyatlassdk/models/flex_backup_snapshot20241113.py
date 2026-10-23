@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class FlexBackupSnapshot20241113(BaseModel):
     """Details for one snapshot of a flex cluster."""
@@ -18,4 +19,4 @@ class FlexBackupSnapshot20241113(BaseModel):
     mongo_db_version: str | None = Field(default=None, alias="mongoDBVersion", description="MongoDB host version that the snapshot runs.")
     scheduled_time: datetime | None = Field(default=None, alias="scheduledTime", description="Date and time when MongoDB Cloud will take the snapshot. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")
     start_time: datetime | None = Field(default=None, alias="startTime", description="Date and time when MongoDB Cloud began taking the snapshot. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")
-    status: Literal["PENDING", "QUEUED", "RUNNING", "FAILED", "COMPLETED"] | None = Field(default=None, description="Phase of the workflow for this snapshot at the time this resource made this request.")
+    status: Annotated[Literal["PENDING", "QUEUED", "RUNNING", "FAILED", "COMPLETED"], BeforeValidator(upper_case)] | None = Field(default=None, description="Phase of the workflow for this snapshot at the time this resource made this request.")

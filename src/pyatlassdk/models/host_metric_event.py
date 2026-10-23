@@ -9,7 +9,7 @@ from pyatlassdk.models.link import Link
 from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class HostMetricEvent(BaseModel):
     """Host Metric Event reflects different measurements and metrics about mongod host."""

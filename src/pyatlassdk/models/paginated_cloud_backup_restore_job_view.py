@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.disk_backup_snapshot_restore_job import DiskBackupSnapshotRestoreJob
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedCloudBackupRestoreJobView(BaseModel):
     """Generated model for PaginatedCloudBackupRestoreJobView."""

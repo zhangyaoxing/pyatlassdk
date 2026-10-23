@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class AutomationConfigEventTypeView(str, Enum):
+class AutomationConfigEventTypeView(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     AUTOMATION_CONFIG_PUBLISHED_AUDIT = "AUTOMATION_CONFIG_PUBLISHED_AUDIT"

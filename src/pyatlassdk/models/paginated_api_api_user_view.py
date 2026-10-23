@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.api_key_user_details import ApiKeyUserDetails
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedApiApiUserView(BaseModel):
     """Generated model for PaginatedApiApiUserView."""

@@ -6,7 +6,7 @@ from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_autoscaling import StreamsAutoscaling
 from pyatlassdk.models.streams_dlq import StreamsDLQ
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsOptions(BaseModel):
     """Optional configuration for the stream processor."""

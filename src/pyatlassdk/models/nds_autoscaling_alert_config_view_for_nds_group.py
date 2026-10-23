@@ -9,7 +9,7 @@ from pyatlassdk.models.link import Link
 from pyatlassdk.models.nds_auto_scaling_audit_type_view_alertable import NDSAutoScalingAuditTypeViewAlertable
 from pyatlassdk.models.nds_autoscaling_matcher import NDSAutoscalingMatcher
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class NDSAutoscalingAlertConfigViewForNdsGroup(BaseModel):
     """NDS Auto-Scaling alert configuration allows selecting which auto-scaling events trigger alerts and how users are notified."""

@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.database_inherited_role import DatabaseInheritedRole
 from pyatlassdk.models.database_privilege_action import DatabasePrivilegeAction
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class UpdateCustomDBRole(BaseModel):
     """Generated model for UpdateCustomDBRole."""

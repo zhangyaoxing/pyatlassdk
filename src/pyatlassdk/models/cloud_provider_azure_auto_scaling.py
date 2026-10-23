@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.azure_compute_auto_scaling_rules import AzureComputeAutoScalingRules
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CloudProviderAzureAutoScaling(BaseModel):
     """Range of instance sizes to which your cluster can scale."""

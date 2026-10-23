@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AtlasResourcePolicyAuditForOrg(BaseModel):
     """Atlas resource policy audits indicate organization level changes to resource policies."""
@@ -16,7 +17,7 @@ class AtlasResourcePolicyAuditForOrg(BaseModel):
     api_key_id: str | None = Field(default=None, alias="apiKeyId", description="Unique 24-hexadecimal digit string that identifies the API Key that triggered the event. If this resource returns this parameter, it doesn't return the `userId` parameter.")
     created: datetime = Field(description="Date and time when this event occurred. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")
     delegate_principal: Principal | None = Field(default=None, alias="delegatePrincipal")
-    event_type_name: Literal["RESOURCE_POLICY_CREATED", "RESOURCE_POLICY_MODIFIED", "RESOURCE_POLICY_DELETED", "RESOURCE_POLICY_VIOLATED"] = Field(alias="eventTypeName", description="Unique identifier of event type.")
+    event_type_name: Annotated[Literal["RESOURCE_POLICY_CREATED", "RESOURCE_POLICY_MODIFIED", "RESOURCE_POLICY_DELETED", "RESOURCE_POLICY_VIOLATED"], BeforeValidator(upper_case)] = Field(alias="eventTypeName", description="Unique identifier of event type.")
     group_id: str | None = Field(default=None, alias="groupId", description="Unique 24-hexadecimal digit string that identifies the project in which the event occurred. The `eventId` identifies the specific event.")
     id: str = Field(description="Unique 24-hexadecimal digit string that identifies the event.")
     is_global_admin: bool | None = Field(default=None, alias="isGlobalAdmin", description="Flag that indicates whether a MongoDB employee triggered the specified event.")

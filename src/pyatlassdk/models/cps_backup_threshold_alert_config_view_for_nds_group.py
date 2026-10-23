@@ -10,7 +10,7 @@ from pyatlassdk.models.event_severity import EventSeverity
 from pyatlassdk.models.greater_than_time_threshold import GreaterThanTimeThreshold
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CpsBackupThresholdAlertConfigViewForNdsGroup(BaseModel):
     """Cps Backup threshold alert configuration allows to select thresholds for conditions of CPS backup or oplogs anomalies which trigger alerts and how users are notified."""

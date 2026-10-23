@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.api_error_parameters_item import ApiErrorParametersItem
 from pyatlassdk.models.bad_request_detail import BadRequestDetail
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ApiError(BaseModel):
     """Generated model for ApiError."""

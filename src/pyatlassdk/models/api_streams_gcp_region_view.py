@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class ApiStreamsGCPRegionView(str, Enum):
+class ApiStreamsGCPRegionView(CaseInsensitiveEnum):
     """Atlas Streams GCP Regions."""
     US_CENTRAL1 = "US_CENTRAL1"
     EUROPE_WEST1 = "EUROPE_WEST1"

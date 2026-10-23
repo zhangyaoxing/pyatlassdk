@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.performance_advisor_index import PerformanceAdvisorIndex
 from pyatlassdk.models.performance_advisor_shape import PerformanceAdvisorShape
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PerformanceAdvisorResponse(BaseModel):
     """Response that contains Performance Advisor suggested indexes and query shapes."""

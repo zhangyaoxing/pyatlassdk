@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.federation_identity_provider import FederationIdentityProvider
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedFederationIdentityProvider(BaseModel):
     """Generated model for PaginatedFederationIdentityProvider."""

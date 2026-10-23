@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.service_account_ip_access_list_entry import ServiceAccountIPAccessListEntry
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CreateGroupMcpConfigRequest(BaseModel):
     """Generated model for CreateGroupMcpConfigRequest."""

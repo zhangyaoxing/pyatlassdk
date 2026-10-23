@@ -7,7 +7,7 @@ from pyatlassdk.models.cluster_event_type_view_for_nds_group import ClusterEvent
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.raw import Raw
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ClusterEventViewForNdsGroup(BaseModel):
     """Cluster event identifies different activities about cluster of mongod hosts."""

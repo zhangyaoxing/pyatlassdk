@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class AtlasDataFederationAzureRegion(str, Enum):
+class AtlasDataFederationAzureRegion(CaseInsensitiveEnum):
     """Atlas Data Federation Azure Regions."""
     VIRGINIA_USA = "VIRGINIA_USA"
     AMSTERDAM_NLD = "AMSTERDAM_NLD"

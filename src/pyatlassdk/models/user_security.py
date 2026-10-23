@@ -6,7 +6,7 @@ from pyatlassdk.models.db_user_tlsx509_settings import DBUserTLSX509Settings
 from pyatlassdk.models.ldap_security_settings import LDAPSecuritySettings
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class UserSecurity(BaseModel):
     """Generated model for UserSecurity."""

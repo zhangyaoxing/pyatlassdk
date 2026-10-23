@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.basic_db_object import BasicDBObject
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class SearchTypeSets(BaseModel):
     """Type sets for an Atlas Search index definition."""

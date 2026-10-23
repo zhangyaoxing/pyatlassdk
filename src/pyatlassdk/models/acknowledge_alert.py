@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import datetime
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AcknowledgeAlert(BaseModel):
     """Acknowledging an alert prevents successive notifications. Specify the `acknowledgeUntil` date and optional comment or `unacknowledgeAlert` boolean."""

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.cloud_region_config20240805 import CloudRegionConfig20240805
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ReplicationSpec20240805(BaseModel):
     """Details that explain how MongoDB Cloud replicates data on the specified MongoDB database."""

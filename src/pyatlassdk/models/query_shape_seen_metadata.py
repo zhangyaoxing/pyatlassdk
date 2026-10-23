@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class QueryShapeSeenMetadata(BaseModel):
     """Metadata about when a query shape was seen."""

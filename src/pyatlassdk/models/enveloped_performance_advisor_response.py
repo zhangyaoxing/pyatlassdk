@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.performance_advisor_response import PerformanceAdvisorResponse
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class EnvelopedPerformanceAdvisorResponse(BaseModel):
     """Response envelope that wraps the response payload in `content` and includes response metadata such as `status` and `locations`."""

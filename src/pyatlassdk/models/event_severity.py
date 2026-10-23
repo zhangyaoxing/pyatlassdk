@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class EventSeverity(str, Enum):
+class EventSeverity(CaseInsensitiveEnum):
     """Severity of the event."""
     INFO = "INFO"
     WARNING = "WARNING"

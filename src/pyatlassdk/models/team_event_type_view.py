@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class TeamEventTypeView(str, Enum):
+class TeamEventTypeView(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     TEAM_CREATED = "TEAM_CREATED"
     TEAM_DELETED = "TEAM_DELETED"

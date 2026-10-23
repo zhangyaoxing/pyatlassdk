@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class NDSTenantEndpointAuditTypeView(str, Enum):
+class NDSTenantEndpointAuditTypeView(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     TENANT_ENDPOINT_CREATED = "TENANT_ENDPOINT_CREATED"
     TENANT_ENDPOINT_RESERVED = "TENANT_ENDPOINT_RESERVED"

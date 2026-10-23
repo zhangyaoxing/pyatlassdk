@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class VPCPeeringActionChallenge(BaseModel):
     """Container for elements used to challenge the user before taking certain actions on VPC Peering connections."""

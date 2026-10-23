@@ -7,7 +7,7 @@ from pyatlassdk.models.link import Link
 from pyatlassdk.models.raw import Raw
 from pyatlassdk.models.streams_event_type_view_for_nds_group import StreamsEventTypeViewForNdsGroup
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsEventViewForNdsGroup(BaseModel):
     """Streams event identifies different activities about Atlas Streams."""

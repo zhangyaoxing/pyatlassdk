@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.cloud_provider_access_feature_usage import CloudProviderAccessFeatureUsage
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CloudProviderAccessAzureServicePrincipalRequest(BaseModel):
     """Details that describe the features linked to the Azure Service Principal."""
@@ -16,6 +17,6 @@ class CloudProviderAccessAzureServicePrincipalRequest(BaseModel):
     created_date: datetime | None = Field(default=None, alias="createdDate", description="Date and time when this Azure Service Principal was created. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")
     feature_usages: list[CloudProviderAccessFeatureUsage] | None = Field(default=None, alias="featureUsages", description="List that contains application features associated with this Azure Service Principal.")
     last_updated_date: datetime | None = Field(default=None, alias="lastUpdatedDate", description="Date and time when this Azure Service Principal was last updated. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")
-    provider_name: Literal["AWS", "AZURE", "GCP"] = Field(alias="providerName", description="Human-readable label that identifies the cloud provider of the role.")
+    provider_name: Annotated[Literal["AWS", "AZURE", "GCP"], BeforeValidator(upper_case)] = Field(alias="providerName", description="Human-readable label that identifies the cloud provider of the role.")
     service_principal_id: str | None = Field(default=None, alias="servicePrincipalId", description="UUID string that identifies the Azure Service Principal.")
     tenant_id: str | None = Field(default=None, alias="tenantId", description="UUID String that identifies the Azure Active Directory Tenant ID.")

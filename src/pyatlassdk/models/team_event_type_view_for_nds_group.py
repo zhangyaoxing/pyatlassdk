@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class TeamEventTypeViewForNdsGroup(str, Enum):
+class TeamEventTypeViewForNdsGroup(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     TEAM_ADDED_TO_GROUP = "TEAM_ADDED_TO_GROUP"
     TEAM_REMOVED_FROM_GROUP = "TEAM_REMOVED_FROM_GROUP"

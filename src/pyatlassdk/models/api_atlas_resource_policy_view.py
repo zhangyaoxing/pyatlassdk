@@ -6,7 +6,7 @@ from datetime import datetime
 from pyatlassdk.models.api_atlas_policy_view import ApiAtlasPolicyView
 from pyatlassdk.models.api_atlas_user_metadata_view import ApiAtlasUserMetadataView
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ApiAtlasResourcePolicyView(BaseModel):
     """Generated model for ApiAtlasResourcePolicyView."""

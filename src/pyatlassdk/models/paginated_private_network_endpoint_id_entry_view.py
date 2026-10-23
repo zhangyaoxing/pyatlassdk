@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.private_network_endpoint_id_entry import PrivateNetworkEndpointIdEntry
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedPrivateNetworkEndpointIdEntryView(BaseModel):
     """Generated model for PaginatedPrivateNetworkEndpointIdEntryView."""

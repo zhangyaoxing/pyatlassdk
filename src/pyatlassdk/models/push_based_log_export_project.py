@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PushBasedLogExportProject(BaseModel):
     """Generated model for PushBasedLogExportProject."""
@@ -16,4 +17,4 @@ class PushBasedLogExportProject(BaseModel):
     iam_role_id: str | None = Field(default=None, alias="iamRoleId", description="ID of the AWS IAM role that will be used to write to the S3 bucket.")
     links: list[Link] | None = Field(default=None, description="List of one or more Uniform Resource Locators (URLs) that point to API sub-resources, related API resources, or both. RFC 5988 outlines these relationships.")
     prefix_path: str | None = Field(default=None, alias="prefixPath", description="S3 directory in which vector will write to in order to store the logs. An empty string denotes the root directory.")
-    state: Literal["UNCONFIGURED", "INITIATING", "BUCKET_VERIFIED", "BUCKET_VERIFICATION_FAILED", "ASSUME_ROLE_FAILED", "ACTIVE"] | None = Field(default=None, description="Describes whether or not the feature is enabled and what status it is in.")
+    state: Annotated[Literal["UNCONFIGURED", "INITIATING", "BUCKET_VERIFIED", "BUCKET_VERIFICATION_FAILED", "ASSUME_ROLE_FAILED", "ACTIVE"], BeforeValidator(upper_case)] | None = Field(default=None, description="Describes whether or not the feature is enabled and what status it is in.")

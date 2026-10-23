@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.measurement_disk_partition import MeasurementDiskPartition
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedDiskPartitionView(BaseModel):
     """Generated model for PaginatedDiskPartitionView."""

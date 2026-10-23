@@ -8,7 +8,7 @@ from pyatlassdk.models.nds_serverless_instance_audit_type_view import NDSServerl
 from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class NDSServerlessInstanceAuditView(BaseModel):
     """Serverless instance audit identifies any activities around serverless instance."""

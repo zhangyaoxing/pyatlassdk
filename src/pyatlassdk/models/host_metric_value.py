@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class HostMetricValue(BaseModel):
     """Value of the metric that triggered the alert. The resource returns this parameter for alerts of events impacting hosts."""

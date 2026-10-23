@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Literal
 from pyatlassdk.models.operator import Operator
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AlertsThresholdInteger(BaseModel):
     """A Limit that triggers an alert when exceeded. The resource returns this parameter when `eventTypeName` has not been set to `OUTSIDE_METRIC_THRESHOLD`."""

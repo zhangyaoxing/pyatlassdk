@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class ServiceAccountEventTypeViewForNdsGroup(str, Enum):
+class ServiceAccountEventTypeViewForNdsGroup(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     SERVICE_ACCOUNT_CREATED = "SERVICE_ACCOUNT_CREATED"
     SERVICE_ACCOUNT_DELETED = "SERVICE_ACCOUNT_DELETED"

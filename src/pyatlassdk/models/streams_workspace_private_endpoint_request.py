@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsWorkspacePrivateEndpointRequest(BaseModel):
     """Customer VPC endpoint to register for inbound private connectivity to Atlas Stream Processing."""

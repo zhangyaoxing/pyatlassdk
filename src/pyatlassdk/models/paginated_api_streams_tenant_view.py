@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_tenant import StreamsTenant
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedApiStreamsTenantView(BaseModel):
     """Generated model for PaginatedApiStreamsTenantView."""

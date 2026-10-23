@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class CpsBackupEventTypeViewForNdsGroupAlertableWithThreshold(str, Enum):
+class CpsBackupEventTypeViewForNdsGroupAlertableWithThreshold(CaseInsensitiveEnum):
     """Event type that triggers an alert."""
     CPS_SNAPSHOT_BEHIND = "CPS_SNAPSHOT_BEHIND"
     CPS_PREV_SNAPSHOT_OLD = "CPS_PREV_SNAPSHOT_OLD"

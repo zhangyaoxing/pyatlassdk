@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class GreaterThanDaysThresholdView(BaseModel):
     """Threshold value that triggers an alert."""
     model_config = ConfigDict(populate_by_name=True, extra="allow")
-    operator: Literal["GREATER_THAN"] | None = Field(default=None, description="Comparison operator to apply when checking the current metric value.")
+    operator: Annotated[Literal["GREATER_THAN"], BeforeValidator(upper_case)] | None = Field(default=None, description="Comparison operator to apply when checking the current metric value.")
     threshold: int | None = Field(default=None, description="Value of metric that, when exceeded, triggers an alert.")
-    units: Literal["DAYS"] | None = Field(default=None, description="Element used to express the quantity. This can be an element of time, storage capacity, and the like.")
+    units: Annotated[Literal["DAYS"], BeforeValidator(upper_case)] | None = Field(default=None, description="Element used to express the quantity. This can be an element of time, storage capacity, and the like.")

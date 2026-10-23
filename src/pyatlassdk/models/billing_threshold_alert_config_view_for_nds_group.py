@@ -10,7 +10,7 @@ from pyatlassdk.models.event_severity import EventSeverity
 from pyatlassdk.models.greater_than_raw_threshold import GreaterThanRawThreshold
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class BillingThresholdAlertConfigViewForNdsGroup(BaseModel):
     """Billing threshold alert configuration allows to select thresholds for bills and invoices which trigger alerts and how users are notified."""

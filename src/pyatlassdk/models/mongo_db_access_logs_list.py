@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.mongo_db_access_logs import MongoDBAccessLogs
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class MongoDBAccessLogsList(BaseModel):
     """Generated model for MongoDBAccessLogsList."""

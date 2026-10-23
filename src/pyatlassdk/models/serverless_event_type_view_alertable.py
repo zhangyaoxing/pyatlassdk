@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class ServerlessEventTypeViewAlertable(str, Enum):
+class ServerlessEventTypeViewAlertable(CaseInsensitiveEnum):
     """Event type that triggers an alert."""
     OUTSIDE_SERVERLESS_METRIC_THRESHOLD = "OUTSIDE_SERVERLESS_METRIC_THRESHOLD"

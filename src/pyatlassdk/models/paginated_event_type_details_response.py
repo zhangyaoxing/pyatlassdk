@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.event_type_details import EventTypeDetails
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedEventTypeDetailsResponse(BaseModel):
     """Generated model for PaginatedEventTypeDetailsResponse."""

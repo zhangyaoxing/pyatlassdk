@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.metric_integration_response import MetricIntegrationResponse
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedMetricIntegrationResponse(BaseModel):
     """Generated model for PaginatedMetricIntegrationResponse."""

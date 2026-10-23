@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.api_atlas_checkpoint_view import ApiAtlasCheckpointView
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedApiAtlasCheckpointView(BaseModel):
     """Generated model for PaginatedApiAtlasCheckpointView."""

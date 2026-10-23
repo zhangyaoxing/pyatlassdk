@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.invoice_report_response import InvoiceReportResponse
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedInvoiceReportView(BaseModel):
     """Generated model for PaginatedInvoiceReportView."""

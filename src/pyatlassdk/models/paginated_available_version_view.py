@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.mdb_available_version import MdbAvailableVersion
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedAvailableVersionView(BaseModel):
     """Generated model for PaginatedAvailableVersionView."""

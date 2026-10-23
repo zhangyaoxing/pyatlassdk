@@ -6,7 +6,7 @@ from pyatlassdk.models.cloud_provider_access_awsiam_role import CloudProviderAcc
 from pyatlassdk.models.cloud_provider_access_azure_service_principal import CloudProviderAccessAzureServicePrincipal
 from pyatlassdk.models.cloud_provider_access_gcp_service_account import CloudProviderAccessGCPServiceAccount
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CloudProviderAccessRoles(BaseModel):
     """Generated model for CloudProviderAccessRoles."""

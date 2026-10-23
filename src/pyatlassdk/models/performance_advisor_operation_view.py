@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.performance_advisor_op_stats import PerformanceAdvisorOpStats
 from pyatlassdk.models.performance_advisor_operation_view_predicates_item import PerformanceAdvisorOperationViewPredicatesItem
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PerformanceAdvisorOperationView(BaseModel):
     """Generated model for PerformanceAdvisorOperationView."""

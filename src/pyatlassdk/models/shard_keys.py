@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.shard_keys_key_item import ShardKeysKeyItem
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ShardKeys(BaseModel):
     """Document that configures the shard key on the destination cluster."""

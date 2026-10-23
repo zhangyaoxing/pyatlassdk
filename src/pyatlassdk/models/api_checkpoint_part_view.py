@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.api_bson_timestamp_view import ApiBSONTimestampView
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ApiCheckpointPartView(BaseModel):
     """Metadata contained in one document that describes the complete snapshot taken for this node."""
@@ -14,4 +15,4 @@ class ApiCheckpointPartView(BaseModel):
     shard_name: str | None = Field(default=None, alias="shardName", description="Human-readable label that identifies the shard to which this checkpoint applies.")
     token_discovered: bool | None = Field(default=None, alias="tokenDiscovered", description="Flag that indicates whether the token exists.")
     token_timestamp: ApiBSONTimestampView | None = Field(default=None, alias="tokenTimestamp")
-    type_name: Literal["REPLICA_SET", "CONFIG_SERVER", "CONFIG_SERVER_REPLICA_SET"] | None = Field(default=None, alias="typeName", description="Human-readable label that identifies the type of host that the part represents.")
+    type_name: Annotated[Literal["REPLICA_SET", "CONFIG_SERVER", "CONFIG_SERVER_REPLICA_SET"], BeforeValidator(upper_case)] | None = Field(default=None, alias="typeName", description="Human-readable label that identifies the type of host that the part represents.")

@@ -9,7 +9,7 @@ from pyatlassdk.models.link import Link
 from pyatlassdk.models.stream_processor_event_type_view_alertable_no_threshold import StreamProcessorEventTypeViewAlertableNoThreshold
 from pyatlassdk.models.streams_matcher import StreamsMatcher
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamProcessorAlertConfigViewForNdsGroup(BaseModel):
     """Host metric alert configuration allows to select which Atlas streams processors trigger alerts and how users are notified."""

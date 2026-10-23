@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.zone_mapping import ZoneMapping
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CustomZoneMappings(BaseModel):
     """Generated model for CustomZoneMappings."""

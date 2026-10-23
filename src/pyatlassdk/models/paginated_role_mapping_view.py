@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.auth_federation_role_mapping import AuthFederationRoleMapping
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedRoleMappingView(BaseModel):
     """List role mappings from the specified organization in the specified federation."""

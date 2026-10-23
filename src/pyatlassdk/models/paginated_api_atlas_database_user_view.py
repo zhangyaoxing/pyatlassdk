@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.cloud_database_user import CloudDatabaseUser
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedApiAtlasDatabaseUserView(BaseModel):
     """List of MongoDB Database users granted access to databases in the specified project."""

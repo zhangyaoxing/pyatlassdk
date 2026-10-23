@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.basic_db_object import BasicDBObject
 from pyatlassdk.models.vector_search_index_definition_stored_source import VectorSearchIndexDefinitionStoredSource
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class VectorSearchIndexDefinition(BaseModel):
     """The vector search index definition set by the user."""

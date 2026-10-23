@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CustomSessionTimeouts(BaseModel):
     """Defines the session timeout settings for managing user sessions at the organization level. When set to null, the field's value is unset, and the default timeout settings are applied."""

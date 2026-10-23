@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class InvoiceLineItemTags(BaseModel):
     """Generated model for InvoiceLineItemTags."""

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.shard_entry import ShardEntry
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ShardingRequest(BaseModel):
     """Document that configures sharding on the destination cluster when migrating from a replica set source to a sharded cluster destination on MongoDB 6.0 or higher. If you don't wish to shard any collections on the destination cluster, leave this empty."""

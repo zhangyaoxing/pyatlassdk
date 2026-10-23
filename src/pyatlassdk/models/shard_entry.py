@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.shard_keys import ShardKeys
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ShardEntry(BaseModel):
     """Sharding configuration for a collection to be sharded on the destination cluster."""

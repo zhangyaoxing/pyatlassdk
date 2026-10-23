@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Literal
 from datetime import date
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class UsageDetailsFilterRequest(BaseModel):
     """Request body which contains various fields to filter line items as part of certain Invoice Usage Details queries."""

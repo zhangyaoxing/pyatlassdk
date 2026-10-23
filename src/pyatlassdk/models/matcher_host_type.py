@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class MatcherHostType(str, Enum):
+class MatcherHostType(CaseInsensitiveEnum):
     """Value to match or exceed using the specified `matchers.operator`."""
     STANDALONE = "STANDALONE"
     PRIMARY = "PRIMARY"

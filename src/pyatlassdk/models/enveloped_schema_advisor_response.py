@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.schema_advisor_response import SchemaAdvisorResponse
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class EnvelopedSchemaAdvisorResponse(BaseModel):
     """Response envelope that wraps the response payload in `content` and includes response metadata such as `status` and `locations`."""

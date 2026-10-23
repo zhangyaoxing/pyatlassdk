@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.schema_advisor_item_recommendation import SchemaAdvisorItemRecommendation
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class SchemaAdvisorResponse(BaseModel):
     """Response that contains Performance Advisor schema suggestions."""

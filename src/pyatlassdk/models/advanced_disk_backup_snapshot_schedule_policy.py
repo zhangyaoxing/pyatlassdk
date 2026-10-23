@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.disk_backup_api_policy_item import DiskBackupApiPolicyItem
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AdvancedDiskBackupSnapshotSchedulePolicy(BaseModel):
     """List that contains a document for each backup policy item in the desired backup policy."""

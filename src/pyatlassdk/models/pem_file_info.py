@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.x509_certificate import X509Certificate
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PemFileInfo(BaseModel):
     """PEM file information for the identity provider's current certificates."""

@@ -6,7 +6,7 @@ from datetime import datetime
 from pyatlassdk.models.drop_index_suggestions_index_collation import DropIndexSuggestionsIndexCollation
 from pyatlassdk.models.drop_index_suggestions_index_index_item import DropIndexSuggestionsIndexIndexItem
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DropIndexSuggestionsIndex(BaseModel):
     """Generated model for DropIndexSuggestionsIndex."""

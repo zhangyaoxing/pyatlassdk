@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.fts_metric import FTSMetric
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CloudSearchMetrics(BaseModel):
     """Generated model for CloudSearchMetrics."""

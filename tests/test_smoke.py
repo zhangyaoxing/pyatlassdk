@@ -3,6 +3,7 @@ from __future__ import annotations
 import pytest
 
 from pyatlassdk import AtlasClient
+from pyatlassdk.models.bi_connector import BiConnector
 from pyatlassdk.models.cluster_description20240805 import ClusterDescription20240805
 
 
@@ -34,3 +35,12 @@ def test_client_supports_oauth2_credentials() -> None:
 def test_client_rejects_partial_credentials() -> None:
     with pytest.raises(ValueError):
         AtlasClient(client_id="client-id")
+
+
+def test_uppercase_enums_accept_any_casing() -> None:
+    connector = BiConnector(read_preference="secondary")
+
+    assert connector.read_preference == "SECONDARY"
+    assert connector.model_dump(by_alias=True, exclude_none=True) == {
+        "readPreference": "SECONDARY"
+    }

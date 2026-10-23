@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Literal
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ApiAtlasSnapshotScheduleView(BaseModel):
     """Generated model for ApiAtlasSnapshotScheduleView."""

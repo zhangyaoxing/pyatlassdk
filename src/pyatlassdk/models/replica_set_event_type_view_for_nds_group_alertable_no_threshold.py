@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class ReplicaSetEventTypeViewForNdsGroupAlertableNoThreshold(str, Enum):
+class ReplicaSetEventTypeViewForNdsGroupAlertableNoThreshold(CaseInsensitiveEnum):
     """Event type that triggers an alert."""
     NO_PRIMARY = "NO_PRIMARY"
     PRIMARY_ELECTED = "PRIMARY_ELECTED"

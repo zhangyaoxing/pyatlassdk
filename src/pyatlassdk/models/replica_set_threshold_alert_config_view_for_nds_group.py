@@ -10,7 +10,7 @@ from pyatlassdk.models.link import Link
 from pyatlassdk.models.replica_set_event_type_view_for_nds_group_alertable_with_threshold import ReplicaSetEventTypeViewForNdsGroupAlertableWithThreshold
 from pyatlassdk.models.replica_set_matcher import ReplicaSetMatcher
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ReplicaSetThresholdAlertConfigViewForNdsGroup(BaseModel):
     """Replica Set threshold alert configuration allows to select thresholds for conditions of mongod replica set which trigger alerts and how users are notified."""

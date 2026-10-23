@@ -10,7 +10,7 @@ from pyatlassdk.models.host_metric_event_type_view_alertable import HostMetricEv
 from pyatlassdk.models.host_metric_threshold import HostMetricThreshold
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class HostMetricAlertConfigViewForNdsGroup(BaseModel):
     """Host metric alert configuration allows to select which mongod host metrics trigger alerts and how users are notified."""

@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class NumberMetricUnits(str, Enum):
+class NumberMetricUnits(CaseInsensitiveEnum):
     """Element used to express the quantity. This can be an element of time, storage capacity, and the like."""
     COUNT = "COUNT"
     THOUSAND = "THOUSAND"

@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.access_list_item_view import AccessListItemView
 from pyatlassdk.models.cloud_access_role_assignment import CloudAccessRoleAssignment
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ApiKey(BaseModel):
     """Details contained in one API key."""

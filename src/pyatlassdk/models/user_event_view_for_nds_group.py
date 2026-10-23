@@ -8,7 +8,7 @@ from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 from pyatlassdk.models.user_event_type_view_for_nds_group import UserEventTypeViewForNdsGroup
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class UserEventViewForNdsGroup(BaseModel):
     """User event reflects different activities about the atlas user."""

@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class BillingEventTypeViewForOrg(str, Enum):
+class BillingEventTypeViewForOrg(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     AWS_PAYMENT_PAID = "AWS_PAYMENT_PAID"
     CHARGE_SUCCEEDED = "CHARGE_SUCCEEDED"

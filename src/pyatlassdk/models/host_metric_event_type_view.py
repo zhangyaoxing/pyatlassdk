@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class HostMetricEventTypeView(str, Enum):
+class HostMetricEventTypeView(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     INSIDE_METRIC_THRESHOLD = "INSIDE_METRIC_THRESHOLD"
     OUTSIDE_METRIC_THRESHOLD = "OUTSIDE_METRIC_THRESHOLD"

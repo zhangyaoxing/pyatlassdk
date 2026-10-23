@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CloudCluster(BaseModel):
     """Settings that describe the clusters in each project that the API key is authorized to view."""
@@ -18,5 +19,5 @@ class CloudCluster(BaseModel):
     name: str | None = Field(default=None, description="Human-readable label that identifies the cluster.")
     node_count: int | None = Field(default=None, alias="nodeCount", description="Whole number that indicates the quantity of nodes that comprise the cluster.")
     ssl_enabled: bool | None = Field(default=None, alias="sslEnabled", description="Flag that indicates whether TLS authentication is required to access the nodes in this cluster.")
-    type: Literal["REPLICA_SET", "SHARDED_CLUSTER"] | None = Field(default=None, description="Human-readable label that indicates the cluster type.")
+    type: Annotated[Literal["REPLICA_SET", "SHARDED_CLUSTER"], BeforeValidator(upper_case)] | None = Field(default=None, description="Human-readable label that indicates the cluster type.")
     versions: list[str] | None = Field(default=None, description="List that contains the versions of MongoDB that each node in the cluster runs.")

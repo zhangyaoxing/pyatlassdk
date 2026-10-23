@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_processor_with_stats import StreamsProcessorWithStats
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedApiStreamsStreamProcessorWithStatsView(BaseModel):
     """Generated model for PaginatedApiStreamsStreamProcessorWithStatsView."""

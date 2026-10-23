@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_https_connection_headers import StreamsHttpsConnectionHeaders
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsHttpsConnection(BaseModel):
     """Settings that define a connection to an external data store."""
@@ -15,7 +16,7 @@ class StreamsHttpsConnection(BaseModel):
     links: list[Link] | None = Field(default=None, description="List of one or more Uniform Resource Locators (URLs) that point to API sub-resources, related API resources, or both. RFC 5988 outlines these relationships.")
     name: str | None = Field(default=None, description="Human-readable label that identifies the stream connection. For the Sample type, this is the name of the sample source.")
     region: str | None = Field(default=None, description="Connection region.")
-    state: Literal["PENDING", "READY", "DELETING", "FAILED"] | None = Field(default=None, description="Connection state.")
+    state: Annotated[Literal["PENDING", "READY", "DELETING", "FAILED"], BeforeValidator(upper_case)] | None = Field(default=None, description="Connection state.")
     type: Literal["Kafka", "Cluster", "Sample", "Https", "AzureBlobStorage", "AWSLambda", "AWSKinesisDataStreams", "SchemaRegistry", "GCPPubSub"] | None = Field(default=None, description="Connection type.")
     headers: StreamsHttpsConnectionHeaders | None = Field(default=None, description="A map of key-value pairs that will be passed as headers for the request.")
     url: str | None = Field(default=None, description="The URL to be used for the request.")

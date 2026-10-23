@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ServerlessAWSTenantEndpoint(BaseModel):
     """View for a serverless AWS tenant endpoint."""
@@ -14,5 +15,5 @@ class ServerlessAWSTenantEndpoint(BaseModel):
     comment: str | None = Field(default=None, description="Human-readable comment associated with the private endpoint.")
     endpoint_service_name: str | None = Field(default=None, alias="endpointServiceName", description="Unique string that identifies the Amazon Web Services (AWS) PrivateLink endpoint service. MongoDB Cloud returns null while it creates the endpoint service.")
     error_message: str | None = Field(default=None, alias="errorMessage", description="Human-readable error message that indicates error condition associated with establishing the private endpoint connection.")
-    provider_name: Literal["AWS"] | None = Field(default=None, alias="providerName", description="Human-readable label that identifies the cloud service provider.")
-    status: Literal["RESERVATION_REQUESTED", "RESERVED", "INITIATING", "AVAILABLE", "FAILED", "DELETING"] | None = Field(default=None, description="Human-readable label that indicates the current operating status of the private endpoint.")
+    provider_name: Annotated[Literal["AWS"], BeforeValidator(upper_case)] | None = Field(default=None, alias="providerName", description="Human-readable label that identifies the cloud service provider.")
+    status: Annotated[Literal["RESERVATION_REQUESTED", "RESERVED", "INITIATING", "AVAILABLE", "FAILED", "DELETING"], BeforeValidator(upper_case)] | None = Field(default=None, description="Human-readable label that indicates the current operating status of the private endpoint.")

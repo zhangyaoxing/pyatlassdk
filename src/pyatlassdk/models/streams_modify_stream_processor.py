@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.document import Document
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_modify_stream_processor_options import StreamsModifyStreamProcessorOptions
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsModifyStreamProcessor(BaseModel):
     """A request to modify an existing stream processor."""
@@ -17,4 +18,4 @@ class StreamsModifyStreamProcessor(BaseModel):
     name: str | None = Field(default=None, description="New name for the stream processor.")
     options: StreamsModifyStreamProcessorOptions | None = None
     pipeline: list[Document] | None = Field(default=None, description="New pipeline for the stream processor.")
-    tier: Literal["SP50", "SP30", "SP10", "SP5", "SP2"] | None = Field(default=None, description="Baseline processing tier requested by the user.")
+    tier: Annotated[Literal["SP50", "SP30", "SP10", "SP5", "SP2"], BeforeValidator(upper_case)] | None = Field(default=None, description="Baseline processing tier requested by the user.")

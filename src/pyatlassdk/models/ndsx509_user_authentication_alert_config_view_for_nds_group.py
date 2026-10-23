@@ -10,7 +10,7 @@ from pyatlassdk.models.less_than_days_threshold_view import LessThanDaysThreshol
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.ndsx509_user_authentication_event_type_view_alertable import NDSX509UserAuthenticationEventTypeViewAlertable
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class NDSX509UserAuthenticationAlertConfigViewForNdsGroup(BaseModel):
     """X509 User Authentication alert configuration allows to select thresholds for expiration of client, CA certificates and CRL which trigger alerts and how users are notified."""

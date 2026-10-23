@@ -7,7 +7,7 @@ from pyatlassdk.models.app_service_event_type_view import AppServiceEventTypeVie
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.raw import Raw
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AppServiceEventView(BaseModel):
     """App Services event identifies different activities about a BAAS application."""

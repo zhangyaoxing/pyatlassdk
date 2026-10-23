@@ -2,16 +2,17 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class GroupPendingUserResponse(BaseModel):
     """Generated model for GroupPendingUserResponse."""
     model_config = ConfigDict(populate_by_name=True, extra="allow")
     id: str = Field(description="Unique 24-hexadecimal digit string that identifies the MongoDB Cloud user.")
-    org_membership_status: Literal["PENDING", "ACTIVE", "INVITATION_EXPIRED", "INVITATION_REJECTED"] = Field(alias="orgMembershipStatus", description="String enum that indicates the user's organization membership status: ACTIVE (member), PENDING (invited), `INVITATION_EXPIRED` (invitation expired), or `INVITATION_REJECTED` (invitation declined).")
+    org_membership_status: Annotated[Literal["PENDING", "ACTIVE", "INVITATION_EXPIRED", "INVITATION_REJECTED"], BeforeValidator(upper_case)] = Field(alias="orgMembershipStatus", description="String enum that indicates the user's organization membership status: ACTIVE (member), PENDING (invited), `INVITATION_EXPIRED` (invitation expired), or `INVITATION_REJECTED` (invitation declined).")
     roles: list[str] = Field(description="One or more project-level roles assigned to the MongoDB Cloud user.")
     username: str = Field(description="Email address that represents the username of the MongoDB Cloud user.")
     invitation_created_at: datetime = Field(alias="invitationCreatedAt", description="Date and time when MongoDB Cloud sent the invitation. MongoDB Cloud represents this timestamp in ISO 8601 format in UTC. This field is absent for active users.")

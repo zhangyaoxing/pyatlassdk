@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class LDAPVerifyConnectivityJobRequestParams(BaseModel):
     """Request information needed to verify an Lightweight Directory Access Protocol (LDAP) over Transport Layer Security (TLS) configuration. The response does not return the `bindPassword`."""

@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AzureKeyVault(BaseModel):
     """Details that define the configuration of Encryption at Rest using Azure Key Vault (AKV)."""
     model_config = ConfigDict(populate_by_name=True, extra="allow")
-    azure_environment: Literal["AZURE", "AZURE_CHINA", "AZURE_US_GOVERNMENT"] | None = Field(default=None, alias="azureEnvironment", description="Azure environment in which your account credentials reside.")
+    azure_environment: Annotated[Literal["AZURE", "AZURE_CHINA", "AZURE_US_GOVERNMENT"], BeforeValidator(upper_case)] | None = Field(default=None, alias="azureEnvironment", description="Azure environment in which your account credentials reside.")
     client_id: str | None = Field(default=None, alias="clientID", description="Unique 36-hexadecimal character string that identifies an Azure application associated with your Azure Active Directory tenant.")
     enabled: bool | None = Field(default=None, description="Flag that indicates whether someone enabled encryption at rest for the specified  project. To disable encryption at rest using customer key management and remove the configuration details, pass only this parameter with a value of `false`.")
     key_identifier: str | None = Field(default=None, alias="keyIdentifier", description="Web address with a unique key that identifies for your Azure Key Vault.")

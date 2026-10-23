@@ -7,7 +7,7 @@ from pyatlassdk.models.link import Link
 from pyatlassdk.models.sharding_request import ShardingRequest
 from pyatlassdk.models.source import Source
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class LiveMigrationRequest20240530(BaseModel):
     """Generated model for LiveMigrationRequest20240530."""

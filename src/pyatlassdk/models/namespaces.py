@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.namespace_obj import NamespaceObj
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class Namespaces(BaseModel):
     """Generated model for Namespaces."""

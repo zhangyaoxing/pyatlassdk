@@ -2,15 +2,16 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.cluster_serverless_backup_options import ClusterServerlessBackupOptions
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.resource_tag import ResourceTag
 from pyatlassdk.models.serverless_instance_description_connection_strings import ServerlessInstanceDescriptionConnectionStrings
 from pyatlassdk.models.serverless_provider_settings import ServerlessProviderSettings
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ServerlessInstanceDescription(BaseModel):
     """Group of settings that configure a MongoDB serverless instance."""
@@ -24,6 +25,6 @@ class ServerlessInstanceDescription(BaseModel):
     name: str | None = Field(default=None, description="Human-readable label that identifies the serverless instance.")
     provider_settings: ServerlessProviderSettings = Field(alias="providerSettings")
     serverless_backup_options: ClusterServerlessBackupOptions | None = Field(default=None, alias="serverlessBackupOptions")
-    state_name: Literal["IDLE", "CREATING", "UPDATING", "DELETING", "REPAIRING"] | None = Field(default=None, alias="stateName", description="Human-readable label that indicates any current activity being taken on this cluster by the Atlas control plane. With the exception of CREATING and DELETING states, clusters should always be available and have a Primary node even when in states indicating ongoing activity.\n\n - `IDLE`: Atlas is making no changes to this cluster and all changes requested via the UI or API can be assumed to have been applied.\n - `CREATING`: A cluster being provisioned for the very first time returns state CREATING until it is ready for connections. Ensure IP Access List and DB Users are configured before attempting to connect.\n - `UPDATING`: A change requested via the UI, API, AutoScaling, or other scheduled activity is taking place.\n - `DELETING`: The cluster is in the process of deletion and will soon be deleted.\n - `REPAIRING`: One or more nodes in the cluster are being returned to service by the Atlas control plane. Other nodes should continue to provide service as normal.")
+    state_name: Annotated[Literal["IDLE", "CREATING", "UPDATING", "DELETING", "REPAIRING"], BeforeValidator(upper_case)] | None = Field(default=None, alias="stateName", description="Human-readable label that indicates any current activity being taken on this cluster by the Atlas control plane. With the exception of CREATING and DELETING states, clusters should always be available and have a Primary node even when in states indicating ongoing activity.\n\n - `IDLE`: Atlas is making no changes to this cluster and all changes requested via the UI or API can be assumed to have been applied.\n - `CREATING`: A cluster being provisioned for the very first time returns state CREATING until it is ready for connections. Ensure IP Access List and DB Users are configured before attempting to connect.\n - `UPDATING`: A change requested via the UI, API, AutoScaling, or other scheduled activity is taking place.\n - `DELETING`: The cluster is in the process of deletion and will soon be deleted.\n - `REPAIRING`: One or more nodes in the cluster are being returned to service by the Atlas control plane. Other nodes should continue to provide service as normal.")
     tags: list[ResourceTag] | None = Field(default=None, description="List that contains key-value pairs between 1 to 255 characters in length for tagging and categorizing the serverless instance.")
     termination_protection_enabled: bool | None = Field(default=None, alias="terminationProtectionEnabled", description="Flag that indicates whether termination protection is enabled on the serverless instance. If set to `true`, MongoDB Cloud won't delete the serverless instance. If set to `false`, MongoDB Cloud will delete the serverless instance.")

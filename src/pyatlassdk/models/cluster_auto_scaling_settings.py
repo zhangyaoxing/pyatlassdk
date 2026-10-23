@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.cluster_compute_auto_scaling import ClusterComputeAutoScaling
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ClusterAutoScalingSettings(BaseModel):
     """Range of instance sizes to which your cluster can scale."""

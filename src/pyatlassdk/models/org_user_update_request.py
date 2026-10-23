@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.org_user_roles_request import OrgUserRolesRequest
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class OrgUserUpdateRequest(BaseModel):
     """Generated model for OrgUserUpdateRequest."""

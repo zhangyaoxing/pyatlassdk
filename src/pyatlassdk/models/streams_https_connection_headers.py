@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsHttpsConnectionHeaders(BaseModel):
     """Generated model for StreamsHttpsConnectionHeaders."""

@@ -9,7 +9,7 @@ from pyatlassdk.models.host_event_type_view_for_nds_group_alertable import HostE
 from pyatlassdk.models.host_matcher import HostMatcher
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class HostAlertConfigViewForNdsGroup(BaseModel):
     """Host alert configuration allows to select which mongod host events trigger alerts and how users are notified."""

@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DefaultScheduleView(BaseModel):
     """Regular frequency and duration when archiving process occurs."""
     model_config = ConfigDict(populate_by_name=True, extra="allow")
-    type: Literal["DEFAULT", "DAILY", "WEEKLY", "MONTHLY"] = Field(description="Type of schedule.")
+    type: Annotated[Literal["DEFAULT", "DAILY", "WEEKLY", "MONTHLY"], BeforeValidator(upper_case)] = Field(description="Type of schedule.")

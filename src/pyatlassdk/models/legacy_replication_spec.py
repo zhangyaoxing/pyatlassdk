@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.legacy_regions_config import LegacyRegionsConfig
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class LegacyReplicationSpec(BaseModel):
     """Generated model for LegacyReplicationSpec."""

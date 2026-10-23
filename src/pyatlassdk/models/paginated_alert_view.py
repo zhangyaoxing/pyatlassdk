@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.alert_view_for_nds_group import AlertViewForNdsGroup
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedAlertView(BaseModel):
     """Generated model for PaginatedAlertView."""

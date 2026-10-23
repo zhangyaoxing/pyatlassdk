@@ -7,7 +7,7 @@ from pyatlassdk.models.index_options_partial_filter_expression import IndexOptio
 from pyatlassdk.models.index_options_storage_engine import IndexOptionsStorageEngine
 from pyatlassdk.models.index_options_weights import IndexOptionsWeights
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class IndexOptions(BaseModel):
     """One or more settings that determine how the MongoDB Cloud creates this MongoDB index."""

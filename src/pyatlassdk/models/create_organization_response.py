@@ -6,7 +6,7 @@ from pyatlassdk.models.api_key_user_details import ApiKeyUserDetails
 from pyatlassdk.models.atlas_organization import AtlasOrganization
 from pyatlassdk.models.org_service_account import OrgServiceAccount
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CreateOrganizationResponse(BaseModel):
     """Generated model for CreateOrganizationResponse."""

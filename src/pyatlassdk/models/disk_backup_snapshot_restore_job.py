@@ -9,7 +9,7 @@ from pyatlassdk.models.api_private_download_delivery_url import ApiPrivateDownlo
 from pyatlassdk.models.disk_backup_restore_member import DiskBackupRestoreMember
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DiskBackupSnapshotRestoreJob(BaseModel):
     """Generated model for DiskBackupSnapshotRestoreJob."""

@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.public_api_usage_details_line_item_view import PublicApiUsageDetailsLineItemView
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedPublicApiUsageDetailsLineItemView(BaseModel):
     """Generated model for PaginatedPublicApiUsageDetailsLineItemView."""

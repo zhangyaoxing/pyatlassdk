@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class StreamProcessorEventTypeViewForNdsGroup(str, Enum):
+class StreamProcessorEventTypeViewForNdsGroup(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     STREAM_PROCESSOR_STATE_IS_FAILED = "STREAM_PROCESSOR_STATE_IS_FAILED"
     STREAM_PROCESSOR_STARTED = "STREAM_PROCESSOR_STARTED"

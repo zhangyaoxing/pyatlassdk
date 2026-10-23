@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class SearchDeploymentAuditTypeView(str, Enum):
+class SearchDeploymentAuditTypeView(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     SEARCH_DEPLOYMENT_CREATED = "SEARCH_DEPLOYMENT_CREATED"
     SEARCH_DEPLOYMENT_UPDATED = "SEARCH_DEPLOYMENT_UPDATED"

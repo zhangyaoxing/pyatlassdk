@@ -8,7 +8,7 @@ from pyatlassdk.models.org_event_type_view_for_org import OrgEventTypeViewForOrg
 from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class OrgEventViewForOrg(BaseModel):
     """Organization event identifies different activities and changes in an organization settings."""

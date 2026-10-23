@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.api_search_deployment_request_spec_view import ApiSearchDeploymentRequestSpecView
 from pyatlassdk.models.api_search_deployment_request_view_auto_scaling import ApiSearchDeploymentRequestViewAutoScaling
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ApiSearchDeploymentRequestView(BaseModel):
     """Generated model for ApiSearchDeploymentRequestView."""

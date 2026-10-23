@@ -8,7 +8,7 @@ from pyatlassdk.models.nds_audit_type_view_for_nds_group import NDSAuditTypeView
 from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class NDSAuditViewForNdsGroup(BaseModel):
     """Audit saving information about Atlas cloud provider and other Atlas related details."""

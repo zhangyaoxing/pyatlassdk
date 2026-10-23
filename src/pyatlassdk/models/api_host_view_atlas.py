@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.link_atlas import LinkAtlas
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ApiHostViewAtlas(BaseModel):
     """Generated model for ApiHostViewAtlas."""
@@ -20,6 +21,6 @@ class ApiHostViewAtlas(BaseModel):
     port: int | None = Field(default=None, description="Internet Assigned Numbers Authority (IANA) port on which the MongoDB process listens for requests.")
     replica_set_name: str | None = Field(default=None, alias="replicaSetName", description="Human-readable label that identifies the replica set that contains this process. This resource returns this parameter if this process belongs to a replica set.")
     shard_name: str | None = Field(default=None, alias="shardName", description="Human-readable label that identifies the shard that contains this process. This resource returns this value only if this process belongs to a sharded cluster.")
-    type_name: Literal["REPLICA_PRIMARY", "REPLICA_SECONDARY", "RECOVERING", "SHARD_MONGOS", "SHARD_CONFIG", "SHARD_STANDALONE", "SHARD_PRIMARY", "SHARD_SECONDARY", "NO_DATA"] | None = Field(default=None, alias="typeName", description="Type of MongoDB process that MongoDB Cloud tracks. MongoDB Cloud returns new processes as `NO_DATA` until MongoDB Cloud completes deploying the process.")
+    type_name: Annotated[Literal["REPLICA_PRIMARY", "REPLICA_SECONDARY", "RECOVERING", "SHARD_MONGOS", "SHARD_CONFIG", "SHARD_STANDALONE", "SHARD_PRIMARY", "SHARD_SECONDARY", "NO_DATA"], BeforeValidator(upper_case)] | None = Field(default=None, alias="typeName", description="Type of MongoDB process that MongoDB Cloud tracks. MongoDB Cloud returns new processes as `NO_DATA` until MongoDB Cloud completes deploying the process.")
     user_alias: str | None = Field(default=None, alias="userAlias", description="Human-readable label that identifies the cluster node. MongoDB Cloud sets this hostname usually to the standard hostname for the cluster node. It appears in the connection string for a cluster instead of the value of the hostname parameter.")
     version: str | None = Field(default=None, description="Version of MongoDB that this process runs.")

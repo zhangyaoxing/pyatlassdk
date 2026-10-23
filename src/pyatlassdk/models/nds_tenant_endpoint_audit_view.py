@@ -8,7 +8,7 @@ from pyatlassdk.models.nds_tenant_endpoint_audit_type_view import NDSTenantEndpo
 from pyatlassdk.models.principal import Principal
 from pyatlassdk.models.raw import Raw
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class NDSTenantEndpointAuditView(BaseModel):
     """Tenant endpoint audit indicates when Atlas auto-scaling cluster tier up or down."""

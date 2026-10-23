@@ -7,7 +7,7 @@ from pyatlassdk.models.link import Link
 from pyatlassdk.models.raw import Raw
 from pyatlassdk.models.replica_set_event_type_view_for_nds_group import ReplicaSetEventTypeViewForNdsGroup
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ForNdsGroup(BaseModel):
     """Replica Set Event identifies different activities about replica set of mongod instances."""

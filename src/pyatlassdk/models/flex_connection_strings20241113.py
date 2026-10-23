@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class FlexConnectionStrings20241113(BaseModel):
     """Collection of Uniform Resource Locators that point to the MongoDB database."""

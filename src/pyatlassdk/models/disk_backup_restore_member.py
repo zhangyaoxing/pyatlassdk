@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.api_private_download_delivery_url import ApiPrivateDownloadDeliveryUrl
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DiskBackupRestoreMember(BaseModel):
     """Generated model for DiskBackupRestoreMember."""

@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.text_search_index_definition import TextSearchIndexDefinition
 from pyatlassdk.models.vector_search_index_definition import VectorSearchIndexDefinition
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class SearchIndexUpdateRequest(BaseModel):
     """Generated model for SearchIndexUpdateRequest."""

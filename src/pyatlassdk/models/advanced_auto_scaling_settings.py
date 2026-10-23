@@ -6,7 +6,7 @@ from pyatlassdk.models.advanced_auto_scaling_settings_storage_config import Adva
 from pyatlassdk.models.advanced_compute_auto_scaling import AdvancedComputeAutoScaling
 from pyatlassdk.models.disk_gb_auto_scaling import DiskGBAutoScaling
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AdvancedAutoScalingSettings(BaseModel):
     """Options that determine how this cluster handles resource scaling."""

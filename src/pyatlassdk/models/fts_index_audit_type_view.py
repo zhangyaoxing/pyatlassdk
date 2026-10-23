@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class FTSIndexAuditTypeView(str, Enum):
+class FTSIndexAuditTypeView(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     FTS_INDEX_DELETION_FAILED = "FTS_INDEX_DELETION_FAILED"
     FTS_INDEX_BUILD_COMPLETE = "FTS_INDEX_BUILD_COMPLETE"

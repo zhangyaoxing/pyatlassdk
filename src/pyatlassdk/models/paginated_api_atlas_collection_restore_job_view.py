@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.api_atlas_collection_restore_job_response import ApiAtlasCollectionRestoreJobResponse
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedApiAtlasCollectionRestoreJobView(BaseModel):
     """Generated model for PaginatedApiAtlasCollectionRestoreJobView."""

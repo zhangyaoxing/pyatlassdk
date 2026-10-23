@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.org_log_integration_response import OrgLogIntegrationResponse
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedOrgLogIntegrationResponse(BaseModel):
     """Generated model for PaginatedOrgLogIntegrationResponse."""

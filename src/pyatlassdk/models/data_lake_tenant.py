@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.data_lake_cloud_provider_config import DataLakeCloudProviderConfig
 from pyatlassdk.models.data_lake_data_process_region import DataLakeDataProcessRegion
 from pyatlassdk.models.data_lake_storage import DataLakeStorage
 from pyatlassdk.models.private_endpoint_hostname import PrivateEndpointHostname
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DataLakeTenant(BaseModel):
     """Generated model for DataLakeTenant."""
@@ -19,5 +20,5 @@ class DataLakeTenant(BaseModel):
     hostnames: list[str] | None = Field(default=None, description="List that contains the hostnames assigned to the Federated Database Instance.")
     name: str | None = Field(default=None, description="Human-readable label that identifies the Federated Database Instance.")
     private_endpoint_hostnames: list[PrivateEndpointHostname] | None = Field(default=None, alias="privateEndpointHostnames", description="List that contains the sets of private endpoints and hostnames.")
-    state: Literal["UNVERIFIED", "ACTIVE", "DELETED"] | None = Field(default=None, description="Label that indicates the status of the Federated Database Instance.")
+    state: Annotated[Literal["UNVERIFIED", "ACTIVE", "DELETED"], BeforeValidator(upper_case)] | None = Field(default=None, description="Label that indicates the status of the Federated Database Instance.")
     storage: DataLakeStorage | None = None

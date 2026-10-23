@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.query_shape_response import QueryShapeResponse
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedQueryShapes(BaseModel):
     """Paginated collection of query shapes. This endpoint returns a maximum of 100 results."""

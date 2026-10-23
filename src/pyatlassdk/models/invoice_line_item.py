@@ -2,16 +2,17 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.invoice_line_item_tags import InvoiceLineItemTags
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class InvoiceLineItem(BaseModel):
     """One service included in this invoice."""
     model_config = ConfigDict(populate_by_name=True, extra="allow")
-    cloud_provider: Literal["AWS", "GCP", "AZURE", "ATLAS"] | None = Field(default=None, alias="cloudProvider", description="Code identifying the cloud provider this line item's usage is attributed to. Values map as follows: AWS is Amazon Web Services, GCP is Google Cloud, AZURE is Microsoft Azure, and ATLAS is other Atlas usage not tied to a specific cloud provider.")
+    cloud_provider: Annotated[Literal["AWS", "GCP", "AZURE", "ATLAS"], BeforeValidator(upper_case)] | None = Field(default=None, alias="cloudProvider", description="Code identifying the cloud provider this line item's usage is attributed to. Values map as follows: AWS is Amazon Web Services, GCP is Google Cloud, AZURE is Microsoft Azure, and ATLAS is other Atlas usage not tied to a specific cloud provider.")
     cluster_name: str | None = Field(default=None, alias="clusterName", description="Human-readable label that identifies the cluster that incurred the charge.")
     created: datetime | None = Field(default=None, description="Date and time when MongoDB Cloud created this line item. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")
     discount_cents: int | None = Field(default=None, alias="discountCents", description="Sum by which MongoDB discounted this line item. MongoDB Cloud expresses this value in cents (100ths of one US Dollar). The resource returns this parameter when a discount applies.")

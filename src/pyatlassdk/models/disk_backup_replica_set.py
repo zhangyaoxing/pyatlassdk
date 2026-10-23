@@ -2,16 +2,17 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DiskBackupReplicaSet(BaseModel):
     """Details of the replica set snapshot that MongoDB Cloud created."""
     model_config = ConfigDict(populate_by_name=True, extra="allow")
-    cloud_provider: Literal["AWS", "AZURE", "GCP"] | None = Field(default=None, alias="cloudProvider", description="Human-readable label that identifies the cloud provider.")
+    cloud_provider: Annotated[Literal["AWS", "AZURE", "GCP"], BeforeValidator(upper_case)] | None = Field(default=None, alias="cloudProvider", description="Human-readable label that identifies the cloud provider.")
     copy_regions: list[str] | None = Field(default=None, alias="copyRegions", description="List that identifies the regions to which MongoDB Cloud copies the snapshot.")
     created_at: datetime | None = Field(default=None, alias="createdAt", description="Date and time when MongoDB Cloud took the snapshot. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")
     description: str | None = Field(default=None, description="Human-readable phrase or sentence that explains the purpose of the snapshot. The resource returns this parameter when `\"status\": \"onDemand\"`.")

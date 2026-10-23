@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class Raw(BaseModel):
     """Additional meta information captured about this event. The response returns this parameter as a JSON object when the query parameter `includeRaw=true`. The list of fields in the raw document may change. Don't rely on raw values for formal monitoring."""
@@ -19,4 +20,4 @@ class Raw(BaseModel):
     id: str | None = Field(default=None, description="Unique 24-hexadecimal digit string that identifies the event.")
     org_id: str | None = Field(default=None, alias="orgId", description="Unique 24-hexadecimal digit string that identifies the organization to which these events apply.")
     org_name: str | None = Field(default=None, alias="orgName", description="Human-readable label that identifies the organization that contains the project.")
-    severity: Literal["INFO", "WARNING", "ERROR", "CRITICAL"] | None = Field(default=None, description="Severity of the event.")
+    severity: Annotated[Literal["INFO", "WARNING", "ERROR", "CRITICAL"], BeforeValidator(upper_case)] | None = Field(default=None, description="Severity of the event.")

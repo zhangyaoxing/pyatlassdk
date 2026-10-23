@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class LiveImportValidation(BaseModel):
     """Generated model for LiveImportValidation."""
@@ -13,4 +14,4 @@ class LiveImportValidation(BaseModel):
     error_message: str | None = Field(default=None, alias="errorMessage", description="Reason why the validation job failed.")
     group_id: str | None = Field(default=None, alias="groupId", description="Unique 24-hexadecimal digit string that identifies the project to validate.")
     source_group_id: str | None = Field(default=None, alias="sourceGroupId", description="Unique 24-hexadecimal digit string that identifies the source project.")
-    status: Literal["PENDING", "SUCCESS", "FAILED"] | None = Field(default=None, description="State of the specified validation job returned at the time of the request.")
+    status: Annotated[Literal["PENDING", "SUCCESS", "FAILED"], BeforeValidator(upper_case)] | None = Field(default=None, description="State of the specified validation job returned at the time of the request.")

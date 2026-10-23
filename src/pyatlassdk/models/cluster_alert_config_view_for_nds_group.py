@@ -9,7 +9,7 @@ from pyatlassdk.models.cluster_matcher import ClusterMatcher
 from pyatlassdk.models.event_severity import EventSeverity
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ClusterAlertConfigViewForNdsGroup(BaseModel):
     """Cluster alert configuration allows to select which conditions of mongod cluster which trigger alerts and how users are notified."""

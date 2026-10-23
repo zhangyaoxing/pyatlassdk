@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class GoogleCloudKMS(BaseModel):
     """Details that define the configuration of Encryption at Rest using Google Cloud Key Management Service (KMS)."""

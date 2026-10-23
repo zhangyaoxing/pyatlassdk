@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.available_cloud_provider_region import AvailableCloudProviderRegion
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ClusterCloudProviderInstanceSize(BaseModel):
     """Generated model for ClusterCloudProviderInstanceSize."""

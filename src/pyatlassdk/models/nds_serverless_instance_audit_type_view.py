@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class NDSServerlessInstanceAuditTypeView(str, Enum):
+class NDSServerlessInstanceAuditTypeView(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     SERVERLESS_INSTANCE_CREATED = "SERVERLESS_INSTANCE_CREATED"
     SERVERLESS_INSTANCE_READY = "SERVERLESS_INSTANCE_READY"

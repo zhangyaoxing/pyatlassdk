@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.resource_tag import ResourceTag
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class GroupUpdate(BaseModel):
     """Request view to update the group."""

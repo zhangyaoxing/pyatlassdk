@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.billing_invoice_metadata import BillingInvoiceMetadata
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedApiInvoiceMetadataView(BaseModel):
     """Generated model for PaginatedApiInvoiceMetadataView."""

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyatlassdk.models.api_search_compute_auto_scaling_view import ApiSearchComputeAutoScalingView
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ApiSearchDeploymentRequestViewAutoScaling(BaseModel):
     """Generated model for ApiSearchDeploymentRequestViewAutoScaling."""

@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_private_link_connection import StreamsPrivateLinkConnection
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedApiStreamsPrivateLinkView(BaseModel):
     """Generated model for PaginatedApiStreamsPrivateLinkView."""

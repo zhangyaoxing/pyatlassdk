@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class NamespaceObj(BaseModel):
     """Human-readable label that identifies the namespace on the specified host. The resource expresses this parameter value as `<database>.<collection>`."""

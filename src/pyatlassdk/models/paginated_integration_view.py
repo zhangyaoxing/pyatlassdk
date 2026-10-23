@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.third_party_integration import ThirdPartyIntegration
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedIntegrationView(BaseModel):
     """Generated model for PaginatedIntegrationView."""

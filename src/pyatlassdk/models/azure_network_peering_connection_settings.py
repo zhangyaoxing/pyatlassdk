@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AzureNetworkPeeringConnectionSettings(BaseModel):
     """Group of Network Peering connection settings."""
@@ -14,7 +15,7 @@ class AzureNetworkPeeringConnectionSettings(BaseModel):
     container_id: str = Field(alias="containerId", description="Unique 24-hexadecimal digit string that identifies the MongoDB Cloud network container that contains the specified network peering connection.")
     error_state: str | None = Field(default=None, alias="errorState", description="Error message returned when a requested Azure network peering resource returns `\"status\" : \"FAILED\"`. The resource returns `null` if the request succeeded.")
     id: str | None = Field(default=None, description="Unique 24-hexadecimal digit string that identifies the network peering connection.")
-    provider_name: Literal["AWS", "AZURE", "GCP"] | None = Field(default=None, alias="providerName", description="Cloud service provider that serves the requested network peering connection.")
+    provider_name: Annotated[Literal["AWS", "AZURE", "GCP"], BeforeValidator(upper_case)] | None = Field(default=None, alias="providerName", description="Cloud service provider that serves the requested network peering connection.")
     resource_group_name: str = Field(alias="resourceGroupName", description="Human-readable label that identifies the resource group in which the VNet to peer with the MongoDB Cloud VNet resides.")
-    status: Literal["ADDING_PEER", "AVAILABLE", "FAILED", "DELETION_FAILED", "DELETING"] | None = Field(default=None, description="State of the network peering connection at the time you made the request.")
+    status: Annotated[Literal["ADDING_PEER", "AVAILABLE", "FAILED", "DELETION_FAILED", "DELETING"], BeforeValidator(upper_case)] | None = Field(default=None, description="State of the network peering connection at the time you made the request.")
     vnet_name: str = Field(alias="vnetName", description="Human-readable label that identifies the VNet that you want to peer with the MongoDB Cloud VNet.")

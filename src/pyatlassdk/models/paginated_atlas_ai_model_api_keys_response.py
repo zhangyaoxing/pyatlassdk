@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.ai_model_api_key_response import AiModelApiKeyResponse
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedAtlasAiModelApiKeysResponse(BaseModel):
     """List response for AI Model API keys at the organization and project level."""

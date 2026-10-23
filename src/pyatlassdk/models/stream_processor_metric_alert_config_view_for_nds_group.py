@@ -10,7 +10,7 @@ from pyatlassdk.models.stream_processor_event_type_view_alertable_with_threshold
 from pyatlassdk.models.stream_processor_metric_threshold import StreamProcessorMetricThreshold
 from pyatlassdk.models.streams_matcher import StreamsMatcher
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamProcessorMetricAlertConfigViewForNdsGroup(BaseModel):
     """Stream Processor threshold alert configuration allows to select thresholds on metrics which trigger alerts and how users are notified."""

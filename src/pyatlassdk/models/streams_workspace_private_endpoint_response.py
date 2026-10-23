@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsWorkspacePrivateEndpointResponse(BaseModel):
     """Customer VPC endpoint registered for inbound private connectivity to Atlas Stream Processing."""
@@ -14,4 +15,4 @@ class StreamsWorkspacePrivateEndpointResponse(BaseModel):
     id: str | None = Field(default=None, description="Unique identifier of the customer's VPC endpoint.")
     provider: str | None = Field(default=None, description="Cloud provider hosting the customer's VPC endpoint.")
     region: str | None = Field(default=None, description="Human-readable label identifying the region of the customer's VPC endpoint.")
-    status: Literal["PENDING", "OK", "FAILED", "DELETING"] | None = Field(default=None, description="Status of the endpoint registration.")
+    status: Annotated[Literal["PENDING", "OK", "FAILED", "DELETING"], BeforeValidator(upper_case)] | None = Field(default=None, description="Status of the endpoint registration.")

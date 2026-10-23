@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class AppServiceEventTypeView(str, Enum):
+class AppServiceEventTypeView(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     URL_CONFIRMATION = "URL_CONFIRMATION"
     SUCCESSFUL_DEPLOY = "SUCCESSFUL_DEPLOY"

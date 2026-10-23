@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class ResourceEventTypeViewForOrg(str, Enum):
+class ResourceEventTypeViewForOrg(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     TAGS_MODIFIED = "TAGS_MODIFIED"
     GROUP_TAGS_MODIFIED = "GROUP_TAGS_MODIFIED"

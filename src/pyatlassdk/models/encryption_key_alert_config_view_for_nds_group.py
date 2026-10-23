@@ -10,7 +10,7 @@ from pyatlassdk.models.event_severity import EventSeverity
 from pyatlassdk.models.greater_than_days_threshold_view import GreaterThanDaysThresholdView
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class EncryptionKeyAlertConfigViewForNdsGroup(BaseModel):
     """Encryption key alert configuration allows to select thresholds  which trigger alerts and how users are notified."""

@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class OrgEventTypeViewForOrg(str, Enum):
+class OrgEventTypeViewForOrg(CaseInsensitiveEnum):
     """Unique identifier of event type."""
     ORG_CREATED = "ORG_CREATED"
     CUSTOM_SESSION_TIMEOUT_MODIFIED = "CUSTOM_SESSION_TIMEOUT_MODIFIED"

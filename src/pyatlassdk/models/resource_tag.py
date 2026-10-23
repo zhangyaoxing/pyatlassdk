@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ResourceTag(BaseModel):
     """Key-value pair that tags and categorizes a MongoDB Cloud organization, project, or cluster. For example, `environment : production`."""

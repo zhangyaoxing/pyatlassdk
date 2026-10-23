@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class UpdateRequirePrivateNetworkingRequestView(BaseModel):
     """Request body to toggle the private-networking requirement for an existing export bucket."""

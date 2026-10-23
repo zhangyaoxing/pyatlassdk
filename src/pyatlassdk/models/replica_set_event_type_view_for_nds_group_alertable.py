@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class ReplicaSetEventTypeViewForNdsGroupAlertable(str, Enum):
+class ReplicaSetEventTypeViewForNdsGroupAlertable(CaseInsensitiveEnum):
     """Incident that triggered this alert."""
     REPLICATION_OPLOG_WINDOW_RUNNING_OUT = "REPLICATION_OPLOG_WINDOW_RUNNING_OUT"
     NO_PRIMARY = "NO_PRIMARY"

@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import datetime
 from pyatlassdk.models.service_account_secret import ServiceAccountSecret
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class GroupServiceAccount(BaseModel):
     """Generated model for GroupServiceAccount."""

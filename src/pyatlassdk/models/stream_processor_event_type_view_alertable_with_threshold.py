@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class StreamProcessorEventTypeViewAlertableWithThreshold(str, Enum):
+class StreamProcessorEventTypeViewAlertableWithThreshold(CaseInsensitiveEnum):
     """Event type that triggers an alert."""
     OUTSIDE_STREAM_PROCESSOR_METRIC_THRESHOLD = "OUTSIDE_STREAM_PROCESSOR_METRIC_THRESHOLD"

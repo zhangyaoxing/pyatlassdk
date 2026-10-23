@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_failover_kafka_connection_config import StreamsFailoverKafkaConnectionConfig
 from pyatlassdk.models.streams_kafka_authentication import StreamsKafkaAuthentication
 from pyatlassdk.models.streams_kafka_networking import StreamsKafkaNetworking
 from pyatlassdk.models.streams_kafka_security import StreamsKafkaSecurity
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsFailoverKafkaConnection(BaseModel):
     """Settings that define a failover connection to an external data store."""
@@ -18,7 +19,7 @@ class StreamsFailoverKafkaConnection(BaseModel):
     links: list[Link] | None = Field(default=None, description="List of one or more Uniform Resource Locators (URLs) that point to API sub-resources, related API resources, or both. RFC 5988 outlines these relationships.")
     name: str | None = Field(default=None, description="Human-readable label that identifies the stream connection.")
     region: str | None = Field(default=None, description="Connection region.")
-    state: Literal["PENDING", "READY", "DELETING", "FAILED"] | None = Field(default=None, description="Connection state.")
+    state: Annotated[Literal["PENDING", "READY", "DELETING", "FAILED"], BeforeValidator(upper_case)] | None = Field(default=None, description="Connection state.")
     type: Literal["Kafka", "Cluster"] | None = Field(default=None, description="Connection type.")
     authentication: StreamsKafkaAuthentication | None = None
     bootstrap_servers: str | None = Field(default=None, alias="bootstrapServers", description="Comma separated list of server addresses.")

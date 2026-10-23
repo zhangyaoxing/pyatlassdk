@@ -6,7 +6,7 @@ from pyatlassdk.models.collation import Collation
 from pyatlassdk.models.database_rolling_index_request_keys_item import DatabaseRollingIndexRequestKeysItem
 from pyatlassdk.models.index_options import IndexOptions
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class DatabaseRollingIndexRequest(BaseModel):
     """Generated model for DatabaseRollingIndexRequest."""

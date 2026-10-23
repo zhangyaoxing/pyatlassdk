@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
+from pyatlassdk._enums import upper_case
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class Slack(BaseModel):
     """Details to integrate one Slack account with one MongoDB Cloud project."""
@@ -13,4 +14,4 @@ class Slack(BaseModel):
     channel_name: str | None = Field(alias="channelName", description="Name of the Slack channel to which MongoDB Cloud sends alert notifications.")
     id: str | None = Field(default=None, description="Integration id.")
     team_name: str | None = Field(default=None, alias="teamName", description="Human-readable label that identifies your Slack team. Set this parameter when you configure a legacy Slack integration.")
-    type: Literal["SLACK"] | None = Field(default=None, description="Human-readable label that identifies the service to which you want to integrate with MongoDB Cloud. The value must match the third-party service integration type.")
+    type: Annotated[Literal["SLACK"], BeforeValidator(upper_case)] | None = Field(default=None, description="Human-readable label that identifies the service to which you want to integrate with MongoDB Cloud. The value must match the third-party service integration type.")

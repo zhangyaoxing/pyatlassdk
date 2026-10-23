@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.atlas_search_analyzer_tokenizer import AtlasSearchAnalyzerTokenizer
 from pyatlassdk.models.basic_db_object import BasicDBObject
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class AtlasSearchAnalyzer(BaseModel):
     """Generated model for AtlasSearchAnalyzer."""

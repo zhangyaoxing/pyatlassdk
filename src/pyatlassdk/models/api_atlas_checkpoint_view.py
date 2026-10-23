@@ -6,7 +6,7 @@ from datetime import datetime
 from pyatlassdk.models.api_checkpoint_part_view import ApiCheckpointPartView
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ApiAtlasCheckpointView(BaseModel):
     """Generated model for ApiAtlasCheckpointView."""

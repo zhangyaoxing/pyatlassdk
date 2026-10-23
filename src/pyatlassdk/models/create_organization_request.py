@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.create_atlas_organization_api_key import CreateAtlasOrganizationApiKey
 from pyatlassdk.models.org_service_account_request import OrgServiceAccountRequest
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class CreateOrganizationRequest(BaseModel):
     """Generated model for CreateOrganizationRequest."""

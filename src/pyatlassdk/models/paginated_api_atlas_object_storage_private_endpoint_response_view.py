@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.object_storage_private_endpoint_response import ObjectStoragePrivateEndpointResponse
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class PaginatedApiAtlasObjectStoragePrivateEndpointResponseView(BaseModel):
     """Generated model for PaginatedApiAtlasObjectStoragePrivateEndpointResponseView."""

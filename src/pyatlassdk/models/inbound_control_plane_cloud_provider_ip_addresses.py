@@ -6,7 +6,7 @@ from pyatlassdk.models.inbound_control_plane_cloud_provider_ip_addresses_aws imp
 from pyatlassdk.models.inbound_control_plane_cloud_provider_ip_addresses_azure import InboundControlPlaneCloudProviderIPAddressesAzure
 from pyatlassdk.models.inbound_control_plane_cloud_provider_ip_addresses_gcp import InboundControlPlaneCloudProviderIPAddressesGcp
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class InboundControlPlaneCloudProviderIPAddresses(BaseModel):
     """List of inbound IP addresses to the Atlas control plane, categorized by cloud provider. If your application allows outbound HTTP requests only to specific IP addresses, you must allow access to the following IP addresses so that your API requests can reach the Atlas control plane."""

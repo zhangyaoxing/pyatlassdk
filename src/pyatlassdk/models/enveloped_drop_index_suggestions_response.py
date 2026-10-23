@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.drop_index_suggestions_response import DropIndexSuggestionsResponse
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class EnvelopedDropIndexSuggestionsResponse(BaseModel):
     """Response envelope that wraps the response payload in `content` and includes response metadata such as `status` and `locations`."""

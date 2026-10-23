@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from enum import Enum
+from pyatlassdk._enums import CaseInsensitiveEnum
 
-class Operator(str, Enum):
+class Operator(CaseInsensitiveEnum):
     """Comparison operator to apply when checking the current metric value."""
     LT = "<"
     GT = ">"

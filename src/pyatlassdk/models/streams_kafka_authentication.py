@@ -5,7 +5,7 @@ from __future__ import annotations
 from pyatlassdk.models.link import Link
 from pyatlassdk.models.streams_aws_connection_config import StreamsAWSConnectionConfig
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class StreamsKafkaAuthentication(BaseModel):
     """User credentials required to connect to a Kafka Cluster. Includes the authentication type, as well as the parameters for that authentication mode."""

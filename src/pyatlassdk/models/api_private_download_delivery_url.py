@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class ApiPrivateDownloadDeliveryUrl(BaseModel):
     """One Uniform Resource Locator (URL) that points to the compressed snapshot files for manual download and the corresponding private endpoint."""

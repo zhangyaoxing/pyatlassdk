@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 from datetime import datetime
+from pyatlassdk._enums import upper_case
 from pyatlassdk.models.link import Link
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 class VPCPeeringConnection(BaseModel):
     """Represents a VPC Peering connection on AWS."""
@@ -19,7 +20,7 @@ class VPCPeeringConnection(BaseModel):
     expiration_time: datetime | None = Field(default=None, alias="expirationTime", description="The time when the VPC Peering Connection request expires. This parameter expresses its value in the ISO 8601 timestamp format in UTC.")
     group_id: str | None = Field(default=None, alias="groupId", description="The internal project ID.")
     links: list[Link] | None = Field(default=None, description="List of one or more Uniform Resource Locators (URLs) that point to API sub-resources, related API resources, or both. RFC 5988 outlines these relationships.")
-    local_status: Literal["NONE", "SCAN_FAILED", "UPDATE_FAILED", "REQUEST_ACCEPT", "ACCEPT_REQUESTED", "REQUEST_REJECT", "REJECT_REQUESTED", "REQUEST_DELETE", "DELETE_REQUESTED", "ACTIVE"] | None = Field(default=None, alias="localStatus", description="The local status of the VPC Peering Connection.")
+    local_status: Annotated[Literal["NONE", "SCAN_FAILED", "UPDATE_FAILED", "REQUEST_ACCEPT", "ACCEPT_REQUESTED", "REQUEST_REJECT", "REJECT_REQUESTED", "REQUEST_DELETE", "DELETE_REQUESTED", "ACTIVE"], BeforeValidator(upper_case)] | None = Field(default=None, alias="localStatus", description="The local status of the VPC Peering Connection.")
     name: str | None = Field(default=None, description="Unique VPC Peering Connection name.")
     requester_account_id: str | None = Field(default=None, alias="requesterAccountId", description="The account ID requesting the VPC Peering connection.")
     requester_cidr: str | None = Field(default=None, alias="requesterCidr", description="The CIDR block for the requesting VPC.")
