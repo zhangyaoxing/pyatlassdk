@@ -40,7 +40,7 @@ class AIModelAPIKeys:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/aiModelApiKeys"
+        path = f"/groups/{quote(str(group_id), safe='')}/aiModelApiKeys"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -73,7 +73,7 @@ class AIModelAPIKeys:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: A request containing the name, cloud, and geography of the new API key.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/aiModelApiKeys"
+        path = f"/groups/{quote(str(group_id), safe='')}/aiModelApiKeys"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -105,7 +105,7 @@ class AIModelAPIKeys:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/aiModelApiKeys/{quote(str(api_key_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/aiModelApiKeys/{quote(str(api_key_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -136,7 +136,7 @@ class AIModelAPIKeys:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/aiModelApiKeys/{quote(str(api_key_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/aiModelApiKeys/{quote(str(api_key_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -169,7 +169,7 @@ class AIModelAPIKeys:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: A request containing the new name for the API key.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/aiModelApiKeys/{quote(str(api_key_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/aiModelApiKeys/{quote(str(api_key_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -203,7 +203,7 @@ class AIModelAPIKeys:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/aiModelApiKeys"
+        path = f"/orgs/{quote(str(org_id), safe='')}/aiModelApiKeys"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -236,7 +236,7 @@ class AIModelAPIKeys:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/aiModelApiKeys/{quote(str(api_key_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/aiModelApiKeys/{quote(str(api_key_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

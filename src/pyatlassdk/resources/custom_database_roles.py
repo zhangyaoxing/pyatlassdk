@@ -34,7 +34,7 @@ class CustomDatabaseRoles:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/customDBRoles/roles"
+        path = f"/groups/{quote(str(group_id), safe='')}/customDBRoles/roles"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -65,7 +65,7 @@ class CustomDatabaseRoles:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Creates one custom role in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/customDBRoles/roles"
+        path = f"/groups/{quote(str(group_id), safe='')}/customDBRoles/roles"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -97,7 +97,7 @@ class CustomDatabaseRoles:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/customDBRoles/roles/{quote(str(role_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/customDBRoles/roles/{quote(str(role_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -128,7 +128,7 @@ class CustomDatabaseRoles:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/customDBRoles/roles/{quote(str(role_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/customDBRoles/roles/{quote(str(role_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -161,7 +161,7 @@ class CustomDatabaseRoles:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Updates one custom role in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/customDBRoles/roles/{quote(str(role_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/customDBRoles/roles/{quote(str(role_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

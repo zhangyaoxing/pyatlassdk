@@ -48,7 +48,7 @@ class RateLimiting:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             user_id: A string that identifies the Atlas user to request rate limits for. The ID can for example be the Service Account Client ID or the API Public Key. When this parameter is provided, only user scoped endpoint sets are returned and the limits returned are applicable to the specified user. The requesting user must be the same as the specified user.
         """
-        path = "/api/atlas/v2/rateLimits"
+        path = "/rateLimits"
         params = {
             "endpointPath": endpoint_path,
             "envelope": envelope,
@@ -93,7 +93,7 @@ class RateLimiting:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             user_id: A string that identifies the Atlas user to request rate limits for. The ID can for example be the Service Account Client ID or the API Public Key. When this parameter is provided, the limits returned are applicable to the specified user. The requesting user must be the same as the specified user.
         """
-        path = f"/api/atlas/v2/rateLimits/{quote(str(endpoint_set_id), safe='')}"
+        path = f"/rateLimits/{quote(str(endpoint_set_id), safe='')}"
         params = {
             "envelope": envelope,
             "groupId": group_id,

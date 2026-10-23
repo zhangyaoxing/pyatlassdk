@@ -37,7 +37,7 @@ class ServerlessPrivateEndpoints:
             instance_name: Human-readable label that identifies the serverless instance associated with the tenant endpoint.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/serverless/instance/{quote(str(instance_name), safe='')}/endpoint"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/serverless/instance/{quote(str(instance_name), safe='')}/endpoint"
         params = {
             "envelope": envelope,
         }
@@ -71,7 +71,7 @@ class ServerlessPrivateEndpoints:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: Information about the Private Endpoint to create for the Serverless Instance.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/serverless/instance/{quote(str(instance_name), safe='')}/endpoint"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/serverless/instance/{quote(str(instance_name), safe='')}/endpoint"
         params = {
             "envelope": envelope,
         }
@@ -104,7 +104,7 @@ class ServerlessPrivateEndpoints:
             instance_name: Human-readable label that identifies the serverless instance from which the tenant endpoint will be removed.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/serverless/instance/{quote(str(instance_name), safe='')}/endpoint/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/serverless/instance/{quote(str(instance_name), safe='')}/endpoint/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -136,7 +136,7 @@ class ServerlessPrivateEndpoints:
             instance_name: Human-readable label that identifies the serverless instance associated with the tenant endpoint.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/serverless/instance/{quote(str(instance_name), safe='')}/endpoint/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/serverless/instance/{quote(str(instance_name), safe='')}/endpoint/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -170,7 +170,7 @@ class ServerlessPrivateEndpoints:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: Object used for update.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/serverless/instance/{quote(str(instance_name), safe='')}/endpoint/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/serverless/instance/{quote(str(instance_name), safe='')}/endpoint/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
         }

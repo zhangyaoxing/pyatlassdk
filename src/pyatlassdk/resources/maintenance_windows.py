@@ -31,7 +31,7 @@ class MaintenanceWindows:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/maintenanceWindow"
+        path = f"/groups/{quote(str(group_id), safe='')}/maintenanceWindow"
         params = {
             "envelope": envelope,
         }
@@ -59,7 +59,7 @@ class MaintenanceWindows:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/maintenanceWindow"
+        path = f"/groups/{quote(str(group_id), safe='')}/maintenanceWindow"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -88,7 +88,7 @@ class MaintenanceWindows:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: Updates the maintenance window for the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/maintenanceWindow"
+        path = f"/groups/{quote(str(group_id), safe='')}/maintenanceWindow"
         params = {
             "envelope": envelope,
         }
@@ -115,7 +115,7 @@ class MaintenanceWindows:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/maintenanceWindow/autoDefer"
+        path = f"/groups/{quote(str(group_id), safe='')}/maintenanceWindow/autoDefer"
         params = {
             "envelope": envelope,
         }
@@ -141,7 +141,7 @@ class MaintenanceWindows:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/maintenanceWindow/defer"
+        path = f"/groups/{quote(str(group_id), safe='')}/maintenanceWindow/defer"
         params = {
             "envelope": envelope,
         }

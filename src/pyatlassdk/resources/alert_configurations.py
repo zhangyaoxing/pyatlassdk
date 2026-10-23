@@ -34,7 +34,7 @@ class AlertConfigurations:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = "/api/atlas/v2/alertConfigs/matchers/fieldNames"
+        path = "/alertConfigs/matchers/fieldNames"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -71,7 +71,7 @@ class AlertConfigurations:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/alertConfigs"
+        path = f"/groups/{quote(str(group_id), safe='')}/alertConfigs"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -107,7 +107,7 @@ class AlertConfigurations:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Creates one alert configuration for the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/alertConfigs"
+        path = f"/groups/{quote(str(group_id), safe='')}/alertConfigs"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -141,7 +141,7 @@ class AlertConfigurations:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/alertConfigs/{quote(str(alert_config_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/alertConfigs/{quote(str(alert_config_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -174,7 +174,7 @@ class AlertConfigurations:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/alertConfigs/{quote(str(alert_config_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/alertConfigs/{quote(str(alert_config_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -211,7 +211,7 @@ class AlertConfigurations:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Enables or disables the specified alert configuration in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/alertConfigs/{quote(str(alert_config_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/alertConfigs/{quote(str(alert_config_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -249,7 +249,7 @@ class AlertConfigurations:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Updates one alert configuration in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/alertConfigs/{quote(str(alert_config_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/alertConfigs/{quote(str(alert_config_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -289,7 +289,7 @@ class AlertConfigurations:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/alerts/{quote(str(alert_id), safe='')}/alertConfigs"
+        path = f"/groups/{quote(str(group_id), safe='')}/alerts/{quote(str(alert_id), safe='')}/alertConfigs"
         params = {
             "envelope": envelope,
             "includeCount": include_count,

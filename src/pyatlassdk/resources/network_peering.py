@@ -49,7 +49,7 @@ class NetworkPeering:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             provider_name: Cloud service provider that serves the desired network peering containers.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/containers"
+        path = f"/groups/{quote(str(group_id), safe='')}/containers"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -84,7 +84,7 @@ class NetworkPeering:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Creates one new network peering container in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/containers"
+        path = f"/groups/{quote(str(group_id), safe='')}/containers"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -120,7 +120,7 @@ class NetworkPeering:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/containers/all"
+        path = f"/groups/{quote(str(group_id), safe='')}/containers/all"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -154,7 +154,7 @@ class NetworkPeering:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/containers/{quote(str(container_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/containers/{quote(str(container_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -185,7 +185,7 @@ class NetworkPeering:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/containers/{quote(str(container_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/containers/{quote(str(container_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -218,7 +218,7 @@ class NetworkPeering:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Updates the network details and labels of one specified network peering container in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/containers/{quote(str(container_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/containers/{quote(str(container_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -256,7 +256,7 @@ class NetworkPeering:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             provider_name: Cloud service provider to use for this VPC peering connection.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/peers"
+        path = f"/groups/{quote(str(group_id), safe='')}/peers"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -291,7 +291,7 @@ class NetworkPeering:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Create one network peering connection.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/peers"
+        path = f"/groups/{quote(str(group_id), safe='')}/peers"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -323,7 +323,7 @@ class NetworkPeering:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/peers/{quote(str(peer_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/peers/{quote(str(peer_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -354,7 +354,7 @@ class NetworkPeering:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/peers/{quote(str(peer_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/peers/{quote(str(peer_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -387,7 +387,7 @@ class NetworkPeering:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Modify one network peering connection.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/peers/{quote(str(peer_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/peers/{quote(str(peer_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -417,7 +417,7 @@ class NetworkPeering:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateIpMode"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateIpMode"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -448,7 +448,7 @@ class NetworkPeering:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Disables Connect via Peering Only mode for the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateIpMode"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateIpMode"
         params = {
             "envelope": envelope,
             "pretty": pretty,

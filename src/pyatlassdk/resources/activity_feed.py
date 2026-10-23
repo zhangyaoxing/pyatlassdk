@@ -42,7 +42,7 @@ class ActivityFeed:
             min_date: Start date and time for events to include in the activity feed link. ISO 8601 timestamp format in UTC.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/activityFeed"
+        path = f"/groups/{quote(str(group_id), safe='')}/activityFeed"
         params = {
             "clusterName": cluster_name,
             "eventType": event_type,
@@ -78,7 +78,7 @@ class ActivityFeed:
             min_date: Start date and time for events to include in the activity feed link. ISO 8601 timestamp format in UTC.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/activityFeed"
+        path = f"/orgs/{quote(str(org_id), safe='')}/activityFeed"
         params = {
             "eventType": event_type,
             "maxDate": max_date,

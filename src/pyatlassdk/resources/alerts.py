@@ -45,7 +45,7 @@ class Alerts:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/alertConfigs/{quote(str(alert_config_id), safe='')}/alerts"
+        path = f"/groups/{quote(str(group_id), safe='')}/alertConfigs/{quote(str(alert_config_id), safe='')}/alerts"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -87,7 +87,7 @@ class Alerts:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             status: Status of the alerts to return. Omit this parameter to return all alerts in all statuses. TRACKING indicates the alert condition exists but has not persisted for the minimum notification delay. OPEN indicates the alert condition currently exists. CLOSED indicates the alert condition has been resolved.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/alerts"
+        path = f"/groups/{quote(str(group_id), safe='')}/alerts"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -124,7 +124,7 @@ class Alerts:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/alerts/{quote(str(alert_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/alerts/{quote(str(alert_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -159,7 +159,7 @@ class Alerts:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Acknowledges or unacknowledges one alert.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/alerts/{quote(str(alert_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/alerts/{quote(str(alert_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

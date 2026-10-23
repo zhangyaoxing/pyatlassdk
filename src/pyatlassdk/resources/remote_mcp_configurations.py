@@ -49,7 +49,7 @@ class RemoteMCPConfigurations:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/mcpConfigs"
+        path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -78,7 +78,7 @@ class RemoteMCPConfigurations:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             body: MCP configuration to create.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/mcpConfigs"
+        path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs"
         return self._client.request(
             method="POST",
             path=path,
@@ -103,7 +103,7 @@ class RemoteMCPConfigurations:
             mcp_config_id: Unique identifier of the MCP configuration to delete.
             cascading: Flag that indicates whether to delete the MCP configuration even if it has active secrets. If false and active secrets exist, the request returns an error. Defaults to false.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
         params = {
             "cascading": cascading,
         }
@@ -133,7 +133,7 @@ class RemoteMCPConfigurations:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -164,7 +164,7 @@ class RemoteMCPConfigurations:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: MCP configuration fields to update.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
         params = {
             "pretty": pretty,
         }
@@ -201,7 +201,7 @@ class RemoteMCPConfigurations:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets"
+        path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -232,7 +232,7 @@ class RemoteMCPConfigurations:
             mcp_config_id: Unique identifier of the MCP configuration.
             body: Secret creation request.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets"
+        path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets"
         return self._client.request(
             method="POST",
             path=path,
@@ -256,7 +256,7 @@ class RemoteMCPConfigurations:
             mcp_config_id: Unique identifier of the MCP configuration.
             secret_id: Unique 24-hexadecimal digit string that identifies the secret.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         return self._client.request(
             method="DELETE",
             path=path,
@@ -284,7 +284,7 @@ class RemoteMCPConfigurations:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -319,7 +319,7 @@ class RemoteMCPConfigurations:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/mcpConfigs"
+        path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -348,7 +348,7 @@ class RemoteMCPConfigurations:
             org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
             body: MCP configuration to create.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/mcpConfigs"
+        path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs"
         return self._client.request(
             method="POST",
             path=path,
@@ -373,7 +373,7 @@ class RemoteMCPConfigurations:
             org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
             cascading: Flag that indicates whether to delete the MCP configuration even if it has active secrets. If false and active secrets exist, the request returns an error. Defaults to false.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
         params = {
             "cascading": cascading,
         }
@@ -403,7 +403,7 @@ class RemoteMCPConfigurations:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -434,7 +434,7 @@ class RemoteMCPConfigurations:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: MCP configuration fields to update.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
         params = {
             "pretty": pretty,
         }
@@ -471,7 +471,7 @@ class RemoteMCPConfigurations:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets"
+        path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -502,7 +502,7 @@ class RemoteMCPConfigurations:
             org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
             body: Secret creation request.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets"
+        path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets"
         return self._client.request(
             method="POST",
             path=path,
@@ -526,7 +526,7 @@ class RemoteMCPConfigurations:
             org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
             secret_id: Unique 24-hexadecimal digit string that identifies the secret.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         return self._client.request(
             method="DELETE",
             path=path,
@@ -554,7 +554,7 @@ class RemoteMCPConfigurations:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

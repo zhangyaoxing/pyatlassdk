@@ -40,7 +40,7 @@ class FlexSnapshots:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Snapshot to be downloaded.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/flexClusters/{quote(str(name), safe='')}/backup/download"
+        path = f"/groups/{quote(str(group_id), safe='')}/flexClusters/{quote(str(name), safe='')}/backup/download"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -78,7 +78,7 @@ class FlexSnapshots:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/flexClusters/{quote(str(name), safe='')}/backup/snapshots"
+        path = f"/groups/{quote(str(group_id), safe='')}/flexClusters/{quote(str(name), safe='')}/backup/snapshots"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -112,7 +112,7 @@ class FlexSnapshots:
             snapshot_id: Unique 24-hexadecimal digit string that identifies the desired snapshot.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/flexClusters/{quote(str(name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/flexClusters/{quote(str(name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}"
         params = {
             "envelope": envelope,
         }

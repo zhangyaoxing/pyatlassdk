@@ -44,7 +44,7 @@ class Events:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = "/api/atlas/v2/eventTypes"
+        path = "/eventTypes"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -96,7 +96,7 @@ class Events:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/events"
+        path = f"/groups/{quote(str(group_id), safe='')}/events"
         params = {
             "clusterNames": cluster_names,
             "envelope": envelope,
@@ -140,7 +140,7 @@ class Events:
             include_raw: Flag that indicates whether to include the raw document in the output. The raw document contains additional meta information about the event.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/events/{quote(str(event_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/events/{quote(str(event_id), safe='')}"
         params = {
             "envelope": envelope,
             "includeRaw": include_raw,
@@ -186,7 +186,7 @@ class Events:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/events"
+        path = f"/orgs/{quote(str(org_id), safe='')}/events"
         params = {
             "envelope": envelope,
             "eventType": event_type,
@@ -228,7 +228,7 @@ class Events:
             include_raw: Flag that indicates whether to include the raw document in the output. The raw document contains additional meta information about the event.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/events/{quote(str(event_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/events/{quote(str(event_id), safe='')}"
         params = {
             "envelope": envelope,
             "includeRaw": include_raw,

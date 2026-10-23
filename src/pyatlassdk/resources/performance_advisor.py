@@ -38,7 +38,7 @@ class PerformanceAdvisor:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/performanceAdvisor/dropIndexSuggestions"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/performanceAdvisor/dropIndexSuggestions"
         params = {
             "envelope": envelope,
         }
@@ -66,7 +66,7 @@ class PerformanceAdvisor:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/performanceAdvisor/schemaAdvice"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/performanceAdvisor/schemaAdvice"
         params = {
             "envelope": envelope,
         }
@@ -102,7 +102,7 @@ class PerformanceAdvisor:
             since: Date and time from which the query retrieves the suggested indexes. This parameter expresses its value in the number of milliseconds that have elapsed since the [UNIX epoch](https://en.wikipedia.org/wiki/Unix_time). - If you don't specify the **until** parameter, the endpoint returns data covering from the **since** value and the current time. - If you specify neither the **since** nor the **until** parameters, the endpoint returns data from the previous 24 hours.
             until: Date and time up until which the query retrieves the suggested indexes. This parameter expresses its value in the number of milliseconds that have elapsed since the [UNIX epoch](https://en.wikipedia.org/wiki/Unix_time). - If you specify the **until** parameter, you must specify the **since** parameter. - If you specify neither the **since** nor the **until** parameters, the endpoint returns data from the previous 24 hours.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/performanceAdvisor/suggestedIndexes"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/performanceAdvisor/suggestedIndexes"
         params = {
             "envelope": envelope,
             "namespaces": namespaces,
@@ -134,7 +134,7 @@ class PerformanceAdvisor:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/managedSlowMs"
+        path = f"/groups/{quote(str(group_id), safe='')}/managedSlowMs"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -163,7 +163,7 @@ class PerformanceAdvisor:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/managedSlowMs/disable"
+        path = f"/groups/{quote(str(group_id), safe='')}/managedSlowMs/disable"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -192,7 +192,7 @@ class PerformanceAdvisor:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/managedSlowMs/enable"
+        path = f"/groups/{quote(str(group_id), safe='')}/managedSlowMs/enable"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -227,7 +227,7 @@ class PerformanceAdvisor:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             since: Date and time from which the query retrieves the suggested indexes. This parameter expresses its value in the number of milliseconds that have elapsed since the [UNIX epoch](https://en.wikipedia.org/wiki/Unix_time). - If you don't specify the **duration** parameter, the endpoint returns data covering from the **since** value and the current time. - If you specify neither the **duration** nor the **since** parameters, the endpoint returns data from the previous 24 hours.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/performanceAdvisor/namespaces"
+        path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/performanceAdvisor/namespaces"
         params = {
             "duration": duration,
             "envelope": envelope,
@@ -274,7 +274,7 @@ class PerformanceAdvisor:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             since: Date and time from which the query retrieves the slow queries. This parameter expresses its value in the number of milliseconds that have elapsed since the [UNIX epoch](https://en.wikipedia.org/wiki/Unix_time). - If you don't specify the **duration** parameter, the endpoint returns data covering from the **since** value and the current time. - If you specify neither the **duration** nor the **since** parameters, the endpoint returns data from the previous 24 hours.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/performanceAdvisor/slowQueryLogs"
+        path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/performanceAdvisor/slowQueryLogs"
         params = {
             "duration": duration,
             "envelope": envelope,
@@ -328,7 +328,7 @@ class PerformanceAdvisor:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             since: Date and time from which the query retrieves the suggested indexes. This parameter expresses its value in the number of milliseconds that have elapsed since the [UNIX epoch](https://en.wikipedia.org/wiki/Unix_time). - If you don't specify the **duration** parameter, the endpoint returns data covering from the **since** value and the current time. - If you specify neither the **duration** nor the **since** parameters, the endpoint returns data from the previous 24 hours.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/performanceAdvisor/suggestedIndexes"
+        path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/performanceAdvisor/suggestedIndexes"
         params = {
             "duration": duration,
             "envelope": envelope,
@@ -367,7 +367,7 @@ class PerformanceAdvisor:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serverless/{quote(str(cluster_name), safe='')}/performanceAdvisor/autoIndexing"
+        path = f"/groups/{quote(str(group_id), safe='')}/serverless/{quote(str(cluster_name), safe='')}/performanceAdvisor/autoIndexing"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -398,7 +398,7 @@ class PerformanceAdvisor:
             enable: Value that we want to set for the Serverless Auto Indexing toggle.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serverless/{quote(str(cluster_name), safe='')}/performanceAdvisor/autoIndexing"
+        path = f"/groups/{quote(str(group_id), safe='')}/serverless/{quote(str(cluster_name), safe='')}/performanceAdvisor/autoIndexing"
         params = {
             "enable": enable,
             "pretty": pretty,

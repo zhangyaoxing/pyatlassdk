@@ -69,7 +69,7 @@ class CloudBackups:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/backup/exportBuckets"
+        path = f"/groups/{quote(str(group_id), safe='')}/backup/exportBuckets"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -103,7 +103,7 @@ class CloudBackups:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Specifies the role and AWS S3 Bucket, Azure Blob Storage Container, or Google Cloud Storage Bucket that the Export Bucket should reference.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/backup/exportBuckets"
+        path = f"/groups/{quote(str(group_id), safe='')}/backup/exportBuckets"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -133,7 +133,7 @@ class CloudBackups:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/backup/exportBuckets/{quote(str(export_bucket_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/backup/exportBuckets/{quote(str(export_bucket_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -161,7 +161,7 @@ class CloudBackups:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/backup/exportBuckets/{quote(str(export_bucket_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/backup/exportBuckets/{quote(str(export_bucket_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -193,7 +193,7 @@ class CloudBackups:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Updates the private networking requirement for the snapshot export bucket.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/backup/exportBuckets/{quote(str(export_bucket_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/backup/exportBuckets/{quote(str(export_bucket_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -231,7 +231,7 @@ class CloudBackups:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/backup/{quote(str(cloud_provider), safe='')}/privateEndpoints"
+        path = f"/groups/{quote(str(group_id), safe='')}/backup/{quote(str(cloud_provider), safe='')}/privateEndpoints"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -267,7 +267,7 @@ class CloudBackups:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Creates a private endpoint in the specified region for object storage backup operations.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/backup/{quote(str(cloud_provider), safe='')}/privateEndpoints"
+        path = f"/groups/{quote(str(group_id), safe='')}/backup/{quote(str(cloud_provider), safe='')}/privateEndpoints"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -301,7 +301,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/backup/{quote(str(cloud_provider), safe='')}/privateEndpoints/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/backup/{quote(str(cloud_provider), safe='')}/privateEndpoints/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -334,7 +334,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/backup/{quote(str(cloud_provider), safe='')}/privateEndpoints/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/backup/{quote(str(cloud_provider), safe='')}/privateEndpoints/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -363,7 +363,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/backupCompliancePolicy"
+        path = f"/groups/{quote(str(group_id), safe='')}/backupCompliancePolicy"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -392,7 +392,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/backupCompliancePolicy"
+        path = f"/groups/{quote(str(group_id), safe='')}/backupCompliancePolicy"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -425,7 +425,7 @@ class CloudBackups:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: The new Backup Compliance Policy settings.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/backupCompliancePolicy"
+        path = f"/groups/{quote(str(group_id), safe='')}/backupCompliancePolicy"
         params = {
             "envelope": envelope,
             "overwriteBackupPolicies": overwrite_backup_policies,
@@ -464,7 +464,7 @@ class CloudBackups:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/exports"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/exports"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -498,7 +498,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: Information about the Cloud Backup Snapshot Export Job to create.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/exports"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/exports"
         params = {
             "envelope": envelope,
         }
@@ -529,7 +529,7 @@ class CloudBackups:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/exports/{quote(str(export_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/exports/{quote(str(export_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -565,7 +565,7 @@ class CloudBackups:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/restoreJobs"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/restoreJobs"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -601,7 +601,7 @@ class CloudBackups:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Restores one snapshot of one cluster from the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/restoreJobs"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/restoreJobs"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -635,7 +635,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/restoreJobs/{quote(str(restore_job_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/restoreJobs/{quote(str(restore_job_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -668,7 +668,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/restoreJobs/{quote(str(restore_job_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/restoreJobs/{quote(str(restore_job_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -697,7 +697,7 @@ class CloudBackups:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/schedule"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/schedule"
         params = {
             "envelope": envelope,
         }
@@ -727,7 +727,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/schedule"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/schedule"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -760,7 +760,7 @@ class CloudBackups:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Updates the cloud backup schedule for one cluster within the specified project. **Note**: In the request body, provide only the fields that you want to update.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/schedule"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/schedule"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -804,7 +804,7 @@ class CloudBackups:
             point_in_time_utc_seconds: Desired point in time, expressed as the number of seconds that have elapsed since the UNIX epoch. If specified, returns the closest snapshot created before that point in time. Mutually exclusive with `oplogTs` and `oplogInc`.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -843,7 +843,7 @@ class CloudBackups:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Takes one on-demand snapshot.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -877,7 +877,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/shardedCluster/{quote(str(snapshot_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/shardedCluster/{quote(str(snapshot_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -910,7 +910,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/shardedCluster/{quote(str(snapshot_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/shardedCluster/{quote(str(snapshot_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -941,7 +941,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/shardedClusters"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/shardedClusters"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -974,7 +974,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1007,7 +1007,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1042,7 +1042,7 @@ class CloudBackups:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Changes the expiration date for one cloud backup snapshot for one cluster in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1082,7 +1082,7 @@ class CloudBackups:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}/databases"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}/databases"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -1120,7 +1120,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}/databases/{quote(str(database_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}/databases/{quote(str(database_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1161,7 +1161,7 @@ class CloudBackups:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}/databases/{quote(str(database_name), safe='')}/collections"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}/databases/{quote(str(database_name), safe='')}/collections"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -1201,7 +1201,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}/databases/{quote(str(database_name), safe='')}/collections/{quote(str(collection_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}/databases/{quote(str(database_name), safe='')}/collections/{quote(str(collection_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1236,7 +1236,7 @@ class CloudBackups:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collectionRestoreJobs"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collectionRestoreJobs"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -1271,7 +1271,7 @@ class CloudBackups:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Creates one collection-level restore job for one cluster from the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collectionRestoreJobs"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collectionRestoreJobs"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1305,7 +1305,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collectionRestoreJobs/{quote(str(job_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collectionRestoreJobs/{quote(str(job_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1348,7 +1348,7 @@ class CloudBackups:
             state: Collection-level state to filter by.
             target_namespace: Target namespace to filter by (e.g. `db.collection`).
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collectionRestoreJobs/{quote(str(job_id), safe='')}/collections"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collectionRestoreJobs/{quote(str(job_id), safe='')}/collections"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -1388,7 +1388,7 @@ class CloudBackups:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collectionRestoreJobs/{quote(str(job_id), safe='')}/collections/{quote(str(source_namespace), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collectionRestoreJobs/{quote(str(job_id), safe='')}/collections/{quote(str(source_namespace), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

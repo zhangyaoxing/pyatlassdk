@@ -55,7 +55,7 @@ class QueryShapeInsights:
             since: Date and time from which to retrieve query shape statistics. This parameter expresses its value in the number of milliseconds that have elapsed since the [UNIX epoch](https://en.wikipedia.org/wiki/Unix_time). - If you don't specify the **until** parameter, the endpoint returns data covering from the **since** value and the current time. - If you specify neither the **since** nor the **until** parameters, the endpoint returns data from the previous 24 hours.
             until: Date and time up until which to retrieve query shape statistics. This parameter expresses its value in the number of milliseconds that have elapsed since the [UNIX epoch](https://en.wikipedia.org/wiki/Unix_time). - If you specify the **until** parameter, you must specify the **since** parameter. - If you specify neither the **since** nor the **until** parameters, the endpoint returns data from the previous 24 hours.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/queryShapeInsights/summaries"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/queryShapeInsights/summaries"
         params = {
             "commands": commands,
             "envelope": envelope,
@@ -102,7 +102,7 @@ class QueryShapeInsights:
             since: Date and time from which to retrieve query shape statistics. This parameter expresses its value in the number of milliseconds that have elapsed since the [UNIX epoch](https://en.wikipedia.org/wiki/Unix_time). - If you don't specify the **until** parameter, the endpoint returns data covering from the **since** value and the current time. - If you specify neither the **since** nor the **until** parameters, the endpoint returns data from the previous 24 hours.
             until: Date and time up until which to retrieve query shape statistics. This parameter expresses its value in the number of milliseconds that have elapsed since the [UNIX epoch](https://en.wikipedia.org/wiki/Unix_time). - If you specify the **until** parameter, you must specify the **since** parameter. - If you specify neither the **since** nor the **until** parameters, the endpoint returns data from the previous 24 hours.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/queryShapeInsights/{quote(str(query_shape_hash), safe='')}/details"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/queryShapeInsights/{quote(str(query_shape_hash), safe='')}/details"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -144,7 +144,7 @@ class QueryShapeInsights:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             status: The status of query shapes to retrieve. Only REJECTED status is supported. If omitted, defaults to REJECTED.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/queryShapes"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/queryShapes"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -181,7 +181,7 @@ class QueryShapeInsights:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/queryShapes/{quote(str(query_shape_hash), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/queryShapes/{quote(str(query_shape_hash), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -216,7 +216,7 @@ class QueryShapeInsights:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: The desired rejection status for the query shape. Provide REJECTED to block the query shape from executing, or UNREJECTED to allow it to execute.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/queryShapes/{quote(str(query_shape_hash), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/queryShapes/{quote(str(query_shape_hash), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

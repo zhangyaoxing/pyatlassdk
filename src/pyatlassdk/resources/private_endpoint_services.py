@@ -40,7 +40,7 @@ class PrivateEndpointServices:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Creates one private endpoint for the specified cloud service provider.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/endpointService"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/endpointService"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -74,7 +74,7 @@ class PrivateEndpointServices:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Updates to apply to the private endpoint service.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/endpointService/{quote(str(endpoint_service_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/endpointService/{quote(str(endpoint_service_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -104,7 +104,7 @@ class PrivateEndpointServices:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/regionalMode"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/regionalMode"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -135,7 +135,7 @@ class PrivateEndpointServices:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Enables or disables the ability to create multiple private endpoints per region in all cloud service providers in one project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/regionalMode"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/regionalMode"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -167,7 +167,7 @@ class PrivateEndpointServices:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -200,7 +200,7 @@ class PrivateEndpointServices:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -233,7 +233,7 @@ class PrivateEndpointServices:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -268,7 +268,7 @@ class PrivateEndpointServices:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Creates one private endpoint for the specified cloud service provider.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}/endpoint"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}/endpoint"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -304,7 +304,7 @@ class PrivateEndpointServices:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}/endpoint/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}/endpoint/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -339,7 +339,7 @@ class PrivateEndpointServices:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}/endpoint/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}/endpoint/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

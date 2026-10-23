@@ -63,7 +63,7 @@ class MongoDBCloudUsers:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             username: Email address to filter users by. Not supported in deprecated versions.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/users"
+        path = f"/groups/{quote(str(group_id), safe='')}/users"
         params = {
             "envelope": envelope,
             "flattenTeams": flatten_teams,
@@ -106,7 +106,7 @@ class MongoDBCloudUsers:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: The active or pending MongoDB Cloud user that you want to add to the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/users"
+        path = f"/groups/{quote(str(group_id), safe='')}/users"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -142,7 +142,7 @@ class MongoDBCloudUsers:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/users/{quote(str(user_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/users/{quote(str(user_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -179,7 +179,7 @@ class MongoDBCloudUsers:
             org_membership_statuses: Organization membership status to filter users by. You can supply this parameter multiple times. Allowed values: `ACTIVE`, `PENDING`, `INVITATION_EXPIRED`, `INVITATION_REJECTED`. If you exclude this parameter, this resource returns ACTIVE and PENDING users. Not supported in deprecated versions.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/users/{quote(str(user_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/users/{quote(str(user_id), safe='')}"
         params = {
             "envelope": envelope,
             "orgMembershipStatuses": org_membership_statuses,
@@ -215,7 +215,7 @@ class MongoDBCloudUsers:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Project-level role to assign to the MongoDB Cloud user.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/users/{quote(str(user_id), safe='')}:addRole"
+        path = f"/groups/{quote(str(group_id), safe='')}/users/{quote(str(user_id), safe='')}:addRole"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -251,7 +251,7 @@ class MongoDBCloudUsers:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Project-level role to remove from the MongoDB Cloud user.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/users/{quote(str(user_id), safe='')}:removeRole"
+        path = f"/groups/{quote(str(group_id), safe='')}/users/{quote(str(user_id), safe='')}:removeRole"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -299,7 +299,7 @@ class MongoDBCloudUsers:
             user_id: Unique 24-hexadecimal digit string to filter users by. Not supported in deprecated versions.
             username: Email address to filter users by. Not supported in deprecated versions.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/teams/{quote(str(team_id), safe='')}/users"
+        path = f"/orgs/{quote(str(org_id), safe='')}/teams/{quote(str(team_id), safe='')}/users"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -342,7 +342,7 @@ class MongoDBCloudUsers:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: The active or pending MongoDB Cloud user that you want to add to the specified team.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/teams/{quote(str(team_id), safe='')}:addUser"
+        path = f"/orgs/{quote(str(org_id), safe='')}/teams/{quote(str(team_id), safe='')}:addUser"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -378,7 +378,7 @@ class MongoDBCloudUsers:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: The id of the active or pending MongoDB Cloud user that you want to remove from the specified team.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/teams/{quote(str(team_id), safe='')}:removeUser"
+        path = f"/orgs/{quote(str(org_id), safe='')}/teams/{quote(str(team_id), safe='')}:removeUser"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -424,7 +424,7 @@ class MongoDBCloudUsers:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             username: Email address to filter users by. Not supported in deprecated versions.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/users"
+        path = f"/orgs/{quote(str(org_id), safe='')}/users"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -465,7 +465,7 @@ class MongoDBCloudUsers:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Represents the MongoDB Cloud user to be created within the organization.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/users"
+        path = f"/orgs/{quote(str(org_id), safe='')}/users"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -501,7 +501,7 @@ class MongoDBCloudUsers:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/users/{quote(str(user_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/users/{quote(str(user_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -538,7 +538,7 @@ class MongoDBCloudUsers:
             org_membership_statuses: Organization membership status to filter users by. You can supply this parameter multiple times. Allowed values: `ACTIVE`, `PENDING`, `INVITATION_EXPIRED`, `INVITATION_REJECTED`. If you exclude this parameter, this resource returns ACTIVE and PENDING users. Not supported in deprecated versions.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/users/{quote(str(user_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/users/{quote(str(user_id), safe='')}"
         params = {
             "envelope": envelope,
             "orgMembershipStatuses": org_membership_statuses,
@@ -576,7 +576,7 @@ class MongoDBCloudUsers:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Represents the roles and teams to assign the MongoDB Cloud user.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/users/{quote(str(user_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/users/{quote(str(user_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -614,7 +614,7 @@ class MongoDBCloudUsers:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Organization-level role to assign to the MongoDB Cloud user.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/users/{quote(str(user_id), safe='')}:addRole"
+        path = f"/orgs/{quote(str(org_id), safe='')}/users/{quote(str(user_id), safe='')}:addRole"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -652,7 +652,7 @@ class MongoDBCloudUsers:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Organization-level role to remove from the MongoDB Cloud user.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/users/{quote(str(user_id), safe='')}:removeRole"
+        path = f"/orgs/{quote(str(org_id), safe='')}/users/{quote(str(user_id), safe='')}:removeRole"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -684,7 +684,7 @@ class MongoDBCloudUsers:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: MongoDB Cloud user account to create.
         """
-        path = "/api/atlas/v2/users"
+        path = "/users"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -714,7 +714,7 @@ class MongoDBCloudUsers:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/users/byName/{quote(str(user_name), safe='')}"
+        path = f"/users/byName/{quote(str(user_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -743,7 +743,7 @@ class MongoDBCloudUsers:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/users/{quote(str(user_id), safe='')}"
+        path = f"/users/{quote(str(user_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

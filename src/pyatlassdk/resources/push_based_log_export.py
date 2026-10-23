@@ -49,7 +49,7 @@ class PushBasedLogExport:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/logIntegrations"
+        path = f"/groups/{quote(str(group_id), safe='')}/logIntegrations"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -84,7 +84,7 @@ class PushBasedLogExport:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Log integration configuration to create.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/logIntegrations"
+        path = f"/groups/{quote(str(group_id), safe='')}/logIntegrations"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -116,7 +116,7 @@ class PushBasedLogExport:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/logIntegrations/{quote(str(id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/logIntegrations/{quote(str(id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -147,7 +147,7 @@ class PushBasedLogExport:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/logIntegrations/{quote(str(id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/logIntegrations/{quote(str(id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -180,7 +180,7 @@ class PushBasedLogExport:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Updated log integration configuration.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/logIntegrations/{quote(str(id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/logIntegrations/{quote(str(id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -210,7 +210,7 @@ class PushBasedLogExport:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/pushBasedLogExport"
+        path = f"/groups/{quote(str(group_id), safe='')}/pushBasedLogExport"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -239,7 +239,7 @@ class PushBasedLogExport:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/pushBasedLogExport"
+        path = f"/groups/{quote(str(group_id), safe='')}/pushBasedLogExport"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -270,7 +270,7 @@ class PushBasedLogExport:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: The project configuration details. The S3 bucket name, IAM role ID, and prefix path fields are the only fields that may be specified. Fields left unspecified will not be modified.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/pushBasedLogExport"
+        path = f"/groups/{quote(str(group_id), safe='')}/pushBasedLogExport"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -302,7 +302,7 @@ class PushBasedLogExport:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: The project configuration details. The S3 bucket name, IAM role ID, and prefix path fields are required.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/pushBasedLogExport"
+        path = f"/groups/{quote(str(group_id), safe='')}/pushBasedLogExport"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -338,7 +338,7 @@ class PushBasedLogExport:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/logIntegrations"
+        path = f"/orgs/{quote(str(org_id), safe='')}/logIntegrations"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -372,7 +372,7 @@ class PushBasedLogExport:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Log integration configuration to create.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/logIntegrations"
+        path = f"/orgs/{quote(str(org_id), safe='')}/logIntegrations"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -404,7 +404,7 @@ class PushBasedLogExport:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/logIntegrations/{quote(str(log_integration_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/logIntegrations/{quote(str(log_integration_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -435,7 +435,7 @@ class PushBasedLogExport:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/logIntegrations/{quote(str(log_integration_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/logIntegrations/{quote(str(log_integration_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -468,7 +468,7 @@ class PushBasedLogExport:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Log integration configuration to update.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/logIntegrations/{quote(str(log_integration_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/logIntegrations/{quote(str(log_integration_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

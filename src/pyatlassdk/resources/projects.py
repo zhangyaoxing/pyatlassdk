@@ -49,7 +49,7 @@ class Projects:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = "/api/atlas/v2/groups"
+        path = "/groups"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -83,7 +83,7 @@ class Projects:
             project_owner_id: Unique 24-hexadecimal digit string that identifies the MongoDB Cloud user to whom to grant the Project Owner role on the specified project. If you set this parameter, it overrides the default value of the oldest Organization Owner.
             body: Creates one project.
         """
-        path = "/api/atlas/v2/groups"
+        path = "/groups"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -114,7 +114,7 @@ class Projects:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/byName/{quote(str(group_name), safe='')}"
+        path = f"/groups/byName/{quote(str(group_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -143,7 +143,7 @@ class Projects:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -172,7 +172,7 @@ class Projects:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -203,7 +203,7 @@ class Projects:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Project to update.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -235,7 +235,7 @@ class Projects:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Adds one MongoDB Cloud user to the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/access"
+        path = f"/groups/{quote(str(group_id), safe='')}/access"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -267,7 +267,7 @@ class Projects:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             username: Email address of the user account invited to this project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/invites"
+        path = f"/groups/{quote(str(group_id), safe='')}/invites"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -299,7 +299,7 @@ class Projects:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Updates the details of one pending invitation to the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/invites"
+        path = f"/groups/{quote(str(group_id), safe='')}/invites"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -331,7 +331,7 @@ class Projects:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Invites one MongoDB Cloud user to join the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/invites"
+        path = f"/groups/{quote(str(group_id), safe='')}/invites"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -361,7 +361,7 @@ class Projects:
             invitation_id: Unique 24-hexadecimal digit string that identifies the invitation.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/invites/{quote(str(invitation_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/invites/{quote(str(invitation_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -391,7 +391,7 @@ class Projects:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/invites/{quote(str(invitation_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/invites/{quote(str(invitation_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -422,7 +422,7 @@ class Projects:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: Updates the details of one pending invitation to the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/invites/{quote(str(invitation_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/invites/{quote(str(invitation_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -451,7 +451,7 @@ class Projects:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/ipAddresses"
+        path = f"/groups/{quote(str(group_id), safe='')}/ipAddresses"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -480,7 +480,7 @@ class Projects:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/limits"
+        path = f"/groups/{quote(str(group_id), safe='')}/limits"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -511,7 +511,7 @@ class Projects:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/limits/{quote(str(limit_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/limits/{quote(str(limit_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -542,7 +542,7 @@ class Projects:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/limits/{quote(str(limit_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/limits/{quote(str(limit_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -577,7 +577,7 @@ class Projects:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Limit to update.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/limits/{quote(str(limit_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/limits/{quote(str(limit_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -617,7 +617,7 @@ class Projects:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/mongoDBVersions"
+        path = f"/groups/{quote(str(group_id), safe='')}/mongoDBVersions"
         params = {
             "cloudProvider": cloud_provider,
             "defaultStatus": default_status,
@@ -651,7 +651,7 @@ class Projects:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/settings"
+        path = f"/groups/{quote(str(group_id), safe='')}/settings"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -682,7 +682,7 @@ class Projects:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Settings to update.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/settings"
+        path = f"/groups/{quote(str(group_id), safe='')}/settings"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -716,7 +716,7 @@ class Projects:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Roles to update for the specified user.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/users/{quote(str(user_id), safe='')}/roles"
+        path = f"/groups/{quote(str(group_id), safe='')}/users/{quote(str(user_id), safe='')}/roles"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -746,7 +746,7 @@ class Projects:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: Migrates a project from its current organization to another organization.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}:migrate"
+        path = f"/groups/{quote(str(group_id), safe='')}:migrate"
         params = {
             "envelope": envelope,
         }

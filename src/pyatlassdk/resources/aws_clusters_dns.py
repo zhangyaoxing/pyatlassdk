@@ -33,7 +33,7 @@ class AWSClustersDNS:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/awsCustomDNS"
+        path = f"/groups/{quote(str(group_id), safe='')}/awsCustomDNS"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -64,7 +64,7 @@ class AWSClustersDNS:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Enables or disables the custom DNS configuration for AWS clusters in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/awsCustomDNS"
+        path = f"/groups/{quote(str(group_id), safe='')}/awsCustomDNS"
         params = {
             "envelope": envelope,
             "pretty": pretty,

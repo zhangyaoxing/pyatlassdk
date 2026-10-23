@@ -48,7 +48,7 @@ class ProgrammaticAPIKeys:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/apiKeys"
+        path = f"/groups/{quote(str(group_id), safe='')}/apiKeys"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -82,7 +82,7 @@ class ProgrammaticAPIKeys:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Organization API key to be created and assigned to the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/apiKeys"
+        path = f"/groups/{quote(str(group_id), safe='')}/apiKeys"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -114,7 +114,7 @@ class ProgrammaticAPIKeys:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -153,7 +153,7 @@ class ProgrammaticAPIKeys:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Organization API Key to be updated. This request requires a minimum of one of the two body parameters.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -190,7 +190,7 @@ class ProgrammaticAPIKeys:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Organization API key to be assigned to the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -226,7 +226,7 @@ class ProgrammaticAPIKeys:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/apiKeys"
+        path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -260,7 +260,7 @@ class ProgrammaticAPIKeys:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Organization API Key to be created.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/apiKeys"
+        path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -292,7 +292,7 @@ class ProgrammaticAPIKeys:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -323,7 +323,7 @@ class ProgrammaticAPIKeys:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -356,7 +356,7 @@ class ProgrammaticAPIKeys:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Organization API key to be updated. This request requires a minimum of one of the two body parameters.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -394,7 +394,7 @@ class ProgrammaticAPIKeys:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}/accessList"
+        path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}/accessList"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -436,7 +436,7 @@ class ProgrammaticAPIKeys:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Access list entries to be created for the specified organization API key.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}/accessList"
+        path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}/accessList"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -473,7 +473,7 @@ class ProgrammaticAPIKeys:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}/accessList/{quote(str(ip_address), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}/accessList/{quote(str(ip_address), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -506,7 +506,7 @@ class ProgrammaticAPIKeys:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}/accessList/{quote(str(ip_address), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}/accessList/{quote(str(ip_address), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

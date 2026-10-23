@@ -42,7 +42,7 @@ class AtlasSearch:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Creates one Atlas Search index on the specified collection.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/fts/indexes"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/fts/indexes"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -78,7 +78,7 @@ class AtlasSearch:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/fts/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/fts/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -111,7 +111,7 @@ class AtlasSearch:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/fts/indexes/{quote(str(index_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/fts/indexes/{quote(str(index_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -144,7 +144,7 @@ class AtlasSearch:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/fts/indexes/{quote(str(index_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/fts/indexes/{quote(str(index_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -179,7 +179,7 @@ class AtlasSearch:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details to update on the Atlas Search index.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/fts/indexes/{quote(str(index_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/fts/indexes/{quote(str(index_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -211,7 +211,7 @@ class AtlasSearch:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/deployment"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/deployment"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -242,7 +242,7 @@ class AtlasSearch:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/deployment"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/deployment"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -275,7 +275,7 @@ class AtlasSearch:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Updates the Search Nodes for the specified cluster.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/deployment"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/deployment"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -309,7 +309,7 @@ class AtlasSearch:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Creates Search Nodes for the specified cluster.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/deployment"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/deployment"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -341,7 +341,7 @@ class AtlasSearch:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -374,7 +374,7 @@ class AtlasSearch:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Creates one Atlas Search index on the specified collection.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -410,7 +410,7 @@ class AtlasSearch:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -447,7 +447,7 @@ class AtlasSearch:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/{quote(str(index_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/{quote(str(index_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -484,7 +484,7 @@ class AtlasSearch:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/{quote(str(index_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/{quote(str(index_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -523,7 +523,7 @@ class AtlasSearch:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details to update the Atlas Search index with.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/{quote(str(index_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/{quote(str(index_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -557,7 +557,7 @@ class AtlasSearch:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(index_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(index_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -590,7 +590,7 @@ class AtlasSearch:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(index_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(index_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -625,7 +625,7 @@ class AtlasSearch:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details to update on the Atlas Search index.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(index_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/search/indexes/{quote(str(index_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

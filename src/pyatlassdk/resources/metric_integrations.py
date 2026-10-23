@@ -46,7 +46,7 @@ class MetricIntegrations:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             provider_type: Optional filter by provider type (e.g., `CUSTOM`). When specified, `integrationType` must also be specified.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/metricIntegrations"
+        path = f"/groups/{quote(str(group_id), safe='')}/metricIntegrations"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -82,7 +82,7 @@ class MetricIntegrations:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Metric integration configuration to create.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/metricIntegrations"
+        path = f"/groups/{quote(str(group_id), safe='')}/metricIntegrations"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -114,7 +114,7 @@ class MetricIntegrations:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/metricIntegrations/{quote(str(metric_integration_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/metricIntegrations/{quote(str(metric_integration_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -145,7 +145,7 @@ class MetricIntegrations:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/metricIntegrations/{quote(str(metric_integration_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/metricIntegrations/{quote(str(metric_integration_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -178,7 +178,7 @@ class MetricIntegrations:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Updated metric integration configuration.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/metricIntegrations/{quote(str(metric_integration_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/metricIntegrations/{quote(str(metric_integration_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

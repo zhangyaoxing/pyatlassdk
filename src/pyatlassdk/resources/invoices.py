@@ -49,7 +49,7 @@ class Invoices:
             month: The month for which to retrieve invoices (1-12). Defaults to current month.
             year: The year for which to retrieve invoices. Defaults to current year.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/associatedInvoices"
+        path = f"/orgs/{quote(str(org_id), safe='')}/associatedInvoices"
         params = {
             "includeLinkedOrgs": include_linked_orgs,
             "month": month,
@@ -79,7 +79,7 @@ class Invoices:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: Filter parameters for the Cost Explorer query.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/billing/costExplorer/usage"
+        path = f"/orgs/{quote(str(org_id), safe='')}/billing/costExplorer/usage"
         params = {
             "envelope": envelope,
         }
@@ -108,7 +108,7 @@ class Invoices:
             token: Unique 64 digit string that identifies the Cost Explorer query.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/billing/costExplorer/usage/{quote(str(token), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/billing/costExplorer/usage/{quote(str(token), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -155,7 +155,7 @@ class Invoices:
             to_date: Retrieve the invoices the `endDates` of which are smaller than or equal to the `toDate`. If omit, the invoices return will go further to latest `endDate`.
             view_linked_invoices: Flag that indicates whether to return linked invoices in the `linkedInvoices` field.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/invoices"
+        path = f"/orgs/{quote(str(org_id), safe='')}/invoices"
         params = {
             "envelope": envelope,
             "fromDate": from_date,
@@ -193,7 +193,7 @@ class Invoices:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/invoices/pending"
+        path = f"/orgs/{quote(str(org_id), safe='')}/invoices/pending"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -225,7 +225,7 @@ class Invoices:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -257,7 +257,7 @@ class Invoices:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/csv"
+        path = f"/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/csv"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -292,7 +292,7 @@ class Invoices:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             body: Filter parameters for the `lineItems` query. Send a request with an empty JSON body to retrieve all line items for a given `invoiceID` without applying any filters.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/lineItems:search"
+        path = f"/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/lineItems:search"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -331,7 +331,7 @@ class Invoices:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/reports"
+        path = f"/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/reports"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -362,7 +362,7 @@ class Invoices:
             org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
             body: Create Invoice Report request body.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/reports"
+        path = f"/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/reports"
         return self._client.request(
             method="POST",
             path=path,
@@ -386,7 +386,7 @@ class Invoices:
             org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
             report_id: Unique string that identifies the report to retrieve.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/reports/{quote(str(report_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/reports/{quote(str(report_id), safe='')}"
         return self._client.request(
             method="GET",
             path=path,
@@ -414,7 +414,7 @@ class Invoices:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = "/api/atlas/v2/skus"
+        path = "/skus"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -446,7 +446,7 @@ class Invoices:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/skus/{quote(str(sku_id), safe='')}"
+        path = f"/skus/{quote(str(sku_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

@@ -32,6 +32,7 @@ with AtlasClient(client_id="...", client_secret="...") as client:
 ```
 
 - Authentication: Atlas API keys over HTTP Digest, or Atlas service account credentials over OAuth 2.0 (`client_credentials`). Tokens are cached and refreshed automatically; the constructor rejects mixed or partial credentials.
+- `base_url` defaults to `https://cloud.mongodb.com/api/atlas/v2`; generated method paths are relative to it.
 - Models: pydantic v2 with snake_case fields; serialization uses the original Atlas field names (aliases).
 - Resources: 55 resource classes with one method per endpoint, named after `operationId`.
 

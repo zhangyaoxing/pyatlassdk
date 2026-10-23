@@ -59,7 +59,7 @@ class Streams:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -92,7 +92,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details to create one streams workspace in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -124,7 +124,7 @@ class Streams:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             region_name: The cloud provider specific region name, i.e. "US_EAST_1" for cloud provider "aws".
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/accountDetails"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/accountDetails"
         params = {
             "cloudProvider": cloud_provider,
             "envelope": envelope,
@@ -158,7 +158,7 @@ class Streams:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/activeVpcPeeringConnections"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/activeVpcPeeringConnections"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -193,7 +193,7 @@ class Streams:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/privateLinkConnections"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/privateLinkConnections"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -226,7 +226,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details to create one Private Link connection for a project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/privateLinkConnections"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/privateLinkConnections"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -258,7 +258,7 @@ class Streams:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/privateLinkConnections/{quote(str(connection_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/privateLinkConnections/{quote(str(connection_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -287,7 +287,7 @@ class Streams:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/privateLinkConnections/{quote(str(connection_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/privateLinkConnections/{quote(str(connection_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -319,7 +319,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: The fields to update on the Private Link connection.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/privateLinkConnections/{quote(str(connection_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/privateLinkConnections/{quote(str(connection_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -355,7 +355,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             requester_account_id: The Account ID of the VPC Peering connection/s.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/vpcPeeringConnections"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/vpcPeeringConnections"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -387,7 +387,7 @@ class Streams:
             id: The VPC Peering Connection id.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/vpcPeeringConnections/{quote(str(id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/vpcPeeringConnections/{quote(str(id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -417,7 +417,7 @@ class Streams:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: Challenge values for VPC Peering requester account ID, and requester VPC ID.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/vpcPeeringConnections/{quote(str(id), safe='')}:accept"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/vpcPeeringConnections/{quote(str(id), safe='')}:accept"
         params = {
             "envelope": envelope,
         }
@@ -446,7 +446,7 @@ class Streams:
             id: The VPC Peering Connection id.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/vpcPeeringConnections/{quote(str(id), safe='')}:reject"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/vpcPeeringConnections/{quote(str(id), safe='')}:reject"
         params = {
             "envelope": envelope,
         }
@@ -476,7 +476,7 @@ class Streams:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -507,7 +507,7 @@ class Streams:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             include_connections: Flag to indicate whether connections information should be included in the stream workspace.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}"
         params = {
             "envelope": envelope,
             "includeConnections": include_connections,
@@ -540,7 +540,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details to update in the streams workspace.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -576,7 +576,7 @@ class Streams:
             sp_name: Name of the stream processor to download logs for. An empty string will download logs for all stream processors in the workspace.
             start_date: Timestamp that specifies the starting point for the range of log messages to download. MongoDB Cloud expresses this timestamp in the number of seconds that have elapsed since the UNIX epoch.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/auditLogs"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/auditLogs"
         params = {
             "endDate": end_date,
             "envelope": envelope,
@@ -613,7 +613,7 @@ class Streams:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -648,7 +648,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details to create one connection for a streams workspace in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -682,7 +682,7 @@ class Streams:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -713,7 +713,7 @@ class Streams:
             tenant_name: Label that identifies the stream workspace to return.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -747,7 +747,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details to update one connection for a streams workspace in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -785,7 +785,7 @@ class Streams:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}/failoverConnections"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}/failoverConnections"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -822,7 +822,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details to create one failover connection for a streams workspace in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}/failoverConnections"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}/failoverConnections"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -858,7 +858,7 @@ class Streams:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}/failoverConnections/{quote(str(failover_connection_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}/failoverConnections/{quote(str(failover_connection_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -893,7 +893,7 @@ class Streams:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}/failoverConnections/{quote(str(failover_connection_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}/failoverConnections/{quote(str(failover_connection_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -930,7 +930,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details to update one failover connection for a streams workspace in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}/failoverConnections/{quote(str(failover_connection_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/connections/{quote(str(connection_name), safe='')}/failoverConnections/{quote(str(failover_connection_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -964,7 +964,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details to create an Atlas Streams Processor.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -998,7 +998,7 @@ class Streams:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor/{quote(str(processor_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor/{quote(str(processor_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1031,7 +1031,7 @@ class Streams:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor/{quote(str(processor_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor/{quote(str(processor_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1066,7 +1066,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Modifications to apply to the stream processor.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor/{quote(str(processor_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor/{quote(str(processor_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1100,7 +1100,7 @@ class Streams:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor/{quote(str(processor_name), safe='')}:start"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor/{quote(str(processor_name), safe='')}:start"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1135,7 +1135,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Options for starting a stream processor.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor/{quote(str(processor_name), safe='')}:startWith"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor/{quote(str(processor_name), safe='')}:startWith"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1169,7 +1169,7 @@ class Streams:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor/{quote(str(processor_name), safe='')}:stop"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processor/{quote(str(processor_name), safe='')}:stop"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1206,7 +1206,7 @@ class Streams:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processors"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}/processors"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -1244,7 +1244,7 @@ class Streams:
             sp_name: Name of the stream processor to download logs for. An empty string will download logs for all stream processors in the workspace.
             start_date: Timestamp that specifies the starting point for the range of log messages to download. MongoDB Cloud expresses this timestamp in the number of seconds that have elapsed since the UNIX epoch.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}:downloadOperationalLogs"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams/{quote(str(tenant_name), safe='')}:downloadOperationalLogs"
         params = {
             "endDate": end_date,
             "envelope": envelope,
@@ -1277,7 +1277,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details to create one streams workspace in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streams:withSampleConnections"
+        path = f"/groups/{quote(str(group_id), safe='')}/streams:withSampleConnections"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1313,7 +1313,7 @@ class Streams:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streamsWorkspacePrivateEndpoints"
+        path = f"/groups/{quote(str(group_id), safe='')}/streamsWorkspacePrivateEndpoints"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -1347,7 +1347,7 @@ class Streams:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Customer VPC endpoint to register for Atlas Stream Processing.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streamsWorkspacePrivateEndpoints"
+        path = f"/groups/{quote(str(group_id), safe='')}/streamsWorkspacePrivateEndpoints"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -1377,7 +1377,7 @@ class Streams:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streamsWorkspacePrivateEndpoints/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streamsWorkspacePrivateEndpoints/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -1405,7 +1405,7 @@ class Streams:
             group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/streamsWorkspacePrivateEndpoints/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/streamsWorkspacePrivateEndpoints/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
         }

@@ -38,7 +38,7 @@ class DataFederation:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             type: Type of Federated Database Instances to return.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/dataFederation"
+        path = f"/groups/{quote(str(group_id), safe='')}/dataFederation"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -72,7 +72,7 @@ class DataFederation:
             skip_role_validation: Flag that indicates whether this request should check if the requesting IAM role can read from the S3 bucket. AWS checks if the role can list the objects in the bucket before writing to it. Some IAM roles only need write permissions. This flag allows you to skip that check.
             body: Details to create one federated database instance in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/dataFederation"
+        path = f"/groups/{quote(str(group_id), safe='')}/dataFederation"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -105,7 +105,7 @@ class DataFederation:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -134,7 +134,7 @@ class DataFederation:
             tenant_name: Human-readable label that identifies the Federated Database to return.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -168,7 +168,7 @@ class DataFederation:
             skip_role_validation: Flag that indicates whether this request should check if the requesting IAM role can read from the S3 bucket. AWS checks if the role can list the objects in the bucket before writing to it. Some IAM roles only need write permissions. This flag allows you to skip that check.
             body: Details of one Federated Database to update in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -201,7 +201,7 @@ class DataFederation:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/limits"
+        path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/limits"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -232,7 +232,7 @@ class DataFederation:
             tenant_name: Human-readable label that identifies the federated database instance to which the query limit applies.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/limits/{quote(str(limit_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/limits/{quote(str(limit_name), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -264,7 +264,7 @@ class DataFederation:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/limits/{quote(str(limit_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/limits/{quote(str(limit_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -297,7 +297,7 @@ class DataFederation:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: Creates or updates one query limit for one federated database instance.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/limits/{quote(str(limit_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/limits/{quote(str(limit_name), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -328,7 +328,7 @@ class DataFederation:
             end_date: Timestamp that specifies the end point for the range of log messages to download. MongoDB Cloud expresses this timestamp in the number of seconds that have elapsed since the UNIX epoch.
             start_date: Timestamp that specifies the starting point for the range of log messages to download. MongoDB Cloud expresses this timestamp in the number of seconds that have elapsed since the UNIX epoch.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/queryLogs.gz"
+        path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/queryLogs.gz"
         params = {
             "endDate": end_date,
             "startDate": start_date,
@@ -363,7 +363,7 @@ class DataFederation:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateNetworkSettings/endpointIds"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateNetworkSettings/endpointIds"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -397,7 +397,7 @@ class DataFederation:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Private endpoint for Federated Database Instances and Online Archives to add to the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateNetworkSettings/endpointIds"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateNetworkSettings/endpointIds"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -429,7 +429,7 @@ class DataFederation:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateNetworkSettings/endpointIds/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateNetworkSettings/endpointIds/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -460,7 +460,7 @@ class DataFederation:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/privateNetworkSettings/endpointIds/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/privateNetworkSettings/endpointIds/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

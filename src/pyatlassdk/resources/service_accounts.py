@@ -52,7 +52,7 @@ class ServiceAccounts:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serviceAccounts"
+        path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts"
         params = {
             "envelope": envelope,
             "includeSystemManaged": include_system_managed,
@@ -86,7 +86,7 @@ class ServiceAccounts:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details of the new Service Account.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serviceAccounts"
+        path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -118,7 +118,7 @@ class ServiceAccounts:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -149,7 +149,7 @@ class ServiceAccounts:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -182,7 +182,7 @@ class ServiceAccounts:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: The new details for the Service Account.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -220,7 +220,7 @@ class ServiceAccounts:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList"
+        path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -262,7 +262,7 @@ class ServiceAccounts:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: A list of access list entries to add to the access list of the specified Service Account for the project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList"
+        path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -299,7 +299,7 @@ class ServiceAccounts:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList/{quote(str(ip_address), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList/{quote(str(ip_address), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -332,7 +332,7 @@ class ServiceAccounts:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details for the new secret.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/secrets"
+        path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/secrets"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -366,7 +366,7 @@ class ServiceAccounts:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -399,7 +399,7 @@ class ServiceAccounts:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: The Project permissions for the Service Account in the specified Project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}:invite"
+        path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}:invite"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -435,7 +435,7 @@ class ServiceAccounts:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/serviceAccounts"
+        path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts"
         params = {
             "envelope": envelope,
             "includeSystemManaged": include_system_managed,
@@ -469,7 +469,7 @@ class ServiceAccounts:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details of the new Service Account.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/serviceAccounts"
+        path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -501,7 +501,7 @@ class ServiceAccounts:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -532,7 +532,7 @@ class ServiceAccounts:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -565,7 +565,7 @@ class ServiceAccounts:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: The new details for the Service Account.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -603,7 +603,7 @@ class ServiceAccounts:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList"
+        path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -645,7 +645,7 @@ class ServiceAccounts:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: A list of access list entries to add to the access list of the specified Service Account for the organization.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList"
+        path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -682,7 +682,7 @@ class ServiceAccounts:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList/{quote(str(ip_address), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList/{quote(str(ip_address), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -717,7 +717,7 @@ class ServiceAccounts:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/groups"
+        path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/groups"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -752,7 +752,7 @@ class ServiceAccounts:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Details for the new secret.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/secrets"
+        path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/secrets"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -786,7 +786,7 @@ class ServiceAccounts:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

@@ -36,7 +36,7 @@ class ResourcePolicies:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/nonCompliantResources"
+        path = f"/orgs/{quote(str(org_id), safe='')}/nonCompliantResources"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -65,7 +65,7 @@ class ResourcePolicies:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/resourcePolicies"
+        path = f"/orgs/{quote(str(org_id), safe='')}/resourcePolicies"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -96,7 +96,7 @@ class ResourcePolicies:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Atlas Resource Policy to create.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/resourcePolicies"
+        path = f"/orgs/{quote(str(org_id), safe='')}/resourcePolicies"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -128,7 +128,7 @@ class ResourcePolicies:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/resourcePolicies/{quote(str(resource_policy_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/resourcePolicies/{quote(str(resource_policy_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -159,7 +159,7 @@ class ResourcePolicies:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/resourcePolicies/{quote(str(resource_policy_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/resourcePolicies/{quote(str(resource_policy_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -192,7 +192,7 @@ class ResourcePolicies:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Atlas Resource Policy to update.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/resourcePolicies/{quote(str(resource_policy_id), safe='')}"
+        path = f"/orgs/{quote(str(org_id), safe='')}/resourcePolicies/{quote(str(resource_policy_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -224,7 +224,7 @@ class ResourcePolicies:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Atlas Resource Policy to create.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/resourcePolicies:validate"
+        path = f"/orgs/{quote(str(org_id), safe='')}/resourcePolicies:validate"
         params = {
             "envelope": envelope,
             "pretty": pretty,

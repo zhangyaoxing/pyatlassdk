@@ -37,7 +37,7 @@ class RollingIndex:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Rolling index to create on the specified cluster.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/index"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/index"
         params = {
             "envelope": envelope,
             "pretty": pretty,

@@ -37,7 +37,7 @@ class EncryptionAtRestUsingCustomerKeyManagement:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/encryptionAtRest"
+        path = f"/groups/{quote(str(group_id), safe='')}/encryptionAtRest"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -70,7 +70,7 @@ class EncryptionAtRestUsingCustomerKeyManagement:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Required parameters depend on whether someone has enabled Encryption at Rest using Customer Key Management: If you have enabled Encryption at Rest using Customer Key Management (CMK), Atlas requires all of the parameters for the desired encryption provider. - To use AWS Key Management Service (KMS), MongoDB Cloud requires all the fields in the `awsKms` object. - To use Azure Key Vault, MongoDB Cloud requires all the fields in the `azureKeyVault` object. - To use Google Cloud Key Management Service (KMS), MongoDB Cloud requires all the fields in the `googleCloudKms` object For authentication, you must provide either `serviceAccountKey` (static credentials) or `roleId` (service-account–based authentication) Once `roleId` is configured, `serviceAccountKey` is no longer supported. If you enabled Encryption at Rest using Customer Key Management, administrators can pass only the changed fields for the `awsKms`, `azureKeyVault`, or `googleCloudKms` object to update the configuration to this endpoint.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/encryptionAtRest"
+        path = f"/groups/{quote(str(group_id), safe='')}/encryptionAtRest"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -108,7 +108,7 @@ class EncryptionAtRestUsingCustomerKeyManagement:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/encryptionAtRest/{quote(str(cloud_provider), safe='')}/privateEndpoints"
+        path = f"/groups/{quote(str(group_id), safe='')}/encryptionAtRest/{quote(str(cloud_provider), safe='')}/privateEndpoints"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -144,7 +144,7 @@ class EncryptionAtRestUsingCustomerKeyManagement:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Creates a private endpoint in the specified region.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/encryptionAtRest/{quote(str(cloud_provider), safe='')}/privateEndpoints"
+        path = f"/groups/{quote(str(group_id), safe='')}/encryptionAtRest/{quote(str(cloud_provider), safe='')}/privateEndpoints"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -178,7 +178,7 @@ class EncryptionAtRestUsingCustomerKeyManagement:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/encryptionAtRest/{quote(str(cloud_provider), safe='')}/privateEndpoints/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/encryptionAtRest/{quote(str(cloud_provider), safe='')}/privateEndpoints/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -211,7 +211,7 @@ class EncryptionAtRestUsingCustomerKeyManagement:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/encryptionAtRest/{quote(str(cloud_provider), safe='')}/privateEndpoints/{quote(str(endpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/encryptionAtRest/{quote(str(cloud_provider), safe='')}/privateEndpoints/{quote(str(endpoint_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

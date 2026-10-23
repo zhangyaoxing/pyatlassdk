@@ -37,7 +37,7 @@ class FederatedAuthentication:
         Args:
             federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}"
         return self._client.request(
             method="DELETE",
             path=path,
@@ -63,7 +63,7 @@ class FederatedAuthentication:
             items_per_page: Number of items that the response returns per page.
             page_num: Number of the page that displays the current set of the total objects that the response returns.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs"
         params = {
             "envelope": envelope,
             "itemsPerPage": items_per_page,
@@ -93,7 +93,7 @@ class FederatedAuthentication:
             org_id: Unique 24-hexadecimal digit string that identifies the connected organization configuration to remove.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -121,7 +121,7 @@ class FederatedAuthentication:
             org_id: Unique 24-hexadecimal digit string that identifies the connected organization configuration to return.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -159,7 +159,7 @@ class FederatedAuthentication:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: The connected organization configuration that you want to update.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -188,7 +188,7 @@ class FederatedAuthentication:
             org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings"
         params = {
             "envelope": envelope,
         }
@@ -218,7 +218,7 @@ class FederatedAuthentication:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: The role mapping that you want to create.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings"
         params = {
             "envelope": envelope,
         }
@@ -249,7 +249,7 @@ class FederatedAuthentication:
             org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings/{quote(str(id), safe='')}"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings/{quote(str(id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -279,7 +279,7 @@ class FederatedAuthentication:
             org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings/{quote(str(id), safe='')}"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings/{quote(str(id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -311,7 +311,7 @@ class FederatedAuthentication:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: The role mapping that you want to update.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings/{quote(str(id), safe='')}"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings/{quote(str(id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -346,7 +346,7 @@ class FederatedAuthentication:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             protocol: The protocols of the target identity providers.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders"
         params = {
             "envelope": envelope,
             "idpType": idp_type,
@@ -380,7 +380,7 @@ class FederatedAuthentication:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: The identity provider that you want to create.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders"
         params = {
             "envelope": envelope,
         }
@@ -411,7 +411,7 @@ class FederatedAuthentication:
             identity_provider_id: Unique 24-hexadecimal digit string that identifies the identity provider to connect.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -439,7 +439,7 @@ class FederatedAuthentication:
             identity_provider_id: Unique string that identifies the identity provider to connect. If using an API version before 11-15-2023, use the legacy 20-hexadecimal digit id. This id can be found within the Federation Management Console > Identity Providers tab by clicking the info icon in the IdP ID row of a configured identity provider. For all other versions, use the 24-hexadecimal digit id.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -473,7 +473,7 @@ class FederatedAuthentication:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             body: The identity provider that you want to update.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -504,7 +504,7 @@ class FederatedAuthentication:
             identity_provider_id: Unique 24-hexadecimal digit string that identifies the identity provider to connect.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}/jwks"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}/jwks"
         params = {
             "envelope": envelope,
         }
@@ -529,7 +529,7 @@ class FederatedAuthentication:
             federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
             identity_provider_id: Legacy 20-hexadecimal digit string that identifies the identity provider. This id can be found within the Federation Management Console > Identity Providers tab by clicking the info icon in the IdP ID row of a configured identity provider.
         """
-        path = f"/api/atlas/v2/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}/metadata.xml"
+        path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}/metadata.xml"
         return self._client.request(
             method="GET",
             path=path,
@@ -553,7 +553,7 @@ class FederatedAuthentication:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/orgs/{quote(str(org_id), safe='')}/federationSettings"
+        path = f"/orgs/{quote(str(org_id), safe='')}/federationSettings"
         params = {
             "envelope": envelope,
             "pretty": pretty,

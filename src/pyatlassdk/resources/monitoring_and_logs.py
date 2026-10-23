@@ -49,7 +49,7 @@ class MonitoringAndLogs:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             start_date: Specifies the date and time for the starting point of the range of log messages to retrieve, in the number of seconds that have elapsed since the UNIX epoch. This value will default to 24 hours prior to the end date. If the end date is also unspecified, the value will default to 24 hours prior to the time of the request.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(host_name), safe='')}/logs/{quote(str(log_name), safe='')}.gz"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(host_name), safe='')}/logs/{quote(str(log_name), safe='')}.gz"
         params = {
             "endDate": end_date,
             "envelope": envelope,
@@ -79,7 +79,7 @@ class MonitoringAndLogs:
             process_id: Combination of hostname and IANA port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (mongod or mongos). The port must be the IANA port on which the MongoDB process listens for requests.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/hosts/{quote(str(process_id), safe='')}/fts/metrics"
+        path = f"/groups/{quote(str(group_id), safe='')}/hosts/{quote(str(process_id), safe='')}/fts/metrics"
         params = {
             "envelope": envelope,
         }
@@ -121,7 +121,7 @@ class MonitoringAndLogs:
             period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
             start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/hosts/{quote(str(process_id), safe='')}/fts/metrics/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/measurements"
+        path = f"/groups/{quote(str(group_id), safe='')}/hosts/{quote(str(process_id), safe='')}/fts/metrics/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/measurements"
         params = {
             "end": end,
             "envelope": envelope,
@@ -170,7 +170,7 @@ class MonitoringAndLogs:
             period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
             start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/hosts/{quote(str(process_id), safe='')}/fts/metrics/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/{quote(str(index_name), safe='')}/measurements"
+        path = f"/groups/{quote(str(group_id), safe='')}/hosts/{quote(str(process_id), safe='')}/fts/metrics/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/{quote(str(index_name), safe='')}/measurements"
         params = {
             "end": end,
             "envelope": envelope,
@@ -213,7 +213,7 @@ class MonitoringAndLogs:
             period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
             start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/hosts/{quote(str(process_id), safe='')}/fts/metrics/measurements"
+        path = f"/groups/{quote(str(group_id), safe='')}/hosts/{quote(str(process_id), safe='')}/fts/metrics/measurements"
         params = {
             "end": end,
             "envelope": envelope,
@@ -252,7 +252,7 @@ class MonitoringAndLogs:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/processes"
+        path = f"/groups/{quote(str(group_id), safe='')}/processes"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -286,7 +286,7 @@ class MonitoringAndLogs:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -323,7 +323,7 @@ class MonitoringAndLogs:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/databases"
+        path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/databases"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -359,7 +359,7 @@ class MonitoringAndLogs:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/databases/{quote(str(database_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/databases/{quote(str(database_name), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -402,7 +402,7 @@ class MonitoringAndLogs:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/databases/{quote(str(database_name), safe='')}/measurements"
+        path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/databases/{quote(str(database_name), safe='')}/measurements"
         params = {
             "end": end,
             "envelope": envelope,
@@ -444,7 +444,7 @@ class MonitoringAndLogs:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/disks"
+        path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/disks"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -478,7 +478,7 @@ class MonitoringAndLogs:
             process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA) port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (`mongod` or `mongos`). The port must be the IANA port on which the MongoDB process listens for requests.
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/disks/{quote(str(partition_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/disks/{quote(str(partition_name), safe='')}"
         params = {
             "envelope": envelope,
         }
@@ -524,7 +524,7 @@ class MonitoringAndLogs:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/disks/{quote(str(partition_name), safe='')}/measurements"
+        path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/disks/{quote(str(partition_name), safe='')}/measurements"
         params = {
             "end": end,
             "envelope": envelope,
@@ -575,7 +575,7 @@ class MonitoringAndLogs:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/measurements"
+        path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/measurements"
         params = {
             "end": end,
             "envelope": envelope,

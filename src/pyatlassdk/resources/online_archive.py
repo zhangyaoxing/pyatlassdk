@@ -43,7 +43,7 @@ class OnlineArchive:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/onlineArchives"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/onlineArchives"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -79,7 +79,7 @@ class OnlineArchive:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Creates one online archive.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/onlineArchives"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/onlineArchives"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -115,7 +115,7 @@ class OnlineArchive:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             start_date: Date and time that specifies the starting point for the range of log messages to return. This resource expresses this value in the number of seconds that have elapsed since the [UNIX epoch](https://en.wikipedia.org/wiki/Unix_time).
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/onlineArchives/queryLogs.gz"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/onlineArchives/queryLogs.gz"
         params = {
             "archiveOnly": archive_only,
             "endDate": end_date,
@@ -150,7 +150,7 @@ class OnlineArchive:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/onlineArchives/{quote(str(archive_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/onlineArchives/{quote(str(archive_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -183,7 +183,7 @@ class OnlineArchive:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/onlineArchives/{quote(str(archive_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/onlineArchives/{quote(str(archive_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -218,7 +218,7 @@ class OnlineArchive:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Updates, pauses, or resumes one online archive.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/onlineArchives/{quote(str(archive_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/onlineArchives/{quote(str(archive_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,

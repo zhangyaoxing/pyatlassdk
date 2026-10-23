@@ -45,7 +45,7 @@ class AccessTracking:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             start: Date and time when MongoDB Cloud begins retrieving database history. If you specify **start**, you must also specify **end**. This parameter uses UNIX epoch time in milliseconds.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/dbAccessHistory/clusters/{quote(str(cluster_name), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/dbAccessHistory/clusters/{quote(str(cluster_name), safe='')}"
         params = {
             "authResult": auth_result,
             "end": end,
@@ -91,7 +91,7 @@ class AccessTracking:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             start: Date and time when MongoDB Cloud begins retrieving database history. If you specify **start**, you must also specify **end**. This parameter uses UNIX epoch time in milliseconds.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/dbAccessHistory/processes/{quote(str(hostname), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/dbAccessHistory/processes/{quote(str(hostname), safe='')}"
         params = {
             "authResult": auth_result,
             "end": end,

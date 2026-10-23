@@ -47,7 +47,7 @@ class LegacyBackup:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backupCheckpoints"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backupCheckpoints"
         params = {
             "envelope": envelope,
             "includeCount": include_count,
@@ -83,7 +83,7 @@ class LegacyBackup:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backupCheckpoints/{quote(str(checkpoint_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backupCheckpoints/{quote(str(checkpoint_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -124,7 +124,7 @@ class LegacyBackup:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/restoreJobs"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/restoreJobs"
         params = {
             "batchId": batch_id,
             "envelope": envelope,
@@ -161,7 +161,7 @@ class LegacyBackup:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Legacy backup to restore to one cluster in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/restoreJobs"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/restoreJobs"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -197,7 +197,7 @@ class LegacyBackup:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/restoreJobs/{quote(str(job_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/restoreJobs/{quote(str(job_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -230,7 +230,7 @@ class LegacyBackup:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshotSchedule"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshotSchedule"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -265,7 +265,7 @@ class LegacyBackup:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Update the snapshot schedule for one cluster in the specified project.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshotSchedule"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshotSchedule"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -305,7 +305,7 @@ class LegacyBackup:
             page_num: Number of the page that displays the current set of the total objects that the response returns.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshots"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshots"
         params = {
             "completed": completed,
             "envelope": envelope,
@@ -342,7 +342,7 @@ class LegacyBackup:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshots/{quote(str(snapshot_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshots/{quote(str(snapshot_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -375,7 +375,7 @@ class LegacyBackup:
             envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshots/{quote(str(snapshot_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshots/{quote(str(snapshot_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
@@ -410,7 +410,7 @@ class LegacyBackup:
             pretty: Flag that indicates whether the response body should be in the prettyprint format.
             body: Changes One Legacy Backup Snapshot Expiration.
         """
-        path = f"/api/atlas/v2/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshots/{quote(str(snapshot_id), safe='')}"
+        path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshots/{quote(str(snapshot_id), safe='')}"
         params = {
             "envelope": envelope,
             "pretty": pretty,
