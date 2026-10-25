@@ -2,6 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Any, TypeAlias
+from enum import Enum
 
-NullableAppEnvironment: TypeAlias = dict[str, Any]
+class NullableAppEnvironment(str, Enum):
+    """The application's environment. An empty string indicates that the app does not have a specified environment."""
+    VALUE_0 = ""
+    DEVELOPMENT = "development"
+    TESTING = "testing"
+    QA = "qa"
+    PRODUCTION = "production"

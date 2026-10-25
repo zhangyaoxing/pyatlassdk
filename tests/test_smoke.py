@@ -10,6 +10,7 @@ from pyatlassdk import AtlasAdminClient, AtlasAppAdminClient, AtlasStatusClient
 from pyatlassdk.admin.models.bi_connector import BiConnector
 from pyatlassdk.admin.models.cluster_description20240805 import ClusterDescription20240805
 from pyatlassdk.app.models.anonymous_auth_provider import AnonymousAuthProvider
+from pyatlassdk.app.models.app_instance import AppInstance
 
 
 def test_model_serializes_with_aliases() -> None:
@@ -145,3 +146,10 @@ def test_status_client_is_public_and_uses_json_paths() -> None:
     assert result.status.indicator == "none"
     assert str(requests[0].url) == "https://status.example/api/v2/status.json"
     assert "authorization" not in requests[0].headers
+
+
+def test_app_instance_environment_is_a_scalar_enum() -> None:
+    app = AppInstance(name="demo", environment="production")
+
+    assert app.environment is not None
+    assert app.environment.value == "production"
