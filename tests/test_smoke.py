@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 import httpx
 import pytest
 
-from pyatlassdk import AtlasAdminClient, AtlasAppAdminClient
+from pyatlassdk import AtlasAdminClient, AtlasAppAdminClient, AtlasStatusClient
 from pyatlassdk.admin.models.bi_connector import BiConnector
 from pyatlassdk.admin.models.cluster_description20240805 import ClusterDescription20240805
 from pyatlassdk.app.models.anonymous_auth_provider import AnonymousAuthProvider
@@ -110,3 +110,38 @@ def test_app_client_uses_relative_paths() -> None:
     assert result == []
     assert str(requests[0].url) == "https://services.example/api/admin/v3.0/groups/g1/apps"
     assert requests[0].headers["accept"] == "application/json"
+
+
+def test_status_client_is_public_and_uses_json_paths() -> None:
+    requests: list[httpx.Request] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        requests.append(request)
+        return httpx.Response(
+            200,
+            json={
+                "page": {
+                    "id": "page-1",
+                    "name": "MongoDB Cloud Status",
+                    "url": "https://status.mongodb.com",
+                    "updated_at": "2026-01-01T00:00:00Z",
+                },
+                "status": {
+                    "description": "All Systems Operational",
+                    "indicator": "none",
+                },
+            },
+        )
+
+    with AtlasStatusClient() as client:
+        assert client.auth_mode == "none"
+        client._http.close()
+        client._http = httpx.Client(
+            base_url="https://status.example/api/v2",
+            transport=httpx.MockTransport(handler),
+        )
+        result = client.status.get_overall_status()
+
+    assert result.status.indicator == "none"
+    assert str(requests[0].url) == "https://status.example/api/v2/status.json"
+    assert "authorization" not in requests[0].headers

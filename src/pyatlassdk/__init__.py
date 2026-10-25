@@ -8,6 +8,8 @@ from pyatlassdk.admin.client import AtlasAdminClient
 from pyatlassdk.admin.client import AtlasApiError as AtlasAdminApiError
 from pyatlassdk.app.client import AtlasApiError as AtlasAppApiError
 from pyatlassdk.app.client import AtlasAppAdminClient
+from pyatlassdk.status.client import AtlasApiError as AtlasStatusApiError
+from pyatlassdk.status.client import AtlasStatusClient
 
 try:
     __version__ = version("pyatlassdk")
@@ -25,5 +27,7 @@ __all__ = [
     "AtlasAppAdminClient",
     "AtlasAppApiError",
     "AtlasClient",
+    "AtlasStatusApiError",
+    "AtlasStatusClient",
     "__version__",
 ]
