@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "pyatlassdk"
 version = "0.1.0"
-description = "An SDK for the MongoDB Atlas Administration API."
+description = "Python SDKs for the MongoDB Atlas Administration and App Services Admin APIs."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -52,10 +52,8 @@ target-version = "py310"
 src = ["src", "tests"]
 # Generated modules are owned by mongo-atlas-sdk; do not lint or format them here.
 extend-exclude = [
-  "src/pyatlassdk/__init__.py",
-  "src/pyatlassdk/client.py",
-  "src/pyatlassdk/models",
-  "src/pyatlassdk/resources",
+  "src/pyatlassdk/admin",
+  "src/pyatlassdk/app",
 ]
 
 [tool.pytest.ini_options]

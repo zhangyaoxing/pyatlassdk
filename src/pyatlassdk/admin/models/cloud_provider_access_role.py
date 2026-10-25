@@ -1,0 +1,10 @@
+"""Generated model for CloudProviderAccessRole. Do not edit manually."""
+
+from __future__ import annotations
+
+from typing import TypeAlias
+from pyatlassdk.admin.models.cloud_provider_access_awsiam_role import CloudProviderAccessAWSIAMRole
+from pyatlassdk.admin.models.cloud_provider_access_azure_service_principal import CloudProviderAccessAzureServicePrincipal
+from pyatlassdk.admin.models.cloud_provider_access_gcp_service_account import CloudProviderAccessGCPServiceAccount
+
+CloudProviderAccessRole: TypeAlias = CloudProviderAccessAWSIAMRole | CloudProviderAccessAzureServicePrincipal | CloudProviderAccessGCPServiceAccount

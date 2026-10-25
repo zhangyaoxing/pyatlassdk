@@ -1,0 +1,34 @@
+"""Generated model for EventViewForNdsGroup. Do not edit manually."""
+
+from __future__ import annotations
+
+from typing import TypeAlias
+from pyatlassdk.admin.models.alert_audit import AlertAudit
+from pyatlassdk.admin.models.alert_config_audit import AlertConfigAudit
+from pyatlassdk.admin.models.api_user_event_view_for_nds_group import ApiUserEventViewForNdsGroup
+from pyatlassdk.admin.models.app_service_event_view import AppServiceEventView
+from pyatlassdk.admin.models.atlas_resource_policy_audit_for_nds_group import AtlasResourcePolicyAuditForNdsGroup
+from pyatlassdk.admin.models.automation_config_event_view import AutomationConfigEventView
+from pyatlassdk.admin.models.billing_event_view_for_nds_group import BillingEventViewForNdsGroup
+from pyatlassdk.admin.models.charts_audit import ChartsAudit
+from pyatlassdk.admin.models.cluster_event_view_for_nds_group import ClusterEventViewForNdsGroup
+from pyatlassdk.admin.models.data_explorer_accessed_event_view import DataExplorerAccessedEventView
+from pyatlassdk.admin.models.data_explorer_event import DataExplorerEvent
+from pyatlassdk.admin.models.default_event_view_for_nds_group import DefaultEventViewForNdsGroup
+from pyatlassdk.admin.models.fts_index_audit_view import FTSIndexAuditView
+from pyatlassdk.admin.models.for_nds_group import ForNdsGroup
+from pyatlassdk.admin.models.host_event_view_for_nds_group import HostEventViewForNdsGroup
+from pyatlassdk.admin.models.host_metric_event import HostMetricEvent
+from pyatlassdk.admin.models.nds_audit_view_for_nds_group import NDSAuditViewForNdsGroup
+from pyatlassdk.admin.models.nds_auto_scaling_audit_view_for_nds_group import NDSAutoScalingAuditViewForNdsGroup
+from pyatlassdk.admin.models.nds_serverless_instance_audit_view import NDSServerlessInstanceAuditView
+from pyatlassdk.admin.models.nds_tenant_endpoint_audit_view import NDSTenantEndpointAuditView
+from pyatlassdk.admin.models.resource_event_view_for_nds_group import ResourceEventViewForNdsGroup
+from pyatlassdk.admin.models.search_deployment_audit_view import SearchDeploymentAuditView
+from pyatlassdk.admin.models.service_account_group_events import ServiceAccountGroupEvents
+from pyatlassdk.admin.models.stream_processor_event_view_for_nds_group import StreamProcessorEventViewForNdsGroup
+from pyatlassdk.admin.models.streams_event_view_for_nds_group import StreamsEventViewForNdsGroup
+from pyatlassdk.admin.models.team_event_view_for_nds_group import TeamEventViewForNdsGroup
+from pyatlassdk.admin.models.user_event_view_for_nds_group import UserEventViewForNdsGroup
+
+EventViewForNdsGroup: TypeAlias = DefaultEventViewForNdsGroup | AlertAudit | AlertConfigAudit | ApiUserEventViewForNdsGroup | ServiceAccountGroupEvents | AutomationConfigEventView | AppServiceEventView | BillingEventViewForNdsGroup | ClusterEventViewForNdsGroup | DataExplorerAccessedEventView | DataExplorerEvent | FTSIndexAuditView | HostEventViewForNdsGroup | HostMetricEvent | NDSAuditViewForNdsGroup | NDSAutoScalingAuditViewForNdsGroup | NDSServerlessInstanceAuditView | NDSTenantEndpointAuditView | ForNdsGroup | SearchDeploymentAuditView | TeamEventViewForNdsGroup | UserEventViewForNdsGroup | ResourceEventViewForNdsGroup | StreamsEventViewForNdsGroup | StreamProcessorEventViewForNdsGroup | ChartsAudit | AtlasResourcePolicyAuditForNdsGroup

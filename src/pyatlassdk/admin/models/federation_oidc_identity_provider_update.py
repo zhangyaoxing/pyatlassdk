@@ -1,0 +1,9 @@
+"""Generated model for FederationOidcIdentityProviderUpdate. Do not edit manually."""
+
+from __future__ import annotations
+
+from typing import TypeAlias
+from pyatlassdk.admin.models.federation_oidc_workforce_identity_provider_update import FederationOidcWorkforceIdentityProviderUpdate
+from pyatlassdk.admin.models.federation_oidc_workload_identity_provider_update import FederationOidcWorkloadIdentityProviderUpdate
+
+FederationOidcIdentityProviderUpdate: TypeAlias = FederationOidcWorkforceIdentityProviderUpdate | FederationOidcWorkloadIdentityProviderUpdate

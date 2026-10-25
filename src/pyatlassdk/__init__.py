@@ -1,14 +1,29 @@
-"""Generated MongoDB Atlas SDK. Do not edit manually."""
+"""MongoDB Atlas SDKs."""
 
 from __future__ import annotations
 
 from importlib.metadata import PackageNotFoundError, version
 
-from pyatlassdk.client import AtlasApiError, AtlasClient
+from pyatlassdk.admin.client import AtlasAdminClient
+from pyatlassdk.admin.client import AtlasApiError as AtlasAdminApiError
+from pyatlassdk.app.client import AtlasApiError as AtlasAppApiError
+from pyatlassdk.app.client import AtlasAppAdminClient
 
 try:
     __version__ = version("pyatlassdk")
 except PackageNotFoundError:  # pragma: no cover - running from a source checkout
     __version__ = "0.0.0"
 
-__all__ = ["AtlasApiError", "AtlasClient", "__version__"]
+# Backwards-compatible aliases for the Atlas Administration API client.
+AtlasClient = AtlasAdminClient
+AtlasApiError = AtlasAdminApiError
+
+__all__ = [
+    "AtlasAdminApiError",
+    "AtlasAdminClient",
+    "AtlasApiError",
+    "AtlasAppAdminClient",
+    "AtlasAppApiError",
+    "AtlasClient",
+    "__version__",
+]

@@ -1,0 +1,10 @@
+"""Generated model for BaseNetworkPeeringConnectionSettings. Do not edit manually."""
+
+from __future__ import annotations
+
+from typing import TypeAlias
+from pyatlassdk.admin.models.aws_network_peering_connection_settings import AwsNetworkPeeringConnectionSettings
+from pyatlassdk.admin.models.azure_network_peering_connection_settings import AzureNetworkPeeringConnectionSettings
+from pyatlassdk.admin.models.gcp_network_peering_connection_settings import GCPNetworkPeeringConnectionSettings
+
+BaseNetworkPeeringConnectionSettings: TypeAlias = AwsNetworkPeeringConnectionSettings | AzureNetworkPeeringConnectionSettings | GCPNetworkPeeringConnectionSettings

@@ -1,0 +1,20 @@
+"""Generated model for AWSCloudProviderSettings. Do not edit manually."""
+
+from __future__ import annotations
+
+from typing import Annotated, Literal
+from pyatlassdk.admin._enums import upper_case
+from pyatlassdk.admin.models.cloud_provider_aws_auto_scaling import CloudProviderAWSAutoScaling
+
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
+
+class AWSCloudProviderSettings(BaseModel):
+    """Group of cloud provider settings that configure the provisioned MongoDB hosts."""
+    model_config = ConfigDict(populate_by_name=True, extra="allow")
+    provider_name: str = Field(alias="providerName")
+    auto_scaling: CloudProviderAWSAutoScaling | None = Field(default=None, alias="autoScaling")
+    disk_iops: int | None = Field(default=None, alias="diskIOPS", description="Maximum Disk Input/Output Operations per Second (IOPS) that the database host can perform.")
+    encrypt_ebs_volume: bool | None = Field(default=None, alias="encryptEBSVolume", description="Flag that indicates whether the Amazon Elastic Block Store (EBS) encryption feature encrypts the host's root volume for both data at rest within the volume and for data moving between the volume and the cluster. Clusters always have this setting enabled.")
+    instance_size_name: Annotated[Literal["M10", "M20", "M30", "M40", "M50", "M60", "M80", "M100", "M140", "M200", "M300", "R40", "R50", "R60", "R80", "R200", "R300", "R400", "R700", "M40_NVME", "M50_NVME", "M60_NVME", "M80_NVME", "M200_NVME", "M400_NVME", "M30_GEN_2", "M40_GEN_2", "M50_GEN_2", "M60_GEN_2", "M80_GEN_2", "M140_GEN_2", "M200_GEN_2", "M300_GEN_2", "M700_GEN_2", "R40_GEN_2", "R50_GEN_2", "R60_GEN_2", "R80_GEN_2", "R200_GEN_2", "R300_GEN_2", "R400_GEN_2", "R700_GEN_2", "M40_NVME_GEN_2", "M50_NVME_GEN_2", "M60_NVME_GEN_2", "M80_NVME_GEN_2", "M200_NVME_GEN_2", "M400_NVME_GEN_2"], BeforeValidator(upper_case)] | None = Field(default=None, alias="instanceSizeName", description="Cluster tier, with a default storage and memory capacity, that applies to all the data-bearing hosts in your cluster.")
+    region_name: Annotated[Literal["US_GOV_WEST_1", "US_GOV_EAST_1", "US_EAST_1", "US_EAST_2", "US_WEST_1", "US_WEST_2", "CA_CENTRAL_1", "EU_NORTH_1", "EU_WEST_1", "EU_WEST_2", "EU_WEST_3", "EU_CENTRAL_1", "EU_CENTRAL_2", "AP_EAST_1", "AP_EAST_2", "AP_NORTHEAST_1", "AP_NORTHEAST_2", "AP_NORTHEAST_3", "AP_SOUTHEAST_1", "AP_SOUTHEAST_2", "AP_SOUTHEAST_3", "AP_SOUTHEAST_4", "AP_SOUTHEAST_5", "AP_SOUTHEAST_6", "AP_SOUTHEAST_7", "AP_SOUTH_1", "AP_SOUTH_2", "SA_EAST_1", "CN_NORTH_1", "CN_NORTHWEST_1", "ME_SOUTH_1", "ME_CENTRAL_1", "AF_SOUTH_1", "EU_SOUTH_1", "EU_SOUTH_2", "IL_CENTRAL_1", "CA_WEST_1", "MX_CENTRAL_1", "GLOBAL"], BeforeValidator(upper_case)] | None = Field(default=None, alias="regionName", description="Physical location where MongoDB Cloud deploys your AWS-hosted MongoDB cluster nodes. The region you choose can affect network latency for clients accessing your databases. When MongoDB Cloud deploys a dedicated cluster, it checks if a VPC or VPC connection exists for that provider and region. If not, MongoDB Cloud creates them as part of the deployment. MongoDB Cloud assigns the VPC a CIDR block. To limit a new VPC peering connection to one CIDR block and region, create the connection first. Deploy the cluster after the connection starts.")
+    volume_type: Annotated[Literal["STANDARD", "PROVISIONED", "HIGH_PERFORMANCE"], BeforeValidator(upper_case)] | None = Field(default=None, alias="volumeType", description="Disk Input/Output Operations per Second (IOPS) setting for Amazon Web Services (AWS) storage that you configure only for AWS. Specify whether Disk Input/Output Operations per Second (IOPS) must not exceed the default Input/Output Operations per Second (IOPS) rate for the selected volume size (`STANDARD`), or must fall within the allowable Input/Output Operations per Second (IOPS) range for the selected volume size (`PROVISIONED` or `HIGH_PERFORMANCE`). NVMe clusters require either `PROVISIONED` or `HIGH_PERFORMANCE`.")

@@ -1,0 +1,17 @@
+"""Generated model for StreamsConnection. Do not edit manually."""
+
+from __future__ import annotations
+
+from typing import TypeAlias
+from pyatlassdk.admin.models.streams_aws_kinesis_data_streams_connection import StreamsAWSKinesisDataStreamsConnection
+from pyatlassdk.admin.models.streams_aws_lambda_connection import StreamsAWSLambdaConnection
+from pyatlassdk.admin.models.streams_azure_blob_storage_connection import StreamsAzureBlobStorageConnection
+from pyatlassdk.admin.models.streams_cluster_connection import StreamsClusterConnection
+from pyatlassdk.admin.models.streams_gcp_pub_sub_connection import StreamsGCPPubSubConnection
+from pyatlassdk.admin.models.streams_https_connection import StreamsHttpsConnection
+from pyatlassdk.admin.models.streams_kafka_connection import StreamsKafkaConnection
+from pyatlassdk.admin.models.streams_s3_connection import StreamsS3Connection
+from pyatlassdk.admin.models.streams_sample_connection import StreamsSampleConnection
+from pyatlassdk.admin.models.streams_schema_registry_connection import StreamsSchemaRegistryConnection
+
+StreamsConnection: TypeAlias = StreamsSampleConnection | StreamsClusterConnection | StreamsKafkaConnection | StreamsHttpsConnection | StreamsAWSLambdaConnection | StreamsS3Connection | StreamsAWSKinesisDataStreamsConnection | StreamsSchemaRegistryConnection | StreamsAzureBlobStorageConnection | StreamsGCPPubSubConnection

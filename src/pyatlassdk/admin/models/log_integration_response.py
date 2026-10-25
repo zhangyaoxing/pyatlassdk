@@ -1,0 +1,13 @@
+"""Generated model for LogIntegrationResponse. Do not edit manually."""
+
+from __future__ import annotations
+
+from typing import TypeAlias
+from pyatlassdk.admin.models.azure_log_integration_response import AzureLogIntegrationResponse
+from pyatlassdk.admin.models.datadog_log_integration_response import DatadogLogIntegrationResponse
+from pyatlassdk.admin.models.gcs_log_integration_response import GcsLogIntegrationResponse
+from pyatlassdk.admin.models.otel_log_integration_response import OtelLogIntegrationResponse
+from pyatlassdk.admin.models.s3_log_integration_response import S3LogIntegrationResponse
+from pyatlassdk.admin.models.splunk_log_integration_response import SplunkLogIntegrationResponse
+
+LogIntegrationResponse: TypeAlias = S3LogIntegrationResponse | DatadogLogIntegrationResponse | GcsLogIntegrationResponse | OtelLogIntegrationResponse | SplunkLogIntegrationResponse | AzureLogIntegrationResponse
