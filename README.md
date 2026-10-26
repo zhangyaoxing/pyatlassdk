@@ -1,5 +1,8 @@
 # pyatlassdk
 
+[![CI](https://github.com/zhangyaoxing/pyatlassdk/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/zhangyaoxing/pyatlassdk/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/pyatlassdk)](https://pypi.org/project/pyatlassdk/)
+
 Python SDKs for MongoDB Atlas APIs, generated automatically:
 
 - **Atlas Administration API v2**
