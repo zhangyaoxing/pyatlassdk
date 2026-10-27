@@ -104,7 +104,7 @@ class OnlineArchive:
         end_date: int | None = None,
         envelope: bool | None = None,
         start_date: int | None = None,
-    ) -> str:
+    ) -> bytes:
         """
         Download Online Archive Query Logs
 
@@ -129,7 +129,7 @@ class OnlineArchive:
             method="GET",
             path=path,
             params=params,
-            response_model=str,
+            response_model=bytes,
             accept="application/vnd.atlas.2023-01-01+gzip",
         )
 

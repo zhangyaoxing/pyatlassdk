@@ -35,7 +35,7 @@ class MonitoringAndLogs:
         end_date: int | None = None,
         envelope: bool | None = None,
         start_date: int | None = None,
-    ) -> str:
+    ) -> bytes:
         """
         Download Logs for One Cluster Host in One Project
 
@@ -59,7 +59,7 @@ class MonitoringAndLogs:
             method="GET",
             path=path,
             params=params,
-            response_model=str,
+            response_model=bytes,
             accept="application/vnd.atlas.2023-02-01+gzip",
         )
 

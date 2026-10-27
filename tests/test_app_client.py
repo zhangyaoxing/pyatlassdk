@@ -114,7 +114,9 @@ def test_login_http_error_is_wrapped(patch_http) -> None:
     assert excinfo.value.payload == {"error": "invalid creds"}
 
 
-@pytest.mark.parametrize("body", [{}, {"access_token": ""}, {"access_token": None}, {"access_token": 1}])
+@pytest.mark.parametrize(
+    "body", [{}, {"access_token": ""}, {"access_token": None}, {"access_token": 1}]
+)
 def test_login_without_a_usable_token_is_wrapped(patch_http, body) -> None:
     patch_http(LoginServer(httpx.Response(200, json=body)))
 
@@ -125,7 +127,9 @@ def test_login_without_a_usable_token_is_wrapped(patch_http, body) -> None:
     assert excinfo.value.payload == body
 
 
-def test_login_closes_its_temporary_http_client(patch_http, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_login_closes_its_temporary_http_client(
+    patch_http, monkeypatch: pytest.MonkeyPatch
+) -> None:
     created: list[httpx.Client] = []
     real_client = httpx.Client
 

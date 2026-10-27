@@ -583,7 +583,7 @@ class Streams:
         envelope: bool | None = None,
         sp_name: str | None = None,
         start_date: int | None = None,
-    ) -> str:
+    ) -> bytes:
         """
         Download Audit Logs for One Atlas Stream Processing Workspace
 
@@ -608,7 +608,7 @@ class Streams:
             method="GET",
             path=path,
             params=params,
-            response_model=str,
+            response_model=bytes,
             accept="application/vnd.atlas.2023-02-01+gzip",
         )
 
@@ -1277,7 +1277,7 @@ class Streams:
         envelope: bool | None = None,
         sp_name: str | None = None,
         start_date: int | None = None,
-    ) -> str:
+    ) -> bytes:
         """
         Download Operational Logs for One Atlas Stream Processing Workspace
 
@@ -1302,7 +1302,7 @@ class Streams:
             method="GET",
             path=path,
             params=params,
-            response_model=str,
+            response_model=bytes,
             accept="application/vnd.atlas.2025-03-12+gzip",
         )
 

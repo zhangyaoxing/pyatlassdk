@@ -328,7 +328,7 @@ class DataFederation:
         *,
         end_date: int | None = None,
         start_date: int | None = None,
-    ) -> str:
+    ) -> bytes:
         """
         Download Query Logs for One Federated Database Instance
 
@@ -349,7 +349,7 @@ class DataFederation:
             method="GET",
             path=path,
             params=params,
-            response_model=str,
+            response_model=bytes,
             accept="application/vnd.atlas.2023-01-01+gzip",
         )
 

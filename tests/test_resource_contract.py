@@ -108,7 +108,11 @@ def collect() -> list[Call]:
                 for name, parameter in signature.parameters.items():
                     if parameter.kind is inspect.Parameter.KEYWORD_ONLY:
                         kwonly.append(name)
-                    if name == "body" or parameter.kind is inspect.Parameter.KEYWORD_ONLY or parameter.default is inspect.Parameter.empty:
+                    if (
+                        name == "body"
+                        or parameter.kind is inspect.Parameter.KEYWORD_ONLY
+                        or parameter.default is inspect.Parameter.empty
+                    ):
                         kwargs[name] = sample(hints[name])
                 method(**kwargs)
                 calls.append(
@@ -225,7 +229,10 @@ def test_content_type_is_sent_exactly_when_a_body_is_declared(call: Call) -> Non
         return
 
     if call.has_body:
-        assert ADMIN_MEDIA.match(call.sent["content_type"]) or call.sent["content_type"] == "application/json"
+        assert (
+            ADMIN_MEDIA.match(call.sent["content_type"])
+            or call.sent["content_type"] == "application/json"
+        )
     else:
         assert call.sent.get("content_type") is None
 

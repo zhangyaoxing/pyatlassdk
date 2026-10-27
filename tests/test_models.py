@@ -30,15 +30,9 @@ def classes_in(module_name: str) -> list[type]:
 
 ALL_MODULES = [f"{p}.{m}" for p in PACKAGES for m in module_names(p)]
 
+
 # Models whose generated annotation is ``Literal[true]`` (lowercase), which pydantic cannot resolve.
 # They are asserted broken in test_known_issues.py and excluded from the generic checks below.
-UNRESOLVABLE = {
-    "EmailPasswordAuthProvider",
-    *(f"EmailPasswordAuthProviderConfigVariant{i}" for i in range(1, 7)),
-    "PushPullAppConfig",
-}
-
-
 def exported_names(module_name: str) -> list[str]:
     """Public names a generated model module must expose (classes or type aliases)."""
     package, _, leaf = module_name.rpartition(".")
@@ -49,11 +43,7 @@ def exported_names(module_name: str) -> list[str]:
 
 
 def model_classes(module_name: str) -> list[type[BaseModel]]:
-    return [
-        cls
-        for cls in classes_in(module_name)
-        if issubclass(cls, BaseModel) and cls.__name__ not in UNRESOLVABLE
-    ]
+    return [cls for cls in classes_in(module_name) if issubclass(cls, BaseModel)]
 
 
 @pytest.fixture(params=ALL_MODULES)

@@ -14,7 +14,7 @@ from pyatlassdk.admin.resources.auditing import Auditing
 from pyatlassdk.admin.resources.cloud_backups import CloudBackups
 from pyatlassdk.admin.resources.cloud_migration_service import CloudMigrationService
 from pyatlassdk.admin.resources.cloud_provider_access import CloudProviderAccess
-from pyatlassdk.admin.resources.cluster_outage_simulation import ClusterOutageSimulation
+from pyatlassdk.admin.resources.cluster_outage_simulation import ClusterOutageSimulationResource
 from pyatlassdk.admin.resources.clusters import Clusters
 from pyatlassdk.admin.resources.collection_level_metrics import CollectionLevelMetrics
 from pyatlassdk.admin.resources.custom_database_roles import CustomDatabaseRoles
@@ -71,7 +71,7 @@ __all__ = [
     'CloudBackups',
     'CloudMigrationService',
     'CloudProviderAccess',
-    'ClusterOutageSimulation',
+    'ClusterOutageSimulationResource',
     'Clusters',
     'CollectionLevelMetrics',
     'CustomDatabaseRoles',

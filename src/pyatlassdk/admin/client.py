@@ -22,7 +22,7 @@ from pyatlassdk.admin.resources.auditing import Auditing
 from pyatlassdk.admin.resources.cloud_backups import CloudBackups
 from pyatlassdk.admin.resources.cloud_migration_service import CloudMigrationService
 from pyatlassdk.admin.resources.cloud_provider_access import CloudProviderAccess
-from pyatlassdk.admin.resources.cluster_outage_simulation import ClusterOutageSimulation
+from pyatlassdk.admin.resources.cluster_outage_simulation import ClusterOutageSimulationResource
 from pyatlassdk.admin.resources.clusters import Clusters
 from pyatlassdk.admin.resources.collection_level_metrics import CollectionLevelMetrics
 from pyatlassdk.admin.resources.custom_database_roles import CustomDatabaseRoles
@@ -93,6 +93,20 @@ def _payload(response: httpx.Response) -> Any:
         return response.text
 
 
+def _json_object(response: httpx.Response, context: str) -> dict[str, Any]:
+    try:
+        payload = response.json()
+    except ValueError as exc:
+        raise AtlasApiError(
+            response.status_code, f"{context} returned non-JSON", _payload(response)
+        ) from exc
+    if not isinstance(payload, dict):
+        raise AtlasApiError(
+            response.status_code, f"{context} returned a non-object", payload
+        )
+    return payload
+
+
 class AtlasAdminClient:
     """Synchronous client for the MongoDB Atlas Administration API.
 
@@ -157,7 +171,7 @@ class AtlasAdminClient:
         self.cloud_backups = CloudBackups(self)
         self.cloud_migration_service = CloudMigrationService(self)
         self.cloud_provider_access = CloudProviderAccess(self)
-        self.cluster_outage_simulation = ClusterOutageSimulation(self)
+        self.cluster_outage_simulation = ClusterOutageSimulationResource(self)
         self.clusters = Clusters(self)
         self.collection_level_metrics = CollectionLevelMetrics(self)
         self.custom_database_roles = CustomDatabaseRoles(self)
@@ -227,13 +241,13 @@ class AtlasAdminClient:
                     "client_secret": self._oauth_client_secret,
                 },
             )
-            if response.status_code >= 400:
+            if response.status_code >= 300:
                 raise AtlasApiError(
                     response.status_code,
                     "Failed to obtain an OAuth 2.0 access token",
                     _payload(response),
                 )
-            payload = response.json()
+            payload = _json_object(response, "OAuth token endpoint")
             token = payload.get("access_token")
             if not isinstance(token, str) or not token:
                 raise AtlasApiError(
@@ -278,10 +292,19 @@ class AtlasAdminClient:
         if response.status_code == 401 and self.auth_mode == "oauth2":
             headers["Authorization"] = f"Bearer {self._access_token(refresh=True)}"
             response = self._http.request(method, path, **request_kwargs)
-        if response.status_code >= 400:
+        if response.status_code >= 300:
             raise AtlasApiError(
                 response.status_code, response.text, _payload(response)
             )
+        if not response.content:
+            return None
         if response_model is None:
             return None
+        if response_model is bytes:
+            return response.content
+        if response_model is str:
+            media_type = response.headers.get("content-type", "").lower()
+            if "json" in media_type:
+                return TypeAdapter(str).validate_python(response.json())
+            return response.text
         return TypeAdapter(response_model).validate_python(response.json())

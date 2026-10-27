@@ -1,4 +1,4 @@
-"""Generated resource for ClusterOutageSimulation. Do not edit manually."""
+"""Generated resource for ClusterOutageSimulationResource. Do not edit manually."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     from pyatlassdk.admin.client import AtlasAdminClient
 
 
-class ClusterOutageSimulation:
+class ClusterOutageSimulationResource:
     """Returns, starts, or ends a cluster outage simulation."""
 
     def __init__(self, client: AtlasAdminClient) -> None:

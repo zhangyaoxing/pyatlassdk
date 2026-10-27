@@ -111,7 +111,6 @@ def test_anonymous_client_sends_no_authorization(recorder: Recorder) -> None:
     assert "authorization" not in recorder.last.headers
 
 
-
 def test_digest_auth_answers_a_challenge(recorder: Recorder) -> None:
     def respond(request: httpx.Request) -> httpx.Response:
         if "authorization" not in request.headers:
@@ -324,7 +323,9 @@ def test_oauth_token_endpoint_error_is_wrapped() -> None:
     assert excinfo.value.payload == {"error": "invalid_client"}
 
 
-@pytest.mark.parametrize("body", [{}, {"access_token": ""}, {"access_token": None}, {"access_token": 5}])
+@pytest.mark.parametrize(
+    "body", [{}, {"access_token": ""}, {"access_token": None}, {"access_token": 5}]
+)
 def test_oauth_missing_or_invalid_token_is_wrapped(body) -> None:
     client = oauth_client(lambda request: httpx.Response(200, json=body))
 
@@ -374,7 +375,10 @@ def test_explicit_refresh_bypasses_the_cache() -> None:
 def test_custom_oauth_token_url_is_used() -> None:
     server = OAuthServer()
     client = oauth_client(
-        server, client_id="id", client_secret="secret", oauth_token_url="https://other.test/oauth/token"
+        server,
+        client_id="id",
+        client_secret="secret",
+        oauth_token_url="https://other.test/oauth/token",
     )
     client.request("GET", "/ping")
 

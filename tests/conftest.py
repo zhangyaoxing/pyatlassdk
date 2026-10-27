@@ -21,7 +21,9 @@ class Recorder:
     """Captures every request seen by a mocked transport and replies with a canned response."""
 
     requests: list[httpx.Request] = field(default_factory=list)
-    response: Callable[[httpx.Request], httpx.Response] = lambda request: httpx.Response(200, json={})
+    response: Callable[[httpx.Request], httpx.Response] = lambda request: httpx.Response(
+        200, json={}
+    )
 
     def __call__(self, request: httpx.Request) -> httpx.Response:
         self.requests.append(request)

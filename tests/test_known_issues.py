@@ -20,24 +20,18 @@ from conftest import CLIENT_FACTORIES, Recorder, admin_client, oauth_client
 from pyatlassdk import AtlasAdminApiError, AtlasAppAdminClient, AtlasAppApiError
 from pyatlassdk.app import client as app_module
 
-
-def known_issue(number: int, summary: str, raises: type[BaseException] = Exception):
-    """Strict xfail; ``raises`` keeps an unrelated crash (e.g. a typo) from hiding as expected."""
-    return pytest.mark.xfail(
-        strict=True, reason=f"KNOWN_ISSUES.md #{number}: {summary}", raises=raises
-    )
-
-
 # --------------------------------------------------------------------------- 1. Literal[true]
 
 
-@known_issue(1, "models annotated Literal[true]/Literal[false] can never be built")
 @pytest.mark.parametrize(
     "module, name",
     [
         ("email_password_auth_provider", "EmailPasswordAuthProvider"),
         *[
-            (f"email_password_auth_provider_config_variant{i}", f"EmailPasswordAuthProviderConfigVariant{i}")
+            (
+                f"email_password_auth_provider_config_variant{i}",
+                f"EmailPasswordAuthProviderConfigVariant{i}",
+            )
             for i in range(1, 7)
         ],
         ("push_pull_app_config", "PushPullAppConfig"),
@@ -52,17 +46,19 @@ def test_model_with_literal_true_is_usable(module: str, name: str) -> None:
     cls.model_json_schema()
 
 
-@known_issue(1, "pushing an app configuration needs PushPullAppConfig")
 def test_push_app_configuration_body_can_be_constructed() -> None:
     from pyatlassdk.app.models.push_pull_app_config import PushPullAppConfig
 
-    PushPullAppConfig(name="demo", provider_region="aws-us-east-1")
+    # The full config has many required sections; model_construct proves the class itself is
+    # usable without turning this regression test into a large fixture.
+    config = PushPullAppConfig.model_construct(name="demo", provider_region="aws-us-east-1")
+
+    assert config.name == "demo"
 
 
 # --------------------------------------------------------------------------- 2. shadowed model
 
 
-@known_issue(2, "resource class shadows the model it returns")
 def test_cluster_outage_simulation_resource_returns_the_model(recorder: Recorder) -> None:
     recorder.response = lambda request: httpx.Response(
         200, json={"clusterName": "c", "state": "SIMULATING"}
@@ -76,7 +72,6 @@ def test_cluster_outage_simulation_resource_returns_the_model(recorder: Recorder
     assert result.state == "SIMULATING"
 
 
-@known_issue(2, "resource class shadows the model it returns")
 @pytest.mark.parametrize(
     "method", ["get_group_cluster_outage_simulation", "end_group_cluster_outage_simulation"]
 )
@@ -87,13 +82,14 @@ def test_cluster_outage_simulation_response_model_is_a_pydantic_model(method: st
 
     getattr(client.cluster_outage_simulation, method)("g", "c")
 
-    assert isinstance(sent["response_model"], type) and issubclass(sent["response_model"], BaseModel)
+    assert isinstance(sent["response_model"], type) and issubclass(
+        sent["response_model"], BaseModel
+    )
 
 
 # --------------------------------------------------------------------------- 3. empty bodies
 
 
-@known_issue(3, "successful empty responses crash when a response_model is declared")
 @pytest.mark.parametrize("package", sorted(CLIENT_FACTORIES))
 @pytest.mark.parametrize("status", [200, 202, 204])
 def test_empty_success_body_with_any_model_returns_none(package: str, status: int) -> None:
@@ -102,7 +98,6 @@ def test_empty_success_body_with_any_model_returns_none(package: str, status: in
     assert client.request("DELETE", "/things/1", response_model=Any) is None
 
 
-@known_issue(3, "DELETE endpoints (73 methods declare response_model=Any) cannot succeed")
 def test_remove_team_from_project_handles_no_content(recorder: Recorder) -> None:
     recorder.response = lambda request: httpx.Response(204)
 
@@ -112,7 +107,6 @@ def test_remove_team_from_project_handles_no_content(recorder: Recorder) -> None
 # --------------------------------------------------------------------------- 4. non-JSON downloads
 
 
-@known_issue(4, "gzip endpoints parse the body as JSON")
 def test_log_download_returns_the_raw_payload(recorder: Recorder) -> None:
     raw = gzip.compress(b"2026-01-01T00:00:00 I NETWORK listening\n")
     recorder.response = lambda request: httpx.Response(
@@ -126,7 +120,6 @@ def test_log_download_returns_the_raw_payload(recorder: Recorder) -> None:
     assert result == raw or gzip.decompress(result.encode("latin-1")) == gzip.decompress(raw)
 
 
-@known_issue(4, "CSV endpoint parses the body as JSON")
 def test_csv_invoice_download_returns_text(recorder: Recorder) -> None:
     recorder.response = lambda request: httpx.Response(
         200, text="id,amount\n1,10\n", headers={"content-type": "text/csv"}
@@ -137,9 +130,14 @@ def test_csv_invoice_download_returns_text(recorder: Recorder) -> None:
     assert "id,amount" in result
 
 
-@known_issue(4, "a plain-text body cannot be returned for response_model=str")
 def test_request_returns_text_for_str_model(recorder: Recorder) -> None:
     recorder.response = lambda request: httpx.Response(200, text="hello")
+
+    assert admin_client(recorder).request("GET", "/x", response_model=str) == "hello"
+
+
+def test_request_returns_json_string_for_json_content_type(recorder: Recorder) -> None:
+    recorder.response = lambda request: httpx.Response(200, json="hello")
 
     assert admin_client(recorder).request("GET", "/x", response_model=str) == "hello"
 
@@ -147,7 +145,6 @@ def test_request_returns_text_for_str_model(recorder: Recorder) -> None:
 # --------------------------------------------------------------------------- 6. token payloads
 
 
-@known_issue(6, "non-JSON OAuth token response escapes as JSONDecodeError")
 def test_oauth_token_endpoint_with_html_body_raises_atlas_error() -> None:
     client = oauth_client(lambda request: httpx.Response(200, text="<html>maintenance</html>"))
 
@@ -155,7 +152,6 @@ def test_oauth_token_endpoint_with_html_body_raises_atlas_error() -> None:
         client.request("GET", "/ping")
 
 
-@known_issue(6, "non-object OAuth token response escapes as AttributeError")
 def test_oauth_token_endpoint_with_array_body_raises_atlas_error() -> None:
     client = oauth_client(lambda request: httpx.Response(200, json=["not", "an", "object"]))
 
@@ -163,7 +159,6 @@ def test_oauth_token_endpoint_with_array_body_raises_atlas_error() -> None:
         client.request("GET", "/ping")
 
 
-@known_issue(6, "non-JSON login response escapes as JSONDecodeError")
 def test_app_login_with_html_body_raises_atlas_error(monkeypatch: pytest.MonkeyPatch) -> None:
     real_client = httpx.Client
 
@@ -180,7 +175,6 @@ def test_app_login_with_html_body_raises_atlas_error(monkeypatch: pytest.MonkeyP
 # --------------------------------------------------------------------------- 7. redirects
 
 
-@known_issue(7, "3xx responses are neither followed nor reported as AtlasApiError")
 @pytest.mark.parametrize("package", sorted(CLIENT_FACTORIES))
 def test_redirect_response_raises_atlas_error(package: str) -> None:
     from pyatlassdk import AtlasStatusApiError
@@ -196,7 +190,6 @@ def test_redirect_response_raises_atlas_error(package: str) -> None:
 # --------------------------------------------------------------------------- 8. empty token
 
 
-@known_issue(8, "AtlasAppAdminClient accepts an empty access token", raises=pytest.fail.Exception)
 def test_app_client_rejects_empty_access_token() -> None:
     with pytest.raises(ValueError):
         AtlasAppAdminClient(access_token="")

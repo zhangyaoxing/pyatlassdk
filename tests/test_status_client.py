@@ -81,7 +81,10 @@ def test_resources_are_attached() -> None:
 
 
 def test_get_overall_status(recorder: Recorder) -> None:
-    respond(recorder, {"page": PAGE, "status": {"description": "All Systems Operational", "indicator": "none"}})
+    respond(
+        recorder,
+        {"page": PAGE, "status": {"description": "All Systems Operational", "indicator": "none"}},
+    )
 
     result = status_client(recorder).status.get_overall_status()
 

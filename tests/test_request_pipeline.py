@@ -169,9 +169,7 @@ def test_error_with_plain_text_body_keeps_text_payload(
     assert "bad gateway" in str(excinfo.value)
 
 
-def test_error_is_raised_before_model_validation(
-    package, make_client, recorder: Recorder
-) -> None:
+def test_error_is_raised_before_model_validation(package, make_client, recorder: Recorder) -> None:
     recorder.response = lambda request: httpx.Response(404, json={"detail": "x"})
 
     with pytest.raises(ERRORS[package]):
