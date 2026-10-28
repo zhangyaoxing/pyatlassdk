@@ -198,14 +198,28 @@ def test_app_client_rejects_empty_access_token() -> None:
 # --------------------------------------------------------------------------- 9. characterization
 
 
-def test_explicit_none_cannot_be_sent_to_clear_a_field(recorder: Recorder) -> None:
-    """Characterization of KNOWN_ISSUES.md #9 (design limitation, not marked xfail).
-
-    Request bodies are dumped with ``exclude_none=True``, so a model field set to ``None`` is
-    indistinguishable from an unset one and is never transmitted as JSON ``null``.
-    """
+def test_explicit_none_is_sent_as_json_null(recorder: Recorder) -> None:
     from pyatlassdk.admin.models.team_response import TeamResponse
 
     admin_client(recorder).request("PATCH", "/teams/1", json=TeamResponse(id=None, name=None))
 
-    assert json.loads(recorder.last.content) == {}
+    assert json.loads(recorder.last.content) == {"id": None, "name": None}
+
+
+def test_unset_fields_are_omitted_from_json(recorder: Recorder) -> None:
+    from pyatlassdk.admin.models.team_response import TeamResponse
+
+    admin_client(recorder).request("PATCH", "/teams/1", json=TeamResponse(name="team"))
+
+    assert json.loads(recorder.last.content) == {"name": "team"}
+
+
+def test_documented_null_field_is_sent_for_process_args(recorder: Recorder) -> None:
+    from pyatlassdk.admin.models.cluster_description_process_args20240805 import (
+        ClusterDescriptionProcessArgs20240805,
+    )
+
+    body = ClusterDescriptionProcessArgs20240805(oplog_size_mb=None)
+    admin_client(recorder).request("PATCH", "/processArgs", json=body)
+
+    assert json.loads(recorder.last.content) == {"oplogSizeMB": None}

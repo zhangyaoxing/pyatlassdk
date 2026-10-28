@@ -76,7 +76,7 @@ DEFAULT_CONTENT_TYPE = "application/vnd.atlas.2025-03-12+json"
 
 def _serialize(value: Any) -> Any:
     if isinstance(value, BaseModel):
-        return value.model_dump(mode="json", by_alias=True, exclude_none=True)
+        return value.model_dump(mode="json", by_alias=True, exclude_unset=True)
     if isinstance(value, list):
         return [_serialize(item) for item in value]
     if isinstance(value, dict):

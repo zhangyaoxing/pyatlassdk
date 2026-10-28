@@ -88,6 +88,7 @@ The Status API is public and requires no authentication. `base_url` defaults to
 - Map-like fields (for example `connectionStrings.awsPrivateLink`) are typed as `dict[str, str]`.
 - Admin methods send the versioned `Accept` header declared by each endpoint; App Services and Status methods use `application/json`.
 - Empty successful responses (`204`, or an empty 2xx body) return `None`.
+- Explicitly set `None` fields are serialized as JSON `null`; fields that were never set are omitted.
 - gzip downloads return `bytes`; CSV/plain-text downloads return `str`.
 - 3xx responses raise the package's `AtlasApiError` instead of being parsed as JSON.
 - `AtlasAppAdminClient` rejects an empty or whitespace-only `access_token` with `ValueError`.
