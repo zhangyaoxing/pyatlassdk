@@ -17,6 +17,30 @@ Python SDKs for MongoDB Atlas APIs, generated automatically:
 pip install pyatlassdk
 ```
 
+## Environment variables
+
+The SDK loads the nearest `.env` file automatically, starting in the current directory and walking up to its parents. Variables already exported in the process environment are not overridden. Use `cp .env.example .env` as a starting point.
+
+| Variable | Used by |
+| --- | --- |
+| `MONGO_ATLAS_PUBLIC_KEY`, `MONGO_ATLAS_PRIVATE_KEY` | `AtlasAdminClient` Digest auth |
+| `MONGO_ATLAS_CLIENT_ID`, `MONGO_ATLAS_CLIENT_SECRET` | `AtlasAdminClient` OAuth 2.0 |
+| `MONGO_ATLAS_ACCESS_TOKEN` | `AtlasAppAdminClient` |
+| `MONGO_ATLAS_BASE_URL` | Admin API base URL override |
+| `MONGO_ATLAS_OAUTH_TOKEN_URL` | Admin OAuth token URL override |
+| `MONGO_ATLAS_APP_BASE_URL` | App Services base URL override |
+| `MONGO_ATLAS_STATUS_BASE_URL` | Status API base URL override |
+| `MONGO_ATLAS_GROUP_ID`, `MONGO_ATLAS_CLUSTER_NAME` | Defaults for the Performance Advisor example |
+
+When credentials are present in `.env` or the environment, constructors can be called without arguments:
+
+```python
+from pyatlassdk import AtlasAdminClient
+
+with AtlasAdminClient() as client:  # reads MONGO_ATLAS_* from .env / environment
+    ...
+```
+
 ## Packages and clients
 
 | API | Package | Client | Authentication |
@@ -94,6 +118,18 @@ The Status API is public and requires no authentication. `base_url` defaults to
 - `AtlasAppAdminClient` rejects an empty or whitespace-only `access_token` with `ValueError`.
 - `AtlasClient` is an alias for `AtlasAdminClient` for backwards compatibility.
 - Each generated package exports its own `AtlasApiError`.
+
+## Examples
+
+`misc/examples/performance_advisor_markdown.py` fetches Performance Advisor suggested indexes for a project/cluster and prints them as a Markdown table.
+
+```bash
+cp .env.example .env          # fill in MONGO_ATLAS_PUBLIC_KEY/PRIVATE_KEY and project/cluster
+uv run python misc/examples/performance_advisor_markdown.py
+# or override the target:
+uv run python misc/examples/performance_advisor_markdown.py \
+  --group-id 24-hex-group-id --cluster-name my-cluster
+```
 
 ## Regenerating
 

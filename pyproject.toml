@@ -27,6 +27,7 @@ classifiers = [
 dependencies = [
   "httpx>=0.28.1",
   "pydantic>=2.14.1",
+  "python-dotenv>=1.0",
 ]
 
 [project.urls]

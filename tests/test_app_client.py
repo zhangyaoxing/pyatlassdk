@@ -23,9 +23,10 @@ def test_constructor_sets_bearer_header_and_defaults() -> None:
         assert client._http.timeout == httpx.Timeout(30.0)
 
 
-def test_access_token_is_required() -> None:
-    with pytest.raises(TypeError):
-        AtlasAppAdminClient()  # type: ignore[call-arg]
+def test_access_token_is_required(monkeypatch) -> None:
+    monkeypatch.delenv("MONGO_ATLAS_ACCESS_TOKEN", raising=False)
+    with pytest.raises(ValueError, match="access_token"):
+        AtlasAppAdminClient()
 
 
 def test_custom_base_url_and_timeout() -> None:

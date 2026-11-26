@@ -29,7 +29,14 @@ RESOURCE_DIR = Path(admin_module.__file__).parent / "resources"
         {"public_key": "", "private_key": "priv"},
     ],
 )
-def test_incomplete_api_keys_are_rejected(kwargs) -> None:
+def test_incomplete_api_keys_are_rejected(kwargs, monkeypatch) -> None:
+    for name in (
+        "MONGO_ATLAS_PUBLIC_KEY",
+        "MONGO_ATLAS_PRIVATE_KEY",
+        "MONGO_ATLAS_CLIENT_ID",
+        "MONGO_ATLAS_CLIENT_SECRET",
+    ):
+        monkeypatch.delenv(name, raising=False)
     with pytest.raises(ValueError, match="public_key and private_key"):
         AtlasAdminClient(**kwargs)
 
@@ -43,7 +50,14 @@ def test_incomplete_api_keys_are_rejected(kwargs) -> None:
         {"client_id": "id", "client_secret": ""},
     ],
 )
-def test_incomplete_service_account_credentials_are_rejected(kwargs) -> None:
+def test_incomplete_service_account_credentials_are_rejected(kwargs, monkeypatch) -> None:
+    for name in (
+        "MONGO_ATLAS_PUBLIC_KEY",
+        "MONGO_ATLAS_PRIVATE_KEY",
+        "MONGO_ATLAS_CLIENT_ID",
+        "MONGO_ATLAS_CLIENT_SECRET",
+    ):
+        monkeypatch.delenv(name, raising=False)
     with pytest.raises(ValueError, match="client_id and client_secret"):
         AtlasAdminClient(**kwargs)
 
