@@ -25,12 +25,19 @@ class Dependencies:
         List external dependencies
 
         List [external
-        dependencies](https://www.mongodb.com/docs/atlas/app-services/functions/dependencies/) uploaded
+        dependencies](https://www.mongodb.com/docs/atlas/app-services/functions/dependencies/)
+        uploaded
         to the Atlas App Services App.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetalldependencies
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/dependencies"
         return self._client.request(

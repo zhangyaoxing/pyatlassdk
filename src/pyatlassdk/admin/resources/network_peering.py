@@ -38,16 +38,37 @@ class NetworkPeering:
         """
         Return All Network Peering Containers in One Project for One Cloud Provider
 
-        Returns details about all network peering containers in the specified project for the specified cloud provider. If you do not specify the cloud provider, MongoDB Cloud returns details about all network peering containers in the project for Amazon Web Services (AWS).
+        Returns details about all network peering containers in the specified project for the
+        specified cloud provider. If you do not specify the cloud provider, MongoDB Cloud
+        returns details about all network peering containers in the project for Amazon Web
+        Services (AWS).
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            provider_name: Cloud service provider that serves the desired network peering containers.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            provider_name: Cloud service provider that serves the desired network peering
+                containers.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupcontainers
         """
         path = f"/groups/{quote(str(group_id), safe='')}/containers"
         params = {
@@ -77,13 +98,28 @@ class NetworkPeering:
         """
         Create One Network Peering Container
 
-        Creates one new network peering container in the specified project. MongoDB Cloud can deploy Network Peering connections in a network peering container. GCP can have one container per project. AWS and Azure can have one container per cloud provider region.
+        Creates one new network peering container in the specified project. MongoDB Cloud can
+        deploy Network Peering connections in a network peering container. GCP can have one
+        container per project. AWS and Azure can have one container per cloud provider region.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Creates one new network peering container in the specified project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupcontainer
         """
         path = f"/groups/{quote(str(group_id), safe='')}/containers"
         params = {
@@ -113,15 +149,33 @@ class NetworkPeering:
         """
         Return All Network Peering Containers in One Project
 
-        Returns details about all network peering containers in the specified project. Network peering containers contain network peering connections.
+        Returns details about all network peering containers in the specified project. Network
+        peering containers contain network peering connections.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupcontainerall
         """
         path = f"/groups/{quote(str(group_id), safe='')}/containers/all"
         params = {
@@ -153,10 +207,24 @@ class NetworkPeering:
         Removes one network peering container in the specified project.
 
         Args:
-            container_id: Unique 24-hexadecimal digit string that identifies the MongoDB Cloud network container that you want to remove.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            container_id: Unique 24-hexadecimal digit string that identifies the MongoDB Cloud
+                network container that you want to remove.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupcontainer
         """
         path = f"/groups/{quote(str(group_id), safe='')}/containers/{quote(str(container_id), safe='')}"
         params = {
@@ -182,13 +250,28 @@ class NetworkPeering:
         """
         Return One Network Peering Container
 
-        Returns details about one network peering container in one specified project. Network peering containers contain network peering connections.
+        Returns details about one network peering container in one specified project. Network
+        peering containers contain network peering connections.
 
         Args:
-            container_id: Unique 24-hexadecimal digit string that identifies the MongoDB Cloud network container.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            container_id: Unique 24-hexadecimal digit string that identifies the MongoDB Cloud
+                network container.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupcontainer
         """
         path = f"/groups/{quote(str(group_id), safe='')}/containers/{quote(str(container_id), safe='')}"
         params = {
@@ -215,14 +298,30 @@ class NetworkPeering:
         """
         Update One Network Peering Container
 
-        Updates the network details and labels of one specified network peering container in the specified project.
+        Updates the network details and labels of one specified network peering container in the
+        specified project.
 
         Args:
-            container_id: Unique 24-hexadecimal digit string that identifies the MongoDB Cloud network container that you want to remove.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            body: Updates the network details and labels of one specified network peering container in the specified project.
+            container_id: Unique 24-hexadecimal digit string that identifies the MongoDB Cloud
+                network container that you want to remove.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            body: Updates the network details and labels of one specified network peering
+                container in the specified project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updategroupcontainer
         """
         path = f"/groups/{quote(str(group_id), safe='')}/containers/{quote(str(container_id), safe='')}"
         params = {
@@ -253,16 +352,35 @@ class NetworkPeering:
         """
         Return All Network Peering Connections in One Project
 
-        Returns details about all network peering connections in the specified project. Network peering allows multiple cloud-hosted applications to securely connect to the same project.
+        Returns details about all network peering connections in the specified project. Network
+        peering allows multiple cloud-hosted applications to securely connect to the same
+        project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             provider_name: Cloud service provider to use for this VPC peering connection.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgrouppeers
         """
         path = f"/groups/{quote(str(group_id), safe='')}/peers"
         params = {
@@ -292,13 +410,29 @@ class NetworkPeering:
         """
         Create One Network Peering Connection
 
-        Creates one new network peering connection in the specified project. Network peering allows multiple cloud-hosted applications to securely connect to the same project. To learn more about considerations and prerequisites, see the Network Peering Documentation.
+        Creates one new network peering connection in the specified project. Network peering
+        allows multiple cloud-hosted applications to securely connect to the same project. To
+        learn more about considerations and prerequisites, see the Network Peering
+        Documentation.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Create one network peering connection.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategrouppeer
         """
         path = f"/groups/{quote(str(group_id), safe='')}/peers"
         params = {
@@ -326,13 +460,29 @@ class NetworkPeering:
         """
         Remove One Network Peering Connection
 
-        Removes one network peering connection in the specified project. If you remove the last network peering connection associated with a project, MongoDB Cloud also removes any AWS security groups from the project IP access list.
+        Removes one network peering connection in the specified project. If you remove the last
+        network peering connection associated with a project, MongoDB Cloud also removes any AWS
+        security groups from the project IP access list.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            peer_id: Unique 24-hexadecimal digit string that identifies the network peering connection that you want to delete.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            peer_id: Unique 24-hexadecimal digit string that identifies the network peering
+                connection that you want to delete.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegrouppeer
         """
         path = f"/groups/{quote(str(group_id), safe='')}/peers/{quote(str(peer_id), safe='')}"
         params = {
@@ -361,10 +511,24 @@ class NetworkPeering:
         Returns details about one specified network peering connection in the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            peer_id: Unique 24-hexadecimal digit string that identifies the network peering connection that you want to retrieve.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            peer_id: Unique 24-hexadecimal digit string that identifies the network peering
+                connection that you want to retrieve.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgrouppeer
         """
         path = f"/groups/{quote(str(group_id), safe='')}/peers/{quote(str(peer_id), safe='')}"
         params = {
@@ -394,11 +558,25 @@ class NetworkPeering:
         Updates one specified network peering connection in the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            peer_id: Unique 24-hexadecimal digit string that identifies the network peering connection that you want to update.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            peer_id: Unique 24-hexadecimal digit string that identifies the network peering
+                connection that you want to update.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Modify one network peering connection.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updategrouppeer
         """
         path = f"/groups/{quote(str(group_id), safe='')}/peers/{quote(str(peer_id), safe='')}"
         params = {
@@ -428,9 +606,22 @@ class NetworkPeering:
         Verifies if someone set the specified project to **Connect via Peering Only** mode.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-verifygroupprivateipmode
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateIpMode"
         params = {
@@ -459,10 +650,23 @@ class NetworkPeering:
         Disables Connect via Peering Only mode for the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Disables Connect via Peering Only mode for the specified project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-disablegroupprivateipmodepeering
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateIpMode"
         params = {

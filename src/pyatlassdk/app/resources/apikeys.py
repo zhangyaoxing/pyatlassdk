@@ -29,8 +29,14 @@ class Apikeys:
         associated with a Atlas App Services App.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlistapikeys
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/api_keys"
         return self._client.request(
@@ -48,12 +54,19 @@ class Apikeys:
         """
         Create a new API key
 
-        Create a new [API key](https://www.mongodb.com/docs/atlas/app-services/authentication/api-key).
+        Create a new [API key](https://www.mongodb.com/docs/atlas/app-
+        services/authentication/api-key).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body: The API key to create.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreateapikey
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/api_keys"
         return self._client.request(
@@ -73,12 +86,19 @@ class Apikeys:
         """
         Delete an API key
 
-        Delete an [API key](https://www.mongodb.com/docs/atlas/app-services/authentication/api-key).
+        Delete an [API key](https://www.mongodb.com/docs/atlas/app-services/authentication/api-
+        key).
 
         Args:
             api_key_id: The unique `_id` value of an API key
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeleteapikey
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/api_keys/{quote(str(api_key_id), safe='')}"
         return self._client.request(
@@ -96,12 +116,19 @@ class Apikeys:
         """
         Retrieve information about an API key
 
-        Retrieve information about an [API key](https://www.mongodb.com/docs/atlas/app-services/authentication/api-key).
+        Retrieve information about an [API key](https://www.mongodb.com/docs/atlas/app-
+        services/authentication/api-key).
 
         Args:
             api_key_id: The unique `_id` value of an API key
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetapikey
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/api_keys/{quote(str(api_key_id), safe='')}"
         return self._client.request(
@@ -119,12 +146,19 @@ class Apikeys:
         """
         Disable an API key
 
-        Disable an [API key](https://www.mongodb.com/docs/atlas/app-services/authentication/api-key).
+        Disable an [API key](https://www.mongodb.com/docs/atlas/app-services/authentication/api-
+        key).
 
         Args:
             api_key_id: The unique `_id` value of an API key
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindisableapikey
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/api_keys/{quote(str(api_key_id), safe='')}/disable"
         return self._client.request(
@@ -142,12 +176,19 @@ class Apikeys:
         """
         Enable an API key
 
-        Enable an [API key](https://www.mongodb.com/docs/atlas/app-services/authentication/api-key).
+        Enable an [API key](https://www.mongodb.com/docs/atlas/app-services/authentication/api-
+        key).
 
         Args:
             api_key_id: The unique `_id` value of an API key
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminenableapikey
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/api_keys/{quote(str(api_key_id), safe='')}/enable"
         return self._client.request(

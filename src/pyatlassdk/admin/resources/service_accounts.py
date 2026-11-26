@@ -42,15 +42,32 @@ class ServiceAccounts:
         """
         Return All Project Service Accounts
 
-        Returns all Service Accounts for the specified Project. By default, system-managed Service Accounts are excluded. Set `includeSystemManaged=true` to include them.
+        Returns all Service Accounts for the specified Project. By default, system-managed
+        Service Accounts are excluded. Set `includeSystemManaged=true` to include them.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_system_managed: Flag that indicates whether system-managed Service Accounts (such as those used for MCP ingress/egress integrations) are included in the response. When false, only user-managed Service Accounts are returned.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_system_managed: Flag that indicates whether system-managed Service Accounts
+                (such as those used for MCP ingress/egress integrations) are included in the
+                response. When false, only user-managed Service Accounts are returned.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupserviceaccounts
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts"
         params = {
@@ -79,13 +96,28 @@ class ServiceAccounts:
         """
         Create One Project Service Account
 
-        Creates one Service Account for the specified Project. The Service Account will automatically be added as an Organization Member to the Organization that the specified Project is a part of.
+        Creates one Service Account for the specified Project. The Service Account will
+        automatically be added as an Organization Member to the Organization that the specified
+        Project is a part of.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Details of the new Service Account.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupserviceaccount
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts"
         params = {
@@ -113,13 +145,28 @@ class ServiceAccounts:
         """
         Remove One Project Service Account
 
-        Removes the specified Service Account from the specified project. The Service Account will still be a part of the Organization it was created in, and the credentials will remain active until expired or manually revoked.
+        Removes the specified Service Account from the specified project. The Service Account
+        will still be a part of the Organization it was created in, and the credentials will
+        remain active until expired or manually revoked.
 
         Args:
             client_id: The Client ID of the Service Account.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupserviceaccount
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
         params = {
@@ -149,9 +196,22 @@ class ServiceAccounts:
 
         Args:
             client_id: The Client ID of the Service Account.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupserviceaccount
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
         params = {
@@ -182,10 +242,23 @@ class ServiceAccounts:
 
         Args:
             client_id: The Client ID of the Service Account.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: The new details for the Service Account.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updategroupserviceaccount
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
         params = {
@@ -216,16 +289,34 @@ class ServiceAccounts:
         """
         Return All Access List Entries for One Project Service Account
 
-        Returns all access list entries that you configured for the specified Service Account for the project.
+        Returns all access list entries that you configured for the specified Service Account
+        for the project.
 
         Args:
             client_id: The Client ID of the Service Account.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupserviceaccountaccesslist
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList"
         params = {
@@ -258,17 +349,36 @@ class ServiceAccounts:
         """
         Add Access List Entries for One Project Service Account
 
-        Add Access List Entries for the specified Service Account for the project. Resources require all API requests to originate from IP addresses on the API access list.
+        Add Access List Entries for the specified Service Account for the project. Resources
+        require all API requests to originate from IP addresses on the API access list.
 
         Args:
             client_id: The Client ID of the Service Account.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            body: A list of access list entries to add to the access list of the specified Service Account for the project.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            body: A list of access list entries to add to the access list of the specified
+                Service Account for the project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupserviceaccountaccesslist
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList"
         params = {
@@ -300,14 +410,30 @@ class ServiceAccounts:
         """
         Remove One Access List Entry from One Project Service Account
 
-        Removes the specified access list entry from the specified Service Account for the project. A Service Account cannot remove its own IP address from its access list.
+        Removes the specified access list entry from the specified Service Account for the
+        project. A Service Account cannot remove its own IP address from its access list.
 
         Args:
             client_id: The Client ID of the Service Account.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            ip_address: One IP address or multiple IP addresses represented as one CIDR block. When specifying a CIDR block with a subnet mask, such as 192.0.2.0/24, use the URL-encoded value %2F for the forward slash /.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            ip_address: One IP address or multiple IP addresses represented as one CIDR block.
+                When specifying a CIDR block with a subnet mask, such as 192.0.2.0/24, use the
+                URL-encoded value %2F for the forward slash /.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupserviceaccountaccesslistentry
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList/{quote(str(ip_address), safe='')}"
         params = {
@@ -338,10 +464,23 @@ class ServiceAccounts:
 
         Args:
             client_id: The Client ID of the Service Account.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Details for the new secret.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupserviceaccountsecret
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/secrets"
         params = {
@@ -374,10 +513,23 @@ class ServiceAccounts:
 
         Args:
             client_id: The Client ID of the Service Account.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             secret_id: Unique 24-hexadecimal digit string that identifies the secret.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupserviceaccountsecret
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         params = {
@@ -408,10 +560,23 @@ class ServiceAccounts:
 
         Args:
             client_id: The Client ID of the Service Account.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: The Project permissions for the Service Account in the specified Project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-invitegroupserviceaccount
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}:invite"
         params = {
@@ -441,15 +606,30 @@ class ServiceAccounts:
         """
         Return All Organization Service Accounts
 
-        Returns all Service Accounts for the specified Organization. By default, system-managed Service Accounts are excluded. Set `includeSystemManaged=true` to include them.
+        Returns all Service Accounts for the specified Organization. By default, system-managed
+        Service Accounts are excluded. Set `includeSystemManaged=true` to include them.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_system_managed: Flag that indicates whether system-managed Service Accounts (such as those used for MCP ingress/egress integrations) are included in the response. When false, only user-managed Service Accounts are returned.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_system_managed: Flag that indicates whether system-managed Service Accounts
+                (such as those used for MCP ingress/egress integrations) are included in the
+                response. When false, only user-managed Service Accounts are returned.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgserviceaccounts
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts"
         params = {
@@ -481,10 +661,21 @@ class ServiceAccounts:
         Creates one Service Account for the specified Organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Details of the new Service Account.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorgserviceaccount
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts"
         params = {
@@ -516,9 +707,20 @@ class ServiceAccounts:
 
         Args:
             client_id: The Client ID of the Service Account.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deleteorgserviceaccount
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
         params = {
@@ -548,9 +750,20 @@ class ServiceAccounts:
 
         Args:
             client_id: The Client ID of the Service Account.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgserviceaccount
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
         params = {
@@ -581,10 +794,21 @@ class ServiceAccounts:
 
         Args:
             client_id: The Client ID of the Service Account.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: The new details for the Service Account.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updateorgserviceaccount
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}"
         params = {
@@ -615,16 +839,32 @@ class ServiceAccounts:
         """
         Return All Access List Entries for One Organization Service Account
 
-        Returns all access list entries that you configured for the specified Service Account for the organization.
+        Returns all access list entries that you configured for the specified Service Account
+        for the organization.
 
         Args:
             client_id: The Client ID of the Service Account.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgserviceaccountaccesslist
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList"
         params = {
@@ -657,17 +897,35 @@ class ServiceAccounts:
         """
         Add Access List Entries for One Organization Service Account
 
-        Add Access List Entries for the specified Service Account for the organization. Resources require all API requests to originate from IP addresses on the API access list.
+        Add Access List Entries for the specified Service Account for the organization.
+        Resources require all API requests to originate from IP addresses on the API access
+        list.
 
         Args:
             client_id: The Client ID of the Service Account.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            body: A list of access list entries to add to the access list of the specified Service Account for the organization.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            body: A list of access list entries to add to the access list of the specified
+                Service Account for the organization.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorgserviceaccountaccesslist
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList"
         params = {
@@ -699,14 +957,28 @@ class ServiceAccounts:
         """
         Remove One Access List Entry from One Organization Service Account
 
-        Removes the specified access list entry from the specified Service Account for the organization. A Service Account cannot remove its own IP address from its access list.
+        Removes the specified access list entry from the specified Service Account for the
+        organization. A Service Account cannot remove its own IP address from its access list.
 
         Args:
             client_id: The Client ID of the Service Account.
-            ip_address: One IP address or multiple IP addresses represented as one CIDR block. When specifying a CIDR block with a subnet mask, such as 192.0.2.0/24, use the URL-encoded value %2F for the forward slash /.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            ip_address: One IP address or multiple IP addresses represented as one CIDR block.
+                When specifying a CIDR block with a subnet mask, such as 192.0.2.0/24, use the
+                URL-encoded value %2F for the forward slash /.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deleteorgserviceaccountaccesslistentry
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/accessList/{quote(str(ip_address), safe='')}"
         params = {
@@ -738,11 +1010,23 @@ class ServiceAccounts:
 
         Args:
             client_id: The Client ID of the Service Account.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgserviceaccountgroups
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/groups"
         params = {
@@ -775,10 +1059,21 @@ class ServiceAccounts:
 
         Args:
             client_id: The Client ID of the Service Account.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Details for the new secret.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorgserviceaccountsecret
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/secrets"
         params = {
@@ -811,10 +1106,21 @@ class ServiceAccounts:
 
         Args:
             client_id: The Client ID of the Service Account.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
             secret_id: Unique 24-hexadecimal digit string that identifies the secret.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deleteorgserviceaccountsecret
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/serviceAccounts/{quote(str(client_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         params = {

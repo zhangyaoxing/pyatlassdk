@@ -29,8 +29,14 @@ class Values:
         defined in an application.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlistvalues
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/values"
         return self._client.request(
@@ -52,9 +58,15 @@ class Values:
         an application.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body: The value to create.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreatevalue
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/values"
         return self._client.request(
@@ -78,9 +90,15 @@ class Values:
         defined in an application.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             value_id: The unique `_id` value of a value.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeletevalue
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/values/{quote(str(value_id), safe='')}"
         return self._client.request(
@@ -102,9 +120,15 @@ class Values:
         definition from an application.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             value_id: The unique `_id` value of a value.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetvalue
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/values/{quote(str(value_id), safe='')}"
         return self._client.request(
@@ -126,9 +150,15 @@ class Values:
         definition in an application.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             value_id: The unique `_id` value of a value.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminupdatevalue
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/values/{quote(str(value_id), safe='')}"
         return self._client.request(

@@ -45,12 +45,26 @@ class Organizations:
         Returns all organizations to which the requesting Service Account or API Key has access.
 
         Args:
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            name: Human-readable label of the organization to use to filter the returned list. Performs a case-insensitive search for an organization that starts with the specified name.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            name: Human-readable label of the organization to use to filter the returned list.
+                Performs a case-insensitive search for an organization that starts with the
+                specified name.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgs
         """
         path = "/orgs"
         params = {
@@ -79,12 +93,25 @@ class Organizations:
         """
         Create One Organization
 
-        Creates one organization in MongoDB Cloud and links it to the requesting Service Account's or API Key's organization. The requesting Service Account's or API Key's organization must be a paying organization. To learn more, see Configure a Paying Organization in the MongoDB Atlas documentation. Optionally, if `federationSettingsId` is provided, the new Organization will be linked to the federation. The requesting Service Account or API Key must be an Organization Owner in the federation.
+        Creates one organization in MongoDB Cloud and links it to the requesting Service
+        Account's or API Key's organization. The requesting Service Account's or API Key's
+        organization must be a paying organization. To learn more, see Configure a Paying
+        Organization in the MongoDB Atlas documentation. Optionally, if `federationSettingsId`
+        is provided, the new Organization will be linked to the federation. The requesting
+        Service Account or API Key must be an Organization Owner in the federation.
 
         Args:
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Organization that you want to create.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorg
         """
         path = "/orgs"
         params = {
@@ -110,14 +137,26 @@ class Organizations:
         """
         Remove One Organization
 
-        Removes one specified organization. MongoDB Cloud imposes the following limits on this resource:
+        Removes one specified organization. MongoDB Cloud imposes the following limits on this
+        resource:
 
-         - Organizations with active projects cannot be removed.
-         - All projects in the organization must be removed before you can remove the organization.
+        - Organizations with active projects cannot be removed.
+        - All projects in the organization must be removed before you can remove the
+        organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deleteorg
         """
         path = f"/orgs/{quote(str(org_id), safe='')}"
         params = {
@@ -144,9 +183,20 @@ class Organizations:
         Returns one organization to which the requesting Service Account or API Key has access.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorg
         """
         path = f"/orgs/{quote(str(org_id), safe='')}"
         params = {
@@ -175,10 +225,21 @@ class Organizations:
         Updates one organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Details to update on the specified organization.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updateorg
         """
         path = f"/orgs/{quote(str(org_id), safe='')}"
         params = {
@@ -208,9 +269,20 @@ class Organizations:
         Returns the delegation settings for the specified organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgdelegationsettings
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/delegationSettings"
         params = {
@@ -236,13 +308,25 @@ class Organizations:
         """
         Update Delegation Settings for One Organization
 
-        Updates the delegation settings for the specified organization. Only fields present in the request body are updated; omitted fields retain their current values.
+        Updates the delegation settings for the specified organization. Only fields present in
+        the request body are updated; omitted fields retain their current values.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Delegation settings to update.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updateorgdelegationsettings
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/delegationSettings"
         params = {
@@ -273,21 +357,41 @@ class Organizations:
         """
         Return All Projects in One Organization
 
-        Returns multiple projects in the specified organization. Each organization can have multiple projects. Use projects to:
+        Returns multiple projects in the specified organization. Each organization can have
+        multiple projects. Use projects to:
 
-        - Isolate different environments, such as development, test, or production environments, from each other.
-        - Associate different MongoDB Cloud users or teams with different environments, or give different permission to MongoDB Cloud users in different environments.
+        - Isolate different environments, such as development, test, or production environments,
+        from each other.
+        - Associate different MongoDB Cloud users or teams with different environments, or give
+        different permission to MongoDB Cloud users in different environments.
         - Maintain separate cluster security configurations.
         - Create different alert settings.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            name: Human-readable label of the project to use to filter the returned list. Performs a case-insensitive search for a project within the organization which is prefixed by the specified name.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            name: Human-readable label of the project to use to filter the returned list.
+                Performs a case-insensitive search for a project within the organization which
+                is prefixed by the specified name.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorggroups
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/groups"
         params = {
@@ -317,15 +421,28 @@ class Organizations:
         """
         Return All Invitations in One Organization
 
-        Returns all pending invitations to the specified organization. 
+        Returns all pending invitations to the specified organization.
 
-        **Note**: Invitation management APIs are deprecated. Use Return All MongoDB Cloud Users in One Organization and filter by `orgMembershipStatus` to return all pending users.
+        **Note**: Invitation management APIs are deprecated. Use Return All MongoDB Cloud Users
+        in One Organization and filter by `orgMembershipStatus` to return all pending users.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            username: Email address of the user account invited to this organization. If you exclude this parameter, this resource returns all pending invitations.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            username: Email address of the user account invited to this organization. If you
+                exclude this parameter, this resource returns all pending invitations.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorginvites
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invites"
         params = {
@@ -352,15 +469,28 @@ class Organizations:
         """
         Update One Invitation in One Organization
 
-        Updates the details of one pending invitation to the specified organization. To specify which invitation, provide the username of the invited user. 
+        Updates the details of one pending invitation to the specified organization. To specify
+        which invitation, provide the username of the invited user.
 
-        **Note**:  Invitation management are deprecated. Use Update One MongoDB Cloud User in One Organization to update a pending user.
+        **Note**:  Invitation management are deprecated. Use Update One MongoDB Cloud User in
+        One Organization to update a pending user.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Updates the details of one pending invitation to the specified organization.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updateorginvites
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invites"
         params = {
@@ -388,15 +518,28 @@ class Organizations:
         """
         Create Invitation for One MongoDB Cloud User in One Organization
 
-        Invites one MongoDB Cloud user to join the specified organization. The user must accept the invitation to access information within the specified organization.
+        Invites one MongoDB Cloud user to join the specified organization. The user must accept
+        the invitation to access information within the specified organization.
 
-        **Note**: Invitation management APIs are deprecated. Use Add One MongoDB Cloud User to One Organization to invite a user.
+        **Note**: Invitation management APIs are deprecated. Use Add One MongoDB Cloud User to
+        One Organization to invite a user.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Invites one MongoDB Cloud user to join the specified organization.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorginvite
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invites"
         params = {
@@ -424,15 +567,28 @@ class Organizations:
         """
         Remove One Invitation from One Organization
 
-        Cancels one pending invitation sent to the specified MongoDB Cloud user to join an organization. You can't cancel an invitation that the user accepted.
+        Cancels one pending invitation sent to the specified MongoDB Cloud user to join an
+        organization. You can't cancel an invitation that the user accepted.
 
-        **Note**: Invitation management APIs are deprecated. Use Remove One MongoDB Cloud User From One Organization to remove a pending user.
+        **Note**: Invitation management APIs are deprecated. Use Remove One MongoDB Cloud User
+        From One Organization to remove a pending user.
 
         Args:
             invitation_id: Unique 24-hexadecimal digit string that identifies the invitation.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deleteorginvite
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invites/{quote(str(invitation_id), safe='')}"
         params = {
@@ -459,12 +615,23 @@ class Organizations:
 
         Returns the details of one pending invitation to the specified organization.
 
-        **Note**: Invitation management APIs are deprecated. Use Return One MongoDB Cloud User in One Organization to return a pending user.
+        **Note**: Invitation management APIs are deprecated. Use Return One MongoDB Cloud User
+        in One Organization to return a pending user.
 
         Args:
             invitation_id: Unique 24-hexadecimal digit string that identifies the invitation.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorginvite
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invites/{quote(str(invitation_id), safe='')}"
         params = {
@@ -490,16 +657,31 @@ class Organizations:
         """
         Update One Invitation in One Organization by Invitation ID
 
-        Updates the details of one pending invitation to the specified organization. To specify which invitation, provide the unique identification string for that invitation. Use the Return All Organization Invitations endpoint to retrieve IDs for all pending organization invitations. 
+        Updates the details of one pending invitation to the specified organization. To specify
+        which invitation, provide the unique identification string for that invitation. Use the
+        Return All Organization Invitations endpoint to retrieve IDs for all pending
+        organization invitations.
 
-        **Note**: Invitation management APIs are deprecated. Use Update One MongoDB Cloud User in One Organization to update a pending user.
+        **Note**: Invitation management APIs are deprecated. Use Update One MongoDB Cloud User
+        in One Organization to update a pending user.
 
         Args:
             invitation_id: Unique 24-hexadecimal digit string that identifies the invitation.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Updates the details of one pending invitation to the specified organization.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updateorginvitebyid
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invites/{quote(str(invitation_id), safe='')}"
         params = {
@@ -529,9 +711,20 @@ class Organizations:
         Returns maintenance settings for the specified organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgmaintenancesettings
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/maintenanceSettings"
         params = {
@@ -557,13 +750,26 @@ class Organizations:
         """
         Update Maintenance Settings for One Organization
 
-        Updates maintenance settings for the specified organization. Omit optional fields from the request body to leave their current values unchanged. Specify null on an optional field to reset it to its default value.
+        Updates maintenance settings for the specified organization. Omit optional fields from
+        the request body to leave their current values unchanged. Specify null on an optional
+        field to reset it to its default value.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Maintenance settings to update for the specified organization.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updateorgmaintenancesettings
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/maintenanceSettings"
         params = {
@@ -590,12 +796,24 @@ class Organizations:
         """
         Reset Maintenance Settings for One Organization
 
-        Resets maintenance settings for the specified organization to their default values. Restores the wave assignment mode to the default manual mode.
+        Resets maintenance settings for the specified organization to their default values.
+        Restores the wave assignment mode to the default manual mode.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-resetorgmaintenancesettings
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/maintenanceSettings:reset"
         params = {
@@ -623,9 +841,20 @@ class Organizations:
         Returns details about the specified organization's settings.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgsettings
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/settings"
         params = {
@@ -654,10 +883,21 @@ class Organizations:
         Updates the organization's settings.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Details to update on the specified organization's settings.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updateorgsettings
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/settings"
         params = {
@@ -686,14 +926,27 @@ class Organizations:
         """
         Update Organization Roles for One MongoDB Cloud User
 
-        Updates the roles of the specified user in the specified organization. To specify the user to update, provide the unique 24-hexadecimal digit string that identifies the user in the specified organization.
+        Updates the roles of the specified user in the specified organization. To specify the
+        user to update, provide the unique 24-hexadecimal digit string that identifies the user
+        in the specified organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
             user_id: Unique 24-hexadecimal digit string that identifies the user to modify.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Roles to update for the specified user.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updateorguserroles
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/users/{quote(str(user_id), safe='')}/roles"
         params = {

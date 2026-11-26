@@ -33,14 +33,20 @@ class Services:
         """
         Link multiple data sources
 
-        Call this endpoint to link multiple data sources to an App. The total 
+        Call this endpoint to link multiple data sources to an App. The total
         limit of linked data sources per App is 100. Data Sources linked by this
         endpoint will have `ReadAndWrite` default rules.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlinkmultidatasources
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/multi_data_sources"
         return self._client.request(
@@ -59,12 +65,20 @@ class Services:
         """
         List all data sources and third-party services
 
-        List all [data sources](https://www.mongodb.com/docs/atlas/app-services/mongodb/) and [third-party
-        services [Deprecated]](https://www.mongodb.com/docs/atlas/app-services/reference/services/).
+        List all [data sources](https://www.mongodb.com/docs/atlas/app-services/mongodb/) and
+        [third-party
+        services [Deprecated]](https://www.mongodb.com/docs/atlas/app-
+        services/reference/services/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlistservices
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/services"
         return self._client.request(
@@ -83,13 +97,21 @@ class Services:
         """
         Create a data source or third-party service
 
-        Create a [data source](https://www.mongodb.com/docs/atlas/app-services/mongodb/) or [third-party
-        service [Deprecated]](https://www.mongodb.com/docs/atlas/app-services/reference/services/).
+        Create a [data source](https://www.mongodb.com/docs/atlas/app-services/mongodb/) or
+        [third-party
+        service [Deprecated]](https://www.mongodb.com/docs/atlas/app-
+        services/reference/services/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreateservice
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/services"
         return self._client.request(
@@ -110,12 +132,19 @@ class Services:
         Delete a data source or third-party service
 
         Delete a [data source](https://www.mongodb.com/docs/atlas/app-services/mongodb/)
-        or [third-party service [Deprecated]](https://www.mongodb.com/docs/atlas/app-services/reference/services/).
+        or [third-party service [Deprecated]](https://www.mongodb.com/docs/atlas/app-
+        services/reference/services/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             service_id: The unique `_id` value of a service.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeleteservice
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/services/{quote(str(service_id), safe='')}"
         return self._client.request(
@@ -133,12 +162,20 @@ class Services:
         """
         Get a data source or third-party service
 
-        Get a [data source](https://www.mongodb.com/docs/atlas/app-services/mongodb/) or [third-party service [Deprecated]](https://www.mongodb.com/docs/atlas/app-services/reference/services/).
+        Get a [data source](https://www.mongodb.com/docs/atlas/app-services/mongodb/) or [third-
+        party service [Deprecated]](https://www.mongodb.com/docs/atlas/app-
+        services/reference/services/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             service_id: The unique `_id` value of a service.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetservice
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/services/{quote(str(service_id), safe='')}"
         return self._client.request(
@@ -159,9 +196,15 @@ class Services:
         Update a service.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             service_id: The unique `_id` value of a service.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminupdateservice
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/services/{quote(str(service_id), safe='')}"
         return self._client.request(
@@ -180,9 +223,15 @@ class Services:
         Get information about the underlying Atlas mongod
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             service_id: The unique `_id` value of a service.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-getbuildinfo
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/services/{quote(str(service_id), safe='')}/commands/build_info"
         return self._client.request(
@@ -204,10 +253,16 @@ class Services:
         Sample a subset of documents in a collection to generate a JSON schema.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             service_id: The unique `_id` value of a service.
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingenerateschema
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/services/{quote(str(service_id), safe='')}/commands/generate_schema"
         return self._client.request(
@@ -232,10 +287,16 @@ class Services:
         [service](https://www.mongodb.com/docs/atlas/app-services/reference/services).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             command_name: Command name
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             service_id: The unique `_id` value of a service.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminruncommand
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/services/{quote(str(service_id), safe='')}/commands/{quote(str(command_name), safe='')}"
         return self._client.request(
@@ -255,12 +316,19 @@ class Services:
 
         Get configuration of [data
         sources](https://www.mongodb.com/docs/atlas/app-services/mongodb/)
-        and [third-party services [Deprecated]](https://www.mongodb.com/docs/atlas/app-services/reference/services/).
+        and [third-party services [Deprecated]](https://www.mongodb.com/docs/atlas/app-
+        services/reference/services/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             service_id: The unique `_id` value of a service.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetserviceconfig
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/services/{quote(str(service_id), safe='')}/config"
         return self._client.request(
@@ -281,14 +349,21 @@ class Services:
         Update a Service Configuration
 
         Update a [Data Source](https://www.mongodb.com/docs/atlas/app-services/mongodb/) or
-        [Third-Party Service [Deprecated]](https://www.mongodb.com/docs/atlas/app-services/reference/services/)
+        [Third-Party Service [Deprecated]](https://www.mongodb.com/docs/atlas/app-
+        services/reference/services/)
         configuration.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             service_id: The unique `_id` value of a service.
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminupdateserviceconfig
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/services/{quote(str(service_id), safe='')}/config"
         return self._client.request(

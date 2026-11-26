@@ -32,9 +32,20 @@ class ResourcePolicies:
         Return all non-compliant resources for an organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgnoncompliantresources
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/nonCompliantResources"
         params = {
@@ -62,9 +73,20 @@ class ResourcePolicies:
         Return all Atlas Resource Policies for the organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgresourcepolicies
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/resourcePolicies"
         params = {
@@ -93,10 +115,21 @@ class ResourcePolicies:
         Create one Atlas Resource Policy for an organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Atlas Resource Policy to create.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorgresourcepolicy
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/resourcePolicies"
         params = {
@@ -127,10 +160,22 @@ class ResourcePolicies:
         Delete one Atlas Resource Policy for an organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            resource_policy_id: Unique 24-hexadecimal digit string that identifies an atlas resource policy.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            resource_policy_id: Unique 24-hexadecimal digit string that identifies an atlas
+                resource policy.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deleteorgresourcepolicy
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/resourcePolicies/{quote(str(resource_policy_id), safe='')}"
         params = {
@@ -159,10 +204,22 @@ class ResourcePolicies:
         Return one Atlas Resource Policy for an organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            resource_policy_id: Unique 24-hexadecimal digit string that identifies an atlas resource policy.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            resource_policy_id: Unique 24-hexadecimal digit string that identifies an atlas
+                resource policy.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgresourcepolicy
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/resourcePolicies/{quote(str(resource_policy_id), safe='')}"
         params = {
@@ -192,11 +249,23 @@ class ResourcePolicies:
         Update one Atlas Resource Policy for an organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            resource_policy_id: Unique 24-hexadecimal digit string that identifies an atlas resource policy.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            resource_policy_id: Unique 24-hexadecimal digit string that identifies an atlas
+                resource policy.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Atlas Resource Policy to update.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updateorgresourcepolicy
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/resourcePolicies/{quote(str(resource_policy_id), safe='')}"
         params = {
@@ -227,10 +296,21 @@ class ResourcePolicies:
         Validate one Atlas Resource Policy for an organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Atlas Resource Policy to create.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-validateorgresourcepolicies
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/resourcePolicies:validate"
         params = {

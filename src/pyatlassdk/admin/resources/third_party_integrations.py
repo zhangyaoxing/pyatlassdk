@@ -34,15 +34,33 @@ class ThirdPartyIntegrations:
         """
         Return All Active Third-Party Service Integrations
 
-        Returns the settings that permit integrations with all configured third-party services. These settings apply to all databases managed in one MongoDB Cloud project.
+        Returns the settings that permit integrations with all configured third-party services.
+        These settings apply to all databases managed in one MongoDB Cloud project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupintegrations
         """
         path = f"/groups/{quote(str(group_id), safe='')}/integrations"
         params = {
@@ -71,13 +89,31 @@ class ThirdPartyIntegrations:
         """
         Remove One Third-Party Service Integration
 
-        Removes the settings that permit configuring one third-party service integration. These settings apply to all databases managed in one MongoDB Cloud project. If you delete an integration from a project, you remove that integration configuration only for that project. This action doesn't affect any other project or organization's configured `{INTEGRATION-TYPE}` integrations.
+        Removes the settings that permit configuring one third-party service integration. These
+        settings apply to all databases managed in one MongoDB Cloud project. If you delete an
+        integration from a project, you remove that integration configuration only for that
+        project. This action doesn't affect any other project or organization's configured
+        `{INTEGRATION-TYPE}` integrations.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            integration_type: Human-readable label that identifies the service which you want to integrate with MongoDB Cloud.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            integration_type: Human-readable label that identifies the service which you want to
+                integrate with MongoDB Cloud.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupintegration
         """
         path = f"/groups/{quote(str(group_id), safe='')}/integrations/{quote(str(integration_type), safe='')}"
         params = {
@@ -103,13 +139,28 @@ class ThirdPartyIntegrations:
         """
         Return One Third-Party Service Integration
 
-        Returns the settings for configuring integration with one third-party service. These settings apply to all databases managed in one MongoDB Cloud project.
+        Returns the settings for configuring integration with one third-party service. These
+        settings apply to all databases managed in one MongoDB Cloud project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            integration_type: Human-readable label that identifies the service which you want to integrate with MongoDB Cloud.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            integration_type: Human-readable label that identifies the service which you want to
+                integrate with MongoDB Cloud.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupintegration
         """
         path = f"/groups/{quote(str(group_id), safe='')}/integrations/{quote(str(integration_type), safe='')}"
         params = {
@@ -139,17 +190,37 @@ class ThirdPartyIntegrations:
         """
         Create One Third-Party Service Integration
 
-        Adds the settings for configuring one third-party service integration. These settings apply to all databases managed in the specified MongoDB Cloud project. Each project can have only one configuration per `{INTEGRATION-TYPE}`.
+        Adds the settings for configuring one third-party service integration. These settings
+        apply to all databases managed in the specified MongoDB Cloud project. Each project can
+        have only one configuration per `{INTEGRATION-TYPE}`.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            integration_type: Human-readable label that identifies the service which you want to integrate with MongoDB Cloud.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            integration_type: Human-readable label that identifies the service which you want to
+                integrate with MongoDB Cloud.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Third-party integration that you want to configure for your project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupintegration
         """
         path = f"/groups/{quote(str(group_id), safe='')}/integrations/{quote(str(integration_type), safe='')}"
         params = {
@@ -184,17 +255,36 @@ class ThirdPartyIntegrations:
         """
         Update One Third-Party Service Integration
 
-        Updates the settings for configuring integration with one third-party service. These settings apply to all databases managed in one MongoDB Cloud project.
+        Updates the settings for configuring integration with one third-party service. These
+        settings apply to all databases managed in one MongoDB Cloud project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            integration_type: Human-readable label that identifies the service which you want to integrate with MongoDB Cloud.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            integration_type: Human-readable label that identifies the service which you want to
+                integrate with MongoDB Cloud.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Third-party integration that you want to configure for your project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updategroupintegration
         """
         path = f"/groups/{quote(str(group_id), safe='')}/integrations/{quote(str(integration_type), safe='')}"
         params = {

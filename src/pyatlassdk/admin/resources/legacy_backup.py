@@ -39,13 +39,31 @@ class LegacyBackup:
         Returns all legacy backup checkpoints for one cluster in the specified project.
 
         Args:
-            cluster_name: Human-readable label that identifies the cluster that contains the checkpoints that you want to return.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            cluster_name: Human-readable label that identifies the cluster that contains the
+                checkpoints that you want to return.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupclusterbackupcheckpoints
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backupCheckpoints"
         params = {
@@ -79,10 +97,24 @@ class LegacyBackup:
 
         Args:
             checkpoint_id: Unique 24-hexadecimal digit string that identifies the checkpoint.
-            cluster_name: Human-readable label that identifies the cluster that contains the checkpoints that you want to return.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            cluster_name: Human-readable label that identifies the cluster that contains the
+                checkpoints that you want to return.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupclusterbackupcheckpoint
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/backupCheckpoints/{quote(str(checkpoint_id), safe='')}"
         params = {
@@ -114,17 +146,49 @@ class LegacyBackup:
 
         Returns all legacy backup restore jobs for one cluster in the specified project.
 
-         Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy backup. After this upgrade, all your existing legacy backup snapshots remain available. They expire over time in accordance with your retention policy. Your backup policy resets to the default schedule. If you had a custom backup policy in place with legacy backups, you must re-create it with the procedure outlined in the Cloud Backup documentation. If you use the `BATCH-ID` query parameter, you can retrieve all restore jobs in the specified batch. When creating a restore job for a sharded cluster, MongoDB Cloud creates a separate job for each shard, plus another for the config server. Each of those jobs are part of a batch. However, a batch can't include a restore job for a replica set.
+        Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade
+        to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy
+        backup. After this upgrade, all your existing legacy backup snapshots remain available.
+        They expire over time in accordance with your retention policy. Your backup policy
+        resets to the default schedule. If you had a custom backup policy in place with legacy
+        backups, you must re-create it with the procedure outlined in the Cloud Backup
+        documentation. If you use the `BATCH-ID` query parameter, you can retrieve all restore
+        jobs in the specified batch. When creating a restore job for a sharded cluster, MongoDB
+        Cloud creates a separate job for each shard, plus another for the config server. Each of
+        those jobs are part of a batch. However, a batch can't include a restore job for a
+        replica set.
 
         Args:
-            cluster_name: Human-readable label that identifies the cluster with the snapshot you want to return.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            batch_id: Unique 24-hexadecimal digit string that identifies the batch of restore jobs to return. Timestamp in ISO 8601 date and time format in UTC when creating a restore job for a sharded cluster, Application creates a separate job for each shard, plus another for the config host. Each of these jobs comprise one batch. A restore job for a replica set can't be part of a batch.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            cluster_name: Human-readable label that identifies the cluster with the snapshot you
+                want to return.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            batch_id: Unique 24-hexadecimal digit string that identifies the batch of restore
+                jobs to return. Timestamp in ISO 8601 date and time format in UTC when creating
+                a restore job for a sharded cluster, Application creates a separate job for each
+                shard, plus another for the config host. Each of these jobs comprise one batch.
+                A restore job for a replica set can't be part of a batch.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupclusterrestorejobs
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/restoreJobs"
         params = {
@@ -155,14 +219,38 @@ class LegacyBackup:
         """
         Create One Legacy Backup Restore Job
 
-        Restores one legacy backup for one cluster in the specified project. Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy backup. After this upgrade, all your existing legacy backup snapshots remain available. They expire over time in accordance with your retention policy. Your backup policy resets to the default schedule. If you had a custom backup policy in place with legacy backups, you must re-create it with the procedure outlined in the Cloud Backup documentation. This endpoint doesn't support creating checkpoint restore jobs for sharded clusters, or creating restore jobs for queryable backup snapshots. If you create an automated restore job by specifying `delivery.methodName` of `AUTOMATED_RESTORE` in your request body, MongoDB Cloud removes all existing data on the target cluster prior to the restore.
+        Restores one legacy backup for one cluster in the specified project. Effective 23 March
+        2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2, your backup
+        system upgrades to cloud backup if it is currently set to legacy backup. After this
+        upgrade, all your existing legacy backup snapshots remain available. They expire over
+        time in accordance with your retention policy. Your backup policy resets to the default
+        schedule. If you had a custom backup policy in place with legacy backups, you must re-
+        create it with the procedure outlined in the Cloud Backup documentation. This endpoint
+        doesn't support creating checkpoint restore jobs for sharded clusters, or creating
+        restore jobs for queryable backup snapshots. If you create an automated restore job by
+        specifying `delivery.methodName` of `AUTOMATED_RESTORE` in your request body, MongoDB
+        Cloud removes all existing data on the target cluster prior to the restore.
 
         Args:
-            cluster_name: Human-readable label that identifies the cluster with the snapshot you want to return.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            cluster_name: Human-readable label that identifies the cluster with the snapshot you
+                want to return.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Legacy backup to restore to one cluster in the specified project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupclusterrestorejob
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/restoreJobs"
         params = {
@@ -193,14 +281,34 @@ class LegacyBackup:
 
         Returns one legacy backup restore job for one cluster in the specified project.
 
-         Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy backup. After this upgrade, all your existing legacy backup snapshots remain available. They expire over time in accordance with your retention policy. Your backup policy resets to the default schedule. If you had a custom backup policy in place with legacy backups, you must re-create it with the procedure outlined in the Cloud Backup documentation.
+        Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade
+        to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy
+        backup. After this upgrade, all your existing legacy backup snapshots remain available.
+        They expire over time in accordance with your retention policy. Your backup policy
+        resets to the default schedule. If you had a custom backup policy in place with legacy
+        backups, you must re-create it with the procedure outlined in the Cloud Backup
+        documentation.
 
         Args:
-            cluster_name: Human-readable label that identifies the cluster with the snapshot you want to return.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            cluster_name: Human-readable label that identifies the cluster with the snapshot you
+                want to return.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             job_id: Unique 24-hexadecimal digit string that identifies the restore job.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupclusterrestorejob
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/restoreJobs/{quote(str(job_id), safe='')}"
         params = {
@@ -228,13 +336,33 @@ class LegacyBackup:
 
         Returns the snapshot schedule for one cluster in the specified project.
 
-         Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy backup. After this upgrade, all your existing legacy backup snapshots remain available. They expire over time in accordance with your retention policy. Your backup policy resets to the default schedule. If you had a custom backup policy in place with legacy backups, you must re-create it with the procedure outlined in the Cloud Backup documentation.
+        Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade
+        to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy
+        backup. After this upgrade, all your existing legacy backup snapshots remain available.
+        They expire over time in accordance with your retention policy. Your backup policy
+        resets to the default schedule. If you had a custom backup policy in place with legacy
+        backups, you must re-create it with the procedure outlined in the Cloud Backup
+        documentation.
 
         Args:
-            cluster_name: Human-readable label that identifies the cluster with the snapshot you want to return.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            cluster_name: Human-readable label that identifies the cluster with the snapshot you
+                want to return.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupclustersnapshotschedule
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshotSchedule"
         params = {
@@ -263,14 +391,34 @@ class LegacyBackup:
 
         Updates the snapshot schedule for one cluster in the specified project.
 
-         Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy backup. After this upgrade, all your existing legacy backup snapshots remain available. They expire over time in accordance with your retention policy. Your backup policy resets to the default schedule. If you had a custom backup policy in place with legacy backups, you must re-create it with the procedure outlined in the Cloud Backup documentation.
+        Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade
+        to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy
+        backup. After this upgrade, all your existing legacy backup snapshots remain available.
+        They expire over time in accordance with your retention policy. Your backup policy
+        resets to the default schedule. If you had a custom backup policy in place with legacy
+        backups, you must re-create it with the procedure outlined in the Cloud Backup
+        documentation.
 
         Args:
-            cluster_name: Human-readable label that identifies the cluster with the snapshot you want to return.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            cluster_name: Human-readable label that identifies the cluster with the snapshot you
+                want to return.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Update the snapshot schedule for one cluster in the specified project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updategroupclustersnapshotschedule
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshotSchedule"
         params = {
@@ -302,17 +450,42 @@ class LegacyBackup:
         """
         Return All Legacy Backup Snapshots
 
-        Returns all legacy backup snapshots for one cluster in the specified project. Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy backup. After this upgrade, all your existing legacy backup snapshots remain available. They expire over time in accordance with your retention policy. Your backup policy resets to the default schedule. If you had a custom backup policy in place with legacy backups, you must re-create it with the procedure outlined in the Cloud Backup documentation.
+        Returns all legacy backup snapshots for one cluster in the specified project. Effective
+        23 March 2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2,
+        your backup system upgrades to cloud backup if it is currently set to legacy backup.
+        After this upgrade, all your existing legacy backup snapshots remain available. They
+        expire over time in accordance with your retention policy. Your backup policy resets to
+        the default schedule. If you had a custom backup policy in place with legacy backups,
+        you must re-create it with the procedure outlined in the Cloud Backup documentation.
 
         Args:
             cluster_name: Human-readable label that identifies the cluster.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            completed: Human-readable label that specifies whether to return only completed, incomplete, or all snapshots. By default, MongoDB Cloud only returns completed snapshots.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            completed: Human-readable label that specifies whether to return only completed,
+                incomplete, or all snapshots. By default, MongoDB Cloud only returns completed
+                snapshots.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupclustersnapshots
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshots"
         params = {
@@ -343,14 +516,34 @@ class LegacyBackup:
         """
         Remove One Legacy Backup Snapshot
 
-        Removes one legacy backup snapshot for one cluster in the specified project. Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy backup. After this upgrade, all your existing legacy backup snapshots remain available. They expire over time in accordance with your retention policy. Your backup policy resets to the default schedule. If you had a custom backup policy in place with legacy backups, you must re-create it with the procedure outlined in the Cloud Backup documentation.
+        Removes one legacy backup snapshot for one cluster in the specified project. Effective
+        23 March 2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2,
+        your backup system upgrades to cloud backup if it is currently set to legacy backup.
+        After this upgrade, all your existing legacy backup snapshots remain available. They
+        expire over time in accordance with your retention policy. Your backup policy resets to
+        the default schedule. If you had a custom backup policy in place with legacy backups,
+        you must re-create it with the procedure outlined in the Cloud Backup documentation.
 
         Args:
             cluster_name: Human-readable label that identifies the cluster.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            snapshot_id: Unique 24-hexadecimal digit string that identifies the desired snapshot.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            snapshot_id: Unique 24-hexadecimal digit string that identifies the desired
+                snapshot.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupclustersnapshot
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshots/{quote(str(snapshot_id), safe='')}"
         params = {
@@ -377,14 +570,34 @@ class LegacyBackup:
         """
         Return One Legacy Backup Snapshot
 
-        Returns one legacy backup snapshot for one cluster in the specified project. Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy backup. After this upgrade, all your existing legacy backup snapshots remain available. They expire over time in accordance with your retention policy. Your backup policy resets to the default schedule. If you had a custom backup policy in place with legacy backups, you must re-create it with the procedure outlined in the Cloud Backup documentation.
+        Returns one legacy backup snapshot for one cluster in the specified project. Effective
+        23 March 2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2,
+        your backup system upgrades to cloud backup if it is currently set to legacy backup.
+        After this upgrade, all your existing legacy backup snapshots remain available. They
+        expire over time in accordance with your retention policy. Your backup policy resets to
+        the default schedule. If you had a custom backup policy in place with legacy backups,
+        you must re-create it with the procedure outlined in the Cloud Backup documentation.
 
         Args:
             cluster_name: Human-readable label that identifies the cluster.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            snapshot_id: Unique 24-hexadecimal digit string that identifies the desired snapshot.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            snapshot_id: Unique 24-hexadecimal digit string that identifies the desired
+                snapshot.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupclustersnapshot
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshots/{quote(str(snapshot_id), safe='')}"
         params = {
@@ -412,15 +625,36 @@ class LegacyBackup:
         """
         Update Expiration Date for One Legacy Backup Snapshot
 
-        Changes the expiration date for one legacy backup snapshot for one cluster in the specified project. Effective 23 March 2020, all new clusters can use only Cloud Backups. When you upgrade to 4.2, your backup system upgrades to cloud backup if it is currently set to legacy backup. After this upgrade, all your existing legacy backup snapshots remain available. They expire over time in accordance with your retention policy. Your backup policy resets to the default schedule. If you had a custom backup policy in place with legacy backups, you must re-create it with the procedure outlined in the Cloud Backup documentation.
+        Changes the expiration date for one legacy backup snapshot for one cluster in the
+        specified project. Effective 23 March 2020, all new clusters can use only Cloud Backups.
+        When you upgrade to 4.2, your backup system upgrades to cloud backup if it is currently
+        set to legacy backup. After this upgrade, all your existing legacy backup snapshots
+        remain available. They expire over time in accordance with your retention policy. Your
+        backup policy resets to the default schedule. If you had a custom backup policy in place
+        with legacy backups, you must re-create it with the procedure outlined in the Cloud
+        Backup documentation.
 
         Args:
             cluster_name: Human-readable label that identifies the cluster.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            snapshot_id: Unique 24-hexadecimal digit string that identifies the desired snapshot.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            snapshot_id: Unique 24-hexadecimal digit string that identifies the desired
+                snapshot.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Changes One Legacy Backup Snapshot Expiration.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updategroupclustersnapshot
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/snapshots/{quote(str(snapshot_id), safe='')}"
         params = {

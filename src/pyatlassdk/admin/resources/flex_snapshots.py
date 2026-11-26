@@ -31,14 +31,29 @@ class FlexSnapshots:
         """
         Download One Flex Cluster Snapshot
 
-        Requests one snapshot for the specified flex cluster. This resource returns a `snapshotURL` that you can use to download the snapshot. This `snapshotURL` remains active for four hours after you make the request.
+        Requests one snapshot for the specified flex cluster. This resource returns a
+        `snapshotURL` that you can use to download the snapshot. This `snapshotURL` remains
+        active for four hours after you make the request.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             name: Human-readable label that identifies the flex cluster.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Snapshot to be downloaded.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-downloadgroupflexclusterbackup
         """
         path = f"/groups/{quote(str(group_id), safe='')}/flexClusters/{quote(str(name), safe='')}/backup/download"
         params = {
@@ -72,13 +87,30 @@ class FlexSnapshots:
         Returns all snapshots of one flex cluster from the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             name: Human-readable label that identifies the flex cluster.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupflexclusterbackupsnapshots
         """
         path = f"/groups/{quote(str(group_id), safe='')}/flexClusters/{quote(str(name), safe='')}/backup/snapshots"
         params = {
@@ -110,10 +142,23 @@ class FlexSnapshots:
         Returns one snapshot of one flex cluster from the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             name: Human-readable label that identifies the flex cluster.
-            snapshot_id: Unique 24-hexadecimal digit string that identifies the desired snapshot.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            snapshot_id: Unique 24-hexadecimal digit string that identifies the desired
+                snapshot.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupflexclusterbackupsnapshot
         """
         path = f"/groups/{quote(str(group_id), safe='')}/flexClusters/{quote(str(name), safe='')}/backup/snapshots/{quote(str(snapshot_id), safe='')}"
         params = {

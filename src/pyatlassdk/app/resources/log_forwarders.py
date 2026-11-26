@@ -26,8 +26,14 @@ class LogForwarders:
         List log forwarders.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-listlogforwarders
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/log_forwarders"
         return self._client.request(
@@ -46,9 +52,15 @@ class LogForwarders:
         Create a log forwarder.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body: A log forwarder configuration
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-createlogforwarder
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/log_forwarders"
         return self._client.request(
@@ -69,9 +81,15 @@ class LogForwarders:
         Delete a log forwarder.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             forwarder_id: The _id ObjectID of a log forwarder.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-deletegwarder
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/log_forwarders/{quote(str(forwarder_id), safe='')}"
         return self._client.request(
@@ -90,9 +108,15 @@ class LogForwarders:
         Get a specific log forwarder.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             forwarder_id: The _id ObjectID of a log forwarder.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-getlogforwarder
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/log_forwarders/{quote(str(forwarder_id), safe='')}"
         return self._client.request(
@@ -112,10 +136,16 @@ class LogForwarders:
         Update a log forwarder.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             forwarder_id: The _id ObjectID of a log forwarder.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body: A log forwarder configuration
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-updatelogforwarder
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/log_forwarders/{quote(str(forwarder_id), safe='')}"
         return self._client.request(
@@ -136,9 +166,15 @@ class LogForwarders:
         Disable a log forwarder.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             forwarder_id: The _id ObjectID of a log forwarder.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-disablelogforwarder
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/log_forwarders/{quote(str(forwarder_id), safe='')}/disable"
         return self._client.request(
@@ -157,9 +193,15 @@ class LogForwarders:
         Enable a log forwarder.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             forwarder_id: The _id ObjectID of a log forwarder.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-enablelogforwarder
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/log_forwarders/{quote(str(forwarder_id), safe='')}/enable"
         return self._client.request(

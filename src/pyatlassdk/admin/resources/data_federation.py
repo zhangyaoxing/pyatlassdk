@@ -33,10 +33,23 @@ class DataFederation:
         Returns the details of all federated database instances in the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             type: Type of Federated Database Instances to return.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupdatafederation
         """
         path = f"/groups/{quote(str(group_id), safe='')}/dataFederation"
         params = {
@@ -67,11 +80,27 @@ class DataFederation:
         Creates one federated database instance in the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            skip_role_validation: Flag that indicates whether this request should check if the requesting IAM role can read from the S3 bucket. AWS checks if the role can list the objects in the bucket before writing to it. Some IAM roles only need write permissions. This flag allows you to skip that check.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            skip_role_validation: Flag that indicates whether this request should check if the
+                requesting IAM role can read from the S3 bucket. AWS checks if the role can list
+                the objects in the bucket before writing to it. Some IAM roles only need write
+                permissions. This flag allows you to skip that check.
             body: Details to create one federated database instance in the specified project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupdatafederation
         """
         path = f"/groups/{quote(str(group_id), safe='')}/dataFederation"
         params = {
@@ -103,10 +132,24 @@ class DataFederation:
         Removes one federated database instance from the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            tenant_name: Human-readable label that identifies the federated database instance to remove.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            tenant_name: Human-readable label that identifies the federated database instance to
+                remove.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupdatafederation
         """
         path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}"
         params = {
@@ -134,9 +177,21 @@ class DataFederation:
         Returns the details of one federated database instance within the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             tenant_name: Human-readable label that identifies the Federated Database to return.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupdatafederation
         """
         path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}"
         params = {
@@ -166,12 +221,29 @@ class DataFederation:
         Updates the details of one federated database instance in the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            tenant_name: Human-readable label that identifies the federated database instance to update.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            skip_role_validation: Flag that indicates whether this request should check if the requesting IAM role can read from the S3 bucket. AWS checks if the role can list the objects in the bucket before writing to it. Some IAM roles only need write permissions. This flag allows you to skip that check.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            tenant_name: Human-readable label that identifies the federated database instance to
+                update.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            skip_role_validation: Flag that indicates whether this request should check if the
+                requesting IAM role can read from the S3 bucket. AWS checks if the role can list
+                the objects in the bucket before writing to it. Some IAM roles only need write
+                permissions. This flag allows you to skip that check.
             body: Details of one Federated Database to update in the specified project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updategroupdatafederation
         """
         path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}"
         params = {
@@ -203,10 +275,24 @@ class DataFederation:
         Returns query limits for a federated databases instance in the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            tenant_name: Human-readable label that identifies the federated database instance for which you want to retrieve query limits.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            tenant_name: Human-readable label that identifies the federated database instance
+                for which you want to retrieve query limits.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupdatafederationlimits
         """
         path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/limits"
         params = {
@@ -235,10 +321,31 @@ class DataFederation:
         Deletes one query limit for one federated database instance.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            limit_name: Human-readable label that identifies this data federation instance limit. | Limit Name | Description | Default | | --- | --- | --- | | `bytesProcessed.query` | Limit on the number of bytes processed during a single data federation query | N/A | | `bytesProcessed.daily` | Limit on the number of bytes processed for the data federation instance for the current day | N/A | | `bytesProcessed.weekly` | Limit on the number of bytes processed for the data federation instance for the current week | N/A | | `bytesProcessed.monthly` | Limit on the number of bytes processed for the data federation instance for the current month | N/A |
-            tenant_name: Human-readable label that identifies the federated database instance to which the query limit applies.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            limit_name: Human-readable label that identifies this data federation instance
+                limit. | Limit Name | Description | Default | | --- | --- | --- | |
+                `bytesProcessed.query` | Limit on the number of bytes processed during a single
+                data federation query | N/A | | `bytesProcessed.daily` | Limit on the number of
+                bytes processed for the data federation instance for the current day | N/A | |
+                `bytesProcessed.weekly` | Limit on the number of bytes processed for the data
+                federation instance for the current week | N/A | | `bytesProcessed.monthly` |
+                Limit on the number of bytes processed for the data federation instance for the
+                current month | N/A |
+            tenant_name: Human-readable label that identifies the federated database instance to
+                which the query limit applies.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupdatafederationlimit
         """
         path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/limits/{quote(str(limit_name), safe='')}"
         params = {
@@ -264,14 +371,37 @@ class DataFederation:
         """
         Return One Federated Database Instance Query Limit for One Project
 
-        Returns the details of one query limit for the specified federated database instance in the specified project.
+        Returns the details of one query limit for the specified federated database instance in
+        the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            limit_name: Human-readable label that identifies this data federation instance limit. | Limit Name | Description | Default | | --- | --- | --- | | `bytesProcessed.query` | Limit on the number of bytes processed during a single data federation query | N/A | | `bytesProcessed.daily` | Limit on the number of bytes processed for the data federation instance for the current day | N/A | | `bytesProcessed.weekly` | Limit on the number of bytes processed for the data federation instance for the current week | N/A | | `bytesProcessed.monthly` | Limit on the number of bytes processed for the data federation instance for the current month | N/A |
-            tenant_name: Human-readable label that identifies the federated database instance to which the query limit applies.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            limit_name: Human-readable label that identifies this data federation instance
+                limit. | Limit Name | Description | Default | | --- | --- | --- | |
+                `bytesProcessed.query` | Limit on the number of bytes processed during a single
+                data federation query | N/A | | `bytesProcessed.daily` | Limit on the number of
+                bytes processed for the data federation instance for the current day | N/A | |
+                `bytesProcessed.weekly` | Limit on the number of bytes processed for the data
+                federation instance for the current week | N/A | | `bytesProcessed.monthly` |
+                Limit on the number of bytes processed for the data federation instance for the
+                current month | N/A |
+            tenant_name: Human-readable label that identifies the federated database instance to
+                which the query limit applies.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupdatafederationlimit
         """
         path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/limits/{quote(str(limit_name), safe='')}"
         params = {
@@ -301,11 +431,32 @@ class DataFederation:
         Creates or updates one query limit for one federated database instance.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            limit_name: Human-readable label that identifies this data federation instance limit. | Limit Name | Description | Default | | --- | --- | --- | | `bytesProcessed.query` | Limit on the number of bytes processed during a single data federation query | N/A | | `bytesProcessed.daily` | Limit on the number of bytes processed for the data federation instance for the current day | N/A | | `bytesProcessed.weekly` | Limit on the number of bytes processed for the data federation instance for the current week | N/A | | `bytesProcessed.monthly` | Limit on the number of bytes processed for the data federation instance for the current month | N/A |
-            tenant_name: Human-readable label that identifies the federated database instance to which the query limit applies.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            limit_name: Human-readable label that identifies this data federation instance
+                limit. | Limit Name | Description | Default | | --- | --- | --- | |
+                `bytesProcessed.query` | Limit on the number of bytes processed during a single
+                data federation query | N/A | | `bytesProcessed.daily` | Limit on the number of
+                bytes processed for the data federation instance for the current day | N/A | |
+                `bytesProcessed.weekly` | Limit on the number of bytes processed for the data
+                federation instance for the current week | N/A | | `bytesProcessed.monthly` |
+                Limit on the number of bytes processed for the data federation instance for the
+                current month | N/A |
+            tenant_name: Human-readable label that identifies the federated database instance to
+                which the query limit applies.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
             body: Creates or updates one query limit for one federated database instance.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-setgroupdatafederationlimit
         """
         path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/limits/{quote(str(limit_name), safe='')}"
         params = {
@@ -332,13 +483,29 @@ class DataFederation:
         """
         Download Query Logs for One Federated Database Instance
 
-        Downloads the query logs for the specified federated database instance. The API does not support direct calls with the json response schema. You must request a gzip response schema using an accept header of the format: `Accept: application/vnd.atlas.YYYY-MM-DD+gzip`.
+        Downloads the query logs for the specified federated database instance. The API does not
+        support direct calls with the json response schema. You must request a gzip response
+        schema using an accept header of the format: `Accept: application/vnd.atlas.YYYY-MM-
+        DD+gzip`.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            tenant_name: Human-readable label that identifies the federated database instance for which you want to download query logs.
-            end_date: Timestamp that specifies the end point for the range of log messages to download. MongoDB Cloud expresses this timestamp in the number of seconds that have elapsed since the UNIX epoch.
-            start_date: Timestamp that specifies the starting point for the range of log messages to download. MongoDB Cloud expresses this timestamp in the number of seconds that have elapsed since the UNIX epoch.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            tenant_name: Human-readable label that identifies the federated database instance
+                for which you want to download query logs.
+            end_date: Timestamp that specifies the end point for the range of log messages to
+                download. MongoDB Cloud expresses this timestamp in the number of seconds that
+                have elapsed since the UNIX epoch.
+            start_date: Timestamp that specifies the starting point for the range of log
+                messages to download. MongoDB Cloud expresses this timestamp in the number of
+                seconds that have elapsed since the UNIX epoch.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-downloadgroupdatafederationquerylogs
         """
         path = f"/groups/{quote(str(group_id), safe='')}/dataFederation/{quote(str(tenant_name), safe='')}/queryLogs.gz"
         params = {
@@ -364,17 +531,36 @@ class DataFederation:
         pretty: bool | None = None,
     ) -> PaginatedPrivateNetworkEndpointIdEntryView:
         """
-        Return All Federated Database Instance and Online Archive Private Endpoints in One Project
+        Return All Federated Database Instance and Online Archive Private Endpoints in One
+        Project
 
-        Returns all private endpoints for Federated Database Instances and Online Archives in the specified project.
+        Returns all private endpoints for Federated Database Instances and Online Archives in
+        the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupprivatenetworksettingendpointids
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateNetworkSettings/endpointIds"
         params = {
@@ -401,15 +587,38 @@ class DataFederation:
         pretty: bool | None = None,
     ) -> PaginatedPrivateNetworkEndpointIdEntryView:
         """
-        Create One Federated Database Instance and Online Archive Private Endpoint for One Project
+        Create One Federated Database Instance and Online Archive Private Endpoint for One
+        Project
 
-        Adds one private endpoint for Federated Database Instances and Online Archives to the specified projects. If the endpoint ID already exists and the associated comment is unchanged, Atlas Data Federation makes no change to the endpoint ID list. If the endpoint ID already exists and the associated comment is changed, Atlas Data Federation updates the comment value only in the endpoint ID list. If the endpoint ID doesn't exist, Atlas Data Federation appends the new endpoint to the list of endpoints in the endpoint ID list. Each region has an associated service name for the various endpoints. For the latest list of supported regions and their service names, see the external documentation.
+        Adds one private endpoint for Federated Database Instances and Online Archives to the
+        specified projects. If the endpoint ID already exists and the associated comment is
+        unchanged, Atlas Data Federation makes no change to the endpoint ID list. If the
+        endpoint ID already exists and the associated comment is changed, Atlas Data Federation
+        updates the comment value only in the endpoint ID list. If the endpoint ID doesn't
+        exist, Atlas Data Federation appends the new endpoint to the list of endpoints in the
+        endpoint ID list. Each region has an associated service name for the various endpoints.
+        For the latest list of supported regions and their service names, see the external
+        documentation.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            body: Private endpoint for Federated Database Instances and Online Archives to add to the specified project.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            body: Private endpoint for Federated Database Instances and Online Archives to add
+                to the specified project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupprivatenetworksettingendpointid
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateNetworkSettings/endpointIds"
         params = {
@@ -435,15 +644,32 @@ class DataFederation:
         pretty: bool | None = None,
     ) -> Any:
         """
-        Remove One Federated Database Instance and Online Archive Private Endpoint from One Project
+        Remove One Federated Database Instance and Online Archive Private Endpoint from One
+        Project
 
-        Removes one private endpoint for Federated Database Instances and Online Archives in the specified project.
+        Removes one private endpoint for Federated Database Instances and Online Archives in the
+        specified project.
 
         Args:
-            endpoint_id: Unique 22-character alphanumeric string that identifies the private endpoint to remove. Atlas Data Federation supports AWS private endpoints using the AWS PrivateLink feature.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            endpoint_id: Unique 22-character alphanumeric string that identifies the private
+                endpoint to remove. Atlas Data Federation supports AWS private endpoints using
+                the AWS PrivateLink feature.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupprivatenetworksettingendpointid
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateNetworkSettings/endpointIds/{quote(str(endpoint_id), safe='')}"
         params = {
@@ -467,15 +693,32 @@ class DataFederation:
         pretty: bool | None = None,
     ) -> PrivateNetworkEndpointIdEntry:
         """
-        Return One Federated Database Instance and Online Archive Private Endpoint in One Project
+        Return One Federated Database Instance and Online Archive Private Endpoint in One
+        Project
 
-        Returns the specified private endpoint for Federated Database Instances or Online Archives in the specified project.
+        Returns the specified private endpoint for Federated Database Instances or Online
+        Archives in the specified project.
 
         Args:
-            endpoint_id: Unique 22-character alphanumeric string that identifies the private endpoint to return. Atlas Data Federation supports AWS private endpoints using the AWS PrivateLink feature.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            endpoint_id: Unique 22-character alphanumeric string that identifies the private
+                endpoint to return. Atlas Data Federation supports AWS private endpoints using
+                the AWS PrivateLink feature.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupprivatenetworksettingendpointid
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateNetworkSettings/endpointIds/{quote(str(endpoint_id), safe='')}"
         params = {

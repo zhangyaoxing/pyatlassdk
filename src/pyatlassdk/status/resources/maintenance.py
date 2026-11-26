@@ -21,7 +21,11 @@ class Maintenance:
         """
         Get All Scheduled Maintenances
 
-        Retrieves the 50 most recent scheduled maintenances, including all states (Scheduled, In Progress, Verifying, Completed).
+        Retrieves the 50 most recent scheduled maintenances, including all states (Scheduled, In
+        Progress, Verifying, Completed).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/cloud-status/operation/operation-getallscheduledmaintenances
         """
         path = "/scheduled-maintenances.json"
         return self._client.request(
@@ -36,7 +40,11 @@ class Maintenance:
         """
         Get Active Scheduled Maintenances
 
-        Retrieves a list of active scheduled maintenances (in the In Progress or Verifying states).
+        Retrieves a list of active scheduled maintenances (in the In Progress or Verifying
+        states).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/cloud-status/operation/operation-getactivescheduledmaintenances
         """
         path = "/scheduled-maintenances/active.json"
         return self._client.request(
@@ -52,6 +60,9 @@ class Maintenance:
         Get Upcoming Scheduled Maintenances
 
         Retrieves a list of upcoming scheduled maintenances (in the Scheduled state).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/cloud-status/operation/operation-getupcomingscheduledmaintenances
         """
         path = "/scheduled-maintenances/upcoming.json"
         return self._client.request(

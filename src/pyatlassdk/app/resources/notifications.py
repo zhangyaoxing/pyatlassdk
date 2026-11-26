@@ -27,12 +27,19 @@ class Notifications:
         """
         List push notifications
 
-        List [push notifications](https://www.mongodb.com/docs/atlas/app-services/reference/push-notifications).
+        List [push notifications](https://www.mongodb.com/docs/atlas/app-
+        services/reference/push-notifications).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             state: Only list notifications with the given state.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlistnotifications
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/push/notifications"
         params = {
@@ -55,12 +62,19 @@ class Notifications:
         Create a push notification
 
         Create a [push
-        notification](https://www.mongodb.com/docs/atlas/app-services/reference/push-notifications).
+        notification](https://www.mongodb.com/docs/atlas/app-services/reference/push-
+        notifications).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body: The notification to create.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreatenotification
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/push/notifications"
         return self._client.request(
@@ -81,13 +95,20 @@ class Notifications:
         Delete a push notification message
 
         Delete a [push
-        notification](https://www.mongodb.com/docs/atlas/app-services/reference/push-notifications)
+        notification](https://www.mongodb.com/docs/atlas/app-services/reference/push-
+        notifications)
         message.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             message_id: Message ID
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeletemessage
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/push/notifications/{quote(str(message_id), safe='')}"
         return self._client.request(
@@ -106,13 +127,20 @@ class Notifications:
         Retrieve a push notification message
 
         Retrieve a [push
-        notification](https://www.mongodb.com/docs/atlas/app-services/reference/push-notifications)
+        notification](https://www.mongodb.com/docs/atlas/app-services/reference/push-
+        notifications)
         message.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             message_id: Message ID
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetmessage
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/push/notifications/{quote(str(message_id), safe='')}"
         return self._client.request(
@@ -131,13 +159,20 @@ class Notifications:
         Update a push notification
 
         Update a [push
-        notification](https://www.mongodb.com/docs/atlas/app-services/reference/push-notifications)
+        notification](https://www.mongodb.com/docs/atlas/app-services/reference/push-
+        notifications)
         message.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             message_id: Message ID
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminupdatemessage
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/push/notifications/{quote(str(message_id), safe='')}"
         return self._client.request(
@@ -156,12 +191,19 @@ class Notifications:
         Send a push notification
 
         Send a [push
-        notification](https://www.mongodb.com/docs/atlas/app-services/reference/push-notifications).
+        notification](https://www.mongodb.com/docs/atlas/app-services/reference/push-
+        notifications).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             message_id: Message ID
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminsendmessage
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/push/notifications/{quote(str(message_id), safe='')}/send"
         return self._client.request(
@@ -180,13 +222,20 @@ class Notifications:
         Set a push notification's type
 
         Set a [push
-        notification's](https://www.mongodb.com/docs/atlas/app-services/reference/push-notifications)
+        notification's](https://www.mongodb.com/docs/atlas/app-services/reference/push-
+        notifications)
         type.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             message_id: Message ID
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminsetmessagetype
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/push/notifications/{quote(str(message_id), safe='')}/type"
         return self._client.request(

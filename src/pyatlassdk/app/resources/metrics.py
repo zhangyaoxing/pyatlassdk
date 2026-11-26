@@ -31,15 +31,28 @@ class Metrics:
         Retrieves a variety of metrics, including: Compute Time, Data Transfer,
         Sync Minutes, Requests Succeeded, Requests Failed. For a complete list
         of available metrics, see [App
-        Services Metrics Reference](https://mongodb.com/docs/atlas/app-services/reference/metrics).
+        Services Metrics Reference](https://mongodb.com/docs/atlas/app-
+        services/reference/metrics).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            end: The ISO-8601 date and time of the end of the query period (e.g. "2022-12-27T14:01:01Z").
-            granularity: Specifies the granularity of the query period as an [ISO-8601 duration value](https://en.wikipedia.org/wiki/ISO_8601#Durations). Examples include "P31D" (31 day), "PT1H" (1 hour), and "PT5M" (5 minutes).
-            metrics: The name of the metric to filter by. For detailed information on the available metrics and their units, see [App Services Metrics Reference](https://mongodb.com/docs/atlas/app-services/reference/metrics).
-            start: The ISO-8601 date and time of the start of the query period (e.g. "2022-10-27T14:01:01Z").
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            end: The ISO-8601 date and time of the end of the query period (e.g.
+                "2022-12-27T14:01:01Z").
+            granularity: Specifies the granularity of the query period as an [ISO-8601 duration
+                value](https://en.wikipedia.org/wiki/ISO_8601#Durations). Examples include
+                "P31D" (31 day), "PT1H" (1 hour), and "PT5M" (5 minutes).
+            metrics: The name of the metric to filter by. For detailed information on the
+                available metrics and their units, see [App Services Metrics
+                Reference](https://mongodb.com/docs/atlas/app-services/reference/metrics).
+            start: The ISO-8601 date and time of the start of the query period (e.g.
+                "2022-10-27T14:01:01Z").
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetmetrics
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/metrics"
         params = {

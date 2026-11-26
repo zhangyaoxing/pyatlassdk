@@ -41,13 +41,21 @@ class Invoices:
         """
         Return Associated Invoices
 
-        Returns a list of invoice IDs for the specified organization and month/year. Optionally includes invoices from linked organizations.
+        Returns a list of invoice IDs for the specified organization and month/year. Optionally
+        includes invoices from linked organizations.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            include_linked_orgs: Whether to include invoices from linked organizations. Defaults to false.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            include_linked_orgs: Whether to include invoices from linked organizations. Defaults
+                to false.
             month: The month for which to retrieve invoices (1-12). Defaults to current month.
             year: The year for which to retrieve invoices. Defaults to current year.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgassociatedinvoices
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/associatedInvoices"
         params = {
@@ -73,12 +81,24 @@ class Invoices:
         """
         Create One Cost Explorer Query Process
 
-        Creates a query process within the Cost Explorer for the given parameters. A token is returned that can be used to poll the status of the query and eventually retrieve the results.
+        Creates a query process within the Cost Explorer for the given parameters. A token is
+        returned that can be used to poll the status of the query and eventually retrieve the
+        results.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
             body: Filter parameters for the Cost Explorer query.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorgbillingcostexplorerusageprocess
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/billing/costExplorer/usage"
         params = {
@@ -104,12 +124,24 @@ class Invoices:
         """
         Return Usage Details for One Cost Explorer Query
 
-        Returns the usage details for a Cost Explorer query, if the query is finished and the data is ready to be viewed. If the data is not ready, a 'processing' response will indicate that another request should be sent later to view the data.
+        Returns the usage details for a Cost Explorer query, if the query is finished and the
+        data is ready to be viewed. If the data is not ready, a 'processing' response will
+        indicate that another request should be sent later to view the data.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
             token: Unique 64 digit string that identifies the Cost Explorer query.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgbillingcostexplorerusage
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/billing/costExplorer/usage/{quote(str(token), safe='')}"
         params = {
@@ -142,22 +174,50 @@ class Invoices:
         """
         Return All Invoices for One Organization
 
-        Returns all invoices that MongoDB issued to the specified organization. This list includes all invoices regardless of invoice status. If you have a cross-organization setup, you can view linked invoices if you have the Organization Billing Admin or Organization Owner role.
-        To compute the total owed amount of the invoices - sum up total owed of each invoice. It could be computed as a sum of owed amount of each payment included into the invoice. To compute payment's owed amount - use formula `totalBilledCents` * `unitPrice` + `salesTax` - `startingBalanceCents`.
+        Returns all invoices that MongoDB issued to the specified organization. This list
+        includes all invoices regardless of invoice status. If you have a cross-organization
+        setup, you can view linked invoices if you have the Organization Billing Admin or
+        Organization Owner role.
+        To compute the total owed amount of the invoices - sum up total owed of each invoice. It
+        could be computed as a sum of owed amount of each payment included into the invoice. To
+        compute payment's owed amount - use formula `totalBilledCents` * `unitPrice` +
+        `salesTax` - `startingBalanceCents`.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            from_date: Retrieve the invoices the `startDates` of which are greater than or equal to the `fromDate`. If omit, the invoices return will go back to earliest `startDate`.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            from_date: Retrieve the invoices the `startDates` of which are greater than or equal
+                to the `fromDate`. If omit, the invoices return will go back to earliest
+                `startDate`.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            order_by: Field used to order the returned invoices by. Use in combination of `sortBy` parameter to control the order of the result.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            sort_by: Field used to sort the returned invoices by. Use in combination with `orderBy` parameter to control the order of the result.
-            status_names: Statuses of the invoice to be retrieved. Omit to return invoices of all statuses.
-            to_date: Retrieve the invoices the `endDates` of which are smaller than or equal to the `toDate`. If omit, the invoices return will go further to latest `endDate`.
-            view_linked_invoices: Flag that indicates whether to return linked invoices in the `linkedInvoices` field.
+            order_by: Field used to order the returned invoices by. Use in combination of
+                `sortBy` parameter to control the order of the result.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            sort_by: Field used to sort the returned invoices by. Use in combination with
+                `orderBy` parameter to control the order of the result.
+            status_names: Statuses of the invoice to be retrieved. Omit to return invoices of
+                all statuses.
+            to_date: Retrieve the invoices the `endDates` of which are smaller than or equal to
+                the `toDate`. If omit, the invoices return will go further to latest `endDate`.
+            view_linked_invoices: Flag that indicates whether to return linked invoices in the
+                `linkedInvoices` field.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorginvoices
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invoices"
         params = {
@@ -191,12 +251,25 @@ class Invoices:
         """
         Return All Pending Invoices for One Organization
 
-        Returns all invoices accruing charges for the current billing cycle for the specified organization. If you have a cross-organization setup, you can view linked invoices if you have the Organization Billing Admin or Organization Owner Role.
+        Returns all invoices accruing charges for the current billing cycle for the specified
+        organization. If you have a cross-organization setup, you can view linked invoices if
+        you have the Organization Billing Admin or Organization Owner Role.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorginvoicepending
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invoices/pending"
         params = {
@@ -222,14 +295,31 @@ class Invoices:
         """
         Return One Invoice for One Organization
 
-        Returns one invoice that MongoDB issued to the specified organization. A unique 24-hexadecimal digit string identifies the invoice. You can choose to receive this invoice in JSON or CSV format. If you have a cross-organization setup, you can query for a linked invoice if you have the Organization Billing Admin or Organization Owner role.
-        To compute the total owed amount of the invoice - sum up total owed amount of each payment included into the invoice. To compute payment's owed amount - use formula `totalBilledCents` * `unitPrice` + `salesTax` - `startingBalanceCents`.
+        Returns one invoice that MongoDB issued to the specified organization. A unique
+        24-hexadecimal digit string identifies the invoice. You can choose to receive this
+        invoice in JSON or CSV format. If you have a cross-organization setup, you can query for
+        a linked invoice if you have the Organization Billing Admin or Organization Owner role.
+        To compute the total owed amount of the invoice - sum up total owed amount of each
+        payment included into the invoice. To compute payment's owed amount - use formula
+        `totalBilledCents` * `unitPrice` + `salesTax` - `startingBalanceCents`.
 
         Args:
-            invoice_id: Unique 24-hexadecimal digit string that identifies the invoice submitted to the specified organization. Charges typically post the next day.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            invoice_id: Unique 24-hexadecimal digit string that identifies the invoice submitted
+                to the specified organization. Charges typically post the next day.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorginvoice
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}"
         params = {
@@ -255,14 +345,31 @@ class Invoices:
         """
         Return One Invoice as CSV for One Organization
 
-        Returns one invoice that MongoDB issued to the specified organization in CSV format. A unique 24-hexadecimal digit string identifies the invoice. If you have a cross-organization setup, you can query for a linked invoice if you have the Organization Billing Admin or Organization Owner Role.
-         To compute the total owed amount of the invoice - sum up total owed amount of each payment included into the invoice. To compute payment's owed amount - use formula `totalBilledCents` * `unitPrice` + `salesTax` - `startingBalanceCents`.
+        Returns one invoice that MongoDB issued to the specified organization in CSV format. A
+        unique 24-hexadecimal digit string identifies the invoice. If you have a cross-
+        organization setup, you can query for a linked invoice if you have the Organization
+        Billing Admin or Organization Owner Role.
+        To compute the total owed amount of the invoice - sum up total owed amount of each
+        payment included into the invoice. To compute payment's owed amount - use formula
+        `totalBilledCents` * `unitPrice` + `salesTax` - `startingBalanceCents`.
 
         Args:
-            invoice_id: Unique 24-hexadecimal digit string that identifies the invoice submitted to the specified organization. Charges typically post the next day.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            invoice_id: Unique 24-hexadecimal digit string that identifies the invoice submitted
+                to the specified organization. Charges typically post the next day.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorginvoicecsv
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/csv"
         params = {
@@ -290,15 +397,30 @@ class Invoices:
         """
         Return All Line Items for One Invoice by Invoice ID
 
-        Query the `lineItems` of the specified invoice and return the result JSON. A unique 24-hexadecimal digit string identifies the invoice.
+        Query the `lineItems` of the specified invoice and return the result JSON. A unique
+        24-hexadecimal digit string identifies the invoice.
 
         Args:
-            invoice_id: Unique 24-hexadecimal digit string that identifies the invoice submitted to the specified organization. Charges typically post the next day.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            invoice_id: Unique 24-hexadecimal digit string that identifies the invoice submitted
+                to the specified organization. Charges typically post the next day.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            body: Filter parameters for the `lineItems` query. Send a request with an empty JSON body to retrieve all line items for a given `invoiceID` without applying any filters.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            body: Filter parameters for the `lineItems` query. Send a request with an empty JSON
+                body to retrieve all line items for a given `invoiceID` without applying any
+                filters.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-searchorginvoicelineitems
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/lineItems:search"
         params = {
@@ -330,16 +452,32 @@ class Invoices:
         """
         Return All Invoice Reports for One Invoice
 
-        Returns all unexpired reports for the specified invoice, newest first. Listed reports never include a download URL; retrieve a single report to obtain one.
+        Returns all unexpired reports for the specified invoice, newest first. Listed reports
+        never include a download URL; retrieve a single report to obtain one.
 
         Args:
             invoice_id: Unique string that identifies the invoice to list reports for.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorginvoicereports
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/reports"
         params = {
@@ -366,12 +504,20 @@ class Invoices:
         """
         Create One Invoice Report
 
-        Requests asynchronous generation of a report for the specified invoice. Returns a report identifier that can be used to poll the report status.
+        Requests asynchronous generation of a report for the specified invoice. Returns a report
+        identifier that can be used to poll the report status.
 
         Args:
-            invoice_id: Unique string that identifies the invoice for which to generate the report.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
+            invoice_id: Unique string that identifies the invoice for which to generate the
+                report.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
             body: Create Invoice Report request body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorginvoicereport
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/reports"
         return self._client.request(
@@ -396,8 +542,14 @@ class Invoices:
 
         Args:
             invoice_id: Unique string that identifies the invoice the report was generated for.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
             report_id: Unique string that identifies the report to retrieve.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorginvoicereport
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/invoices/{quote(str(invoice_id), safe='')}/reports/{quote(str(report_id), safe='')}"
         return self._client.request(
@@ -419,14 +571,27 @@ class Invoices:
         """
         Return All Stock Keeping Units
 
-        Returns all available SKUs (Stock Keeping Units) that can appear on MongoDB invoices. SKUs represent different products and services offered by MongoDB.
+        Returns all available SKUs (Stock Keeping Units) that can appear on MongoDB invoices.
+        SKUs represent different products and services offered by MongoDB.
 
         Args:
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listskus
         """
         path = "/skus"
         params = {
@@ -454,12 +619,21 @@ class Invoices:
         """
         Return One Stock Keeping Unit
 
-        Returns details about a single SKU (Stock Keeping Unit) by its identifier. SKUs represent different products and services offered by MongoDB.
+        Returns details about a single SKU (Stock Keeping Unit) by its identifier. SKUs
+        represent different products and services offered by MongoDB.
 
         Args:
             sku_id: Unique identifier of the SKU to retrieve.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getsku
         """
         path = f"/skus/{quote(str(sku_id), safe='')}"
         params = {

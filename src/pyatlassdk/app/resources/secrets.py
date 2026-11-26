@@ -23,12 +23,19 @@ class Secrets:
         """
         List secrets
 
-        List [secrets](https://www.mongodb.com/docs/atlas/app-services/values-and-secrets/define-and-manage-secrets/#define-a-secret)
+        List [secrets](https://www.mongodb.com/docs/atlas/app-services/values-and-
+        secrets/define-and-manage-secrets/#define-a-secret)
         associated with a Atlas App Services App.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetallsecrets
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/secrets"
         return self._client.request(
@@ -47,12 +54,19 @@ class Secrets:
         Create a new Secret
 
         Create a new
-        [Secret](https://www.mongodb.com/docs/atlas/app-services/values-and-secrets/define-and-manage-secrets).
+        [Secret](https://www.mongodb.com/docs/atlas/app-services/values-and-secrets/define-and-
+        manage-secrets).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body: The Secret to create.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreateasecret
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/secrets"
         return self._client.request(
@@ -73,13 +87,20 @@ class Secrets:
         Delete a Secret
 
         Delete a
-        [Secret](https://www.mongodb.com/docs/atlas/app-services/values-and-secrets/define-and-manage-secrets)
+        [Secret](https://www.mongodb.com/docs/atlas/app-services/values-and-secrets/define-and-
+        manage-secrets)
         associated with a Atlas App Services App.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             secret_id: The unique `_id` value of a secret.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeletesecret
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         return self._client.request(
@@ -99,14 +120,21 @@ class Secrets:
         Modify a Secret
 
         Modify a
-        [Secret](https://www.mongodb.com/docs/atlas/app-services/values-and-secrets/define-and-manage-secrets)
+        [Secret](https://www.mongodb.com/docs/atlas/app-services/values-and-secrets/define-and-
+        manage-secrets)
         associated with a Atlas App Services App.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             secret_id: The unique `_id` value of a secret.
             body: The modified value of the Secret.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminmodifyasecret
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         return self._client.request(

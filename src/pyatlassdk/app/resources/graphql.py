@@ -34,9 +34,15 @@ class Graphql:
         [introspection](https://graphql.org/learn/introspection/) query.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminrungraphqloperation
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/graphql"
         return self._client.request(
@@ -55,11 +61,18 @@ class Graphql:
         """
         Get GraphQL API Configuration
 
-        Get your app's [GraphQL API](https://www.mongodb.com/docs/atlas/app-services/graphql/) configuration.
+        Get your app's [GraphQL API](https://www.mongodb.com/docs/atlas/app-services/graphql/)
+        configuration.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetgraphqlconfig
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/graphql/config"
         return self._client.request(
@@ -77,12 +90,21 @@ class Graphql:
         """
         Update GraphQL API Configuration
 
-        Update your app's [GraphQL API](https://www.mongodb.com/docs/atlas/app-services/graphql/) configuration.
+        Update your app's [GraphQL API](https://www.mongodb.com/docs/atlas/app-
+        services/graphql/) configuration.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            body: A valid [GraphQL API configuration object](https://www.mongodb.com/docs/atlas/app-services/reference/config/graphql#std-label-appconfig-graphql).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            body: A valid [GraphQL API configuration
+                object](https://www.mongodb.com/docs/atlas/app-
+                services/reference/config/graphql#std-label-appconfig-graphql).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminupdategraphqlconfig
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/graphql/config"
         return self._client.request(
@@ -101,11 +123,18 @@ class Graphql:
         """
         Get all custom resolvers
 
-        Get all [custom resolver](https://www.mongodb.com/docs/atlas/app-services/graphql/custom-resolvers/) configurations from your app's GraphQL API.
+        Get all [custom resolver](https://www.mongodb.com/docs/atlas/app-
+        services/graphql/custom-resolvers/) configurations from your app's GraphQL API.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetallcustomresolvers
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/graphql/custom_resolvers"
         return self._client.request(
@@ -123,12 +152,21 @@ class Graphql:
         """
         Create a custom resolver
 
-        Create a new [custom resolver](https://www.mongodb.com/docs/atlas/app-services/graphql/custom-resolvers/).
+        Create a new [custom resolver](https://www.mongodb.com/docs/atlas/app-
+        services/graphql/custom-resolvers/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            body: A valid [custom resolver configuration](https://www.mongodb.com/docs/atlas/app-services/reference/config/graphql#std-label-appconfig-custom-resolver) object.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            body: A valid [custom resolver
+                configuration](https://www.mongodb.com/docs/atlas/app-
+                services/reference/config/graphql#std-label-appconfig-custom-resolver) object.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreatecustomresolver
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/graphql/custom_resolvers"
         return self._client.request(
@@ -148,12 +186,19 @@ class Graphql:
         """
         Delete a custom resolver
 
-        Delete an existing [custom resolver](https://www.mongodb.com/docs/atlas/app-services/graphql/custom-resolvers/) configuration.
+        Delete an existing [custom resolver](https://www.mongodb.com/docs/atlas/app-
+        services/graphql/custom-resolvers/) configuration.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             custom_resolver_id: The unique `_id` value of a custom resolver.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeletecustomresolver
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/graphql/custom_resolvers/{quote(str(custom_resolver_id), safe='')}"
         return self._client.request(
@@ -171,12 +216,19 @@ class Graphql:
         """
         Get a custom resolver
 
-        Get a specific [custom resolver](https://www.mongodb.com/docs/atlas/app-services/graphql/custom-resolvers/) configuration.
+        Get a specific [custom resolver](https://www.mongodb.com/docs/atlas/app-
+        services/graphql/custom-resolvers/) configuration.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             custom_resolver_id: The unique `_id` value of a custom resolver.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetcustomresolver
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/graphql/custom_resolvers/{quote(str(custom_resolver_id), safe='')}"
         return self._client.request(
@@ -195,13 +247,22 @@ class Graphql:
         """
         Modify a custom resolver
 
-        Modify an existing [custom resolver](https://www.mongodb.com/docs/atlas/app-services/graphql/custom-resolvers/) configuration.
+        Modify an existing [custom resolver](https://www.mongodb.com/docs/atlas/app-
+        services/graphql/custom-resolvers/) configuration.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             custom_resolver_id: The unique `_id` value of a custom resolver.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            body: A valid, updated [custom resolver configuration](https://www.mongodb.com/docs/atlas/app-services/reference/config/graphql#std-label-appconfig-custom-resolver) object.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            body: A valid, updated [custom resolver
+                configuration](https://www.mongodb.com/docs/atlas/app-
+                services/reference/config/graphql#std-label-appconfig-custom-resolver) object.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminmodifycustomresolver
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/graphql/custom_resolvers/{quote(str(custom_resolver_id), safe='')}"
         return self._client.request(
@@ -223,8 +284,14 @@ class Graphql:
         Get the current validation level and action for reads and writes.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetgraphqlvalidationsettings
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/validation_settings/graphql"
         return self._client.request(
@@ -245,9 +312,15 @@ class Graphql:
         Set the validation level and action for reads and writes.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body: The updated validation levels and actions.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminsetgraphqlvalidationsettings
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/validation_settings/graphql"
         return self._client.request(

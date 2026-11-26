@@ -32,11 +32,20 @@ class Billing:
         [billing](https://www.mongodb.com/docs/atlas/app-services/billing) purposes.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            end: The ISO 8601 date and time of the end of the query period. Default is 23:59:59 UTC on the last day of the current month.
-            granularity: Specifies the granularity of the query period, either P31D (31 day) or PT1H (1 hour). Default is P31D.
-            start: The ISO 8601 date and time of the start of the query period. Default is 00:00:00 UTC on the first day of the current month.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            end: The ISO 8601 date and time of the end of the query period. Default is 23:59:59
+                UTC on the last day of the current month.
+            granularity: Specifies the granularity of the query period, either P31D (31 day) or
+                PT1H (1 hour). Default is P31D.
+            start: The ISO 8601 date and time of the start of the query period. Default is
+                00:00:00 UTC on the first day of the current month.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminappmeasurements
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/measurements"
         params = {
@@ -66,10 +75,17 @@ class Billing:
         period for [billing](https://www.mongodb.com/docs/atlas/app-services/billing) purposes.
 
         Args:
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            end: The ISO 8601 date and time of the end of the query period. Default is 23:59:59 UTC on the last day of the current month.
-            granularity: Specifies the granularity of the query period, either P31D (31 day) or PT1H (1 hour). Default is P31D.
-            start: The ISO 8601 date and time of the start of the query period. Default is 00:00:00 UTC on the first day of the current month.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            end: The ISO 8601 date and time of the end of the query period. Default is 23:59:59
+                UTC on the last day of the current month.
+            granularity: Specifies the granularity of the query period, either P31D (31 day) or
+                PT1H (1 hour). Default is P31D.
+            start: The ISO 8601 date and time of the start of the query period. Default is
+                00:00:00 UTC on the first day of the current month.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminmeasurements
         """
         path = f"/groups/{quote(str(group_id), safe='')}/measurements"
         params = {

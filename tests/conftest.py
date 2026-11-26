@@ -89,3 +89,23 @@ def recorder() -> Recorder:
 def make_client(package: str, recorder: Recorder) -> Callable[[], Any]:
     """Build a client for the current ``package`` parameter wired to ``recorder``."""
     return lambda: CLIENT_FACTORIES[package](recorder)
+
+
+_ATLAS_ENV_VARS = (
+    "MONGO_ATLAS_PUBLIC_KEY",
+    "MONGO_ATLAS_PRIVATE_KEY",
+    "MONGO_ATLAS_CLIENT_ID",
+    "MONGO_ATLAS_CLIENT_SECRET",
+    "MONGO_ATLAS_ACCESS_TOKEN",
+    "MONGO_ATLAS_BASE_URL",
+    "MONGO_ATLAS_OAUTH_TOKEN_URL",
+    "MONGO_ATLAS_APP_BASE_URL",
+    "MONGO_ATLAS_STATUS_BASE_URL",
+)
+
+
+@pytest.fixture(autouse=True)
+def _clear_atlas_environment(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Keep a developer's local .env from changing test behavior."""
+    for name in _ATLAS_ENV_VARS:
+        monkeypatch.delenv(name, raising=False)

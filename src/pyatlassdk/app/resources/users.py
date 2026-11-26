@@ -28,9 +28,15 @@ class Users:
         Delete a pending [user](https://www.mongodb.com/docs/atlas/app-services/authentication).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             email: Email address
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeletependingemailpassworduser
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/user_registrations/by_email/{quote(str(email), safe='')}"
         return self._client.request(
@@ -52,9 +58,18 @@ class Users:
         List pending user account registrations. Returns up to 50 pending users in a call.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            after: The unique ``_id`` for a pending user. ``List pending users`` can return 50 pending users at a time. To view additional results, find the ``_id`` of the last pending user listed in the previous call to ``list pending users``. Call ``list pending users`` again, passing the ``_id`` to the after parameter.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            after: The unique ``_id`` for a pending user. ``List pending users`` can return 50
+                pending users at a time. To view additional results, find the ``_id`` of the
+                last pending user listed in the previous call to ``list pending users``. Call
+                ``list pending users`` again, passing the ``_id`` to the after parameter.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlistpendingusers
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/user_registrations/pending_users"
         params = {
@@ -79,14 +94,22 @@ class Users:
         """
         List users
 
-        List confirmed [user accounts](https://www.mongodb.com/docs/atlas/app-services/authentication#std-label-user-accounts).
+        List confirmed [user accounts](https://www.mongodb.com/docs/atlas/app-
+        services/authentication#std-label-user-accounts).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             after: The `id` of the last user returned by a previous paginated request.
-            desc: If `true`, returns sorted results in descending order. If not specified or set to `false`, results return in ascending order.
+            desc: If `true`, returns sorted results in descending order. If not specified or set
+                to `false`, results return in ascending order.
             sort: The field name to sort results by. The only valid value is the default: `_id`.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlistusers
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/users"
         params = {
@@ -111,16 +134,23 @@ class Users:
         Create a user
 
         Create a new
-        [email/password](https://www.mongodb.com/docs/atlas/app-services/authentication/email-password/)
+        [email/password](https://www.mongodb.com/docs/atlas/app-services/authentication/email-
+        password/)
         user account.
 
         *Note:* You cannot create user accounts through the Admin API
         for any authentication provider other than email/password.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body: The user to create
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreateuser
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/users"
         return self._client.request(
@@ -143,9 +173,19 @@ class Users:
         Verify a that a user's client access token is valid.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            body: The user's client access token. The access token represents a logged in application user. This is not the same as the [``access_token``](https://www.mongodb.com/docs/atlas/app-services/admin/api/v3/#section/Get-Authentication-Tokens) that you use to work with the Admin API.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            body: The user's client access token. The access token represents a logged in
+                application user. This is not the same as the
+                [``access_token``](https://www.mongodb.com/docs/atlas/app-
+                services/admin/api/v3/#section/Get-Authentication-Tokens) that you use to work
+                with the Admin API.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminverifyuseraccesstoken
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/users/verify_token"
         return self._client.request(
@@ -165,12 +205,19 @@ class Users:
         """
         Delete a user
 
-        Delete a specific [user account](https://www.mongodb.com/docs/atlas/app-services/authentication) by ID.
+        Delete a specific [user account](https://www.mongodb.com/docs/atlas/app-
+        services/authentication) by ID.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             user_id: User Account ID
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeleteuser
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/users/{quote(str(user_id), safe='')}"
         return self._client.request(
@@ -188,12 +235,19 @@ class Users:
         """
         Get a User
 
-        Get a specific [user account](https://www.mongodb.com/docs/atlas/app-services/authentication) by ID.
+        Get a specific [user account](https://www.mongodb.com/docs/atlas/app-
+        services/authentication) by ID.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             user_id: User Account ID
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetuser
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/users/{quote(str(user_id), safe='')}"
         return self._client.request(
@@ -212,9 +266,15 @@ class Users:
         List a user's devices
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             user_id: User Account ID
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlistdevices
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/users/{quote(str(user_id), safe='')}/devices"
         return self._client.request(
@@ -235,9 +295,15 @@ class Users:
         Disable a [user](https://www.mongodb.com/docs/atlas/app-services/authentication).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             user_id: User Account ID
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindisableuser
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/users/{quote(str(user_id), safe='')}/disable"
         return self._client.request(
@@ -258,9 +324,15 @@ class Users:
         Enable a [user](https://www.mongodb.com/docs/atlas/app-services/authentication).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             user_id: User Account ID
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminenableuser
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/users/{quote(str(user_id), safe='')}/enable"
         return self._client.request(
@@ -282,9 +354,15 @@ class Users:
         sessions.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             user_id: User Account ID
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminuserlogout
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/users/{quote(str(user_id), safe='')}/logout"
         return self._client.request(
@@ -303,13 +381,21 @@ class Users:
         """
         Change a user's email
 
-        Change the email address for an [email/password user](https://www.mongodb.com/docs/atlas/app-services/authentication/email-password/) by ID.
+        Change the email address for an [email/password
+        user](https://www.mongodb.com/docs/atlas/app-services/authentication/email-password/) by
+        ID.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             user_id: User Account ID
             body: The new email address for the user.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminresetuseremail
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/users/{quote(str(user_id), safe='')}/reset_email"
         return self._client.request(

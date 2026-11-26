@@ -29,8 +29,14 @@ class Schemas:
         List all defined [schemas](https://www.mongodb.com/docs/atlas/app-services/schemas).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlistschemas
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/schemas"
         return self._client.request(
@@ -48,15 +54,21 @@ class Schemas:
         """
         Create a schema
 
-        Define a new [schema](https://www.mongodb.com/docs/atlas/app-services/schemas) 
-        for a linked collection. When creating a schema with this endpoint, 
-        ensure that the JSON payload is completely unescaped. Incorrectly 
+        Define a new [schema](https://www.mongodb.com/docs/atlas/app-services/schemas)
+        for a linked collection. When creating a schema with this endpoint,
+        ensure that the JSON payload is completely unescaped. Incorrectly
         escaped JSON formats can lead to errors.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreateschema
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/schemas"
         return self._client.request(
@@ -76,12 +88,19 @@ class Schemas:
         """
         Delete a schema
 
-        Delete a specific [schema](https://www.mongodb.com/docs/atlas/app-services/schemas) by its `_id` value.
+        Delete a specific [schema](https://www.mongodb.com/docs/atlas/app-services/schemas) by
+        its `_id` value.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             schema_id: The unique `_id` value of a schema.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeleteschema
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/schemas/{quote(str(schema_id), safe='')}"
         return self._client.request(
@@ -99,12 +118,19 @@ class Schemas:
         """
         Get a schema
 
-        Get a specific [schema](https://www.mongodb.com/docs/atlas/app-services/schemas) by its `_id` value.
+        Get a specific [schema](https://www.mongodb.com/docs/atlas/app-services/schemas) by its
+        `_id` value.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             schema_id: The unique `_id` value of a schema.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetschema
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/schemas/{quote(str(schema_id), safe='')}"
         return self._client.request(
@@ -123,13 +149,20 @@ class Schemas:
         """
         Update a schema
 
-        Replace an existing [schema](https://www.mongodb.com/docs/atlas/app-services/schemas) with a new one.
+        Replace an existing [schema](https://www.mongodb.com/docs/atlas/app-services/schemas)
+        with a new one.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             schema_id: The unique `_id` value of a schema.
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminupdateschema
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/schemas/{quote(str(schema_id), safe='')}"
         return self._client.request(
@@ -153,10 +186,16 @@ class Schemas:
         Query a subset of documents in a collection and validate each match against a schema.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             datasource_id: The unique `_id` value of a MongoDB data source.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminvalidatedocuments
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/services/{quote(str(datasource_id), safe='')}/commands/validate_documents"
         return self._client.request(
@@ -175,11 +214,18 @@ class Schemas:
         """
         Get Null Type Schema Validation Setting
 
-        Check if [null type schema validation](https://www.mongodb.com/docs/atlas/app-services/schemas/enforce-a-schema/#validate-null-types) is enabled.
+        Check if [null type schema validation](https://www.mongodb.com/docs/atlas/app-
+        services/schemas/enforce-a-schema/#validate-null-types) is enabled.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetnulltypeschemavalidationsetting
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/validation_settings/null_type_schema_validation"
         return self._client.request(
@@ -197,12 +243,19 @@ class Schemas:
         """
         Set Null Type Schema Validation Setting
 
-        Enable or disable [null type schema validation](https://www.mongodb.com/docs/atlas/app-services/schemas/enforce-a-schema/#validate-null-types).
+        Enable or disable [null type schema validation](https://www.mongodb.com/docs/atlas/app-
+        services/schemas/enforce-a-schema/#validate-null-types).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminsetnulltypeschemavalidationsetting
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/validation_settings/null_type_schema_validation"
         return self._client.request(

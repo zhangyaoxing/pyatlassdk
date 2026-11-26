@@ -23,6 +23,9 @@ class Status:
         Get Overall Status
 
         Retrieves the overall status rollup for the entire page.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/cloud-status/operation/operation-getoverallstatus
         """
         path = "/status.json"
         return self._client.request(
@@ -37,8 +40,12 @@ class Status:
         """
         Get Status Summary
 
-        Retrieves a summary of the status page, including the overall status indicator,       
-        component statuses, unresolved incidents, and upcoming or in-progress scheduled maintenances.
+        Retrieves a summary of the status page, including the overall status indicator,
+        component statuses, unresolved incidents, and upcoming or in-progress scheduled
+        maintenances.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/cloud-status/operation/operation-getstatussummary
         """
         path = "/summary.json"
         return self._client.request(

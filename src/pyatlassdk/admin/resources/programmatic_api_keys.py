@@ -38,15 +38,34 @@ class ProgrammaticAPIKeys:
         """
         Return All Organization API Keys Assigned to One Project
 
-        Returns all organization API keys that you assigned to the specified project. Users with the Project Owner role in the project associated with the API key can use the organization API key to access the resources.
+        Returns all organization API keys that you assigned to the specified project. Users with
+        the Project Owner role in the project associated with the API key can use the
+        organization API key to access the resources.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupapikeys
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apiKeys"
         params = {
@@ -75,13 +94,28 @@ class ProgrammaticAPIKeys:
         """
         Create and Assign One Organization API Key to One Project
 
-        Creates and assigns the specified organization API key to the specified project. Users with the Project Owner role in the project associated with the API key can use the organization API key to access the resources.
+        Creates and assigns the specified organization API key to the specified project. Users
+        with the Project Owner role in the project associated with the API key can use the
+        organization API key to access the resources.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Organization API key to be created and assigned to the specified project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupapikey
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apiKeys"
         params = {
@@ -112,10 +146,24 @@ class ProgrammaticAPIKeys:
         Removes one organization API key from the specified project.
 
         Args:
-            api_user_id: Unique 24-hexadecimal digit string that identifies this organization API key that you want to unassign from one project.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            api_user_id: Unique 24-hexadecimal digit string that identifies this organization
+                API key that you want to unassign from one project.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-removegroupapikey
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
         params = {
@@ -145,17 +193,39 @@ class ProgrammaticAPIKeys:
         """
         Update Organization API Key Roles for One Project
 
-        Updates the roles of the organization API key that you specify for the project that you specify. You must specify at least one valid role for the project. The application removes any roles that you do not include in this request if they were previously set in the organization API key that you specify for the project.
+        Updates the roles of the organization API key that you specify for the project that you
+        specify. You must specify at least one valid role for the project. The application
+        removes any roles that you do not include in this request if they were previously set in
+        the organization API key that you specify for the project.
 
         Args:
-            api_user_id: Unique 24-hexadecimal digit string that identifies this organization API key that you want to unassign from one project.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            api_user_id: Unique 24-hexadecimal digit string that identifies this organization
+                API key that you want to unassign from one project.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            body: Organization API Key to be updated. This request requires a minimum of one of the two body parameters.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            body: Organization API Key to be updated. This request requires a minimum of one of
+                the two body parameters.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updategroupapikeyroles
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
         params = {
@@ -187,14 +257,30 @@ class ProgrammaticAPIKeys:
         """
         Assign One Organization API Key to One Project
 
-        Assigns the specified organization API key to the specified project. Users with the Project Owner role in the project associated with the API key can then use the organization API key to access the resources.
+        Assigns the specified organization API key to the specified project. Users with the
+        Project Owner role in the project associated with the API key can then use the
+        organization API key to access the resources.
 
         Args:
-            api_user_id: Unique 24-hexadecimal digit string that identifies this organization API key that you want to assign to one project.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            api_user_id: Unique 24-hexadecimal digit string that identifies this organization
+                API key that you want to assign to one project.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Organization API key to be assigned to the specified project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-addgroupapikey
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
         params = {
@@ -224,15 +310,32 @@ class ProgrammaticAPIKeys:
         """
         Return All Organization API Keys
 
-        Returns all organization API keys for the specified organization. The organization API keys grant programmatic access to an organization. You can't use the API key to log into MongoDB Cloud through the console.
+        Returns all organization API keys for the specified organization. The organization API
+        keys grant programmatic access to an organization. You can't use the API key to log into
+        MongoDB Cloud through the console.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgapikeys
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys"
         params = {
@@ -261,13 +364,26 @@ class ProgrammaticAPIKeys:
         """
         Create One Organization API Key
 
-        Creates one API key for the specified organization. An organization API key grants programmatic access to an organization. You can't use the API key to log into the console.
+        Creates one API key for the specified organization. An organization API key grants
+        programmatic access to an organization. You can't use the API key to log into the
+        console.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Organization API Key to be created.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorgapikey
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys"
         params = {
@@ -295,13 +411,27 @@ class ProgrammaticAPIKeys:
         """
         Remove One Organization API Key
 
-        Removes one organization API key from the specified organization. When you remove an API key from an organization, MongoDB Cloud also removes that key from any projects that use that key.
+        Removes one organization API key from the specified organization. When you remove an API
+        key from an organization, MongoDB Cloud also removes that key from any projects that use
+        that key.
 
         Args:
-            api_user_id: Unique 24-hexadecimal digit string that identifies this organization API key.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            api_user_id: Unique 24-hexadecimal digit string that identifies this organization
+                API key.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deleteorgapikey
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
         params = {
@@ -327,13 +457,27 @@ class ProgrammaticAPIKeys:
         """
         Return One Organization API Key
 
-        Returns one organization API key. The organization API keys grant programmatic access to an organization. You can't use the API key to log into MongoDB Cloud through the user interface.
+        Returns one organization API key. The organization API keys grant programmatic access to
+        an organization. You can't use the API key to log into MongoDB Cloud through the user
+        interface.
 
         Args:
-            api_user_id: Unique 24-hexadecimal digit string that identifies this organization API key that you want to update.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            api_user_id: Unique 24-hexadecimal digit string that identifies this organization
+                API key that you want to update.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgapikey
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
         params = {
@@ -360,14 +504,28 @@ class ProgrammaticAPIKeys:
         """
         Update One Organization API Key
 
-        Updates one organization API key in the specified organization. The organization API keys  grant programmatic access to an organization.
+        Updates one organization API key in the specified organization. The organization API
+        keys  grant programmatic access to an organization.
 
         Args:
-            api_user_id: Unique 24-hexadecimal digit string that identifies this organization API key you want to update.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            body: Organization API key to be updated. This request requires a minimum of one of the two body parameters.
+            api_user_id: Unique 24-hexadecimal digit string that identifies this organization
+                API key you want to update.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            body: Organization API key to be updated. This request requires a minimum of one of
+                the two body parameters.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updateorgapikey
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}"
         params = {
@@ -398,16 +556,33 @@ class ProgrammaticAPIKeys:
         """
         Return All Access List Entries for One Organization API Key
 
-        Returns all access list entries that you configured for the specified organization API key.
+        Returns all access list entries that you configured for the specified organization API
+        key.
 
         Args:
-            api_user_id: Unique 24-hexadecimal digit string that identifies this organization API key for which you want to return access list entries.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            api_user_id: Unique 24-hexadecimal digit string that identifies this organization
+                API key for which you want to return access list entries.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgapikeyaccesslistentries
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}/accessList"
         params = {
@@ -440,17 +615,34 @@ class ProgrammaticAPIKeys:
         """
         Create One Access List Entry for One Organization API Key
 
-        Creates the access list entries for the specified organization API key. Resources require all API requests originate from IP addresses on the API access list.
+        Creates the access list entries for the specified organization API key. Resources
+        require all API requests originate from IP addresses on the API access list.
 
         Args:
-            api_user_id: Unique 24-hexadecimal digit string that identifies this organization API key for which you want to create a new access list entry.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            api_user_id: Unique 24-hexadecimal digit string that identifies this organization
+                API key for which you want to create a new access list entry.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Access list entries to be created for the specified organization API key.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorgapikeyaccesslistentry
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}/accessList"
         params = {
@@ -482,14 +674,32 @@ class ProgrammaticAPIKeys:
         """
         Remove One Access List Entry for One Organization API Key
 
-        Removes the specified access list entry from the specified organization API key. Resources require all API requests originate from the IP addresses on the API access list. In addition, you cannot remove the requesting IP address from the requesting organization API key.
+        Removes the specified access list entry from the specified organization API key.
+        Resources require all API requests originate from the IP addresses on the API access
+        list. In addition, you cannot remove the requesting IP address from the requesting
+        organization API key.
 
         Args:
-            api_user_id: Unique 24-hexadecimal digit string that identifies this organization API key for which you want to remove access list entries.
-            ip_address: One IP address or multiple IP addresses represented as one CIDR block to limit requests to API resources in the specified organization. When adding a CIDR block with a subnet mask, such as 192.0.2.0/24, use the URL-encoded value %2F for the forward slash /.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            api_user_id: Unique 24-hexadecimal digit string that identifies this organization
+                API key for which you want to remove access list entries.
+            ip_address: One IP address or multiple IP addresses represented as one CIDR block to
+                limit requests to API resources in the specified organization. When adding a
+                CIDR block with a subnet mask, such as 192.0.2.0/24, use the URL-encoded value
+                %2F for the forward slash /.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deleteorgapikeyaccesslistentry
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}/accessList/{quote(str(ip_address), safe='')}"
         params = {
@@ -516,14 +726,30 @@ class ProgrammaticAPIKeys:
         """
         Return One Access List Entry for One Organization API Key
 
-        Returns one access list entry for the specified organization API key. Resources require  all API requests originate from IP addresses on the API access list.
+        Returns one access list entry for the specified organization API key. Resources require
+        all API requests originate from IP addresses on the API access list.
 
         Args:
-            api_user_id: Unique 24-hexadecimal digit string that identifies this organization API key for which you want to return access list entries.
-            ip_address: One IP address or multiple IP addresses represented as one CIDR block to limit requests to API resources in the specified organization. When adding a CIDR block with a subnet mask, such as 192.0.2.0/24, use the URL-encoded value %2F for the forward slash /.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            api_user_id: Unique 24-hexadecimal digit string that identifies this organization
+                API key for which you want to return access list entries.
+            ip_address: One IP address or multiple IP addresses represented as one CIDR block to
+                limit requests to API resources in the specified organization. When adding a
+                CIDR block with a subnet mask, such as 192.0.2.0/24, use the URL-encoded value
+                %2F for the forward slash /.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgapikeyaccesslistentry
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/apiKeys/{quote(str(api_user_id), safe='')}/accessList/{quote(str(ip_address), safe='')}"
         params = {

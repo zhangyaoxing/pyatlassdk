@@ -25,11 +25,30 @@ class MaintenanceWindows:
         """
         Reset One Maintenance Window for One Project
 
-        Resets the maintenance window for the specified project. Urgent maintenance activities such as security patches can't wait for your chosen window. MongoDB Cloud starts those maintenance activities when needed. After you schedule maintenance for your cluster, you can't change your maintenance window until the current maintenance efforts complete. The maintenance procedure that MongoDB Cloud performs requires at least one replica set election during the maintenance window per replica set. Maintenance always begins as close to the scheduled hour as possible, but in-progress cluster updates or unexpected system issues could delay the start time.
+        Resets the maintenance window for the specified project. Urgent maintenance activities
+        such as security patches can't wait for your chosen window. MongoDB Cloud starts those
+        maintenance activities when needed. After you schedule maintenance for your cluster, you
+        can't change your maintenance window until the current maintenance efforts complete. The
+        maintenance procedure that MongoDB Cloud performs requires at least one replica set
+        election during the maintenance window per replica set. Maintenance always begins as
+        close to the scheduled hour as possible, but in-progress cluster updates or unexpected
+        system issues could delay the start time.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-resetgroupmaintenancewindow
         """
         path = f"/groups/{quote(str(group_id), safe='')}/maintenanceWindow"
         params = {
@@ -53,12 +72,30 @@ class MaintenanceWindows:
         """
         Return One Maintenance Window for One Project
 
-        Returns the maintenance window for the specified project. MongoDB Cloud starts those maintenance activities when needed. You can't change your maintenance window until the current maintenance efforts complete. The maintenance procedure that MongoDB Cloud performs requires at least one replica set election during the maintenance window per replica set. Maintenance always begins as close to the scheduled hour as possible, but in-progress cluster updates or unexpected system issues could delay the start time.
+        Returns the maintenance window for the specified project. MongoDB Cloud starts those
+        maintenance activities when needed. You can't change your maintenance window until the
+        current maintenance efforts complete. The maintenance procedure that MongoDB Cloud
+        performs requires at least one replica set election during the maintenance window per
+        replica set. Maintenance always begins as close to the scheduled hour as possible, but
+        in-progress cluster updates or unexpected system issues could delay the start time.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupmaintenancewindow
         """
         path = f"/groups/{quote(str(group_id), safe='')}/maintenanceWindow"
         params = {
@@ -83,12 +120,32 @@ class MaintenanceWindows:
         """
         Update One Maintenance Window for One Project
 
-        Updates the maintenance window for the specified project. Urgent maintenance activities such as security patches can't wait for your chosen window. MongoDB Cloud starts those maintenance activities when needed. After you schedule maintenance for your cluster, you can't change your maintenance window until the current maintenance efforts complete. The maintenance procedure that MongoDB Cloud performs requires at least one replica set election during the maintenance window per replica set. Maintenance always begins as close to the scheduled hour as possible, but in-progress cluster updates or unexpected system issues could delay the start time. Updating the maintenance window will reset any maintenance deferrals for this project.
+        Updates the maintenance window for the specified project. Urgent maintenance activities
+        such as security patches can't wait for your chosen window. MongoDB Cloud starts those
+        maintenance activities when needed. After you schedule maintenance for your cluster, you
+        can't change your maintenance window until the current maintenance efforts complete. The
+        maintenance procedure that MongoDB Cloud performs requires at least one replica set
+        election during the maintenance window per replica set. Maintenance always begins as
+        close to the scheduled hour as possible, but in-progress cluster updates or unexpected
+        system issues could delay the start time. Updating the maintenance window will reset any
+        maintenance deferrals for this project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
             body: Updates the maintenance window for the specified project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updategroupmaintenancewindow
         """
         path = f"/groups/{quote(str(group_id), safe='')}/maintenanceWindow"
         params = {
@@ -113,11 +170,30 @@ class MaintenanceWindows:
         """
         Toggle Automatic Deferral of Maintenance for One Project
 
-        Toggles automatic deferral of the maintenance window for the specified project. When automatic deferral is enabled, all maintenance windows are deferred for one week. This endpoint controls the same underlying feature as the `autoDeferOnceEnabled` field in the PATCH `/maintenanceWindow` endpoint. The difference is that this endpoint toggles the current value (switches from enabled to disabled or vice versa), while the `autoDeferOnceEnabled` field allows you to set a specific value. For most use cases, the PATCH endpoint with `autoDeferOnceEnabled` is recommended because it allows setting an explicit value rather than toggling.
+        Toggles automatic deferral of the maintenance window for the specified project. When
+        automatic deferral is enabled, all maintenance windows are deferred for one week. This
+        endpoint controls the same underlying feature as the `autoDeferOnceEnabled` field in the
+        PATCH `/maintenanceWindow` endpoint. The difference is that this endpoint toggles the
+        current value (switches from enabled to disabled or vice versa), while the
+        `autoDeferOnceEnabled` field allows you to set a specific value. For most use cases, the
+        PATCH endpoint with `autoDeferOnceEnabled` is recommended because it allows setting an
+        explicit value rather than toggling.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-togglegroupmaintenancewindowautodefer
         """
         path = f"/groups/{quote(str(group_id), safe='')}/maintenanceWindow/autoDefer"
         params = {
@@ -140,11 +216,32 @@ class MaintenanceWindows:
         """
         Defer One Maintenance Window for One Project
 
-        Defers the maintenance window for the specified project. Urgent maintenance activities such as security patches can't wait for your chosen window. MongoDB Cloud starts those maintenance activities when needed. After you schedule maintenance for your cluster, you can't change your maintenance window until the current maintenance efforts complete. The maintenance procedure that MongoDB Cloud performs requires at least one replica set election during the maintenance window per replica set. Maintenance always begins as close to the scheduled hour as possible, but in-progress cluster updates or unexpected system issues could delay the start time. You can only defer maintenance within a limited time window before the scheduled maintenance starts; deferral requests made outside of this window return an error.
+        Defers the maintenance window for the specified project. Urgent maintenance activities
+        such as security patches can't wait for your chosen window. MongoDB Cloud starts those
+        maintenance activities when needed. After you schedule maintenance for your cluster, you
+        can't change your maintenance window until the current maintenance efforts complete. The
+        maintenance procedure that MongoDB Cloud performs requires at least one replica set
+        election during the maintenance window per replica set. Maintenance always begins as
+        close to the scheduled hour as possible, but in-progress cluster updates or unexpected
+        system issues could delay the start time. You can only defer maintenance within a
+        limited time window before the scheduled maintenance starts; deferral requests made
+        outside of this window return an error.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-defergroupmaintenancewindow
         """
         path = f"/groups/{quote(str(group_id), safe='')}/maintenanceWindow/defer"
         params = {

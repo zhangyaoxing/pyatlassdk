@@ -118,6 +118,7 @@ The Status API is public and requires no authentication. `base_url` defaults to
 - `AtlasAppAdminClient` rejects an empty or whitespace-only `access_token` with `ValueError`.
 - `AtlasClient` is an alias for `AtlasAdminClient` for backwards compatibility.
 - Each generated package exports its own `AtlasApiError`.
+- Resource method docstrings include a `Reference:` link to the official Atlas operation page.
 
 ## Examples
 

@@ -29,14 +29,23 @@ class Functions:
         """
         Execute a function
 
-        Execute a [function](https://www.mongodb.com/docs/atlas/app-services/functions/) for testing.
+        Execute a [function](https://www.mongodb.com/docs/atlas/app-services/functions/) for
+        testing.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            run_as_system: Determine whether or not to run as system user. Either `run_as_system` or `user_id` is required. You cannot specify both.
-            user_id: The user as which to execute the function. Either `user_id` or `run_as_system` is required. You cannot specify both.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            run_as_system: Determine whether or not to run as system user. Either
+                `run_as_system` or `user_id` is required. You cannot specify both.
+            user_id: The user as which to execute the function. Either `user_id` or
+                `run_as_system` is required. You cannot specify both.
             body: The function to execute.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminexecutefunction
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/debug/execute_function"
         params = {
@@ -64,15 +73,24 @@ class Functions:
         """
         Execute a function's source code for testing
 
-        Execute a [function](https://www.mongodb.com/docs/atlas/app-services/functions/)'s source code
+        Execute a [function](https://www.mongodb.com/docs/atlas/app-services/functions/)'s
+        source code
         for testing.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            run_as_system: Determine whether or not to run as system user. Either `run_as_system` or `user_id` is required. You cannot specify both.
-            user_id: The user as which to execute the function. Either `user_id` or `run_as_system` is required. You cannot specify both.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            run_as_system: Determine whether or not to run as system user. Either
+                `run_as_system` or `user_id` is required. You cannot specify both.
+            user_id: The user as which to execute the function. Either `user_id` or
+                `run_as_system` is required. You cannot specify both.
             body: The source to execute.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminexecutefunctionsource
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/debug/execute_function_source"
         params = {
@@ -99,8 +117,14 @@ class Functions:
         List [Functions](https://www.mongodb.com/docs/atlas/app-services/functions/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlistfunctions
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/functions"
         return self._client.request(
@@ -121,9 +145,15 @@ class Functions:
         Create a new [Function](https://www.mongodb.com/docs/atlas/app-services/functions/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body: The function to create
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreatefunction
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/functions"
         return self._client.request(
@@ -146,9 +176,15 @@ class Functions:
         Delete a [Function](https://www.mongodb.com/docs/atlas/app-services/functions/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             function_id: The unique `_id` value of a function.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeletefunction
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/functions/{quote(str(function_id), safe='')}"
         return self._client.request(
@@ -169,9 +205,15 @@ class Functions:
         Retrieve a [Function](https://www.mongodb.com/docs/atlas/app-services/functions/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             function_id: The unique `_id` value of a function.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetfunction
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/functions/{quote(str(function_id), safe='')}"
         return self._client.request(
@@ -192,9 +234,15 @@ class Functions:
         Update a [Function](https://www.mongodb.com/docs/atlas/app-services/functions/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             function_id: The unique `_id` value of a function.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminupdatefunction
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/functions/{quote(str(function_id), safe='')}"
         return self._client.request(

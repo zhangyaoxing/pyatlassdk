@@ -21,6 +21,9 @@ class Admin:
     ) -> AdminUser:
         """
         Get information about the currently logged in user
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-getadminprofile
         """
         path = "/auth/profile"
         return self._client.request(
@@ -34,6 +37,9 @@ class Admin:
     ) -> list[BaseAuthProvider]:
         """
         List App Services Admin Auth Providers
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-getadminauthproviders
         """
         path = "/auth/providers"
         return self._client.request(
@@ -55,6 +61,9 @@ class Admin:
 
         Args:
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlogin
         """
         path = "/auth/providers/mongodb-cloud/login"
         return self._client.request(
@@ -70,6 +79,9 @@ class Admin:
     ) -> None:
         """
         Delete a session access token
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeletesession
         """
         path = "/auth/session"
         return self._client.request(
@@ -83,6 +95,9 @@ class Admin:
     ) -> dict[str, Any]:
         """
         Obtain a session access token
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreatesession
         """
         path = "/auth/session"
         return self._client.request(

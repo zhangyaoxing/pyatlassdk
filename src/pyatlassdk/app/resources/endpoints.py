@@ -69,11 +69,18 @@ class Endpoints:
         """
         Get all endpoints
 
-        Get all [endpoint](https://www.mongodb.com/docs/atlas/app-services/data-api/custom-endpoints/) configurations.
+        Get all [endpoint](https://www.mongodb.com/docs/atlas/app-services/data-api/custom-
+        endpoints/) configurations.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetallendpoints
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/endpoints"
         return self._client.request(
@@ -91,12 +98,20 @@ class Endpoints:
         """
         Create an endpoint
 
-        Create a new [endpoint](https://www.mongodb.com/docs/atlas/app-services/data-api/custom-endpoints/).
+        Create a new [endpoint](https://www.mongodb.com/docs/atlas/app-services/data-api/custom-
+        endpoints/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            body: A valid [configuration object](https://www.mongodb.com/docs/atlas/app-services/reference/config/https_endpoints/) for the new endpoint.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            body: A valid [configuration object](https://www.mongodb.com/docs/atlas/app-
+                services/reference/config/https_endpoints/) for the new endpoint.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreateendpoint
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/endpoints"
         return self._client.request(
@@ -117,9 +132,15 @@ class Endpoints:
         Delete an endpoint
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             endpoint_id: The unique `_id` value of an endpoint
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeleteendpoint
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/endpoints/{quote(str(endpoint_id), safe='')}"
         return self._client.request(
@@ -137,12 +158,19 @@ class Endpoints:
         """
         Get an endpoint
 
-        Get a specific [endpoint](https://www.mongodb.com/docs/atlas/app-services/data-api/custom-endpoints/)'s configuration.
+        Get a specific [endpoint](https://www.mongodb.com/docs/atlas/app-services/data-
+        api/custom-endpoints/)'s configuration.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             endpoint_id: The unique `_id` value of an endpoint
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetendpoint
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/endpoints/{quote(str(endpoint_id), safe='')}"
         return self._client.request(
@@ -161,13 +189,22 @@ class Endpoints:
         """
         Modify an endpoint
 
-        Modify an existing [endpoint](https://www.mongodb.com/docs/atlas/app-services/data-api/custom-endpoints/) configuration.
+        Modify an existing [endpoint](https://www.mongodb.com/docs/atlas/app-services/data-
+        api/custom-endpoints/) configuration.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             endpoint_id: The unique `_id` value of an endpoint
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            body: A valid, updated [configuration object](https://www.mongodb.com/docs/atlas/app-services/reference/config/https_endpoints/) for the endpoint.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            body: A valid, updated [configuration
+                object](https://www.mongodb.com/docs/atlas/app-
+                services/reference/config/https_endpoints/) for the endpoint.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminmodifyendpoint
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/endpoints/{quote(str(endpoint_id), safe='')}"
         return self._client.request(

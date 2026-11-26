@@ -26,8 +26,11 @@ def test_load_env_reads_dotenv(tmp_path, monkeypatch) -> None:
     monkeypatch.chdir(tmp_path)
     (tmp_path / ".env").write_text("MONGO_ATLAS_TEST_VALUE=from-dotenv\n", encoding="utf-8")
 
-    assert load_env() is True
-    assert os.environ["MONGO_ATLAS_TEST_VALUE"] == "from-dotenv"
+    try:
+        assert load_env() is True
+        assert os.environ["MONGO_ATLAS_TEST_VALUE"] == "from-dotenv"
+    finally:
+        os.environ.pop("MONGO_ATLAS_TEST_VALUE", None)
 
 
 def test_dotenv_credentials_are_used_by_admin_client(tmp_path, monkeypatch) -> None:
@@ -39,6 +42,10 @@ def test_dotenv_credentials_are_used_by_admin_client(tmp_path, monkeypatch) -> N
         encoding="utf-8",
     )
 
-    assert load_env() is True
-    with AtlasAdminClient() as client:
-        assert client.auth_mode == "digest"
+    try:
+        assert load_env() is True
+        with AtlasAdminClient() as client:
+            assert client.auth_mode == "digest"
+    finally:
+        os.environ.pop("MONGO_ATLAS_PUBLIC_KEY", None)
+        os.environ.pop("MONGO_ATLAS_PRIVATE_KEY", None)

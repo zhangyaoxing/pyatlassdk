@@ -73,16 +73,30 @@ class Logs:
         Retrieve App Services logs
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             co_id: Return only log messages associated with the given request Correlation ID.
-            end_date: The date and time in ISO 8601 at which to cease returning results, inclusive.
-            errors_only: The value of this field does not matter. If included in the request, this endpoint only returns error logs (even if the value is set to `false`). If this field is excluded from the request, this endpoint only returns non-error logs.
-            limit: The maximum number of log entries to include in the response. If the query matches more than this many logs, it returns documents in ascending order by date until the limit is reached.
-            skip: The offset number of matching log entries to skip before including them in the response.
-            start_date: The date and time in ISO 8601 at which to begin returning results, exclusive.
+            end_date: The date and time in ISO 8601 at which to cease returning results,
+                inclusive.
+            errors_only: The value of this field does not matter. If included in the request,
+                this endpoint only returns error logs (even if the value is set to `false`). If
+                this field is excluded from the request, this endpoint only returns non-error
+                logs.
+            limit: The maximum number of log entries to include in the response. If the query
+                matches more than this many logs, it returns documents in ascending order by
+                date until the limit is reached.
+            skip: The offset number of matching log entries to skip before including them in the
+                response.
+            start_date: The date and time in ISO 8601 at which to begin returning results,
+                exclusive.
             type: The kind of log you would like to retrieve.
             user_id: Return only log messages associated with the given `user_id`.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetlogs
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/logs"
         params = {

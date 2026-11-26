@@ -35,14 +35,27 @@ class Events:
         """
         Return All Event Types
 
-        Returns a list of all event types, along with a description and additional metadata about each event.
+        Returns a list of all event types, along with a description and additional metadata
+        about each event.
 
         Args:
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listeventtypes
         """
         path = "/eventTypes"
         params = {
@@ -79,23 +92,48 @@ class Events:
         """
         Return Events from One Project
 
-        Returns events for the specified project. Events identify significant database, billing, or security activities or status changes.
+        Returns events for the specified project. Events identify significant database, billing,
+        or security activities or status changes.
 
         This resource remains under revision and may change.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             cluster_names: Human-readable label that identifies the cluster.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            event_type: Category of incident recorded at this moment in time. **IMPORTANT**: The complete list of event type values changes frequently.
-            excluded_event_type: Category of event that you would like to exclude from query results, such as `CLUSTER_CREATED`. **IMPORTANT**: Event type names change frequently. Verify that you specify the event type correctly by checking the complete list of event types.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
-            include_raw: Flag that indicates whether to include the raw document in the output. The raw document contains additional meta information about the event.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            event_type: Category of incident recorded at this moment in time. **IMPORTANT**: The
+                complete list of event type values changes frequently.
+            excluded_event_type: Category of event that you would like to exclude from query
+                results, such as `CLUSTER_CREATED`. **IMPORTANT**: Event type names change
+                frequently. Verify that you specify the event type correctly by checking the
+                complete list of event types.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
+            include_raw: Flag that indicates whether to include the raw document in the output.
+                The raw document contains additional meta information about the event.
             items_per_page: Number of items that the response returns per page.
-            max_date: Date and time from when MongoDB Cloud stops returning events. This parameter uses the ISO 8601 timestamp format in UTC.
-            min_date: Date and time from when MongoDB Cloud starts returning events. This parameter uses the ISO 8601 timestamp format in UTC.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            max_date: Date and time from when MongoDB Cloud stops returning events. This
+                parameter uses the ISO 8601 timestamp format in UTC.
+            min_date: Date and time from when MongoDB Cloud starts returning events. This
+                parameter uses the ISO 8601 timestamp format in UTC.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupevents
         """
         path = f"/groups/{quote(str(group_id), safe='')}/events"
         params = {
@@ -131,16 +169,33 @@ class Events:
         """
         Return One Event from One Project
 
-        Returns one event for the specified project. Events identify significant database, billing, or security activities or status changes. Use the Return Events from One Project endpoint to retrieve all events to which the authenticated user has access.
+        Returns one event for the specified project. Events identify significant database,
+        billing, or security activities or status changes. Use the Return Events from One
+        Project endpoint to retrieve all events to which the authenticated user has access.
 
         This resource remains under revision and may change.
 
         Args:
-            event_id: Unique 24-hexadecimal digit string that identifies the event that you want to return.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_raw: Flag that indicates whether to include the raw document in the output. The raw document contains additional meta information about the event.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            event_id: Unique 24-hexadecimal digit string that identifies the event that you want
+                to return.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_raw: Flag that indicates whether to include the raw document in the output.
+                The raw document contains additional meta information about the event.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupevent
         """
         path = f"/groups/{quote(str(group_id), safe='')}/events/{quote(str(event_id), safe='')}"
         params = {
@@ -173,21 +228,41 @@ class Events:
         """
         Return Events from One Organization
 
-        Returns events for the specified organization. Events identify significant database, billing, or security activities or status changes. 
+        Returns events for the specified organization. Events identify significant database,
+        billing, or security activities or status changes.
 
         This resource remains under revision and may change.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            event_type: Category of incident recorded at this moment in time. **IMPORTANT**: The complete list of event type values changes frequently.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
-            include_raw: Flag that indicates whether to include the raw document in the output. The raw document contains additional meta information about the event.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            event_type: Category of incident recorded at this moment in time. **IMPORTANT**: The
+                complete list of event type values changes frequently.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
+            include_raw: Flag that indicates whether to include the raw document in the output.
+                The raw document contains additional meta information about the event.
             items_per_page: Number of items that the response returns per page.
-            max_date: Date and time from when MongoDB Cloud stops returning events. This parameter uses the ISO 8601 timestamp format in UTC.
-            min_date: Date and time from when MongoDB Cloud starts returning events. This parameter uses the ISO 8601 timestamp format in UTC.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            max_date: Date and time from when MongoDB Cloud stops returning events. This
+                parameter uses the ISO 8601 timestamp format in UTC.
+            min_date: Date and time from when MongoDB Cloud starts returning events. This
+                parameter uses the ISO 8601 timestamp format in UTC.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgevents
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/events"
         params = {
@@ -221,16 +296,31 @@ class Events:
         """
         Return One Event from One Organization
 
-        Returns one event for the specified organization. Events identify significant database, billing, or security activities or status changes. Use the Return Events from One Organization endpoint to retrieve all events to which the authenticated user has access.
+        Returns one event for the specified organization. Events identify significant database,
+        billing, or security activities or status changes. Use the Return Events from One
+        Organization endpoint to retrieve all events to which the authenticated user has access.
 
         This resource remains under revision and may change.
 
         Args:
-            event_id: Unique 24-hexadecimal digit string that identifies the event that you want to return.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_raw: Flag that indicates whether to include the raw document in the output. The raw document contains additional meta information about the event.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            event_id: Unique 24-hexadecimal digit string that identifies the event that you want
+                to return.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_raw: Flag that indicates whether to include the raw document in the output.
+                The raw document contains additional meta information about the event.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgevent
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/events/{quote(str(event_id), safe='')}"
         params = {

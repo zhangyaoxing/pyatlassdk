@@ -25,11 +25,18 @@ class Triggers:
         """
         Get all triggers
 
-        Get a list of all [triggers](https://www.mongodb.com/docs/atlas/app-services/triggers/overview/) in your application.
+        Get a list of all [triggers](https://www.mongodb.com/docs/atlas/app-
+        services/triggers/overview/) in your application.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlisttriggers
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/triggers"
         return self._client.request(
@@ -47,12 +54,19 @@ class Triggers:
         """
         Create a trigger
 
-        Create a new [trigger](https://www.mongodb.com/docs/atlas/app-services/triggers/overview/) in your application.
+        Create a new [trigger](https://www.mongodb.com/docs/atlas/app-
+        services/triggers/overview/) in your application.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body: A configuration for a database, scheduled, or authentication trigger.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreatetrigger
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/triggers"
         return self._client.request(
@@ -72,12 +86,19 @@ class Triggers:
         """
         Delete a trigger
 
-        Remove an existing [trigger](https://www.mongodb.com/docs/atlas/app-services/triggers/overview/) from your application.
+        Remove an existing [trigger](https://www.mongodb.com/docs/atlas/app-
+        services/triggers/overview/) from your application.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             trigger_id: The unique `_id` value of a trigger.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeletetrigger
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/triggers/{quote(str(trigger_id), safe='')}"
         return self._client.request(
@@ -95,12 +116,19 @@ class Triggers:
         """
         Get a trigger
 
-        Get the configuration for an existing [trigger](https://www.mongodb.com/docs/atlas/app-services/triggers/overview/) in your application.
+        Get the configuration for an existing [trigger](https://www.mongodb.com/docs/atlas/app-
+        services/triggers/overview/) in your application.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             trigger_id: The unique `_id` value of a trigger.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingettrigger
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/triggers/{quote(str(trigger_id), safe='')}"
         return self._client.request(
@@ -119,13 +147,20 @@ class Triggers:
         """
         Update a trigger
 
-        Modify an existing [trigger](https://www.mongodb.com/docs/atlas/app-services/triggers/overview/) in your application.
+        Modify an existing [trigger](https://www.mongodb.com/docs/atlas/app-
+        services/triggers/overview/) in your application.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             trigger_id: The unique `_id` value of a trigger.
             body: The updated trigger configuration.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminupdatetrigger
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/triggers/{quote(str(trigger_id), safe='')}"
         return self._client.request(
@@ -147,13 +182,20 @@ class Triggers:
         """
         Resume a suspended trigger
 
-        Resume a [suspended](https://www.mongodb.com/docs/atlas/app-services/triggers/database-triggers/#suspended-triggers) database trigger.
+        Resume a [suspended](https://www.mongodb.com/docs/atlas/app-services/triggers/database-
+        triggers/#suspended-triggers) database trigger.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             trigger_id: The unique `_id` value of a trigger.
             body: Configuration options for the resume operation.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminresumetrigger
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/triggers/{quote(str(trigger_id), safe='')}/resume"
         return self._client.request(

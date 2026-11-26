@@ -39,15 +39,45 @@ class MonitoringAndLogs:
         """
         Download Logs for One Cluster Host in One Project
 
-        Returns a compressed (.gz) log file that contains a range of log messages for the specified host for the specified project. MongoDB updates process and audit logs from the cluster backend infrastructure every five minutes. Logs are stored in chunks approximately five minutes in length, but this duration may vary. If you poll the API for log files, we recommend polling every five minutes even though consecutive polls could contain some overlapping logs. This feature isn't available for `M0` free clusters, `M2`, `M5`, flex, or serverless clusters. The API does not support direct calls with the json response schema. You must request a gzip response schema using an accept header of the format: `Accept: application/vnd.atlas.YYYY-MM-DD+gzip`. Deprecated versions: v2-{2023-01-01}
+        Returns a compressed (.gz) log file that contains a range of log messages for the
+        specified host for the specified project. MongoDB updates process and audit logs from
+        the cluster backend infrastructure every five minutes. Logs are stored in chunks
+        approximately five minutes in length, but this duration may vary. If you poll the API
+        for log files, we recommend polling every five minutes even though consecutive polls
+        could contain some overlapping logs. This feature isn't available for `M0` free
+        clusters, `M2`, `M5`, flex, or serverless clusters. The API does not support direct
+        calls with the json response schema. You must request a gzip response schema using an
+        accept header of the format: `Accept: application/vnd.atlas.YYYY-MM-DD+gzip`. Deprecated
+        versions: v2-{2023-01-01}
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            host_name: Human-readable label that identifies the host that stores the log files that you want to download.
-            log_name: Human-readable label that identifies the log file that you want to return. To return audit logs, enable *Database Auditing* for the specified project.
-            end_date: Specifies the date and time for the ending point of the range of log messages to retrieve, in the number of seconds that have elapsed since the UNIX epoch. This value will default to 24 hours after the start date. If the start date is also unspecified, the value will default to the time of the request.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            start_date: Specifies the date and time for the starting point of the range of log messages to retrieve, in the number of seconds that have elapsed since the UNIX epoch. This value will default to 24 hours prior to the end date. If the end date is also unspecified, the value will default to 24 hours prior to the time of the request.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            host_name: Human-readable label that identifies the host that stores the log files
+                that you want to download.
+            log_name: Human-readable label that identifies the log file that you want to return.
+                To return audit logs, enable *Database Auditing* for the specified project.
+            end_date: Specifies the date and time for the ending point of the range of log
+                messages to retrieve, in the number of seconds that have elapsed since the UNIX
+                epoch. This value will default to 24 hours after the start date. If the start
+                date is also unspecified, the value will default to the time of the request.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            start_date: Specifies the date and time for the starting point of the range of log
+                messages to retrieve, in the number of seconds that have elapsed since the UNIX
+                epoch. This value will default to 24 hours prior to the end date. If the end
+                date is also unspecified, the value will default to 24 hours prior to the time
+                of the request.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-downloadgroupclusterlog
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(host_name), safe='')}/logs/{quote(str(log_name), safe='')}.gz"
         params = {
@@ -73,12 +103,30 @@ class MonitoringAndLogs:
         """
         Return All Atlas Search Metric Types for One Process
 
-        Returns all Atlas Search metric types available for one process in the specified project. You must have the Project Read Only or higher role to view the Atlas Search metric types.
+        Returns all Atlas Search metric types available for one process in the specified
+        project. You must have the Project Read Only or higher role to view the Atlas Search
+        metric types.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            process_id: Combination of hostname and IANA port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (mongod or mongos). The port must be the IANA port on which the MongoDB process listens for requests.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            process_id: Combination of hostname and IANA port that serves the MongoDB process.
+                The host must be the hostname, fully qualified domain name (FQDN), or Internet
+                Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process
+                (mongod or mongos). The port must be the IANA port on which the MongoDB process
+                listens for requests.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgrouphostftsmetrics
         """
         path = f"/groups/{quote(str(group_id), safe='')}/hosts/{quote(str(process_id), safe='')}/fts/metrics"
         params = {
@@ -109,19 +157,45 @@ class MonitoringAndLogs:
         """
         Return All Atlas Search Index Metrics for One Namespace
 
-        Returns the Atlas Search index metrics within the specified time range for one namespace in the specified process.
+        Returns the Atlas Search index metrics within the specified time range for one namespace
+        in the specified process.
 
         Args:
             collection_name: Human-readable label that identifies the collection.
             database_name: Human-readable label that identifies the database.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            process_id: Combination of hostname and IANA port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (mongod or mongos). The port must be the IANA port on which the MongoDB process listens for requests.
-            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            granularity: Duration that specifies the interval at which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC.
-            metrics: List that contains the measurements that MongoDB Atlas reports for the associated data series.
-            period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
-            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            process_id: Combination of hostname and IANA port that serves the MongoDB process.
+                The host must be the hostname, fully qualified domain name (FQDN), or Internet
+                Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process
+                (mongod or mongos). The port must be the IANA port on which the MongoDB process
+                listens for requests.
+            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            granularity: Duration that specifies the interval at which Atlas reports the
+                metrics. This parameter expresses its value in the ISO 8601 duration format in
+                UTC.
+            metrics: List that contains the measurements that MongoDB Atlas reports for the
+                associated data series.
+            period: Duration over which Atlas reports the metrics. This parameter expresses its
+                value in the ISO 8601 duration format in UTC. Include this parameter when you do
+                not set **start** and **end**.
+            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgrouphostftsmetricindexmeasurements
         """
         path = f"/groups/{quote(str(group_id), safe='')}/hosts/{quote(str(process_id), safe='')}/fts/metrics/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/measurements"
         params = {
@@ -158,20 +232,47 @@ class MonitoringAndLogs:
         """
         Return Atlas Search Metrics for One Index in One Namespace
 
-        Returns the Atlas Search metrics data series within the provided time range for one namespace and index name on the specified process. You must have the Project Read Only or higher role to view the Atlas Search metric types.
+        Returns the Atlas Search metrics data series within the provided time range for one
+        namespace and index name on the specified process. You must have the Project Read Only
+        or higher role to view the Atlas Search metric types.
 
         Args:
             collection_name: Human-readable label that identifies the collection.
             database_name: Human-readable label that identifies the database.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             index_name: Human-readable label that identifies the index.
-            process_id: Combination of hostname and IANA port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (mongod or mongos). The port must be the IANA port on which the MongoDB process listens for requests.
-            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            granularity: Duration that specifies the interval at which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC.
-            metrics: List that contains the measurements that MongoDB Atlas reports for the associated data series.
-            period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
-            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
+            process_id: Combination of hostname and IANA port that serves the MongoDB process.
+                The host must be the hostname, fully qualified domain name (FQDN), or Internet
+                Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process
+                (mongod or mongos). The port must be the IANA port on which the MongoDB process
+                listens for requests.
+            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            granularity: Duration that specifies the interval at which Atlas reports the
+                metrics. This parameter expresses its value in the ISO 8601 duration format in
+                UTC.
+            metrics: List that contains the measurements that MongoDB Atlas reports for the
+                associated data series.
+            period: Duration over which Atlas reports the metrics. This parameter expresses its
+                value in the ISO 8601 duration format in UTC. Include this parameter when you do
+                not set **start** and **end**.
+            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgrouphostftsmetricindexmeasurements
         """
         path = f"/groups/{quote(str(group_id), safe='')}/hosts/{quote(str(process_id), safe='')}/fts/metrics/indexes/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/{quote(str(index_name), safe='')}/measurements"
         params = {
@@ -205,17 +306,45 @@ class MonitoringAndLogs:
         """
         Return Atlas Search Hardware and Status Metrics
 
-        Returns the Atlas Search hardware and status data series within the provided time range for one process in the specified project. You must have the Project Read Only or higher role to view the Atlas Search metric types.
+        Returns the Atlas Search hardware and status data series within the provided time range
+        for one process in the specified project. You must have the Project Read Only or higher
+        role to view the Atlas Search metric types.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            process_id: Combination of hostname and IANA port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (mongod or mongos). The port must be the IANA port on which the MongoDB process listens for requests.
-            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            granularity: Duration that specifies the interval at which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC.
-            metrics: List that contains the metrics that you want MongoDB Atlas to report for the associated data series. If you don't set this parameter, this resource returns all hardware and status metrics for the associated data series.
-            period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
-            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            process_id: Combination of hostname and IANA port that serves the MongoDB process.
+                The host must be the hostname, fully qualified domain name (FQDN), or Internet
+                Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process
+                (mongod or mongos). The port must be the IANA port on which the MongoDB process
+                listens for requests.
+            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            granularity: Duration that specifies the interval at which Atlas reports the
+                metrics. This parameter expresses its value in the ISO 8601 duration format in
+                UTC.
+            metrics: List that contains the metrics that you want MongoDB Atlas to report for
+                the associated data series. If you don't set this parameter, this resource
+                returns all hardware and status metrics for the associated data series.
+            period: Duration over which Atlas reports the metrics. This parameter expresses its
+                value in the ISO 8601 duration format in UTC. Include this parameter when you do
+                not set **start** and **end**.
+            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgrouphostftsmetricmeasurements
         """
         path = f"/groups/{quote(str(group_id), safe='')}/hosts/{quote(str(process_id), safe='')}/fts/metrics/measurements"
         params = {
@@ -247,15 +376,33 @@ class MonitoringAndLogs:
         """
         Return All MongoDB Processes in One Project
 
-        Returns details of all processes for the specified project. A MongoDB process can be either a `mongod` or `mongos`.
+        Returns details of all processes for the specified project. A MongoDB process can be
+        either a `mongod` or `mongos`.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupprocesses
         """
         path = f"/groups/{quote(str(group_id), safe='')}/processes"
         params = {
@@ -287,10 +434,27 @@ class MonitoringAndLogs:
         Returns the processes for the specified host for the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA) port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (`mongod` or `mongos`). The port must be the IANA port on which the MongoDB process listens for requests.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA)
+                port that serves the MongoDB process. The host must be the hostname, fully
+                qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the
+                host that runs the MongoDB process (`mongod` or `mongos`). The port must be the
+                IANA port on which the MongoDB process listens for requests.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupprocess
         """
         path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}"
         params = {
@@ -319,16 +483,39 @@ class MonitoringAndLogs:
         """
         Return Available Databases for One MongoDB Process
 
-        Returns the list of databases running on the specified host for the specified project. `M0` free clusters, `M2`, `M5`, serverless, and Flex clusters have some operational limits. The MongoDB Cloud process must be a `mongod`.
+        Returns the list of databases running on the specified host for the specified project.
+        `M0` free clusters, `M2`, `M5`, serverless, and Flex clusters have some operational
+        limits. The MongoDB Cloud process must be a `mongod`.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA) port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (`mongod`). The port must be the IANA port on which the MongoDB process listens for requests.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA)
+                port that serves the MongoDB process. The host must be the hostname, fully
+                qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the
+                host that runs the MongoDB process (`mongod`). The port must be the IANA port on
+                which the MongoDB process listens for requests.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupprocessdatabases
         """
         path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/databases"
         params = {
@@ -361,11 +548,29 @@ class MonitoringAndLogs:
         Returns one database running on the specified host for the specified project.
 
         Args:
-            database_name: Human-readable label that identifies the database that the specified MongoDB process serves.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA) port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (`mongod` or `mongos`). The port must be the IANA port on which the MongoDB process listens for requests.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            database_name: Human-readable label that identifies the database that the specified
+                MongoDB process serves.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA)
+                port that serves the MongoDB process. The host must be the hostname, fully
+                qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the
+                host that runs the MongoDB process (`mongod` or `mongos`). The port must be the
+                IANA port on which the MongoDB process listens for requests.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupprocessdatabase
         """
         path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/databases/{quote(str(database_name), safe='')}"
         params = {
@@ -397,19 +602,55 @@ class MonitoringAndLogs:
         """
         Return Measurements for One Database in One MongoDB Process
 
-        Returns the measurements of one database for the specified host for the specified project. Returns the database's on-disk storage space based on the MongoDB `dbStats` command output. To calculate some metric series, Atlas takes the rate between every two adjacent points. For these metric series, the first data point has a null value because Atlas can't calculate a rate for the first data point given the query time range. Atlas retrieves database metrics every 20 minutes but reduces frequency when necessary to optimize database performance.
+        Returns the measurements of one database for the specified host for the specified
+        project. Returns the database's on-disk storage space based on the MongoDB `dbStats`
+        command output. To calculate some metric series, Atlas takes the rate between every two
+        adjacent points. For these metric series, the first data point has a null value because
+        Atlas can't calculate a rate for the first data point given the query time range. Atlas
+        retrieves database metrics every 20 minutes but reduces frequency when necessary to
+        optimize database performance.
 
         Args:
-            database_name: Human-readable label that identifies the database that the specified MongoDB process serves.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA) port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (`mongod` or `mongos`). The port must be the IANA port on which the MongoDB process listens for requests.
-            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            granularity: Duration that specifies the interval at which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC.
-            m: One or more types of measurement to request for this MongoDB process. If omitted, the resource returns all measurements. To specify multiple values for `m`, repeat the `m` parameter for each value. Specify measurements that apply to the specified host. MongoDB Cloud returns an error if you specified any invalid measurements.
-            period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
+            database_name: Human-readable label that identifies the database that the specified
+                MongoDB process serves.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA)
+                port that serves the MongoDB process. The host must be the hostname, fully
+                qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the
+                host that runs the MongoDB process (`mongod` or `mongos`). The port must be the
+                IANA port on which the MongoDB process listens for requests.
+            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            granularity: Duration that specifies the interval at which Atlas reports the
+                metrics. This parameter expresses its value in the ISO 8601 duration format in
+                UTC.
+            m: One or more types of measurement to request for this MongoDB process. If omitted,
+                the resource returns all measurements. To specify multiple values for `m`,
+                repeat the `m` parameter for each value. Specify measurements that apply to the
+                specified host. MongoDB Cloud returns an error if you specified any invalid
+                measurements.
+            period: Duration over which Atlas reports the metrics. This parameter expresses its
+                value in the ISO 8601 duration format in UTC. Include this parameter when you do
+                not set **start** and **end**.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupprocessdatabasemeasurements
         """
         path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/databases/{quote(str(database_name), safe='')}/measurements"
         params = {
@@ -443,16 +684,38 @@ class MonitoringAndLogs:
         """
         Return Available Disks for One MongoDB Process
 
-        Returns the list of disks or partitions for the specified host for the specified project.
+        Returns the list of disks or partitions for the specified host for the specified
+        project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA) port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (`mongod` or `mongos`). The port must be the IANA port on which the MongoDB process listens for requests.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA)
+                port that serves the MongoDB process. The host must be the hostname, fully
+                qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the
+                host that runs the MongoDB process (`mongod` or `mongos`). The port must be the
+                IANA port on which the MongoDB process listens for requests.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupprocessdisks
         """
         path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/disks"
         params = {
@@ -481,13 +744,31 @@ class MonitoringAndLogs:
         """
         Return Measurements for One Disk
 
-        Returns measurement details for one disk or partition for the specified host for the specified project.
+        Returns measurement details for one disk or partition for the specified host for the
+        specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            partition_name: Human-readable label of the disk or partition to which the measurements apply.
-            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA) port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (`mongod` or `mongos`). The port must be the IANA port on which the MongoDB process listens for requests.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            partition_name: Human-readable label of the disk or partition to which the
+                measurements apply.
+            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA)
+                port that serves the MongoDB process. The host must be the hostname, fully
+                qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the
+                host that runs the MongoDB process (`mongod` or `mongos`). The port must be the
+                IANA port on which the MongoDB process listens for requests.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupprocessdisk
         """
         path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/disks/{quote(str(partition_name), safe='')}"
         params = {
@@ -518,23 +799,54 @@ class MonitoringAndLogs:
         """
         Return Measurements of One Disk for One MongoDB Process
 
-        Returns the measurements of one disk or partition for the specified host for the specified project. Returned value can be one of the following:
+        Returns the measurements of one disk or partition for the specified host for the
+        specified project. Returned value can be one of the following:
         - Throughput of I/O operations for the disk partition used for the MongoDB process
         - Percentage of time during which requests the partition issued and serviced
         - Latency per operation type of the disk partition used for the MongoDB process
         - Amount of free and used disk space on the disk partition used for the MongoDB process.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            partition_name: Human-readable label of the disk or partition to which the measurements apply.
-            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA) port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (`mongod` or `mongos`). The port must be the IANA port on which the MongoDB process listens for requests.
-            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            granularity: Duration that specifies the interval at which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC.
-            m: One or more types of measurement to request for this MongoDB process. If omitted, the resource returns all measurements. To specify multiple values for `m`, repeat the `m` parameter for each value. Specify measurements that apply to the specified host. MongoDB Cloud returns an error if you specified any invalid measurements.
-            period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            partition_name: Human-readable label of the disk or partition to which the
+                measurements apply.
+            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA)
+                port that serves the MongoDB process. The host must be the hostname, fully
+                qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the
+                host that runs the MongoDB process (`mongod` or `mongos`). The port must be the
+                IANA port on which the MongoDB process listens for requests.
+            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            granularity: Duration that specifies the interval at which Atlas reports the
+                metrics. This parameter expresses its value in the ISO 8601 duration format in
+                UTC.
+            m: One or more types of measurement to request for this MongoDB process. If omitted,
+                the resource returns all measurements. To specify multiple values for `m`,
+                repeat the `m` parameter for each value. Specify measurements that apply to the
+                specified host. MongoDB Cloud returns an error if you specified any invalid
+                measurements.
+            period: Duration over which Atlas reports the metrics. This parameter expresses its
+                value in the ISO 8601 duration format in UTC. Include this parameter when you do
+                not set **start** and **end**.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupprocessdiskmeasurements
         """
         path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/disks/{quote(str(partition_name), safe='')}/measurements"
         params = {
@@ -570,7 +882,8 @@ class MonitoringAndLogs:
         """
         Return Measurements for One MongoDB Process
 
-        Returns disk, partition, or host measurements per process for the specified host for the specified project. Returned value can be one of the following:
+        Returns disk, partition, or host measurements per process for the specified host for the
+        specified project. Returned value can be one of the following:
         - Throughput of I/O operations for the disk partition used for the MongoDB process
         - Percentage of time during which requests the partition issued and serviced
         - Latency per operation type of the disk partition used for the MongoDB process
@@ -578,15 +891,44 @@ class MonitoringAndLogs:
         - Measurements for the host, such as CPU usage or number of I/O operations.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA) port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (`mongod` or `mongos`). The port must be the IANA port on which the MongoDB process listens for requests.
-            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            granularity: Duration that specifies the interval at which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC.
-            m: One or more types of measurement to request for this MongoDB process. If omitted, the resource returns all measurements. To specify multiple values for `m`, repeat the `m` parameter for each value. Specify measurements that apply to the specified host. MongoDB Cloud returns an error if you specified any invalid measurements.
-            period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            process_id: Combination of hostname and Internet Assigned Numbers Authority (IANA)
+                port that serves the MongoDB process. The host must be the hostname, fully
+                qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the
+                host that runs the MongoDB process (`mongod` or `mongos`). The port must be the
+                IANA port on which the MongoDB process listens for requests.
+            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            granularity: Duration that specifies the interval at which Atlas reports the
+                metrics. This parameter expresses its value in the ISO 8601 duration format in
+                UTC.
+            m: One or more types of measurement to request for this MongoDB process. If omitted,
+                the resource returns all measurements. To specify multiple values for `m`,
+                repeat the `m` parameter for each value. Specify measurements that apply to the
+                specified host. MongoDB Cloud returns an error if you specified any invalid
+                measurements.
+            period: Duration over which Atlas reports the metrics. This parameter expresses its
+                value in the ISO 8601 duration format in UTC. Include this parameter when you do
+                not set **start** and **end**.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupprocessmeasurements
         """
         path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/measurements"
         params = {

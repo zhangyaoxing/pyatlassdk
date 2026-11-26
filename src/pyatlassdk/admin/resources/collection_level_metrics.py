@@ -32,12 +32,26 @@ class CollectionLevelMetrics:
         """
         Return Pinned Namespaces
 
-        Returns a list of given cluster's pinned namespaces, a set of namespaces manually selected by users to collect query latency metrics on.
+        Returns a list of given cluster's pinned namespaces, a set of namespaces manually
+        selected by users to collect query latency metrics on.
 
         Args:
-            cluster_name: Human-readable label that identifies the cluster to retrieve pinned namespaces for.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            cluster_name: Human-readable label that identifies the cluster to retrieve pinned
+                namespaces for.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupclustercollstatpinnednamespaces
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collStats/pinned"
         params = {
@@ -62,13 +76,27 @@ class CollectionLevelMetrics:
         """
         Add Pinned Namespaces
 
-        Add provided list of namespaces to existing pinned namespaces list for collection-level latency metrics collection for the given Group and Cluster.
+        Add provided list of namespaces to existing pinned namespaces list for collection-level
+        latency metrics collection for the given Group and Cluster.
 
         Args:
             cluster_name: Human-readable label that identifies the cluster to pin namespaces to.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            body: List of namespace strings (combination of database and collection name) to pin for query latency metric collection.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            body: List of namespace strings (combination of database and collection name) to pin
+                for query latency metric collection.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updategroupclustercollstatpinnednamespaces
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collStats/pinned"
         params = {
@@ -95,13 +123,28 @@ class CollectionLevelMetrics:
         """
         Pin Namespaces
 
-        Pin provided list of namespaces for collection-level latency metrics collection for the given Group and Cluster. This initializes a pinned namespaces list or replaces any existing pinned namespaces list for the Group and Cluster.
+        Pin provided list of namespaces for collection-level latency metrics collection for the
+        given Group and Cluster. This initializes a pinned namespaces list or replaces any
+        existing pinned namespaces list for the Group and Cluster.
 
         Args:
             cluster_name: Human-readable label that identifies the cluster to pin namespaces to.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            body: List of namespace strings (combination of database and collection name) to pin for query latency metric collection.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            body: List of namespace strings (combination of database and collection name) to pin
+                for query latency metric collection.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-pingroupclustercollstatpinnednamespaces
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collStats/pinned"
         params = {
@@ -128,13 +171,28 @@ class CollectionLevelMetrics:
         """
         Unpin Namespaces
 
-        Unpin provided list of namespaces for collection-level latency metrics collection for the given Group and Cluster.
+        Unpin provided list of namespaces for collection-level latency metrics collection for
+        the given Group and Cluster.
 
         Args:
-            cluster_name: Human-readable label that identifies the cluster to unpin namespaces from.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            body: List of namespace strings (combination of database and collection name) to pin for query latency metric collection.
+            cluster_name: Human-readable label that identifies the cluster to unpin namespaces
+                from.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            body: List of namespace strings (combination of database and collection name) to pin
+                for query latency metric collection.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-unpingroupclustercollstatunpinnamespaces
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/collStats/unpin"
         params = {
@@ -164,16 +222,36 @@ class CollectionLevelMetrics:
         """
         Return Ranked Namespaces from One Cluster
 
-        Return the subset of namespaces from the given cluster sorted by highest total execution time (descending) within the given time window.
+        Return the subset of namespaces from the given cluster sorted by highest total execution
+        time (descending) within the given time window.
 
         Args:
             cluster_name: Human-readable label that identifies the cluster to pin namespaces to.
-            cluster_view: Human-readable label that identifies the cluster topology to retrieve metrics for.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
-            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
+            cluster_view: Human-readable label that identifies the cluster topology to retrieve
+                metrics for.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            period: Duration over which Atlas reports the metrics. This parameter expresses its
+                value in the ISO 8601 duration format in UTC. Include this parameter when you do
+                not set **start** and **end**.
+            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupclustercollstatnamespaces
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/{quote(str(cluster_view), safe='')}/collStats/namespaces"
         params = {
@@ -210,16 +288,38 @@ class CollectionLevelMetrics:
         Get a list of the Coll Stats Latency cluster-level measurements for the given namespace.
 
         Args:
-            cluster_name: Human-readable label that identifies the cluster to retrieve metrics for.
-            cluster_view: Human-readable label that identifies the cluster topology to retrieve metrics for.
+            cluster_name: Human-readable label that identifies the cluster to retrieve metrics
+                for.
+            cluster_view: Human-readable label that identifies the cluster topology to retrieve
+                metrics for.
             collection_name: Human-readable label that identifies the collection.
             database_name: Human-readable label that identifies the database.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            metrics: List that contains the metrics that you want to retrieve for the associated data series. If you don't set this parameter, this resource returns data series for all Coll Stats Latency metrics.
-            period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
-            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            metrics: List that contains the metrics that you want to retrieve for the associated
+                data series. If you don't set this parameter, this resource returns data series
+                for all Coll Stats Latency metrics.
+            period: Duration over which Atlas reports the metrics. This parameter expresses its
+                value in the ISO 8601 duration format in UTC. Include this parameter when you do
+                not set **start** and **end**.
+            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupclustercollstatmeasurements
         """
         path = f"/groups/{quote(str(group_id), safe='')}/clusters/{quote(str(cluster_name), safe='')}/{quote(str(cluster_view), safe='')}/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/collStats/measurements"
         params = {
@@ -246,11 +346,24 @@ class CollectionLevelMetrics:
         """
         Return All Metric Names
 
-        Returns all available Coll Stats Latency metric names and their respective units for the specified project at the time of request.
+        Returns all available Coll Stats Latency metric names and their respective units for the
+        specified project at the time of request.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupcollstatmetrics
         """
         path = f"/groups/{quote(str(group_id), safe='')}/collStats/metrics"
         params = {
@@ -277,15 +390,38 @@ class CollectionLevelMetrics:
         """
         Return Ranked Namespaces from One Host
 
-        Return the subset of namespaces from the given process ranked by highest total execution time (descending) within the given time window.
+        Return the subset of namespaces from the given process ranked by highest total execution
+        time (descending) within the given time window.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            process_id: Combination of hostname and IANA port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (mongod or mongos). The port must be the IANA port on which the MongoDB process listens for requests.
-            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
-            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            process_id: Combination of hostname and IANA port that serves the MongoDB process.
+                The host must be the hostname, fully qualified domain name (FQDN), or Internet
+                Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process
+                (mongod or mongos). The port must be the IANA port on which the MongoDB process
+                listens for requests.
+            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            period: Duration over which Atlas reports the metrics. This parameter expresses its
+                value in the ISO 8601 duration format in UTC. Include this parameter when you do
+                not set **start** and **end**.
+            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupprocesscollstatnamespaces
         """
         path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/collStats/namespaces"
         params = {
@@ -323,13 +459,37 @@ class CollectionLevelMetrics:
         Args:
             collection_name: Human-readable label that identifies the collection.
             database_name: Human-readable label that identifies the database.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            process_id: Combination of hostname and IANA port that serves the MongoDB process. The host must be the hostname, fully qualified domain name (FQDN), or Internet Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process (mongod or mongos). The port must be the IANA port on which the MongoDB process listens for requests.
-            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            metrics: List that contains the metrics that you want to retrieve for the associated data series. If you don't set this parameter, this resource returns data series for all Coll Stats Latency metrics.
-            period: Duration over which Atlas reports the metrics. This parameter expresses its value in the ISO 8601 duration format in UTC. Include this parameter when you do not set **start** and **end**.
-            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter expresses its value in the ISO 8601 timestamp format in UTC. Include this parameter when you do not set **period**.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            process_id: Combination of hostname and IANA port that serves the MongoDB process.
+                The host must be the hostname, fully qualified domain name (FQDN), or Internet
+                Protocol address (IPv4 or IPv6) of the host that runs the MongoDB process
+                (mongod or mongos). The port must be the IANA port on which the MongoDB process
+                listens for requests.
+            end: Date and time when MongoDB Cloud stops reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            metrics: List that contains the metrics that you want to retrieve for the associated
+                data series. If you don't set this parameter, this resource returns data series
+                for all Coll Stats Latency metrics.
+            period: Duration over which Atlas reports the metrics. This parameter expresses its
+                value in the ISO 8601 duration format in UTC. Include this parameter when you do
+                not set **start** and **end**.
+            start: Date and time when MongoDB Cloud begins reporting the metrics. This parameter
+                expresses its value in the ISO 8601 timestamp format in UTC. Include this
+                parameter when you do not set **period**.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupprocesscollstatmeasurements
         """
         path = f"/groups/{quote(str(group_id), safe='')}/processes/{quote(str(process_id), safe='')}/{quote(str(database_name), safe='')}/{quote(str(collection_name), safe='')}/collStats/measurements"
         params = {

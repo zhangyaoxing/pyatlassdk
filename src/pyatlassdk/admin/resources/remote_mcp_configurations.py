@@ -42,12 +42,29 @@ class RemoteMCPConfigurations:
         Returns all MCP configurations associated with the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupmcpconfigs
         """
         path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs"
         params = {
@@ -73,11 +90,20 @@ class RemoteMCPConfigurations:
         """
         Create One MCP Configuration for One Project
 
-        Creates an MCP configuration for the specified project. Returns the configuration ID and ingress credentials.
+        Creates an MCP configuration for the specified project. Returns the configuration ID and
+        ingress credentials.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             body: MCP configuration to create.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupmcpconfig
         """
         path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs"
         return self._client.request(
@@ -102,9 +128,19 @@ class RemoteMCPConfigurations:
         Deletes the MCP configuration with the specified ID for the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             mcp_config_id: Unique identifier of the MCP configuration to delete.
-            cascading: Flag that indicates whether to delete the MCP configuration even if it has active secrets. If false and active secrets exist, the request returns an error. Defaults to false.
+            cascading: Flag that indicates whether to delete the MCP configuration even if it
+                has active secrets. If false and active secrets exist, the request returns an
+                error. Defaults to false.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupmcpconfig
         """
         path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
         params = {
@@ -132,10 +168,23 @@ class RemoteMCPConfigurations:
         Returns the MCP configuration with the specified ID for the specified project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             mcp_config_id: Unique identifier of the MCP configuration.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupmcpconfig
         """
         path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
         params = {
@@ -161,13 +210,23 @@ class RemoteMCPConfigurations:
         """
         Update One MCP Configuration for One Project
 
-        Updates the specified MCP configuration for the project. Supports partial updates: only provided fields are changed.
+        Updates the specified MCP configuration for the project. Supports partial updates: only
+        provided fields are changed.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             mcp_config_id: Unique identifier of the MCP configuration to update.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: MCP configuration fields to update.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updategroupmcpconfig
         """
         path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
         params = {
@@ -197,16 +256,34 @@ class RemoteMCPConfigurations:
         """
         Return All Secrets for One Project MCP Configuration
 
-        Returns metadata for all secrets on the ingress service account of the specified project-level MCP configuration. Secret values are never returned.
+        Returns metadata for all secrets on the ingress service account of the specified
+        project-level MCP configuration. Secret values are never returned.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             mcp_config_id: Unique identifier of the MCP configuration.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupmcpconfigsecrets
         """
         path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets"
         params = {
@@ -233,12 +310,22 @@ class RemoteMCPConfigurations:
         """
         Create One Secret for One Project MCP Configuration
 
-        Creates a new secret on the ingress service account of the specified project-level MCP configuration. The plain-text secret value is returned only in this response and is never shown again.
+        Creates a new secret on the ingress service account of the specified project-level MCP
+        configuration. The plain-text secret value is returned only in this response and is
+        never shown again.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             mcp_config_id: Unique identifier of the MCP configuration.
             body: Secret creation request.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupmcpconfigsecret
         """
         path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets"
         return self._client.request(
@@ -259,12 +346,21 @@ class RemoteMCPConfigurations:
         """
         Delete One Secret for One Project MCP Configuration
 
-        Deletes the specified secret from the ingress service account of the specified project-level MCP configuration.
+        Deletes the specified secret from the ingress service account of the specified project-
+        level MCP configuration.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             mcp_config_id: Unique identifier of the MCP configuration.
             secret_id: Unique 24-hexadecimal digit string that identifies the secret.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupmcpconfigsecret
         """
         path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         return self._client.request(
@@ -286,14 +382,28 @@ class RemoteMCPConfigurations:
         """
         Return One Secret for One Project MCP Configuration
 
-        Returns metadata for the specified secret on the ingress service account of a project-level MCP configuration. The secret value is never returned.
+        Returns metadata for the specified secret on the ingress service account of a project-
+        level MCP configuration. The secret value is never returned.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             mcp_config_id: Unique identifier of the MCP configuration.
             secret_id: Unique 24-hexadecimal digit string that identifies the secret.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupmcpconfigsecret
         """
         path = f"/groups/{quote(str(group_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         params = {
@@ -324,12 +434,27 @@ class RemoteMCPConfigurations:
         Returns all MCP configurations associated with the specified organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgmcpconfigs
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs"
         params = {
@@ -355,11 +480,18 @@ class RemoteMCPConfigurations:
         """
         Create One MCP Configuration for One Organization
 
-        Creates an MCP configuration for the specified organization. Returns the configuration ID and ingress credentials.
+        Creates an MCP configuration for the specified organization. Returns the configuration
+        ID and ingress credentials.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
             body: MCP configuration to create.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorgmcpconfig
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs"
         return self._client.request(
@@ -385,8 +517,16 @@ class RemoteMCPConfigurations:
 
         Args:
             mcp_config_id: Unique identifier of the MCP configuration to delete.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            cascading: Flag that indicates whether to delete the MCP configuration even if it has active secrets. If false and active secrets exist, the request returns an error. Defaults to false.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            cascading: Flag that indicates whether to delete the MCP configuration even if it
+                has active secrets. If false and active secrets exist, the request returns an
+                error. Defaults to false.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deleteorgmcpconfig
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
         params = {
@@ -415,9 +555,20 @@ class RemoteMCPConfigurations:
 
         Args:
             mcp_config_id: Unique identifier of the MCP configuration.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgmcpconfig
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
         params = {
@@ -443,13 +594,21 @@ class RemoteMCPConfigurations:
         """
         Update One MCP Configuration for One Organization
 
-        Updates the specified MCP configuration for the organization. Supports partial updates: only provided fields are changed.
+        Updates the specified MCP configuration for the organization. Supports partial updates:
+        only provided fields are changed.
 
         Args:
             mcp_config_id: Unique identifier of the MCP configuration to update.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: MCP configuration fields to update.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updateorgmcpconfig
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}"
         params = {
@@ -479,16 +638,32 @@ class RemoteMCPConfigurations:
         """
         Return All Secrets for One Organization MCP Configuration
 
-        Returns metadata for all secrets on the ingress service account of the specified organization-level MCP configuration. Secret values are never returned.
+        Returns metadata for all secrets on the ingress service account of the specified
+        organization-level MCP configuration. Secret values are never returned.
 
         Args:
             mcp_config_id: Unique identifier of the MCP configuration.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgmcpconfigsecrets
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets"
         params = {
@@ -515,12 +690,20 @@ class RemoteMCPConfigurations:
         """
         Create One Secret for One Organization MCP Configuration
 
-        Creates a new secret on the ingress service account of the specified organization-level MCP configuration. The plain-text secret value is returned only in this response and is never shown again.
+        Creates a new secret on the ingress service account of the specified organization-level
+        MCP configuration. The plain-text secret value is returned only in this response and is
+        never shown again.
 
         Args:
             mcp_config_id: Unique identifier of the MCP configuration.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
             body: Secret creation request.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorgmcpconfigsecret
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets"
         return self._client.request(
@@ -541,12 +724,19 @@ class RemoteMCPConfigurations:
         """
         Delete One Secret for One Organization MCP Configuration
 
-        Deletes the specified secret from the ingress service account of the specified organization-level MCP configuration.
+        Deletes the specified secret from the ingress service account of the specified
+        organization-level MCP configuration.
 
         Args:
             mcp_config_id: Unique identifier of the MCP configuration.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
             secret_id: Unique 24-hexadecimal digit string that identifies the secret.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deleteorgmcpconfigsecret
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         return self._client.request(
@@ -568,14 +758,26 @@ class RemoteMCPConfigurations:
         """
         Return One Secret for One Organization MCP Configuration
 
-        Returns metadata for the specified secret on the ingress service account of an organization-level MCP configuration. The secret value is never returned.
+        Returns metadata for the specified secret on the ingress service account of an
+        organization-level MCP configuration. The secret value is never returned.
 
         Args:
             mcp_config_id: Unique identifier of the MCP configuration.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
             secret_id: Unique 24-hexadecimal digit string that identifies the secret.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgmcpconfigsecret
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/mcpConfigs/{quote(str(mcp_config_id), safe='')}/secrets/{quote(str(secret_id), safe='')}"
         params = {

@@ -21,7 +21,11 @@ class Incidents:
         """
         Get All Incidents
 
-        Retrieves the 50 most recent incidents, including unresolved and resolved/postmortem states.
+        Retrieves the 50 most recent incidents, including unresolved and resolved/postmortem
+        states.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/cloud-status/operation/operation-getallincidents
         """
         path = "/incidents.json"
         return self._client.request(
@@ -36,7 +40,11 @@ class Incidents:
         """
         Get Unresolved Incidents
 
-        Retrieves a list of unresolved incidents (in states: Investigating, Identified, or Monitoring).
+        Retrieves a list of unresolved incidents (in states: Investigating, Identified, or
+        Monitoring).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/cloud-status/operation/operation-getunresolvedincidents
         """
         path = "/incidents/unresolved.json"
         return self._client.request(

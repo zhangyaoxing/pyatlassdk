@@ -30,9 +30,15 @@ class Sync:
         [Flexible Sync](https://www.mongodb.com/docs/atlas/app-services/sync/get-started/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             service_id: The unique `_id` value of a service.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetflexsync
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/service/{quote(str(service_id), safe='')}/config"
         return self._client.request(
@@ -51,13 +57,20 @@ class Sync:
         """
         Get Partition-Based Sync information
 
-        Retrieve partition field data when using 
-        [Partition-Based Sync](https://www.mongodb.com/docs/atlas/app-services/reference/partition-based-sync).
+        Retrieve partition field data when using
+        [Partition-Based Sync](https://www.mongodb.com/docs/atlas/app-
+        services/reference/partition-based-sync).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             service_id: The Service ID for the linked cluster.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetsync
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/sync/data"
         params = {

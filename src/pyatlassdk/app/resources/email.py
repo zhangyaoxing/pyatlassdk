@@ -24,12 +24,19 @@ class Email:
         """
         Confirm a pending user
 
-        Confirm a pending [user](https://www.mongodb.com/docs/atlas/app-services/authentication).
+        Confirm a pending [user](https://www.mongodb.com/docs/atlas/app-
+        services/authentication).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             email: Email address
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminconfirmpendinguser
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/user_registrations/by_email/{quote(str(email), safe='')}/confirm"
         return self._client.request(
@@ -47,12 +54,19 @@ class Email:
         """
         Rerun a user confirmation workflow
 
-        Reruns a pending user's [confirmation workflow](https://www.mongodb.com/docs/atlas/app-services/authentication).
+        Reruns a pending user's [confirmation workflow](https://www.mongodb.com/docs/atlas/app-
+        services/authentication).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             email: Email address
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminrerunpendinguserconfirmation
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/user_registrations/by_email/{quote(str(email), safe='')}/run_confirm"
         return self._client.request(
@@ -74,9 +88,15 @@ class Email:
         email](https://www.mongodb.com/docs/atlas/app-services/authentication/email-password/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             email: Email address
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminsendconfirmationemail
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/user_registrations/by_email/{quote(str(email), safe='')}/send_confirm"
         return self._client.request(

@@ -32,15 +32,39 @@ class ServerlessInstances:
 
         Returns details for all serverless instances in the specified project.
 
-        This endpoint also lists Flex clusters that were created using the [Create Serverless Instance](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/v2/#tag/Serverless-Instances/operation/createServerlessInstance) endpoint or former Serverless instances that have been migrated to Flex clusters, until January 15, 2026 after which this endpoint will begin returning an empty list. The endpoint will be removed entirely on January 15, 2027. Continuous backups are not supported and `serverlessContinuousBackupEnabled` will not take effect on these clusters. Please use the List Flex Clusters endpoint instead.
+        This endpoint also lists Flex clusters that were created using the [Create Serverless
+        Instance](https://www.mongodb.com/docs/atlas/reference/api-resources-
+        spec/v2/#tag/Serverless-Instances/operation/createServerlessInstance) endpoint or former
+        Serverless instances that have been migrated to Flex clusters, until January 15, 2026
+        after which this endpoint will begin returning an empty list. The endpoint will be
+        removed entirely on January 15, 2027. Continuous backups are not supported and
+        `serverlessContinuousBackupEnabled` will not take effect on these clusters. Please use
+        the List Flex Clusters endpoint instead.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            include_count: Flag that indicates whether MongoDB Cloud calculates the total number of items for the response. When set to `false`, MongoDB Cloud may skip an additional count operation. The response may still include `totalCount` when the count is available without additional calculation.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            include_count: Flag that indicates whether MongoDB Cloud calculates the total number
+                of items for the response. When set to `false`, MongoDB Cloud may skip an
+                additional count operation. The response may still include `totalCount` when the
+                count is available without additional calculation.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupserverlessinstances
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serverless"
         params = {
@@ -71,13 +95,32 @@ class ServerlessInstances:
 
         Returns details for one serverless instance in the specified project.
 
-        This API can also be used on Flex clusters that were created with the [Create Serverless Instance](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/v2/#tag/Serverless-Instances/operation/createServerlessInstance) endpoint or Flex clusters that were migrated from Serverless instances. Continuous backups are not supported and `serverlessContinuousBackupEnabled` will not take effect on these clusters. This endpoint will be sunset on January 15, 2027. Please use the Get Flex Cluster endpoint instead.
+        This API can also be used on Flex clusters that were created with the [Create Serverless
+        Instance](https://www.mongodb.com/docs/atlas/reference/api-resources-
+        spec/v2/#tag/Serverless-Instances/operation/createServerlessInstance) endpoint or Flex
+        clusters that were migrated from Serverless instances. Continuous backups are not
+        supported and `serverlessContinuousBackupEnabled` will not take effect on these
+        clusters. This endpoint will be sunset on January 15, 2027. Please use the Get Flex
+        Cluster endpoint instead.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
             name: Human-readable label that identifies the serverless instance.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupserverlessinstance
         """
         path = f"/groups/{quote(str(group_id), safe='')}/serverless/{quote(str(name), safe='')}"
         params = {

@@ -32,10 +32,18 @@ class FederatedAuthentication:
         """
         Delete One Federation Settings Instance
 
-        Deletes the federation settings instance and all associated data, including identity providers and domains. To use this resource, the requesting Service Account or API Key must have the Organization Owner role in the last remaining connected organization. **Note**: requests to this resource will fail if there is more than one connected organization in the federation.
+        Deletes the federation settings instance and all associated data, including identity
+        providers and domains. To use this resource, the requesting Service Account or API Key
+        must have the Organization Owner role in the last remaining connected organization.
+        **Note**: requests to this resource will fail if there is more than one connected
+        organization in the federation.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletefederationsetting
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}"
         return self._client.request(
@@ -56,13 +64,24 @@ class FederatedAuthentication:
         """
         Return All Organization Configurations from One Federation
 
-        Returns all connected organization configurations in the specified federation. To use this resource, the requesting Service Account or API Key must have the Organization Owner role in one of the connected organizations.
+        Returns all connected organization configurations in the specified federation. To use
+        this resource, the requesting Service Account or API Key must have the Organization
+        Owner role in one of the connected organizations.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listfederationsettingconnectedorgconfigs
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs"
         params = {
@@ -88,12 +107,22 @@ class FederatedAuthentication:
         """
         Remove One Organization Configuration from One Federation
 
-        Removes one connected organization configuration from the specified federation. Note: This request fails if only one connected organization exists in the federation.
+        Removes one connected organization configuration from the specified federation. Note:
+        This request fails if only one connected organization exists in the federation.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            org_id: Unique 24-hexadecimal digit string that identifies the connected organization configuration to remove.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            org_id: Unique 24-hexadecimal digit string that identifies the connected
+                organization configuration to remove.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-removefederationsettingconnectedorgconfig
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}"
         params = {
@@ -117,12 +146,23 @@ class FederatedAuthentication:
         """
         Return One Organization Configuration from One Federation
 
-        Returns the specified connected organization configuration from the specified federation. To use this resource, the requesting Service Account or API Key must have the Organization Owner role in the connected organization.
+        Returns the specified connected organization configuration from the specified
+        federation. To use this resource, the requesting Service Account or API Key must have
+        the Organization Owner role in the connected organization.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            org_id: Unique 24-hexadecimal digit string that identifies the connected organization configuration to return.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            org_id: Unique 24-hexadecimal digit string that identifies the connected
+                organization configuration to return.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getfederationsettingconnectedorgconfig
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}"
         params = {
@@ -149,19 +189,32 @@ class FederatedAuthentication:
 
         Updates one connected organization configuration from the specified federation.
 
-        **Note** If the organization configuration has no associated identity provider, you can't use this resource to update role mappings or post authorization role grants.  
+        **Note** If the organization configuration has no associated identity provider, you
+        can't use this resource to update role mappings or post authorization role grants.
 
-        **Note**: The `domainRestrictionEnabled` field defaults to false if not provided in the request. 
+        **Note**: The `domainRestrictionEnabled` field defaults to false if not provided in the
+        request.
 
-        **Note**: If the `identityProviderId` field is not provided, you will disconnect the organization and the identity provider. 
+        **Note**: If the `identityProviderId` field is not provided, you will disconnect the
+        organization and the identity provider.
 
-        **Note**: Currently connected data access identity providers missing from the `dataAccessIdentityProviderIds` field will be disconnected.
+        **Note**: Currently connected data access identity providers missing from the
+        `dataAccessIdentityProviderIds` field will be disconnected.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            org_id: Unique 24-hexadecimal digit string that identifies the connected organization configuration to update.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            org_id: Unique 24-hexadecimal digit string that identifies the connected
+                organization configuration to update.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
             body: The connected organization configuration that you want to update.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updatefederationsettingconnectedorgconfig
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}"
         params = {
@@ -190,9 +243,20 @@ class FederatedAuthentication:
         Returns all role mappings from the specified organization in the specified federation.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listfederationsettingconnectedorgconfigrolemappings
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings"
         params = {
@@ -220,10 +284,21 @@ class FederatedAuthentication:
         Adds one role mapping to the specified organization in the specified federation.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
             body: The role mapping that you want to create.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createfederationsettingconnectedorgconfigrolemapping
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings"
         params = {
@@ -253,10 +328,22 @@ class FederatedAuthentication:
         Removes one role mapping in the specified organization from the specified federation.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            id: Unique 24-hexadecimal digit string that identifies the role mapping that you want to remove.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            id: Unique 24-hexadecimal digit string that identifies the role mapping that you
+                want to remove.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletefederationsettingconnectedorgconfigrolemapping
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings/{quote(str(id), safe='')}"
         params = {
@@ -284,10 +371,22 @@ class FederatedAuthentication:
         Returns one role mapping from the specified organization in the specified federation.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            id: Unique 24-hexadecimal digit string that identifies the role mapping that you want to return.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            id: Unique 24-hexadecimal digit string that identifies the role mapping that you
+                want to return.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getfederationsettingconnectedorgconfigrolemapping
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings/{quote(str(id), safe='')}"
         params = {
@@ -316,11 +415,23 @@ class FederatedAuthentication:
         Updates one role mapping in the specified organization in the specified federation.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            id: Unique 24-hexadecimal digit string that identifies the role mapping that you want to update.
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            id: Unique 24-hexadecimal digit string that identifies the role mapping that you
+                want to update.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
             body: The role mapping that you want to update.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updatefederationsettingconnectedorgconfigrolemapping
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/connectedOrgConfigs/{quote(str(org_id), safe='')}/roleMappings/{quote(str(id), safe='')}"
         params = {
@@ -349,15 +460,28 @@ class FederatedAuthentication:
         """
         Return All Identity Providers in One Federation
 
-        Returns all identity providers with the provided protocol and type in the specified federation. If no protocol is specified, only SAML identity providers will be returned. If no `idpType` is specified, only WORKFORCE identity providers will be returned. To use this resource, the requesting Service Account or API Key must have the Organization Owner role in one of the connected organizations.
+        Returns all identity providers with the provided protocol and type in the specified
+        federation. If no protocol is specified, only SAML identity providers will be returned.
+        If no `idpType` is specified, only WORKFORCE identity providers will be returned. To use
+        this resource, the requesting Service Account or API Key must have the Organization
+        Owner role in one of the connected organizations.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
             idp_type: The types of the target identity providers.
             items_per_page: Number of items that the response returns per page.
-            page_num: Number of the page that displays the current set of the total objects that the response returns.
+            page_num: Number of the page that displays the current set of the total objects that
+                the response returns.
             protocol: The protocols of the target identity providers.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listfederationsettingidentityproviders
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders"
         params = {
@@ -385,14 +509,24 @@ class FederatedAuthentication:
         """
         Create One Identity Provider
 
-        Creates one identity provider within the specified federation. To use this resource, the requesting Service Account or API Key must have the Organization Owner role in one of the connected organizations.
+        Creates one identity provider within the specified federation. To use this resource, the
+        requesting Service Account or API Key must have the Organization Owner role in one of
+        the connected organizations.
 
         **Note**: This resource only supports the creation of OIDC identity providers.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
             body: The identity provider that you want to create.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createfederationsettingidentityprovider
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders"
         params = {
@@ -418,14 +552,28 @@ class FederatedAuthentication:
         """
         Delete One Identity Provider
 
-        Deletes one identity provider in the specified federation. To use this resource, the requesting Service Account or API Key must have the Organization Owner role for the connected organization. 
+        Deletes one identity provider in the specified federation. To use this resource, the
+        requesting Service Account or API Key must have the Organization Owner role for the
+        connected organization.
 
-        **Note**: Requests to this resource will fail if the identity provider is connected to more than one organization or is connected to an organization unowned by the requesting Service Account or API key. Before deleting an identity provider, confirm that no organization in your federation uses this identity provider.
+        **Note**: Requests to this resource will fail if the identity provider is connected to
+        more than one organization or is connected to an organization unowned by the requesting
+        Service Account or API key. Before deleting an identity provider, confirm that no
+        organization in your federation uses this identity provider.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            identity_provider_id: Unique 24-hexadecimal digit string that identifies the identity provider to connect.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            identity_provider_id: Unique 24-hexadecimal digit string that identifies the
+                identity provider to connect.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletefederationsettingidentityprovider
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}"
         params = {
@@ -449,12 +597,28 @@ class FederatedAuthentication:
         """
         Return One Identity Provider by ID
 
-        Returns one identity provider in the specified federation by the identity provider's id. To use this resource, the requesting Service Account or API Key must have the Organization Owner role in one of the connected organizations. Deprecated versions: v2-{2023-01-01}
+        Returns one identity provider in the specified federation by the identity provider's id.
+        To use this resource, the requesting Service Account or API Key must have the
+        Organization Owner role in one of the connected organizations. Deprecated versions:
+        v2-{2023-01-01}
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            identity_provider_id: Unique string that identifies the identity provider to connect. If using an API version before 11-15-2023, use the legacy 20-hexadecimal digit id. This id can be found within the Federation Management Console > Identity Providers tab by clicking the info icon in the IdP ID row of a configured identity provider. For all other versions, use the 24-hexadecimal digit id.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            identity_provider_id: Unique string that identifies the identity provider to
+                connect. If using an API version before 11-15-2023, use the legacy
+                20-hexadecimal digit id. This id can be found within the Federation Management
+                Console > Identity Providers tab by clicking the info icon in the IdP ID row of
+                a configured identity provider. For all other versions, use the 24-hexadecimal
+                digit id.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getfederationsettingidentityprovider
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}"
         params = {
@@ -479,17 +643,36 @@ class FederatedAuthentication:
         """
         Update One Identity Provider
 
-        Updates one identity provider in the specified federation. To use this resource, the requesting Service Account or API Key must have the Organization Owner role in one of the connected organizations.
+        Updates one identity provider in the specified federation. To use this resource, the
+        requesting Service Account or API Key must have the Organization Owner role in one of
+        the connected organizations.
 
-        **Note**: Changing authorization types and/or updating authorization claims can prevent current users and/or groups from accessing the database.
+        **Note**: Changing authorization types and/or updating authorization claims can prevent
+        current users and/or groups from accessing the database.
 
-        **Note**: When deactivating a SAML identity provider connected to an organization, the requesting Service Account or API key must have the Organization Owner role for the organization. If the identity provider is connected to multiple organizations, the request will fail. Deprecated versions: v2-{2023-01-01}
+        **Note**: When deactivating a SAML identity provider connected to an organization, the
+        requesting Service Account or API key must have the Organization Owner role for the
+        organization. If the identity provider is connected to multiple organizations, the
+        request will fail. Deprecated versions: v2-{2023-01-01}
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            identity_provider_id: Unique string that identifies the identity provider to connect. If using an API version before 11-15-2023, use the legacy 20-hexadecimal digit id. This id can be found within the Federation Management Console > Identity Providers tab by clicking the info icon in the IdP ID row of a configured identity provider. For all other versions, use the 24-hexadecimal digit id.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            identity_provider_id: Unique string that identifies the identity provider to
+                connect. If using an API version before 11-15-2023, use the legacy
+                20-hexadecimal digit id. This id can be found within the Federation Management
+                Console > Identity Providers tab by clicking the info icon in the IdP ID row of
+                a configured identity provider. For all other versions, use the 24-hexadecimal
+                digit id.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
             body: The identity provider that you want to update.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updatefederationsettingidentityprovider
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}"
         params = {
@@ -515,14 +698,28 @@ class FederatedAuthentication:
         """
         Revoke JWKS from One OIDC Identity Provider
 
-        Revokes the JWKS tokens from the requested OIDC identity provider. To use this resource, the requesting Service Account or API Key must have the Organization Owner role in one of the connected organizations. 
+        Revokes the JWKS tokens from the requested OIDC identity provider. To use this resource,
+        the requesting Service Account or API Key must have the Organization Owner role in one
+        of the connected organizations.
 
-        **Note**: Revoking your JWKS tokens immediately refreshes your IdP public keys from all your Atlas clusters, invalidating previously signed access tokens and logging out all users. You may need to restart your MongoDB clients. All organizations connected to the identity provider will be affected.
+        **Note**: Revoking your JWKS tokens immediately refreshes your IdP public keys from all
+        your Atlas clusters, invalidating previously signed access tokens and logging out all
+        users. You may need to restart your MongoDB clients. All organizations connected to the
+        identity provider will be affected.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            identity_provider_id: Unique 24-hexadecimal digit string that identifies the identity provider to connect.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            identity_provider_id: Unique 24-hexadecimal digit string that identifies the
+                identity provider to connect.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-revokefederationsettingidentityproviderjwks
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}/jwks"
         params = {
@@ -544,11 +741,20 @@ class FederatedAuthentication:
         """
         Return Metadata of One Identity Provider
 
-        Returns the metadata of one identity provider in the specified federation. To use this resource, the requesting Service Account or API Key must have the Organization Owner role in one of the connected organizations.
+        Returns the metadata of one identity provider in the specified federation. To use this
+        resource, the requesting Service Account or API Key must have the Organization Owner
+        role in one of the connected organizations.
 
         Args:
-            federation_settings_id: Unique 24-hexadecimal digit string that identifies your federation.
-            identity_provider_id: Legacy 20-hexadecimal digit string that identifies the identity provider. This id can be found within the Federation Management Console > Identity Providers tab by clicking the info icon in the IdP ID row of a configured identity provider.
+            federation_settings_id: Unique 24-hexadecimal digit string that identifies your
+                federation.
+            identity_provider_id: Legacy 20-hexadecimal digit string that identifies the
+                identity provider. This id can be found within the Federation Management Console
+                > Identity Providers tab by clicking the info icon in the IdP ID row of a
+                configured identity provider.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getfederationsettingidentityprovidermetadata
         """
         path = f"/federationSettings/{quote(str(federation_settings_id), safe='')}/identityProviders/{quote(str(identity_provider_id), safe='')}/metadata.xml"
         return self._client.request(
@@ -571,9 +777,20 @@ class FederatedAuthentication:
         Returns information about the federation settings for the specified organization.
 
         Args:
-            org_id: Unique 24-hexadecimal digit string that identifies the organization that contains your projects. Use the [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve all organizations to which the authenticated user has access.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            org_id: Unique 24-hexadecimal digit string that identifies the organization that
+                contains your projects. Use the
+                [`/orgs`](#tag/Organizations/operation/listOrganizations) endpoint to retrieve
+                all organizations to which the authenticated user has access.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorgfederationsettings
         """
         path = f"/orgs/{quote(str(org_id), safe='')}/federationSettings"
         params = {

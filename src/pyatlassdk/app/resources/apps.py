@@ -31,8 +31,20 @@ class Apps:
         [project/group](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
 
         Args:
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            product: One or more specific App Services product types. If specified, this endpoint only returns Apps of the specified product type(s). Most apps use the `standard` product type, which this endpoint returns by default. The `atlas`, `data-api`, and `device-sync` product types represent special apps for [Atlas Triggers](https://docs.mongodb.com/atlas/triggers), [Atlas Data API](https://docs.mongodb.com/atlas/api/data-api/), and [Atlas Device Sync](https://www.mongodb.com/docs/atlas/app-services/sync/) that you can access through the Atlas UI. You can specify multiple product types as a comma-separated list: ``` /groups/{groupId}/apps?product=atlas,data-api ```
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            product: One or more specific App Services product types. If specified, this
+                endpoint only returns Apps of the specified product type(s). Most apps use the
+                `standard` product type, which this endpoint returns by default. The `atlas`,
+                `data-api`, and `device-sync` product types represent special apps for [Atlas
+                Triggers](https://docs.mongodb.com/atlas/triggers), [Atlas Data
+                API](https://docs.mongodb.com/atlas/api/data-api/), and [Atlas Device
+                Sync](https://www.mongodb.com/docs/atlas/app-services/sync/) that you can access
+                through the Atlas UI. You can specify multiple product types as a comma-
+                separated list: ``` /groups/{groupId}/apps?product=atlas,data-api ```
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlistapplications
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps"
         params = {
@@ -57,10 +69,20 @@ class Apps:
         Create a new app
 
         Args:
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             defaults: Whether or not to create a default application.
-            product: The App's product type. Apps use the `standard` product type by default. For most apps, you do not need to specify a `product` at all, or should specify `standard`. The `atlas`, `data-api`, and `device-sync` product types represent special apps for [Atlas Triggers](https://docs.mongodb.com/atlas/triggers), [Atlas Data API](https://docs.mongodb.com/atlas/api/data-api/), and [Atlas Device Sync](https://www.mongodb.com/docs/atlas/app-services/sync/) that you can access through the Atlas UI.
+            product: The App's product type. Apps use the `standard` product type by default.
+                For most apps, you do not need to specify a `product` at all, or should specify
+                `standard`. The `atlas`, `data-api`, and `device-sync` product types represent
+                special apps for [Atlas Triggers](https://docs.mongodb.com/atlas/triggers),
+                [Atlas Data API](https://docs.mongodb.com/atlas/api/data-api/), and [Atlas
+                Device Sync](https://www.mongodb.com/docs/atlas/app-services/sync/) that you can
+                access through the Atlas UI.
             body: The application to create.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreateapplication
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps"
         params = {
@@ -85,8 +107,14 @@ class Apps:
         Delete an app
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeleteapplication
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}"
         return self._client.request(
@@ -104,8 +132,14 @@ class Apps:
         Get an app
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetapplication
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}"
         return self._client.request(
@@ -135,12 +169,24 @@ class Apps:
         an application as a zip file.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            deployment: The `_id` of a specific deployment to export. If not specified, export the latest deployment.
-            source_control: If `true`, the exported directory is suitable for automatic deployment from GitHub or other source control. Cannot be used with the `template` query parameter.
-            template: If `true`, the exported directory does not include any identifiers or other data that would tie the app to a specific deployment instance. Cannot be used with the `source_control` query parameter.
-            version: The configuration file schema version to export. This value corresponds to `config_version` in `root_config.json`.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            deployment: The `_id` of a specific deployment to export. If not specified, export
+                the latest deployment.
+            source_control: If `true`, the exported directory is suitable for automatic
+                deployment from GitHub or other source control. Cannot be used with the
+                `template` query parameter.
+            template: If `true`, the exported directory does not include any identifiers or
+                other data that would tie the app to a specific deployment instance. Cannot be
+                used with the `source_control` query parameter.
+            version: The configuration file schema version to export. This value corresponds to
+                `config_version` in `root_config.json`.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminexportapplication
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/export"
         params = {
@@ -168,20 +214,26 @@ class Apps:
         download in two different formats:
 
         - A compressed zip file that contains the configuration file
-          directory. This is most useful when you're working with the
-          CLI, a version control system, or another environment based on
-          the file system.
+        directory. This is most useful when you're working with the
+        CLI, a version control system, or another environment based on
+        the file system.
 
         - A single JSON object that contains the entire configuration.
-          This is most useful when you're working with the API or
-          another environment that can parse JSON.
+        This is most useful when you're working with the API or
+        another environment that can parse JSON.
 
         You specify which format to download by setting the `Accept`
         header.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminpullappconfiguration
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/pull"
         return self._client.request(
@@ -209,9 +261,15 @@ class Apps:
         configuration.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminpushappconfiguration
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/push"
         return self._client.request(

@@ -25,12 +25,19 @@ class Authproviders:
         """
         List authentication providers in a Atlas App Services App
 
-        List [authentication providers](https://www.mongodb.com/docs/atlas/app-services/authentication/)
+        List [authentication providers](https://www.mongodb.com/docs/atlas/app-
+        services/authentication/)
         within a Atlas App Services App.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlistauthproviders
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/auth_providers"
         return self._client.request(
@@ -48,12 +55,19 @@ class Authproviders:
         """
         Create an authentication provider
 
-        Create an [authentication provider](https://www.mongodb.com/docs/atlas/app-services/authentication/).
+        Create an [authentication provider](https://www.mongodb.com/docs/atlas/app-
+        services/authentication/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admincreateauthprovider
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/auth_providers"
         return self._client.request(
@@ -73,12 +87,19 @@ class Authproviders:
         """
         Delete an authentication provider
 
-        Delete an [authentication provider](https://www.mongodb.com/docs/atlas/app-services/authentication/).
+        Delete an [authentication provider](https://www.mongodb.com/docs/atlas/app-
+        services/authentication/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             provider_id: The unique `_id` value of an authentication provider
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindeleteauthprovider
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/auth_providers/{quote(str(provider_id), safe='')}"
         return self._client.request(
@@ -100,9 +121,15 @@ class Authproviders:
         providers](https://www.mongodb.com/docs/atlas/app-services/authentication/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             provider_id: The unique `_id` value of an authentication provider
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetauthprovider
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/auth_providers/{quote(str(provider_id), safe='')}"
         return self._client.request(
@@ -121,13 +148,20 @@ class Authproviders:
         """
         Update an authentication provider
 
-        Update an [authentication provider](https://www.mongodb.com/docs/atlas/app-services/authentication/).
+        Update an [authentication provider](https://www.mongodb.com/docs/atlas/app-
+        services/authentication/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             provider_id: The unique `_id` value of an authentication provider
             body:
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminupdateauthprovider
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/auth_providers/{quote(str(provider_id), safe='')}"
         return self._client.request(
@@ -147,12 +181,19 @@ class Authproviders:
         """
         Disable an authentication provider
 
-        Disable an [authentication provider](https://www.mongodb.com/docs/atlas/app-services/authentication/).
+        Disable an [authentication provider](https://www.mongodb.com/docs/atlas/app-
+        services/authentication/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             provider_id: The unique `_id` value of an authentication provider
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admindisableauthprovider
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/auth_providers/{quote(str(provider_id), safe='')}/disable"
         return self._client.request(
@@ -170,12 +211,19 @@ class Authproviders:
         """
         Enable an authentication provider
 
-        Enable an [authentication provider](https://www.mongodb.com/docs/atlas/app-services/authentication/).
+        Enable an [authentication provider](https://www.mongodb.com/docs/atlas/app-
+        services/authentication/).
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
             provider_id: The unique `_id` value of an authentication provider
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminenableauthprovider
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/auth_providers/{quote(str(provider_id), safe='')}/enable"
         return self._client.request(

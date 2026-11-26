@@ -32,18 +32,39 @@ class AccessTracking:
         """
         Return Database Access History for One Cluster by Cluster Name
 
-        Returns the access logs of one cluster identified by the cluster's name. Access logs contain a list of authentication requests made against your cluster. You can't use this feature on tenant-tier clusters (M0, M2, M5).
+        Returns the access logs of one cluster identified by the cluster's name. Access logs
+        contain a list of authentication requests made against your cluster. You can't use this
+        feature on tenant-tier clusters (M0, M2, M5).
 
         Args:
             cluster_name: Human-readable label that identifies the cluster.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            auth_result: Flag that indicates whether the response returns the successful authentication attempts only.
-            end: Date and time when to stop retrieving database history. If you specify **end**, you must also specify **start**. This parameter uses UNIX epoch time in milliseconds.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            ip_address: One Internet Protocol address that attempted to authenticate with the database.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            auth_result: Flag that indicates whether the response returns the successful
+                authentication attempts only.
+            end: Date and time when to stop retrieving database history. If you specify **end**,
+                you must also specify **start**. This parameter uses UNIX epoch time in
+                milliseconds.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            ip_address: One Internet Protocol address that attempted to authenticate with the
+                database.
             n_logs: Maximum number of lines from the log to return.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            start: Date and time when MongoDB Cloud begins retrieving database history. If you specify **start**, you must also specify **end**. This parameter uses UNIX epoch time in milliseconds.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            start: Date and time when MongoDB Cloud begins retrieving database history. If you
+                specify **start**, you must also specify **end**. This parameter uses UNIX epoch
+                time in milliseconds.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupdbaccesshistorycluster
         """
         path = f"/groups/{quote(str(group_id), safe='')}/dbAccessHistory/clusters/{quote(str(cluster_name), safe='')}"
         params = {
@@ -79,18 +100,40 @@ class AccessTracking:
         """
         Return Database Access History for One Cluster by Hostname
 
-        Returns the access logs of one cluster identified by the cluster's hostname. Access logs contain a list of authentication requests made against your clusters. You can't use this feature on tenant-tier clusters (M0, M2, M5).
+        Returns the access logs of one cluster identified by the cluster's hostname. Access logs
+        contain a list of authentication requests made against your clusters. You can't use this
+        feature on tenant-tier clusters (M0, M2, M5).
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            hostname: Fully qualified domain name or IP address of the MongoDB host that stores the log files that you want to download.
-            auth_result: Flag that indicates whether the response returns the successful authentication attempts only.
-            end: Date and time when to stop retrieving database history. If you specify **end**, you must also specify **start**. This parameter uses UNIX epoch time in milliseconds.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            ip_address: One Internet Protocol address that attempted to authenticate with the database.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            hostname: Fully qualified domain name or IP address of the MongoDB host that stores
+                the log files that you want to download.
+            auth_result: Flag that indicates whether the response returns the successful
+                authentication attempts only.
+            end: Date and time when to stop retrieving database history. If you specify **end**,
+                you must also specify **start**. This parameter uses UNIX epoch time in
+                milliseconds.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            ip_address: One Internet Protocol address that attempted to authenticate with the
+                database.
             n_logs: Maximum number of lines from the log to return.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            start: Date and time when MongoDB Cloud begins retrieving database history. If you specify **start**, you must also specify **end**. This parameter uses UNIX epoch time in milliseconds.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            start: Date and time when MongoDB Cloud begins retrieving database history. If you
+                specify **start**, you must also specify **end**. This parameter uses UNIX epoch
+                time in milliseconds.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupdbaccesshistoryprocess
         """
         path = f"/groups/{quote(str(group_id), safe='')}/dbAccessHistory/processes/{quote(str(hostname), safe='')}"
         params = {

@@ -32,13 +32,31 @@ class PrivateEndpointServices:
         """
         Create One Private Endpoint Service for One Provider
 
-        Creates one private endpoint service for the specified cloud service provider. This cloud service provider manages the private endpoint service for the project. When you create a private endpoint service, MongoDB Cloud creates a network container in the project for the cloud provider for which you create the private endpoint service if one doesn't already exist. To learn more about private endpoint terminology in MongoDB Cloud, see Private Endpoint Concepts.
+        Creates one private endpoint service for the specified cloud service provider. This
+        cloud service provider manages the private endpoint service for the project. When you
+        create a private endpoint service, MongoDB Cloud creates a network container in the
+        project for the cloud provider for which you create the private endpoint service if one
+        doesn't already exist. To learn more about private endpoint terminology in MongoDB
+        Cloud, see Private Endpoint Concepts.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Creates one private endpoint for the specified cloud service provider.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupprivateendpointendpointservice
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/endpointService"
         params = {
@@ -67,14 +85,29 @@ class PrivateEndpointServices:
         """
         Update One Private Endpoint Service for One Provider
 
-        Updates the specified private endpoint service for the project. The cloud service provider manages the private endpoint service that belongs to the project.
+        Updates the specified private endpoint service for the project. The cloud service
+        provider manages the private endpoint service that belongs to the project.
 
         Args:
-            endpoint_service_id: Unique 24-hexadecimal digit string that identifies the private endpoint service that you want to update.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            endpoint_service_id: Unique 24-hexadecimal digit string that identifies the private
+                endpoint service that you want to update.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Updates to apply to the private endpoint service.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-updategroupprivateendpointendpointservice
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/endpointService/{quote(str(endpoint_service_id), safe='')}"
         params = {
@@ -101,12 +134,27 @@ class PrivateEndpointServices:
         """
         Return Regionalized Private Endpoint Status
 
-        Checks whether each region in the specified cloud service provider can create multiple private endpoints per region. The cloud service provider manages the private endpoint for the project.
+        Checks whether each region in the specified cloud service provider can create multiple
+        private endpoints per region. The cloud service provider manages the private endpoint
+        for the project.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupprivateendpointregionalmode
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/regionalMode"
         params = {
@@ -132,13 +180,33 @@ class PrivateEndpointServices:
         """
         Toggle Regionalized Private Endpoint Status
 
-        Enables or disables the ability to create multiple private endpoints per region in all cloud service providers in one project. The cloud service provider manages the private endpoints for the project. Connection strings to existing multi-region and global sharded clusters change when you enable this setting. You must update your applications to use the new connection strings. This might cause downtime. Once enabled, you cannot create replica sets. To use this resource, all clusters in the deployment must be sharded clusters.
+        Enables or disables the ability to create multiple private endpoints per region in all
+        cloud service providers in one project. The cloud service provider manages the private
+        endpoints for the project. Connection strings to existing multi-region and global
+        sharded clusters change when you enable this setting. You must update your applications
+        to use the new connection strings. This might cause downtime. Once enabled, you cannot
+        create replica sets. To use this resource, all clusters in the deployment must be
+        sharded clusters.
 
         Args:
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
-            body: Enables or disables the ability to create multiple private endpoints per region in all cloud service providers in one project.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+            body: Enables or disables the ability to create multiple private endpoints per
+                region in all cloud service providers in one project.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-togglegroupprivateendpointregionalmode
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/regionalMode"
         params = {
@@ -166,13 +234,28 @@ class PrivateEndpointServices:
         """
         Return All Private Endpoint Services for One Provider
 
-        Returns the name, interfaces, and state of all private endpoint services for the specified cloud service provider. This cloud service provider manages the private endpoint service for the project.
+        Returns the name, interfaces, and state of all private endpoint services for the
+        specified cloud service provider. This cloud service provider manages the private
+        endpoint service for the project.
 
         Args:
             cloud_provider: Cloud service provider that manages this private endpoint service.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupprivateendpointendpointservice
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService"
         params = {
@@ -199,14 +282,29 @@ class PrivateEndpointServices:
         """
         Remove One Private Endpoint Service for One Provider
 
-        Removes one private endpoint service from the specified project. This cloud service provider manages the private endpoint service that belongs to the project.
+        Removes one private endpoint service from the specified project. This cloud service
+        provider manages the private endpoint service that belongs to the project.
 
         Args:
             cloud_provider: Cloud service provider that manages this private endpoint service.
-            endpoint_service_id: Unique 24-hexadecimal digit string that identifies the private endpoint service that you want to delete.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            endpoint_service_id: Unique 24-hexadecimal digit string that identifies the private
+                endpoint service that you want to delete.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupprivateendpointendpointservice
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}"
         params = {
@@ -233,14 +331,30 @@ class PrivateEndpointServices:
         """
         Return One Private Endpoint Service for One Provider
 
-        Returns the name, interfaces, and state of the specified private endpoint service from one project. The cloud service provider hosted this private endpoint service that belongs to the project.
+        Returns the name, interfaces, and state of the specified private endpoint service from
+        one project. The cloud service provider hosted this private endpoint service that
+        belongs to the project.
 
         Args:
             cloud_provider: Cloud service provider that manages this private endpoint service.
-            endpoint_service_id: Unique 24-hexadecimal digit string that identifies the private endpoint service that you want to return.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            endpoint_service_id: Unique 24-hexadecimal digit string that identifies the private
+                endpoint service that you want to return.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupprivateendpointendpointservice
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}"
         params = {
@@ -268,15 +382,32 @@ class PrivateEndpointServices:
         """
         Create One Private Endpoint for One Provider
 
-        Creates one private endpoint for the specified cloud service provider. This cloud service provider manages the private endpoint service, which in turn manages the private endpoints for the project. To learn more about considerations, limitations, and prerequisites, see the MongoDB documentation for setting up a private endpoint.
+        Creates one private endpoint for the specified cloud service provider. This cloud
+        service provider manages the private endpoint service, which in turn manages the private
+        endpoints for the project. To learn more about considerations, limitations, and
+        prerequisites, see the MongoDB documentation for setting up a private endpoint.
 
         Args:
             cloud_provider: Cloud service provider that manages this private endpoint.
-            endpoint_service_id: Unique 24-hexadecimal digit string that identifies the private endpoint service for which you want to create a private endpoint.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            endpoint_service_id: Unique 24-hexadecimal digit string that identifies the private
+                endpoint service for which you want to create a private endpoint.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
             body: Creates one private endpoint for the specified cloud service provider.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-creategroupprivateendpointendpointserviceendpoint
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}/endpoint"
         params = {
@@ -306,15 +437,34 @@ class PrivateEndpointServices:
         """
         Remove One Private Endpoint for One Provider
 
-        Removes one private endpoint from the specified project and private endpoint service, as managed by the specified cloud service provider. When the last private endpoint is removed from a given private endpoint service, that private endpoint service is also removed.
+        Removes one private endpoint from the specified project and private endpoint service, as
+        managed by the specified cloud service provider. When the last private endpoint is
+        removed from a given private endpoint service, that private endpoint service is also
+        removed.
 
         Args:
             cloud_provider: Cloud service provider that manages this private endpoint.
-            endpoint_id: Unique string that identifies the private endpoint you want to delete. The format of the `endpointId` parameter differs for AWS and Azure. You must URL encode the `endpointId` for Azure private endpoints.
-            endpoint_service_id: Unique 24-hexadecimal digit string that identifies the private endpoint service from which you want to delete a private endpoint.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            endpoint_id: Unique string that identifies the private endpoint you want to delete.
+                The format of the `endpointId` parameter differs for AWS and Azure. You must URL
+                encode the `endpointId` for Azure private endpoints.
+            endpoint_service_id: Unique 24-hexadecimal digit string that identifies the private
+                endpoint service from which you want to delete a private endpoint.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-deletegroupprivateendpointendpointserviceendpoint
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}/endpoint/{quote(str(endpoint_id), safe='')}"
         params = {
@@ -342,15 +492,33 @@ class PrivateEndpointServices:
         """
         Return One Private Endpoint for One Provider
 
-        Returns the connection state of the specified private endpoint. The private endpoint service manages this private endpoint which belongs to one project hosted from one cloud service provider.
+        Returns the connection state of the specified private endpoint. The private endpoint
+        service manages this private endpoint which belongs to one project hosted from one cloud
+        service provider.
 
         Args:
             cloud_provider: Cloud service provider that manages this private endpoint.
-            endpoint_id: Unique string that identifies the private endpoint you want to return. The format of the `endpointId` parameter differs for AWS and Azure. You must URL encode the `endpointId` for Azure private endpoints.
-            endpoint_service_id: Unique 24-hexadecimal digit string that identifies the private endpoint service for which you want to return a private endpoint.
-            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all projects to which the authenticated user has access. **NOTE**: Groups and projects are synonymous terms. Your group id is the same as your project id. For existing groups, your group/project id remains the same. The resource and corresponding endpoints use the term groups.
-            envelope: Flag that indicates whether Application wraps the response in an `envelope` JSON object. Some API clients cannot access the HTTP response headers or status code. To remediate this, set envelope=true in the query. Endpoints that return a list of results use the results object as an envelope. Application adds the status parameter to the response body.
-            pretty: Flag that indicates whether the response body should be in the prettyprint format.
+            endpoint_id: Unique string that identifies the private endpoint you want to return.
+                The format of the `endpointId` parameter differs for AWS and Azure. You must URL
+                encode the `endpointId` for Azure private endpoints.
+            endpoint_service_id: Unique 24-hexadecimal digit string that identifies the private
+                endpoint service for which you want to return a private endpoint.
+            group_id: Unique 24-hexadecimal digit string that identifies your project. Use the
+                [/groups](#tag/Projects/operation/listProjects) endpoint to retrieve all
+                projects to which the authenticated user has access. **NOTE**: Groups and
+                projects are synonymous terms. Your group id is the same as your project id. For
+                existing groups, your group/project id remains the same. The resource and
+                corresponding endpoints use the term groups.
+            envelope: Flag that indicates whether Application wraps the response in an
+                `envelope` JSON object. Some API clients cannot access the HTTP response headers
+                or status code. To remediate this, set envelope=true in the query. Endpoints
+                that return a list of results use the results object as an envelope. Application
+                adds the status parameter to the response body.
+            pretty: Flag that indicates whether the response body should be in the prettyprint
+                format.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupprivateendpointendpointserviceendpoint
         """
         path = f"/groups/{quote(str(group_id), safe='')}/privateEndpoint/{quote(str(cloud_provider), safe='')}/endpointService/{quote(str(endpoint_service_id), safe='')}/endpoint/{quote(str(endpoint_id), safe='')}"
         params = {

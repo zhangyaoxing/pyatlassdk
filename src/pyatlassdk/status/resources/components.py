@@ -22,6 +22,9 @@ class Components:
         Get Components
 
         Retrieves a list of components and their current statuses.
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/cloud-status/operation/operation-getcomponents
         """
         path = "/components.json"
         return self._client.request(

@@ -33,9 +33,17 @@ class EventSubscriptions:
         Get all event subscriptions.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
-            type: The type of event subscription to return. - `DATABASE`: Return Database Triggers - `AUTHENTICATION`: Return Authentication Triggers - `SCHEDULED`: Return Scheduled Triggers - `SYNCTRANSLATOR`: Return Device Sync translators
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            type: The type of event subscription to return. - `DATABASE`: Return Database
+                Triggers - `AUTHENTICATION`: Return Authentication Triggers - `SCHEDULED`:
+                Return Scheduled Triggers - `SYNCTRANSLATOR`: Return Device Sync translators
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-adminlisteventsubscriptions
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/event_subscriptions"
         params = {
@@ -60,9 +68,15 @@ class EventSubscriptions:
         Return information about an event subscription.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             event_subscription_id: The unique `_id` value of an event subscription.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingeteventsubscription
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/event_subscriptions/{quote(str(event_subscription_id), safe='')}"
         return self._client.request(
@@ -83,9 +97,15 @@ class EventSubscriptions:
         Return information about the most recent execution of an event subscription.
 
         Args:
-            app_id: The ObjectID of your application. [The App Services API Project and Application IDs section](#section/Project-and-Application-IDs) demonstrates how to find this value.
+            app_id: The ObjectID of your application. [The App Services API Project and
+                Application IDs section](#section/Project-and-Application-IDs) demonstrates how
+                to find this value.
             event_subscription_id: The unique `_id` value of an event subscription.
-            group_id: An Atlas [Project/Group ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+            group_id: An Atlas [Project/Group
+                ID](https://docs.atlas.mongodb.com/tutorial/manage-projects/).
+
+        Reference:
+            https://www.mongodb.com/docs/api/doc/atlas-app-services-admin-api-v3/operation/operation-admingetlatesteventsubscriptionexecution
         """
         path = f"/groups/{quote(str(group_id), safe='')}/apps/{quote(str(app_id), safe='')}/event_subscriptions/{quote(str(event_subscription_id), safe='')}/execution"
         return self._client.request(
