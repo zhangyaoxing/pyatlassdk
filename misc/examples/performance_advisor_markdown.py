@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+from collections.abc import Mapping, Sequence
 from typing import Any
 
 from pyatlassdk import AtlasAdminClient
@@ -30,7 +31,7 @@ def _escape(value: object) -> str:
     return text.replace("|", "\\|").replace("\n", " ")
 
 
-def _format_index(index: list[dict[str, int]] | None) -> str:
+def _format_index(index: Sequence[Mapping[str, int]] | None) -> str:
     if not index:
         return ""
     fields = [f"{field}: {direction}" for item in index for field, direction in item.items()]
